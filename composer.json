@@ -1,0 +1,35 @@
+{
+    "name": "hauerheinrich/hh-theme-default",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "authors": [
+        {
+            "name": "Christian Hackl",
+            "email": "web@hauer-heinrich.de"
+        }
+    ],
+    "license": "GPL-2.0",
+    "keywords": ["TYPO3 CMS", "Theme", "Distribution"],
+    "replace": {
+        "hh_theme_default": "self.version",
+        "typo3-ter/hh-theme-default": "self.version"
+    },
+    "require": {
+        "typo3/cms-core": "^9.5.0 || ^9.5.99",
+        "typo3/cms-fluid": "^9.5.0 || ^9.5.99",
+        "typo3/cms-frontend": "^9.5.0 || ^9.5.99",
+        "typo3/cms-fluid-styled-content": "^9.5.0 || ^9.5.99",
+        "hauerheinrich/hh_slider": "",
+        "hauerheinrich/hh_seo": ""
+    },
+    "autoload": {
+        "psr-4": {
+            "HauerHeinrich\\HhThemeDefault\\": "Classes"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "hh_theme_default"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+################################################################
+### Fluid Styled Content ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/setup.txt">
+lib.contentElement {
+    templateRootPaths {
+        20 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
+        30 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/CustomFluid/Templates/
+        40 = {$styles.templates.templateRootPath}
+    }
+    partialRootPaths {
+        20 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
+        30 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/CustomFluid/Partials/
+        40 = {$styles.templates.partialRootPath}
+    }
+    layoutRootPaths {
+        20 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Layouts/
+        30 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/CustomFluid/Layouts/
+        40 = {$styles.templates.layoutRootPath}
+    }
+}
+<INCLUDE_TYPOSCRIPT: source="DIR: ./CustomFluid/" extensions="typoscript"">
+
+################################################################
+### Hauer-Heinrich Slider - hh_slider ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_slider/Configuration/TypoScript/setup.typoscript">
+tt_content.hhslider_hh_slider.settings.cssFile >
+tt_content.hhslider_hh_slider.settings.jsFile >
+
+################################################################
+### Hauer-Heinrich SEO - hh_seo ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_seo/Configuration/TypoScript/setup.typoscript">
+
+################################################################
+### Hauer-Heinrich Cookie Consent - hh_ext_cookie_consent ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_ext_cookie_consent/Configuration/TypoScript/setup.typoscript">

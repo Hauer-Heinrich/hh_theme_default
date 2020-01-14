@@ -1,0 +1,45 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<hhseo:metaTag order="0">
+[{
+    <f:comment></f:comment>
+    "shortcutIcon": "{hhSeo.shortcutIcon}",
+    "title": "{data.title}",
+    "titleBefore": "{settings.titleBefore}",
+    "titleAfter": "{settings.titleAfter}",
+    "titleSeparate": " - ",
+    "titleSeparateBefore": "",
+    "titleSeparateAfter": "",
+
+    "description": "{data.description}",
+
+    "designer": "{hhSeo.designer}",
+    "theme-color": "{hhSeo.themeColor}",
+    "shortcutIcon": "{hhSeo.shortcutIcon}",
+    "touchIcon": "{hhSeo.touchIcon}",
+    "imagetoolbar": "false",
+    "format-detection": "false",
+    "last-modified": "{data.SYS_LASTCHANGED}",
+
+    "author": "humans.txt",
+
+    "robots:index": "{f:if(condition: '{data.no_index}', then: 'noindex')}",
+    "robots:follow": "{f:if(condition: '{data.no_follow}', then: 'nofollow')}",
+
+    "og:title": "{data.og_title}",
+    "og:description": "{data.og_description}",
+    "og:image": "<f:if condition="{og_image.0}">{f:uri.image(src: '{og_image.0.uid}', treatIdAsReference: 1)}</f:if>",
+
+    "twitter:title": "{data.twitter_title}",
+    "twitter:description": "{data.twitter_description}",
+    "twitter:image": "<f:if condition="{twitter_image.0}">{f:uri.image(src: '{twitter_image.0.uid}', treatIdAsReference: 1)}</f:if>",
+
+    "geo:region": "{geoRegion}",
+    "geo:placename": "{geoPlacename}",
+    "geo:position:long": "{geoPositionLong}",
+    "geo:position:lat": "{geoPositionLat}"
+}]
+</hhseo:metaTag>
+
+</html>

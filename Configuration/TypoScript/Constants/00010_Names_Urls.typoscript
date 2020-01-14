@@ -1,0 +1,7 @@
+themeDefault {
+    name = hh_theme_default
+    urls {
+        themeResources = typo3conf/ext/hh_theme_default/Resources/
+        themeFileadmin = fileadmin/hh_theme_default/
+    }
+}

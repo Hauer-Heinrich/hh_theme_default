@@ -1,0 +1,43 @@
+################################################################
+### fluid_styled_content ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript">
+styles {
+    content {
+        defaultHeaderType = 1
+
+        links {
+            target = _top
+        }
+
+        textmedia {
+            maxW = 2100
+            maxWInText = 1200
+            linkWrap {
+                width = 1600m
+                height = 1600m
+
+                lightboxEnabled = 1
+                lightboxCssClass = lightboxing
+            }
+            columnSpacing = 0
+            rowSpacing = 0
+            textMargin = 0
+        }
+    }
+}
+
+################################################################
+### Hauer-Heinrich Slider - hh_slider ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_slider/Configuration/TypoScript/constants.typoscript">
+
+################################################################
+### Hauer-Heinrich SEO - hh_seo ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_seo/Configuration/TypoScript/constants.typoscript">
+
+################################################################
+### Hauer-Heinrich Cookie Consent - hh_ext_cookie_consent ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_ext_cookie_consent/Configuration/TypoScript/constants.typoscript">

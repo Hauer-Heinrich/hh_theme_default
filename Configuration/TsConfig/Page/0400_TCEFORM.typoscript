@@ -1,0 +1,169 @@
+TCEFORM {
+    tt_content {
+        ### START: tt_content hide CEs and fields in BE
+        CType {
+            ### Disable contentelements (CEs)
+            removeItems (
+                textpic, bullets, table, menu_sitemap, menu_sitemap_pages, menu_section, menu_section_pages,
+                menu_categorized_content, menu_categorized_pages, menu_recently_updated, menu_related_pages, menu_abstract
+            )
+        }
+        ### Disable fields for specific CEs
+        date.types {
+            text.disabled = 1
+            textmedia.disabled = 1
+            gridelements_pi1.disabled = 1
+        }
+        rowDescription.types {
+            text.disabled = 1
+            textmedia.disabled = 1
+            div.disabled = 1
+            html.disabled = 1
+            menu.disabled = 1
+            shortcut.disabled = 1
+            uploads.disabled = 1
+            gridelements_pi1.disabled = 1
+        }
+        linkToTop.types {
+            text.disabled = 1
+            textmedia.disabled = 1
+            div.disabled = 1
+            html.disabled = 1
+            menu.disabled = 1
+            shortcut.disabled = 1
+            uploads.disabled = 1
+            gridelements_pi1.disabled = 1
+        }
+        sectionIndex.types {
+            text.disabled = 1
+            textmedia.disabled = 1
+            div.disabled = 1
+            html.disabled = 1
+            menu.disabled = 1
+            shortcut.disabled = 1
+            uploads.disabled = 1
+            gridelements_pi1.disabled = 1
+        }
+        imageborder.types {
+            textmedia.disabled = 1
+        }
+        editlock.types {
+            gridelements_pi1.disabled = 1
+        }
+        spaceBefore.disabled = 1
+        spaceAfter.disabled = 1
+        space_before_class.disabled = 1
+        space_after_class.disabled = 1
+        frame_class.disabled = 0
+        fe_group.disabled = 1
+        editlock.disabled = 1
+        categories.disabled = 1
+        ### END: tt_content hide CEs and fields in BE
+
+
+        removeItems = 1,2,3
+        header_layout {
+            altLabels {
+                ### Change header label
+                1 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.page.header1
+                2 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.page.header2
+                3 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.page.header3
+                4 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.page.header4
+                5 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.page.header5
+            }
+            addItems {
+                ### Add custom header layouts
+            }
+        }
+
+        ### Add custom layouts for CEs
+        uploads_type {
+            addItems {
+                3 = Image Galerie per Dateisammlung
+            }
+        }
+
+        layout {
+            removeItems = 1,2,3
+            addItems {
+            }
+            types {
+                header {
+                    addItems {
+                    }
+                }
+                menu_subpages {
+                    addItems {
+                        10 = menu border
+                        20 = menu only Icons (from page resources)
+                        25 = menu only Images (from page resources)
+                        30 = menu horizontal
+                    }
+                }
+                text {
+                    addItems {
+                    }
+                }
+                textmedia {
+                    addItems {
+                    }
+                }
+                list {
+                    addItems {
+                    }
+                }
+                hhslider_hh_slider {
+                    addItems {
+                    }
+                }
+                gridelements_pi1 {
+                    addItems {
+                    }
+                }
+            }
+        }
+
+        frame_class {
+            removeItems = default,ruler-before,ruler-after,indent,indent-left,indent-right,none
+            addItems {
+                container = Container / Default
+                without-container = without Container
+                container-large = Container Large
+                container-medium-large = Container Medium-Large
+                container-medium = Container Medium
+                container-small = Container Small
+                fullwidth = Container Fullwidth
+                fullwidthNoSpaceAfter = Container Fullwidth - no bottom spacing
+            }
+        }
+    }
+
+    ### START: Im Backend Seiteneigenschaften Felder ausblenden
+    pages {
+        nav_title.disabled = 1
+        subtitle.disabled = 1
+        keywords.disabled = 1
+        abstract.disabled = 1
+        layout.disabled = 1
+        newUntil.disabled = 0
+        content_from_pid.disabled = 1
+        author_email.disabled = 0
+
+        php_tree_stop.disabled = 1
+        categories.disabled = 1
+        rowDescription.disabled = 1
+
+        # module.disabled = 1
+        TSconfig.disabled = 1
+
+        ### disable Access Rights for FE-Groups (felogin)
+        fe_group.disabled = 0
+        fe_login_mode.disabled = 0
+        editlock.disabled = 1
+
+        ### hide Backend Layout "keins / empty"
+        backend_layout_next_level.removeItems= -1
+        backend_layout.removeItems= -1
+    }
+    ### END: Im Backend Seiteneigenschaften Felder ausblenden
+}

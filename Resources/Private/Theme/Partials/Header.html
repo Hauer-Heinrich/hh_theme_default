@@ -1,0 +1,24 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<header id="header" class="main-header container">
+    <f:format.raw>{Logo}</f:format.raw>
+
+    <f:render partial="Menu/MenuLanguage" arguments="{_all}" />
+
+    <nav id="menu-main">
+        <f:render partial="Menu/MainMenu" arguments="{_all}" />
+    </nav>
+
+    <f:render partial="AdditionalTopMenu" arguments="{menu: AdditionalTopMenu}" />
+
+    <f:comment>
+        <div class="top-box">
+            <f:render partial="Menu/MenuLanguage" arguments="{_all}" />
+            <f:render partial="AdditionalTopMenu" arguments="{menu: AdditionalTopMenu}" />
+            <f:render partial="IndexedSearch" arguments="{settings: settings}" />
+        </div>
+    </f:comment>
+</header>
+
+</html>

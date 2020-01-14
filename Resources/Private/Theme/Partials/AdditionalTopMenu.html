@@ -1,0 +1,15 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:if condition="{menu}">
+    <nav class="menu menu-additional">
+        <ul>
+            <f:for each="{menu}" as="link">
+                    <f:render partial="Menu/Elements/Item" arguments="{item: link, media: link.files, label: 'true'}"/>
+                </li>
+            </f:for>
+        </ul>
+    </nav>
+</f:if>
+
+</html>

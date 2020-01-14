@@ -1,0 +1,151 @@
+$text-color: #000 !default;
+
+/* BREAKPOINTS */
+$breakpoints: (
+    small : 300px,
+    medium: 860px,
+    large : 1280px,
+    xlarge: 1921px
+);
+$mobile: 1025px;
+
+/* ------------------------------------- */
+
+/* Typography */
+$basefont: 'Raleway', sans-serif !default;
+$font-size-base:        16px !default;
+$font-size-base-medium: 16px !default;
+$font-size-base-large:  16px !default;
+
+$line-height-base:      1.5em !default;
+$font-weight-base:      400 !default;
+$font-weight-bold:      600 !default;
+
+/* ------------------------------------- */
+
+$heading-color:         $text-color !default;
+$heading-font:          $basefont !default;
+$heading-weight:        500 !default;
+$heading-case:          none !default;
+
+$h1-font-sizes: (
+    null  : 2.5rem,
+    small : 2rem,
+    medium: 2.5rem,
+    large : 2.5rem
+);
+
+$h2-font-sizes: (
+    null  : 1.35rem,
+    small : 1.35rem,
+    medium: 2rem,
+    large : 2rem
+);
+
+$h3-font-sizes: (
+    null  : 1.35rem,
+    small : 1.35rem,
+    medium: 2rem,
+    large : 2rem
+);
+
+$h4-font-sizes: (
+    null  : 1rem,
+    small : 1rem,
+    medium: 1.5rem,
+    large : 1.5rem
+);
+
+$h5-font-sizes: (
+    null  : 1rem,
+    small : 1rem,
+    medium: 1rem,
+    large : 1rem
+);
+
+$h2-subheader-size: (
+    null  : 1.35rem,
+    small : 1.35rem,
+    medium: 2rem,
+    large : 2rem
+);
+
+$h3-subheader-size: (
+    null  : 1.35rem,
+    small : 1.35rem,
+    medium: 2rem,
+    large : 2rem
+);
+
+$h4-subheader-size: (
+    null  : 1rem,
+    small : 1rem,
+    medium: 1.5rem,
+    large : 1.5rem
+);
+
+$h5-subheader-size: (
+    null  : 1rem,
+    small : 1rem,
+    medium: 1rem,
+    large : 1rem
+);
+
+/* ------------------------------------- */
+
+$font-size-default: $font-size-base !default;
+
+$p-font-sizes: (
+    null  : 1rem,
+    small : 1rem,
+    medium: 1rem,
+    large : 1rem, // screen and (min-width: 1280px)
+    xlarge: 1rem // screen and (min-width: 1921px)
+);
+
+$font-sizes-xlarge: (
+    null  : 2rem,
+    small : 2rem,
+    medium: 5rem,
+    large : 9rem
+);
+
+$font-sizes-large: (
+    null  : 2rem,
+    small : 2rem,
+    medium: 3rem,
+    large : 3rem
+);
+
+$font-sizes-medium: (
+    null  : 1.35rem,
+    small : 1.35rem,
+    medium: 2rem,
+    large : 2rem
+);
+
+$font-sizes-small: (
+    null  : 1rem,
+    small : 1rem,
+    medium: 1rem,
+    large : 1rem
+);
+
+$font-sizes-xsmall: (
+    null  : 1rem,
+    small : 1rem,
+    medium: 1rem,
+    large : 1rem
+);
+
+/* ------------------------------------- */
+
+$letter-spacing-1: 1px !default;
+$letter-spacing-2: 2px !default;
+
+$a-hover-transition-speed: 500ms !default;
+
+/* Container */
+$container-max-width: 1210px;
+$container-gap-horizontal: 7% !default;
+$container-gap-vertical: 50px !default;

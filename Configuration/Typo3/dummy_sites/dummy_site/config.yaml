@@ -1,0 +1,167 @@
+rootPageId: 1
+base: 'www.domain.tld'
+baseVariants:
+  -
+    base: 'preview.domain.tld'
+    condition: 'applicationContext == "Development/Server"'
+  -
+    base: 'www.domain.localhost'
+    condition: 'applicationContext == "Development"'
+languages:
+  -
+    title: Deutsch
+    enabled: true
+    languageId: '0'
+    base: /
+    typo3Language: de
+    locale: de_DE.UTF-8
+    iso-639-1: de
+    navigationTitle:  DE
+    hreflang: de
+    direction: ltr
+    fallbackType: strict
+    fallbacks: ''
+    flag: de
+  -
+    title: English
+    enabled: true
+    languageId: '2'
+    base: /en/
+    typo3Language: default
+    locale: en_US.UTF-8
+    iso-639-1: en
+    navigationTitle: EN
+    hreflang: en
+    direction: ltr
+    fallbackType: fallback
+    fallbacks: '0'
+    flag: en-us-gb
+errorHandling:
+  -
+    errorCode: '404'
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=9' # uid = page UID from the BE page tree
+  -
+    errorCode: '503'
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=10' # uid = page UID from the BE page tree
+### Import default Robots.txt
+imports:
+  - { resource: "EXT:hh_theme_default/Configuration/Typo3/sites/robots.yaml" }
+routes:
+  -
+    route: humans.txt
+    type: staticText
+    content: "
+      /* TEAM */\r\n
+      Author:
+      Contact:
+      \r\n
+      /* DESIGN & DEVELOPEMENT */\r\n
+      Chef:\r\n
+      Contact: www.hauer-heinrich.de\r\n
+      From: Passau, Bavaria, Germany\r\n
+      \r\n
+      Web designer:\r\n
+      Contact: \r\n
+      From: \r\n
+      \r\n
+      Developer: Christian Hackl\r\n
+      Contact: www.hauer-heinrich.de\r\n
+      Facebook: https://www.facebook.com/profile.php?id=100007889897625\r\n
+      From: Passau, Bavaria, Germany\r\n
+      \r\n
+      /* SITE */\r\n
+      Last update: 2020/05/18\r\n
+      Language: Deutsch / English\r\n
+      Standards: HTML5, CSS3, PHP\r\n
+      Software: VS Code, FileZilla, FireBug, Sourcetree\r\n"
+routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    map:
+      sitemap.xml: 1533906435
+  NewsPlugin:
+    type: Extbase
+    extension: News
+    plugin: Pi1
+    routes:
+      -
+        routePath: '/list/{page}'
+        _controller: 'News::list'
+        _arguments:
+          page: '@widget_0/currentPage'
+      -
+        routePath: '/tag/{tag_name}'
+        _controller: 'News::list'
+        _arguments:
+          tag_name: overwriteDemand/tags
+      -
+        routePath: '/{news_title}'
+        _controller: 'News::detail'
+        _arguments:
+          news_title: news
+      -
+        routePath: '/archive/{year}/{month}'
+        _controller: 'News::archive'
+    defaultController: 'News::list'
+    aspects:
+      news_title:
+        type: PersistedAliasMapper
+        tableName: tx_news_domain_model_news
+        routeFieldName: path_segment
+      month:
+        type: StaticValueMapper
+        map:
+          january: 1
+          february: 2
+          march: 3
+          april: 4
+          may: 5
+          june: 6
+          july: 7
+          august: 8
+          september: 9
+          october: 10
+          november: 11
+          december: 12
+        localeMap:
+          - locale: 'de_.*'
+            map:
+                januar: 1
+                februar: 2
+                maerz: 3
+                april: 4
+                mai: 5
+                juni: 6
+                juli: 7
+                august: 8
+                september: 9
+                oktober: 10
+                november: 11
+                dezember: 12
+  AddressPlugin:
+    type: Extbase
+    extension: TtAddress
+    plugin: ListView
+    routes:
+      - routePath: '/{address_slug}'
+        _controller: 'Address::show'
+        _arguments:
+          address_slug: address
+    aspects:
+      address_slug:
+        type: PersistedAliasMapper
+        tableName: tt_address
+        routeFieldName: slug
+  IndexedSearchPlugin:
+    type: Extbase
+    namespace: 'tx_indexedsearch_pi2'
+    routes:
+      - { routePath: '/results', _controller: 'Search::search' }
+      -
+        routePath: '/results/{page}'
+        _controller: 'Search::search'
+        _arguments:
+          page: '@widget_0/currentPage'
+    defaultController: 'Search::search'

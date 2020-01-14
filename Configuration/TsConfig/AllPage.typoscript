@@ -1,0 +1,2 @@
+### Include all PageTS files
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:hh_theme_default/Configuration/TsConfig/Page" extensions="typoscript">

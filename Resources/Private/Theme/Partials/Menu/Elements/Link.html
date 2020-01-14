@@ -1,0 +1,48 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:if condition="{files}">
+    <f:then>
+        <f:if condition="{item.data.target}">
+            <f:then>
+                <a href="{item.link}" {f:if(condition:item.active, then: 'class="act"')} target="{item.data.target}" title="{item.data.title}">
+            </f:then>
+            <f:else if="{item.target}">
+                <a href="{item.link}" {f:if(condition:item.active, then: 'class="act"')} target="{item.target}" title="{item.data.title}">
+            </f:else>
+            <f:else>
+                <a href="{item.link}" {f:if(condition:item.active, then: 'class="act"')} title="{item.data.title}">
+            </f:else>
+        </f:if>
+            <f:if condition="{files}">
+                <span class="files">
+                    <f:for each="{files}" as="file" iteration="i">
+                        <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" />
+                    </f:for>
+                </span>
+            </f:if>
+            <f:if condition="{label} != 'false'">
+                <span class="title">{item.title}</span>
+            </f:if>
+        </a>
+    </f:then>
+    <f:else>
+        <f:if condition="{item.data.target}">
+            <f:then>
+                <a href="{item.link}" {f:if(condition:item.active, then: 'class="act"')} target="{item.data.target}" title="{item.data.title}">
+            </f:then>
+            <f:else if="{item.target}">
+                <a href="{item.link}" {f:if(condition:item.active, then: 'class="act"')} target="{item.target}" title="{item.data.title}">
+            </f:else>
+            <f:else>
+                <a href="{item.link}" {f:if(condition:item.active, then: 'class="act"')} title="{item.data.title}">
+            </f:else>
+        </f:if>
+            <f:if condition="{label} != 'false'">
+                {item.title}
+            </f:if>
+        </a>
+    </f:else>
+</f:if>
+
+</html>

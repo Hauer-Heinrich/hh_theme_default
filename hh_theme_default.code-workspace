@@ -1,0 +1,17 @@
+{
+    "folders": [
+        {
+            "path": "./"
+        },
+        {
+            "path": "./../../../"
+        },
+        {
+            "path": "./../../../../typo3_config/"
+        }
+    ],
+    "settings": {
+        "editor.tabSize": 4,
+        "todo-tree.general.rootFolder": "hh_theme_default"
+    }
+}
