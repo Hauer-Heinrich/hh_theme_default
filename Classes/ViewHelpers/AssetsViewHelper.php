@@ -75,14 +75,14 @@ class AssetsViewHelper extends AbstractViewHelper {
                 }
             }
 
-            if(self::endsWith($arguments['src'], 'js')) {
+            if(self::endsWith($arguments['src'], '.js')) {
                 $type = 'js';
                 $path = 'EXT:'.$extKey.'/Resources/Public/JavaScript/'.trim($arguments['src']);
             } else {
                 $path = 'EXT:'.$extKey.'/Resources/Public/Css/'.trim($arguments['src']);
             }
         } else {
-            if(self::endsWith($arguments['src'], 'js')) {
+            if(self::endsWith($arguments['src'], '.js')) {
                 $type = 'js';
             }
 

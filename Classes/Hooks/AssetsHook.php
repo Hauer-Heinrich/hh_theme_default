@@ -71,7 +71,7 @@ class AssetsHook {
 
         if (!empty($assetsJsCustom)) {
             foreach ($assetsJsCustom as $key => $value) {
-                $this->pageRenderer->addCssFile($value, 'stylesheet', 'all', '', true, false, '', true);
+                $this->pageRenderer->addJsFooterFile($value, 'stylesheet', 'all', '', true, false, '', true);
             }
         }
     }
