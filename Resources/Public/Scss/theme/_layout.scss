@@ -1,0 +1,29 @@
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    /* disable callout, image save panel (popup) */
+    -webkit-tap-highlight-color: transparent;
+    /* "turn off" link highlight */
+}
+
+a:focus {
+    outline: 0; // Firefox (remove border on link click)
+}
+
+/* works default only if EXT:hh_video_extender is installed and enabled! */
+[data-type="external"] {
+    .video-embed {
+        position: relative;
+        overflow: hidden;
+        padding-top: 56.25%;
+
+        > iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+}
