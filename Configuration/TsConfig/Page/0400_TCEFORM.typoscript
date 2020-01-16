@@ -123,6 +123,7 @@ TCEFORM {
             }
         }
 
+        ### Change frame_class
         frame_class {
             removeItems = default,ruler-before,ruler-after,indent,indent-left,indent-right,none
             addItems {
@@ -136,9 +137,14 @@ TCEFORM {
                 fullwidthNoSpaceAfter = Container Fullwidth - no bottom spacing
             }
         }
+
+        imageorient {
+            ### Remove image inner text left and right
+            removeItems = 17, 18
+        }
     }
 
-    ### START: Im Backend Seiteneigenschaften Felder ausblenden
+    ### Disable page settings
     pages {
         nav_title.disabled = 1
         subtitle.disabled = 1
@@ -165,5 +171,4 @@ TCEFORM {
         backend_layout_next_level.removeItems= -1
         backend_layout.removeItems= -1
     }
-    ### END: Im Backend Seiteneigenschaften Felder ausblenden
 }
