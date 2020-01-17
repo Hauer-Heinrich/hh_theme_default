@@ -29,6 +29,14 @@
     width:100%;
 }
 
+// Fullwidth Layout with Content Centered
+.frame.layout-fullwidth-centered, .frame.frame-fullwidth-centered {
+    margin-left:0; margin-right:0;
+    width:100%;
+
+    & > * { max-width:$container-max-width; margin-left:auto; margin-right:auto; }
+}
+
 /* CE FLEX GALLERY */
 .frame.frame-layout-galleryFit {
     .ce-gallery {

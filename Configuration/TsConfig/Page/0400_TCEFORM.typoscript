@@ -133,8 +133,9 @@ TCEFORM {
                 container-medium-large = Container Medium-Large
                 container-medium = Container Medium
                 container-small = Container Small
-                fullwidth = Container Fullwidth
-                fullwidthNoSpaceAfter = Container Fullwidth - no bottom spacing
+                fullwidth = Fullwidth
+                fullwidth-centered = Fullwidth - with centered content
+                fullwidthNoSpaceAfter = Fullwidth - no bottom spacing
             }
         }
 

@@ -184,6 +184,15 @@ template, .template {
   margin-right: 0;
   width: 100%; }
 
+.frame.layout-fullwidth-centered, .frame.frame-fullwidth-centered {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%; }
+  .frame.layout-fullwidth-centered > *, .frame.frame-fullwidth-centered > * {
+    max-width: 1210px;
+    margin-left: auto;
+    margin-right: auto; }
+
 /* CE FLEX GALLERY */
 .frame.frame-layout-galleryFit .ce-gallery {
   width: calc(100% + 12px);
