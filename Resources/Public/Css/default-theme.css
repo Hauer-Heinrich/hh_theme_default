@@ -179,6 +179,11 @@ template, .template {
   .frame.frame-fullwidthNoSpaceAfter .ce-gallery {
     margin-bottom: -7px; }
 
+.frame.layout-fullwidth, .frame.frame-fullwidth {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%; }
+
 /* CE FLEX GALLERY */
 .frame.frame-layout-galleryFit .ce-gallery {
   width: calc(100% + 12px);
