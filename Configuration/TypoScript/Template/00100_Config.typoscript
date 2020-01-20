@@ -123,4 +123,7 @@ page {
     ### Jede Seite eindeutig identifizieren - set in fluid layout ###
     ################################################################
     bodyTag >
+    config {
+        disableBodyTag = 1
+    }
 }
