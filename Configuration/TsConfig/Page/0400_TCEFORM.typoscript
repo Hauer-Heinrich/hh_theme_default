@@ -72,7 +72,7 @@ TCEFORM {
                 5 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.page.header5
             }
             addItems {
-                ### Add custom header layouts
+                ### Add custom header layouts begin with 101 (!) as ID please
             }
         }
 
