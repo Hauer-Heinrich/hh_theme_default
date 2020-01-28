@@ -34,7 +34,7 @@
     margin-left:0; margin-right:0;
     width:100%;
 
-    & > * { max-width:$container-max-width; margin-left:auto; margin-right:auto; }
+    & > * { max-width:$container-max-width; margin-left:auto !important; margin-right:auto !important; }
 }
 
 /* CE FLEX GALLERY */

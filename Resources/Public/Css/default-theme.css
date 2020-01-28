@@ -190,8 +190,8 @@ template, .template {
   width: 100%; }
   .frame.layout-fullwidth-centered > *, .frame.frame-fullwidth-centered > * {
     max-width: 1210px;
-    margin-left: auto;
-    margin-right: auto; }
+    margin-left: auto !important;
+    margin-right: auto !important; }
 
 /* CE FLEX GALLERY */
 .frame.frame-layout-galleryFit .ce-gallery {
