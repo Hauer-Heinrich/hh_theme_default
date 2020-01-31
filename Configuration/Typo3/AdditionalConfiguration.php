@@ -44,7 +44,7 @@ $customChanges = [
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customChanges);
 
 // Developement:
-if(\TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()->__toString() === 'Development') {
+if(\TYPO3\CMS\Core\Core\Environment::getContext()->__toString() === 'Development') {
     $customDevelopmentChanges = [
         'BE' => [
             'compressionLevel' => '0',
