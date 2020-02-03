@@ -44,7 +44,7 @@ Don't forget to include the PageTS -> backend->rootPage->site configuration->res
 
 Want to contribute? Great!
 
-hh_theme_default uses Gulp for fast developing.
+hh_theme_default uses [GULP](https://github.com/iocron/typo3-gulp-scss/ "gulp") for fast developing.
 Make a change in your file and instantaneously see your updates!
 
 Open your favorite Terminal and run these commands in the theme folder.
