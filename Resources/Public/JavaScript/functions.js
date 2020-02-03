@@ -31,17 +31,17 @@ function getCookie(name) {
     return decodeURI(dc.substring(begin + prefix.length, end));
 }
 
-var beUser = getCookie("be_typo_user");
+// var beUser = getCookie("be_typo_user");
 
-// if cookie be_typo_user dont exists
-if (beUser != null) {
-    // START: NoIframe
-    // if this page is located in e. g. a iframe redirect the browser directly to your site!
-    if(window != window.top){
-        window.top.location = window.location;
-    }
-    // END: NoIframe
-}
+// // if cookie be_typo_user dont exists
+// if (beUser != null) {
+//     // START: NoIframe
+//     // if this page is located in e. g. a iframe redirect the browser directly to your site!
+//     if(window != window.top){
+//         window.top.location = window.location;
+//     }
+//     // END: NoIframe
+// }
 
 /**
  * Load .css files
@@ -85,24 +85,10 @@ function loadJS(source, callback) {
 var dictionary, set_lang;
 dictionary = {
     "en-EN": {
-        "_header": 'Cookies used on the website!',
-        "_message": 'Cookies facilitate the provision of our services. By using our services you agree that we use cookies.',
-        "_dismiss": 'I agree!',
-        "_allow": 'Allow cookies',
-        "_deny": 'Decline',
-        "_link": 'Read more',
-        "_href": '/datenschutz/',
-        "_close": '&#x274c;'
+        "_header": 'example string',
     },
     "de-DE": {
-        "_header": 'Diese Seite verwendet Cookies',
-        "_message": 'Um unsere Seite für Sie nutzerfreundlich und funktional gestalten zu können, setzen wir für die Analyse unserer Seiten Cookies ein. Wenn Sie zustimmen, stimmen Sie der Verwendung solcher Cookies zu. Bitte besuchen Sie unsere Datenschutzerklärung um mehr zu erfahren.',
-        "_dismiss": 'Einverstanden!',
-        "_allow": 'Allow cookies',
-        "_deny": 'Decline',
-        "_link": 'Mehr Informationen',
-        "_href": '/datenschutz/',
-        "_close": '&#x274c;'
+        "_header": 'Beispiel string',
     }
 };
 
