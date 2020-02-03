@@ -10,6 +10,13 @@ hh_theme_default is currently extended with the following extensions. Instructio
 | hh_slider | [https://github.com/Hauer-Heinrich/hh_slider/blob/master/README.md] |
 | hh_seo | [https://github.com/Hauer-Heinrich/hh_seo/blob/master/README.md] |
 
+### Plugins
+hh_theme_default is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
+| Plugin | README |
+| ------ | ------ |
+| io.js (mobile-menu) | [https://bitbucket.org/iocron/io/src/master/README.md] |
+| baguetteBox.js (lightbox) | [https://github.com/feimosi/baguetteBox.js/blob/dev/README.md] |
+
 ### Files
 site_config
 This theme shippes a dummy site_config - if you want to use/copy the file(s) don't forget to adjust the ID, paths and other information in it
@@ -20,7 +27,9 @@ Don't forget to include the PageTS -> backend->rootPage->site configuration->res
 
 ### Features
  - delivers default responsive css and FLUID files for the default FLUID content-elements (for example uses html picture tag for images)
+ - comes with various viewhelpers
  - delivers example configurations and files like AdditionalConfiguration.php or site_config.yaml you can find these files at /Configuration/Typo3/
+ - added a branding at the TYPO3 backend at the very top (customize this at Resources/Public/JavaScript/Backend/Bemain.js)
 
 # IMPORTENT NOTICE
  - copies shipped AdditionalConfiguration.php on install if no one exists! This AdditonalConfiguration includes /Configuration/Typo3/AdditionalConfiguration.php.
