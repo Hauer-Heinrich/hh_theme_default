@@ -8,7 +8,6 @@ $customChanges = [
     'BE' => [
         'loginSecurityLevel' => 'normal',
         'compressionLevel' => '0',
-        'lockSSL' => 1,
         'versionNumberInFilename' => 0,
         'RTE_imageStorageDir' => 'fileadmin/uploads_rte/',
         'lockIP' => 4, // DSGVO / GDPR,

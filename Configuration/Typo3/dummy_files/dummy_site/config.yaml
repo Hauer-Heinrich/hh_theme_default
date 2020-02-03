@@ -48,34 +48,7 @@ errorHandling:
 ### Import default Robots.txt
 imports:
   - { resource: "EXT:hh_theme_default/Configuration/Typo3/sites/robots.yaml" }
-routes:
-  -
-    route: humans.txt
-    type: staticText
-    content: "
-      /* TEAM */\r\n
-      Author:
-      Contact:
-      \r\n
-      /* DESIGN & DEVELOPEMENT */\r\n
-      Chef:\r\n
-      Contact: www.hauer-heinrich.de\r\n
-      From: Passau, Bavaria, Germany\r\n
-      \r\n
-      Web designer:\r\n
-      Contact: \r\n
-      From: \r\n
-      \r\n
-      Developer: Christian Hackl\r\n
-      Contact: www.hauer-heinrich.de\r\n
-      Facebook: https://www.facebook.com/profile.php?id=100007889897625\r\n
-      From: Passau, Bavaria, Germany\r\n
-      \r\n
-      /* SITE */\r\n
-      Last update: 2020/05/18\r\n
-      Language: Deutsch / English\r\n
-      Standards: HTML5, CSS3, PHP\r\n
-      Software: VS Code, FileZilla, FireBug, Sourcetree\r\n"
+  - { resource: "EXT:hh_theme_default/Configuration/Typo3/sites/humans.yaml" }
 routeEnhancers:
   PageTypeSuffix:
     type: PageType

@@ -24,8 +24,8 @@ $EM_CONF['hh_theme_default'] = [
     'version' => '0.0.1',
     'constraints' => [
         'depends' => [
-            'typo3' => '9.5.0-9.9.99',
-            'fluid_styled_content' => '9.5.0-9.9.9',
+            'typo3' => '9.5.0-10.9.99',
+            'fluid_styled_content' => '9.5.0-10.9.9',
             'hh_seo' => '',
             'hh_slider' => ''
         ],
