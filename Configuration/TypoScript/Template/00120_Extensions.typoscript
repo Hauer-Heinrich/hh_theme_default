@@ -1,7 +1,7 @@
 ################################################################
 ### Fluid Styled Content ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript">
 lib.contentElement {
     templateRootPaths {
         20 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/

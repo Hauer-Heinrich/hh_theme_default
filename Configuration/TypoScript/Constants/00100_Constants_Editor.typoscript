@@ -14,13 +14,15 @@ plugin.hhthemedefault {
 
     ### Layout
     # cat=plugin.hhthemedefault_Layout/basic/0031; type=int+; label= Page ID der Seite für den Inhalt für den Footer
-        footerSeitenID =
+        footerSeitenID = 15
     # cat=plugin.hhthemedefault_Layout/basic/0032; type=int+; label= Page ID des Trenners für das zusätzliche Menü im header
         additionalTopMenu =
     # cat=plugin.hhthemedefault_Layout/basic/0032; type=int+; label= Page ID des Trenners für das Footer Menü (Datenschutz etc.)
         footerMenu =
     # cat=plugin.hhthemedefault_Layout/basic/0032; type=int+; label= Page ID des Trenners für social Menü
         socialMenu =
+    # cat=plugin.hhthemedefault_Layout/basic/0033; type=int+; label= Page ID der Such-Ergebnisseite der EXT: indexed_search
+        indexedSearchId =
     # cat=plugin.hhthemedefault_Layout/basic/0055; type=boolean; label= Webseite mehrsprachig? (default de || en)
         multiLanguage = 0
     # cat=plugin.hhthemedefault_Layout/basic/0060; type=color; label= themeColor (interessant z. B. für Smartphones)

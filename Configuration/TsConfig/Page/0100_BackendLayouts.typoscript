@@ -88,7 +88,7 @@ mod.web_layout.BackendLayouts {
         title = BE layout for footer content
         config {
             backend_layout {
-                colCount = 1
+                colCount = 3
                 rowCount = 1
                 rows {
                     1 {
@@ -96,9 +96,27 @@ mod.web_layout.BackendLayouts {
                             1 {
                                 name = Column
                                 colPos = 1000
-                                rowspan = 2
+                                ### works only if gridelements is installed
                                 allowed {
                                     CType = text
+                                }
+                                maxitems = 1
+                            }
+                            2 {
+                                name = Column
+                                colPos = 1010
+                                ### works only if gridelements is installed
+                                allowed {
+                                    CType = text
+                                }
+                                maxitems = 1
+                            }
+                            3 {
+                                name = Column
+                                colPos = 1020
+                                ### works only if gridelements is installed
+                                allowed {
+                                    CType = menu_subpages
                                 }
                                 maxitems = 1
                             }

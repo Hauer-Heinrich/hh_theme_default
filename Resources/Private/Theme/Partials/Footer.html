@@ -1,16 +1,18 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
-<footer id="footer">
-    <f:if condition="{FooterMenu}">
-        <f:render partial="Menu/TrennerMenu" arguments="{Menu: FooterMenu}" />
-    </f:if>
+<footer id="footer" class="row">
+    <div class="column column-1">
+        <f:format.raw>{FooterColumn1}</f:format.raw>
+    </div>
 
-    <f:format.raw>{FooterColumn1}</f:format.raw>
+    <div class="column column-2">
+        <f:format.raw>{FooterColumn2}</f:format.raw>
+    </div>
 
-    <f:if condition="{SocialMenu}">
-        <f:render partial="Menu/TrennerImageMenu" arguments="{Menu: SocialMenu}" />
-    </f:if>
+    <div class="column column-3">
+        <f:format.raw>{FooterColumn3}</f:format.raw>
+    </div>
 </footer>
 
 </html>

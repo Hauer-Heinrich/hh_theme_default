@@ -5,7 +5,7 @@
  * @url https://github.com/feimosi/baguetteBox.js
  */
 
- #baguetteBox-overlay {
+#baguetteBox-overlay {
     display: none;
     opacity: 0;
     position: fixed;
@@ -16,7 +16,7 @@
     height: 100%;
     z-index: 1000000;
     background-color: #222;
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(0, 0, 0, .8);
     transition: opacity .5s ease;
 
     &.visible {
@@ -32,8 +32,8 @@
 
         figure {
             display: inline;
-            margin: 0;      // needed for mobile
-            height: 100%;   // Opera 12 image stretching fix
+            margin: 0; // needed for mobile
+            height: 100%; // Opera 12 image stretching fix
         }
 
         img {
@@ -45,7 +45,7 @@
             max-height: 100%;
             max-width: 100%;
             vertical-align: middle;
-            box-shadow: 0 0 8px rgba(0,0,0,.6);
+            box-shadow: 0 0 8px rgba(0, 0, 0, .6);
         }
 
         figcaption {
@@ -58,7 +58,7 @@
             white-space: normal;
             color: #ccc;
             background-color: #000;
-            background-color: rgba(0,0,0,.6);
+            background-color: rgba(0, 0, 0, .6);
             font-family: sans-serif;
         }
 
@@ -67,7 +67,7 @@
             display: inline-block;
             height: 50%;
             width: 1px;
-            margin-right:-1px;
+            margin-right: -1px;
         }
     }
 }
@@ -90,16 +90,32 @@
     }
 }
 
-@keyframes bounceFromRight{
-    0% { margin-left: 0; }
-    50% { margin-left: -30px; }
-    100% { margin-left: 0; }
+@keyframes bounceFromRight {
+    0% {
+        margin-left: 0;
+    }
+
+    50% {
+        margin-left: -30px;
+    }
+
+    100% {
+        margin-left: 0;
+    }
 }
 
-@keyframes bounceFromLeft{
-    0% { margin-left: 0; }
-    50% { margin-left: 30px; }
-    100% { margin-left: 0; }
+@keyframes bounceFromLeft {
+    0% {
+        margin-left: 0;
+    }
+
+    50% {
+        margin-left: 30px;
+    }
+
+    100% {
+        margin-left: 0;
+    }
 }
 
 %arrow-button {
@@ -118,14 +134,14 @@
     border: 0;
     border-radius: 15%;
     background-color: #323232;
-    background-color: rgba(50,50,50,.5);
+    background-color: rgba(50, 50, 50, .5);
     color: #ddd;
     font: 1.6em sans-serif;
     transition: background-color .4s ease;
 
     &:focus,
     &:hover {
-        background-color: rgba(50,50,50,.9);
+        background-color: rgba(50, 50, 50, .9);
     }
 
     &#next-button {
@@ -188,9 +204,13 @@
 }
 
 @keyframes bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(0);
-    } 50% {
+    }
+
+    50% {
         transform: scale(1);
     }
 }

@@ -10,6 +10,14 @@ mod {
             wizardItems {
                 common {
                     elements {
+                        image.tt_content_defValues {
+                            ### Images: Anzal der Spalten bei Bilder default Wert
+                            imagecols = 1
+                            ### Images: Bildposition "Oben links"
+                            imageorient = 2
+                            ### Position: textmedia position left
+                            header_position = left
+                        }
                         textmedia.tt_content_defValues {
                             ### Images: Anzal der Spalten bei Bilder default Wert
                             imagecols = 1

@@ -15,9 +15,9 @@ page {
 
     includeJSFooterlibs {
         ### jQuery
-        file10 = {$themeDefault.urls.themeResources}Public/JavaScript/Libs/jquery-3.3.1.min.js
-        file10.forceOnTop = 1
-        file10.excludeFromConcatenation = 1
+        # file10 = {$themeDefault.urls.themeResources}Public/JavaScript/Libs/jquery-3.3.1.min.js
+        # file10.forceOnTop = 1
+        # file10.excludeFromConcatenation = 1
 
         ### Slider
         file20 = EXT:hh_slider/Resources/Public/JavaScript/tiny-slider.min.js
@@ -151,67 +151,70 @@ page {
                     }
                 }
                 as = AdditionalTopMenu
+
+                if.isTrue = {$plugin.hhthemedefault.additionalTopMenu}
             }
 
             ################################################################
             ### Footer Menu ###
             ################################################################
-            95 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            95 {
-                special = directory
-                special.value = {$plugin.hhthemedefault.footerMenu}
-                entryLevel = 0
-                levels = 1
-                expandAll = 1
-                includeSpacer = 0
-                titleField = nav_title // title
-                as = FooterMenu
-            }
+            # 95 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            # 95 {
+            #     special = directory
+            #     special.value = {$plugin.hhthemedefault.footerMenu}
+            #     entryLevel = 0
+            #     levels = 1
+            #     expandAll = 1
+            #     includeSpacer = 0
+            #     titleField = nav_title // title
+            #     as = FooterMenu
+            # }
 
             ################################################################
             ### Social Menu ###
             ################################################################
-            96 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            96 {
-                special = directory
-                special.value = {$plugin.hhthemedefault.socialMenu}
-                entryLevel = 0
-                levels = 1
-                expandAll = 1
-                includeSpacer = 0
-                titleField = nav_title // title
-                dataProcessing {
-                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                    10 {
-                        references.fieldName = media
-                    }
-                }
-                as = SocialMenu
-            }
+            # 96 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            # 96 {
+            #     special = directory
+            #     special.value = {$plugin.hhthemedefault.socialMenu}
+            #     entryLevel = 0
+            #     levels = 1
+            #     expandAll = 1
+            #     includeSpacer = 0
+            #     titleField = nav_title // title
+            #     dataProcessing {
+            #         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            #         10 {
+            #             references.fieldName = media
+            #         }
+            #     }
+            #     as = SocialMenu
+            # }
 
             ################################################################
             ### Quick Menu ###
             ################################################################
-            100 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            100 {
-                special = directory
-                special.value = {$plugin.hhthemedefault.quickLinks}
-                entryLevel = 0
-                levels = 7
-                expandAll = 1
-                includeSpacer = 0
-                titleField = nav_title // title
-                dataProcessing {
-                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                    10 {
-                        references.fieldName = media
-                    }
-                }
-                as = Quicklinks
-            }
+            # 100 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            # 100 {
+            #     special = directory
+            #     special.value = {$plugin.hhthemedefault.quickLinks}
+            #     entryLevel = 0
+            #     levels = 7
+            #     expandAll = 1
+            #     includeSpacer = 0
+            #     titleField = nav_title // title
+            #     dataProcessing {
+            #         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            #         10 {
+            #             references.fieldName = media
+            #         }
+            #     }
+            #     as = Quicklinks
+            # }
         }
 
         settings {
+            indexedSearchId = {$plugin.hhthemedefault.indexedSearchId}
         }
 
         variables {
@@ -262,8 +265,11 @@ page {
                 }
             }
 
-            # FooterColumn2 < .FooterColumn1
-            # FooterColumn2.select.where = colPos = 1010
+            FooterColumn2 < .FooterColumn1
+            FooterColumn2.select.where = colPos = 1010
+
+            FooterColumn3 < .FooterColumn1
+            FooterColumn3.select.where = colPos = 1020
         }
     }
 }
