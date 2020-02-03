@@ -1,21 +1,21 @@
 # hh_theme_default (Warning: Is under heavy development!)
-## do not use it now - only test and give feedback :)
+## do not use it now - only test and give feedback :grinning:
 hh_theme_default is a TYPO3 extension / distribution.
 This theme is to try out or use as a kick-start for your own theme/project - it can also be extended or overwritten (TODO: add a link for an example extension)
 
 ### Extensions
 hh_theme_default is currently extended with the following extensions. Instructions on how to use them in your own application are linked below.
-| Extension | README |
-| ------ | ------ |
-| hh_slider | [https://github.com/Hauer-Heinrich/hh_slider/blob/master/README.md] |
-| hh_seo | [https://github.com/Hauer-Heinrich/hh_seo/blob/master/README.md] |
+Extension | README
+------------ | -------------
+hh_slider | [https://github.com/Hauer-Heinrich/hh_slider/blob/master/README.md]
+hh_seo | [https://github.com/Hauer-Heinrich/hh_seo/blob/master/README.md]
 
 ### Plugins
 hh_theme_default is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
-| Plugin | README |
-| ------ | ------ |
-| io.js (mobile-menu) | [https://bitbucket.org/iocron/io/src/master/README.md] |
-| baguetteBox.js (lightbox) | [https://github.com/feimosi/baguetteBox.js/blob/dev/README.md] |
+Plugin | README
+------------ | -------------
+io.js (mobile-menu) | [https://bitbucket.org/iocron/io/src/master/README.md]
+baguetteBox.js (lightbox) | [https://github.com/feimosi/baguetteBox.js/blob/dev/README.md]
 
 ### Files
 site_config
