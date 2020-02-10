@@ -2,7 +2,10 @@
     data-namespace-typo3-fluid="true">
 
 <f:render partial="MetaTags" arguments="{_all}" />
-<f:debug title="d">{_all}</f:debug>
+
+<f:render partial="Assets/CssFiles" arguments="" />
+<f:render partial="Assets/JsFiles" arguments="" />
+
 <f:comment>
     TEST for EXT:hh_seo
     <hhseo:tags.description order="1" content="my description text" />

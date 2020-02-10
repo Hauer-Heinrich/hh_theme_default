@@ -4,7 +4,7 @@ mod.web_layout.BackendLayouts {
         iconIdentifier = be_layout_one_column
         config {
             backend_layout {
-                colCount = 2
+                colCount = 1
                 rowCount = 2
                 rows {
                     1 {
@@ -20,7 +20,6 @@ mod.web_layout.BackendLayouts {
                             1 {
                                 name = Main Content
                                 colPos = 1
-                                colspan = 2
                             }
                         }
                     }

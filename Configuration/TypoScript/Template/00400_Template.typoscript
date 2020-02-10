@@ -2,15 +2,15 @@
 page {
     # includeCSS >
     includeCSS {
-        file10 = {$themeDefault.urls.themeResources}Public/Css/default-theme.min.css
+        # file10 = {$themeDefault.urls.themeResources}Public/Css/default-theme.min.css
 
         ### Slider
-        file20 = EXT:hh_slider/Resources/Public/Css/slider.min.css
+        # file20 = EXT:hh_slider/Resources/Public/Css/slider.min.css
     }
 
     includeJSLibs {
-        file10 = {$themeDefault.urls.themeResources}Public/JavaScript/functions.min.js
-        file10.ajax = 1
+        # file10 = {$themeDefault.urls.themeResources}Public/JavaScript/functions.min.js
+        # file10.ajax = 1
     }
 
     includeJSFooterlibs {

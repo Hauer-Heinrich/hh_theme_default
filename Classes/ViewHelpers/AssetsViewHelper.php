@@ -24,13 +24,13 @@ namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
  * This copyright notice MUST APPEAR in all copies of the script!
  * Example
  * <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
- *   xmlns:hh="http://typo3.org/ns/VENDOR/NAMESPACE/ViewHelpers"
+ *   xmlns:hhdefault="http://typo3.org/ns/VENDOR/NAMESPACE/ViewHelpers"
  *   data-namespace-typo3-fluid="true">
  *
  *  EXAMPLE:
- * <hh:assets src="myPathToCss/myCss.css" order="1" />
+ * <hhdefault:assets src="myPathToCss/myCss.css" order="1" />
  * or
- * <hh:assets src="myPathToJs/myJs.js" order="1" type="js" />
+ * <hhdefault:assets src="myPathToJs/myJs.js" order="1" type="js" />
  */
 
 // use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -43,7 +43,11 @@ class AssetsViewHelper extends AbstractViewHelper {
         $this->registerArguments([
             ['order', 'string', 'Ordering int', true],
             ['src', 'string', 'Path to css or js file', true],
-            ['current', 'bool', 'Set current extension folder for source', false, true]
+            ['current', 'bool', 'Set current extension folder for source', false, true],
+            ['position', 'string', 'only js files - Position "head" or "footer" (default js is footer)', false, 'footer'],
+            ['async', 'bool', 'only js files - Add attribute "async" (default is false)', false, false],
+            ['defer', 'bool', 'only js files - Add attribute "defer" (default is true)', false, true]
+            // TODO: add media attribute
         ]);
     }
 
@@ -89,10 +93,22 @@ class AssetsViewHelper extends AbstractViewHelper {
             $path = trim($arguments['src']);
         }
 
+        if ($arguments['position']) {
+            if ($arguments['position'] === 'head' || $arguments['position'] === 'footer') {
+                $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets'][$type][$arguments['order']]['position'] = $arguments['position'];
+            } else {
+                // TODO: return hint - debug output that not allowed string is given
+            }
+        }
+
+        // JavaScript file loading async and defer
+        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets'][$type][$arguments['order']]['async'] = $arguments['async'];
+        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets'][$type][$arguments['order']]['defer'] = $arguments['defer'];
+
         if (is_numeric($arguments['order'])) {
-            $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets'][$type][$arguments['order']] = $path;
+            $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets'][$type][$arguments['order']]['path'] = $path;
         } else {
-            $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets']['custom'][$type][$arguments['order']] = $path;
+            $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets']['custom'][$type][$arguments['order']]['path'] = $path;
         }
     }
 
