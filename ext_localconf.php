@@ -47,10 +47,8 @@ call_user_func(function() {
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['hhdefault'] = ['HauerHeinrich\\HhThemeDefault\\ViewHelpers'];
 
     // Register Hooks
-    if (TYPO3_MODE === 'FE') {
-        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][$extensionKey] =
-            HauerHeinrich\HhThemeDefault\Hooks\AssetsHook::class . '->addAssets';
-    }
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][$extensionKey] =
+        HauerHeinrich\HhThemeDefault\Hooks\AssetsHook::class . '->addAssets';
 
     // after Install - Add AdditionalConfiguration.php if not exist
     /** @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher $signalSlotDispatcher */

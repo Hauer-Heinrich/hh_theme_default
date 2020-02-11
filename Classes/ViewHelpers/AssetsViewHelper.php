@@ -27,10 +27,10 @@ namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
  *   xmlns:hhdefault="http://typo3.org/ns/VENDOR/NAMESPACE/ViewHelpers"
  *   data-namespace-typo3-fluid="true">
  *
- *  EXAMPLE:
  * <hhdefault:assets src="myPathToCss/myCss.css" order="1" />
  * or
- * <hhdefault:assets src="myPathToJs/myJs.js" order="1" type="js" />
+ * <hhdefault:assets src="myPathToJs/myJs.js" order="1" position="head" async="1" defer="1" />
+ *
  */
 
 // use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -41,7 +41,7 @@ class AssetsViewHelper extends AbstractViewHelper {
 
     public function initializeArguments() {
         $this->registerArguments([
-            ['order', 'string', 'Ordering int', true],
+            ['order', 'string', 'Ordering int or string / orders int"s and strings separately', false],
             ['src', 'string', 'Path to css or js file', true],
             ['current', 'bool', 'Set current extension folder for source', false, true],
             ['position', 'string', 'only js files - Position "head" or "footer" (default js is footer)', false, 'footer'],

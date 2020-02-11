@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace HauerHeinrich\HhThemeDefault\Hooks;
 
-use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+// use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 use \TYPO3\CMS\Core\Page\PageRenderer;
 
@@ -48,6 +48,7 @@ class AssetsHook {
         $assetsJsCustom = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets']['custom']['js'];
 
         if (!empty($assetsCss)) {
+
             ksort($assetsCss);
 
             foreach ($assetsCss as $key => $value) {
@@ -63,7 +64,6 @@ class AssetsHook {
                 if ($value['position'] === 'head') {
                     $this->pageRenderer->addJsFile($value['path'], '', true, false, '', true, '|', $value['async'], '', $value['defer'], '');
                 }
-
                 if ($value['position'] === 'footer') {
                     $this->pageRenderer->addJsFooterFile($value['path'], '', true, false, '', true, '|', $value['async'], '', $value['defer'], '');
                 }
@@ -72,13 +72,13 @@ class AssetsHook {
 
         if (!empty($assetsCssCustom)) {
             foreach ($assetsCssCustom as $key => $value) {
-                $this->pageRenderer->addCssFile($value, 'stylesheet', 'all', '', true, false, '', true);
+                $this->pageRenderer->addCssFile($value['path'], 'stylesheet', 'all', '', true, false, '', true);
             }
         }
 
         if (!empty($assetsJsCustom)) {
             foreach ($assetsJsCustom as $key => $value) {
-                $this->pageRenderer->addJsFooterFile($value, '', true, false, '', true, '|', false, '', true);
+                $this->pageRenderer->addJsFooterFile($value['path'], '', true, false, '', true, '|', $value['async'], '', $value['defer'], '');
             }
         }
     }
