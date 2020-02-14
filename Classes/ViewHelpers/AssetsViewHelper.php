@@ -27,10 +27,10 @@ namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
  *   xmlns:hhdefault="http://typo3.org/ns/VENDOR/NAMESPACE/ViewHelpers"
  *   data-namespace-typo3-fluid="true">
  *
+ *  EXAMPLE:
  * <hhdefault:assets src="myPathToCss/myCss.css" order="1" />
  * or
- * <hhdefault:assets src="myPathToJs/myJs.js" order="1" position="head" async="1" defer="1" />
- *
+ * <hhdefault:assets src="myPathToJs/myJs.js" order="1" type="js" />
  */
 
 // use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -43,7 +43,7 @@ class AssetsViewHelper extends AbstractViewHelper {
         $this->registerArguments([
             ['order', 'string', 'Ordering int or string / orders int"s and strings separately', false],
             ['src', 'string', 'Path to css or js file', true],
-            ['current', 'bool', 'Set current extension folder for source', false, true],
+            ['extKey', 'string', 'Extensionkey e. g. vendor_my_ext_name', true],
             ['position', 'string', 'only js files - Position "head" or "footer" (default js is footer)', false, 'footer'],
             ['async', 'bool', 'only js files - Add attribute "async" (default is false)', false, false],
             ['defer', 'bool', 'only js files - Add attribute "defer" (default is true)', false, true]
@@ -68,29 +68,11 @@ class AssetsViewHelper extends AbstractViewHelper {
         $path = '';
         $type = 'css';
 
-        if($arguments['current'] === true) {
-            // Get current ExtKey from templatePath
-            $templatePaths = array_reverse($renderingContext->getTemplatePaths()->getTemplateRootPaths());
-            $extKey = '';
-            foreach ($templatePaths as $key => $value) {
-                if(!empty($value)) {
-                    $extKey = explode('/', explode('/ext/', $value)[1])[0];
-                    break;
-                }
-            }
-
-            if(self::endsWith($arguments['src'], '.js')) {
-                $type = 'js';
-                $path = 'EXT:'.$extKey.'/Resources/Public/JavaScript/'.trim($arguments['src']);
-            } else {
-                $path = 'EXT:'.$extKey.'/Resources/Public/Css/'.trim($arguments['src']);
-            }
+        if(self::endsWith($arguments['src'], '.js')) {
+            $type = 'js';
+            $path = 'EXT:'.$arguments['extKey'].'/Resources/Public/JavaScript/'.trim($arguments['src']);
         } else {
-            if(self::endsWith($arguments['src'], '.js')) {
-                $type = 'js';
-            }
-
-            $path = trim($arguments['src']);
+            $path = 'EXT:'.$arguments['extKey'].'/Resources/Public/Css/'.trim($arguments['src']);
         }
 
         if ($arguments['position']) {

@@ -24,12 +24,12 @@ namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
  * This copyright notice MUST APPEAR in all copies of the script!
  * Example
  * <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
- *   xmlns:hhdefault="http://typo3.org/ns/VENDOR/NAMESPACE/ViewHelpers"
+ *   xmlns:hh="http://typo3.org/ns/VENDOR/NAMESPACE/ViewHelpers"
  *   data-namespace-typo3-fluid="true">
  *
- *  <hhdefault:addAssetsData type="js">
+ *  <hh:addAssetsData type="js">
  *  or
- *  <hhdefault:addAssetsData type="js" where="header">
+ *  <hh:addAssetsData type="js" where="header">
  */
 
 // use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -40,7 +40,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class AddAssetsDataViewHelper extends AbstractViewHelper {
     public function initializeArguments() {
         $this->registerArgument('type', 'string', 'Can be css or js or json-ld', true);
-        $this->registerArgument('name', 'string', 'for inline CSS you have to specify a identifier', false);
         $this->registerArgument('where', 'string', 'Can be header (header is default for css) or footer (footer is default for js)', false);
         $this->registerArgument('file', 'string', 'Can be css or js', false);
         $this->registerArgument('current', 'boolean', 'Used for "file", if source is in current extension', false, true);
@@ -68,7 +67,7 @@ class AddAssetsDataViewHelper extends AbstractViewHelper {
                     '<style>' => '',
                     '</style>' => ''
                 ];
-                $name = $arguments['name'] ? $arguments['name'] : rand();
+
                 if($GLOBALS['TSFE']->$where['foo']) {
                     $resultOLD = str_replace(
                         array_keys($searchReplaceArray),
@@ -89,9 +88,8 @@ class AddAssetsDataViewHelper extends AbstractViewHelper {
                         array_values($searchReplaceArray),
                         trim($renderChildrenClosure())
                     );
-
                     // $GLOBALS['TSFE']->$where['foo'] = htmlspecialchars(trim($renderChildrenClosure()));
-                    $pageRender->addCssInlineBlock(' '.$name.' ', trim($result), true);
+                    $pageRender->addCssInlineBlock(null, trim($result), true);
                 }
 
                 break;
