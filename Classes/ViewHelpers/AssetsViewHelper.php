@@ -71,26 +71,30 @@ class AssetsViewHelper extends AbstractViewHelper {
         if(self::endsWith($arguments['src'], '.js')) {
             $type = 'js';
             $path = 'EXT:'.$arguments['extKey'].'/Resources/Public/JavaScript/'.trim($arguments['src']);
+
         } else {
             $path = 'EXT:'.$arguments['extKey'].'/Resources/Public/Css/'.trim($arguments['src']);
         }
 
-        if ($arguments['position']) {
-            if ($arguments['position'] === 'head' || $arguments['position'] === 'footer') {
-                $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets'][$type][$arguments['order']]['position'] = $arguments['position'];
-            } else {
-                // TODO: return hint - debug output that not allowed string is given
-            }
+        if($arguments['order']) {
+            $order = $arguments['order'];
+        } else {
+            $order = $arguments['src'];
         }
 
-        // JavaScript file loading async and defer
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets'][$type][$arguments['order']]['async'] = $arguments['async'];
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets'][$type][$arguments['order']]['defer'] = $arguments['defer'];
+        $fileArray['path'] = $path;
+        $fileArray['async'] = $arguments['async'];
+        $fileArray['defer'] = $arguments['defer'];
+        if ($arguments['position'] === 'head' || $arguments['position'] === 'footer') {
+            $fileArray['position'] = $arguments['position'];
+        } else {
+            // TODO: return hint - debug output that not allowed string is given
+        }
 
         if (is_numeric($arguments['order'])) {
-            $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets'][$type][$arguments['order']]['path'] = $path;
+            $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets'][$type][$order] = $fileArray;
         } else {
-            $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets']['custom'][$type][$arguments['order']]['path'] = $path;
+            $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets']['custom'][$type][$order] = $fileArray;
         }
     }
 
