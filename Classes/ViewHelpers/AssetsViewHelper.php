@@ -1,6 +1,9 @@
 <?php
 namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
 
+// TODO: eventuell Depricated ab TYPO3 10.3 - muss noch getestet werden!!!
+// 2020-02-25 7e342e74de [FEATURE] Introduce AssetCollector (thanks to Benni Mack)
+
 /***************************************************************
  * Copyright notice
  *
