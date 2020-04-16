@@ -6,6 +6,7 @@ if (!defined('TYPO3_MODE')) {
 // Production / Live:
 $customChanges = [
     'BE' => [
+        'lockSSL' => 1,
         'loginSecurityLevel' => 'normal',
         'compressionLevel' => '0',
         'versionNumberInFilename' => 0,
@@ -31,13 +32,18 @@ $customChanges = [
             'options' => [],
         ]
     ],
+    'HTTP' => [
+        'verify' => 1,
+    ],
     'SYS' => [
+        'cookieSecure' => 1,
         'UTF8filesystem' => 1,
         'clearCacheSystem' => 1,
         'enableDeprecationLog' => 0,
         'phpTimeZone' => 'Europe/Berlin',
         'systemLocale' => 'de_DE.UTF-8',
         'ipAnonymization' => '2',
+        'systemLogLevel' => '3',
    ]
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customChanges);
@@ -65,6 +71,7 @@ if(\TYPO3\CMS\Core\Core\Environment::getContext()->__toString() === 'Development
             'verify' => 0,
         ],
         'SYS' => [
+            'cookieSecure' => 0,
             'displayErrors' => 1,
             'sqlDebug' => 1,
             'systemLog' => 'error_log',
