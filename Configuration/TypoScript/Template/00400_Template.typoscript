@@ -1,49 +1,10 @@
 
 page {
     # includeCSS >
-    includeCSS {
-        # file10 = {$themeDefault.urls.themeResources}Public/Css/default-theme.min.css
-
-        ### Slider
-        # file20 = EXT:hh_slider/Resources/Public/Css/slider.min.css
-    }
-
-    includeJSLibs {
-        # file10 = {$themeDefault.urls.themeResources}Public/JavaScript/functions.min.js
-        # file10.ajax = 1
-    }
-
-    includeJSFooterlibs {
-        ### jQuery
-        # file10 = {$themeDefault.urls.themeResources}Public/JavaScript/Libs/jquery-3.3.1.min.js
-        # file10.forceOnTop = 1
-        # file10.excludeFromConcatenation = 1
-
-        ### Slider
-        file20 = EXT:hh_slider/Resources/Public/JavaScript/tiny-slider.min.js
-        file20.defer = 1
-        file20.excludeFromConcatenation = 1
-
-        ### Lightbox
-        file30 = {$themeDefault.urls.themeResources}Public/JavaScript/Libs/baguetteBox.min.js
-        file30.defer = 1
-        file30.excludeFromConcatenation = 1
-    }
-
-    includeJSFooter {
-        ### IO Framework
-        file10 = {$themeDefault.urls.themeResources}Public/JavaScript/Libs/io.min.js
-        file10.defer = 1
-        file10.excludeFromConcatenation = 1
-
-        ### Lightbox
-        file50 = {$themeDefault.urls.themeResources}Public/JavaScript/LibsConfig/baguetteBox.config.min.js
-        file50.defer = 1
-        file50.excludeFromConcatenation = 1
-    }
-
-    footerData {
-    }
+    includeCSS >
+    includeJSLibs >
+    includeJSFooterlibs >
+    includeJSFooter >
 
     10 = FLUIDTEMPLATE
     10 {
