@@ -10,7 +10,7 @@ call_user_func(function() {
     $rootLineFields .= 'backend_layout';
 
     // register svg icons: identifier and filename
-    $iconsPng = [
+    $icons = [
         // BackendLayouts
         'hh_one_column' => 'BackendIcons/header-1col.png',
         'hh_navaside_left' => 'BackendIcons/header-sidenav-left.png',
@@ -32,12 +32,27 @@ call_user_func(function() {
         \TYPO3\CMS\Core\Imaging\IconRegistry::class
     );
 
-    foreach ($iconsPng as $identifier => $path) {
-        $iconRegistry->registerIcon(
-            $identifier,
-            \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
-            ['source' => "EXT:{$extensionKey}/Resources/Public/Images/{$path}"]
-        );
+    foreach ($icons as $identifier => $path) {
+        $iconType = substr($path, -3);
+
+        switch ($iconType) {
+            case 'svg':
+                $iconRegistry->registerIcon(
+                    $identifier,
+                    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+                    ['source' => "EXT:{$extensionKey}/Resources/Public/Images/{$path}"]
+                );
+                break;
+
+            default:
+                # png
+                $iconRegistry->registerIcon(
+                    $identifier,
+                    \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
+                    ['source' => "EXT:{$extensionKey}/Resources/Public/Images/{$path}"]
+                );
+                break;
+        }
     };
 
     // Add UserTS config as default for all BE users
