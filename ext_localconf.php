@@ -46,6 +46,15 @@ call_user_func(function() {
     // Register "hhdefault" as global fluid namespace
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['hhdefault'] = ['HauerHeinrich\\HhThemeDefault\\ViewHelpers'];
 
+    // System information toolbar
+    \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class)
+        ->connect(
+            \TYPO3\CMS\Backend\Backend\ToolbarItems\SystemInformationToolbarItem::class,
+            'getSystemInformation',
+            \HauerHeinrich\HhThemeDefault\Backend\ToolbarItem\SystemInformationToolbarItemGit::class,
+            'addGitInformation'
+        );
+
     // Register Hooks
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][$extensionKey] =
         HauerHeinrich\HhThemeDefault\Hooks\AssetsHook::class . '->addAssets';
