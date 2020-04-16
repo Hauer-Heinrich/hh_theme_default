@@ -70,6 +70,7 @@ class AssetsViewHelper extends AbstractViewHelper {
     public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
         $path = '';
         $type = 'css';
+        $extensionKey = 'hh_theme_default';
 
         if(self::endsWith($arguments['src'], '.js')) {
             $type = 'js';
@@ -88,6 +89,7 @@ class AssetsViewHelper extends AbstractViewHelper {
         $fileArray['path'] = $path;
         $fileArray['async'] = $arguments['async'];
         $fileArray['defer'] = $arguments['defer'];
+
         if ($arguments['position'] === 'head' || $arguments['position'] === 'footer') {
             $fileArray['position'] = $arguments['position'];
         } else {
@@ -95,9 +97,9 @@ class AssetsViewHelper extends AbstractViewHelper {
         }
 
         if (is_numeric($arguments['order'])) {
-            $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets'][$type][$order] = $fileArray;
+            $GLOBALS[$extensionKey]['assets'][$type][$order] = $fileArray;
         } else {
-            $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['hh_theme_default']['assets']['custom'][$type][$order] = $fileArray;
+            $GLOBALS[$extensionKey]['assets']['custom'][$type][$order] = $fileArray;
         }
     }
 

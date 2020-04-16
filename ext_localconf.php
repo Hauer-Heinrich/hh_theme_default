@@ -71,8 +71,10 @@ call_user_func(function() {
         );
 
     // Register Hooks
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][$extensionKey] =
-        HauerHeinrich\HhThemeDefault\Hooks\AssetsHook::class . '->addAssets';
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['usePageCache'][] =
+        'HauerHeinrich\\HhThemeDefault\\Hooks\\AssetsHook';
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-output'][] =
+        'HauerHeinrich\\HhThemeDefault\\Hooks\\AssetsHook->usePageCache';
 
     // after Install - Add AdditionalConfiguration.php if not exist
     /** @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher $signalSlotDispatcher */

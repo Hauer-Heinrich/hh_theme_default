@@ -6,6 +6,7 @@ namespace HauerHeinrich\HhThemeDefault\Hooks;
 // use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 use \TYPO3\CMS\Core\Page\PageRenderer;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class AssetsHook {
 
@@ -17,7 +18,7 @@ class AssetsHook {
     protected $extensionKey = '';
 
     public function __construct() {
-        $this->extensionKey = 'hhthemefotofinder';
+        $this->extensionKey = 'hh_theme_default';
     }
 
     /**
@@ -130,7 +131,7 @@ class AssetsHook {
                     // if ($value['position'] === 'head') {
                     //     // $this->pageRenderer->addJsFile($value['path'], '', true, false, '', true, '|', $value['async'], '', $value['defer'], '');
                     // }
-                    if ($value['position'] === 'Footer') {
+                    if (strtolower($value['position']) === 'footer') {
                         $position = 'Footer';
                         // $this->pageRenderer->addJsFooterFile($value['path'], '', true, false, '', true, '|', $value['async'], '', $value['defer'], '');
                     }
