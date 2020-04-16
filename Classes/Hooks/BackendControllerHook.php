@@ -25,10 +25,7 @@ class BackendControllerHook {
      * @param BackendController $backendController
      */
     public function addCss(array $configuration, BackendController $backendController) {
-        $path = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($this->extensionKey);
-
-        $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
-        $pageRenderer->addCssFile($path . '/Resources/Public/Css/Backend/main.min.css');
+        // made oldschool via ext_tables.php
     }
 
     /**
@@ -41,6 +38,6 @@ class BackendControllerHook {
         $path = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($this->extensionKey);
 
         $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
-        $pageRenderer->loadRequireJsModule("TYPO3/CMS/HhThemeDefault/Backend/Bemain");
+        $pageRenderer->loadRequireJsModule('TYPO3/CMS/HhThemeDefault/Backend/Bemain');
     }
 }
