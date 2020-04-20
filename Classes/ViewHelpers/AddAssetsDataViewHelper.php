@@ -40,6 +40,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class AddAssetsDataViewHelper extends AbstractViewHelper {
     public function initializeArguments() {
         $this->registerArgument('type', 'string', 'Can be css or js or json-ld', true);
+        $this->registerArgument('name', 'string', 'Name example for label inline CSS', true);
         $this->registerArgument('where', 'string', 'Can be header (header is default for css) or footer (footer is default for js)', false);
         $this->registerArgument('file', 'string', 'Can be css or js', false);
         $this->registerArgument('current', 'boolean', 'Used for "file", if source is in current extension', false, true);
@@ -56,9 +57,6 @@ class AddAssetsDataViewHelper extends AbstractViewHelper {
      */
     public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
         $pageRender = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
-        if (isset($arguments)) {
-            # code...
-        }
 
         switch ($arguments['type']) {
             case 'css':
@@ -68,30 +66,12 @@ class AddAssetsDataViewHelper extends AbstractViewHelper {
                     '</style>' => ''
                 ];
 
-                if($GLOBALS['TSFE']->$where['foo']) {
-                    $resultOLD = str_replace(
-                        array_keys($searchReplaceArray),
-                        array_values($searchReplaceArray),
-                        $GLOBALS['TSFE']->$where['foo']
-                    );
-                    $resultNEW = str_replace(
-                        array_keys($searchReplaceArray),
-                        array_values($searchReplaceArray),
-                        trim($renderChildrenClosure())
-                    );
-
-                    // $GLOBALS['TSFE']->$where['foo'] = '<style>' . $resultOLD . $resultNEW .'</style>';
-                    $pageRender->addCssInlineBlock(null, $resultOLD . $resultNEW, true);
-                } else {
-                    $result = str_replace(
-                        array_keys($searchReplaceArray),
-                        array_values($searchReplaceArray),
-                        trim($renderChildrenClosure())
-                    );
-                    // $GLOBALS['TSFE']->$where['foo'] = htmlspecialchars(trim($renderChildrenClosure()));
-                    $pageRender->addCssInlineBlock(null, trim($result), true);
-                }
-
+                $result = str_replace(
+                    array_keys($searchReplaceArray),
+                    array_values($searchReplaceArray),
+                    trim($renderChildrenClosure())
+                );
+                $pageRender->addCssInlineBlock(' '.$name.' ', trim($result), true, false);
                 break;
             case 'js':
                 $where = $arguments['where'] ? 'additional'.ucfirst($arguments['where']).'Data' : 'additionalFooterData';

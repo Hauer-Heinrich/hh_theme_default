@@ -1,6 +1,5 @@
 
 page {
-    # includeCSS >
     includeCSS >
     includeJSLibs >
     includeJSFooterlibs >
