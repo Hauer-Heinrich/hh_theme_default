@@ -72,6 +72,10 @@ page {
         10.settings {
             applicationContext = Development
         }
+
+        meta {
+            robots = NOINDEX,NOFOLLOW
+        }
     }
 [global]
 
@@ -87,6 +91,10 @@ page {
     page {
         10.settings {
             applicationContext = Development/Server
+        }
+
+        meta {
+            robots = NOINDEX,NOFOLLOW
         }
     }
 [global]
