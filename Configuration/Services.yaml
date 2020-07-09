@@ -1,0 +1,7 @@
+services:
+  HauerHeinrich\HhThemeDefault\EventListener\AfterExtensionInstall:
+    tags:
+      - name: event.listener
+        identifier: 'afterExtensionInstall'
+        event: TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent
+        method: 'disableExtensions'

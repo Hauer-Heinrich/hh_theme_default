@@ -4,6 +4,9 @@ if (!defined('TYPO3_MODE')) {
 }
 
 // Production / Live:
+$databaseCredentialsFile = \TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/../typo3_config/typo3_domain.php';
+if (file_exists($databaseCredentialsFile)) { require_once ($databaseCredentialsFile); }
+
 $customChanges = [
     'BE' => [
         'lockSSL' => 1,
@@ -48,8 +51,17 @@ $customChanges = [
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customChanges);
 
+// Developement - Stage / Preview:
+if(\TYPO3\CMS\Core\Core\Environment::getContext()->__toString() === 'Development/Server') {
+    $databaseCredentialsFile = \TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/../typo3_config/typo3_domain_preview.php';
+    if (file_exists($databaseCredentialsFile)) { require_once ($databaseCredentialsFile); }
+}
+
 // Developement:
 if(\TYPO3\CMS\Core\Core\Environment::getContext()->__toString() === 'Development') {
+    $databaseCredentialsFile = \TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/../typo3_config/typo3_domain_local.php';
+    if (file_exists($databaseCredentialsFile)) { require_once ($databaseCredentialsFile); }
+
     $customDevelopmentChanges = [
         'BE' => [
             'compressionLevel' => '0',

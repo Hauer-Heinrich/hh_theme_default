@@ -28,7 +28,7 @@ admPanel {
 }
 
 ### Show pageUID in the pagetree
-[adminUser = 1]
+[backend.user.isAdmin == "1"]
     options {
         pageTree.showPageIdWithTitle = 1
         folderTree.uploadFieldsInLinkBrowser = 3

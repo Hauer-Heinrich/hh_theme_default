@@ -1,5 +1,5 @@
 <?php
-namespace HauerHeinrich\HhThemeDefault\Signals;
+namespace HauerHeinrich\HhThemeDefault\EventListener;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -14,10 +14,12 @@ namespace HauerHeinrich\HhThemeDefault\Signals;
  * The TYPO3 project - inspiring people to share!
  */
 
-// use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use TYPO3\CMS\Core\SingletonInterface;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extensionmanager\Utility\InstallUtility;
+// use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use \TYPO3\CMS\Core\SingletonInterface;
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
+use \TYPO3\CMS\Extensionmanager\Service\ExtensionManagementService as ExtService;
+use \TYPO3\CMS\Extbase\Object\ObjectManager;
+use \TYPO3\CMS\Extensionmanager\Utility\InstallUtility;
 
 class AfterExtensionInstall implements SingletonInterface {
 
@@ -37,6 +39,7 @@ class AfterExtensionInstall implements SingletonInterface {
     protected $logger;
 
     function __construct() {
+        $this->extensionKey = 'hh_theme_default';
         $this->logger = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(static::class);
     }
 
@@ -44,14 +47,11 @@ class AfterExtensionInstall implements SingletonInterface {
      * addAdditionalConfiguration
      * copy the dummy_AdditionalConfiguration to typo3conf directory of no AdditonalConfiguration exists
      *
-     * @param string $currentExtKey - last installed extension
-     * @param \InstallUtility $customValue2
+     * @param object $data EventObject
      * @return void
      */
-    public function addAdditionalConfiguration($currentExtKey = '', InstallUtility $customValue2 = null) {
-        $this->extensionKey = 'hh_theme_default';
-
-        if($currentExtKey === $this->extensionKey) {
+    public function addAdditionalConfiguration(object $data): void {
+        if($data->getPackageKey() === $this->extensionKey) {
             $path = GeneralUtility::getFileAbsFileName('typo3conf');
 
             if(!file_exists($path.'/AdditionalConfiguration.php')) {
@@ -63,6 +63,31 @@ class AfterExtensionInstall implements SingletonInterface {
             } else {
                 $logMessage = 'typo3conf/AdditionalConfiguration.php not created/copied because it seems that this file already exist!';
                 $this->logger->log(\TYPO3\CMS\Core\Log\LogLevel::WARNING, $logMessage);
+            }
+        }
+    }
+
+    /**
+     * disableExtensions
+     * which are listed in file ext_disable.php
+     *
+     * @param object $data EventObject
+     * @return void
+     */
+    public function disableExtensions(object $data): void {
+        if($data->getPackageKey() === $this->extensionKey) {
+            $path = GeneralUtility::getFileAbsFileName('EXT:'.$this->extensionKey.'/ext_disable.php');
+
+            if(file_exists($path)) {
+                $extService = GeneralUtility::makeInstance(ExtService::class);
+                $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+                $disableExtensions = include $path;
+
+                foreach ($disableExtensions as $key => $value) {
+                    if($extService->isAvailable($value)) {
+                        $objectManager->get(InstallUtility::class)->uninstall($value);
+                    }
+                }
             }
         }
     }
