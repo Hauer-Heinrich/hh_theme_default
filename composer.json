@@ -15,12 +15,20 @@
         "typo3-ter/hh-theme-default": "self.version"
     },
     "require": {
-        "typo3/cms-core": "^9.5.0 || ^10.2.99",
-        "typo3/cms-fluid": "^9.5.0 || ^10.2.99",
-        "typo3/cms-frontend": "^9.5.0 || ^10.2.99",
-        "typo3/cms-fluid-styled-content": "^9.5.0 || ^10.2.99",
+        "typo3/cms-core": "^10.4.0 || ^10.4.99",
+        "typo3/cms-fluid": "^10.4.0 || ^10.4.99",
+        "typo3/cms-frontend": "^10.4.0 || ^10.4.99",
+        "typo3/cms-fluid-styled-content": "^10.4.0 || ^10.4.99",
+        "typo3/cms-scheduler": "",
+        "georgringer/news": "",
+        "friendsoftypo3/tt-address": "",
+        "in2code/powermail": "",
         "hauerheinrich/hh_slider": "",
         "hauerheinrich/hh_seo": ""
+    },
+    "suggest": {
+        "groundstack/gs-monitor-provider": "A TYPO3 extension used to monitor updates for TYPO3 and all installed extensions.",
+        "hauerheinrich/hh-widget-hhnews": "Hauer-Heinrich news widget for ext:dashboard"
     },
     "autoload": {
         "psr-4": {

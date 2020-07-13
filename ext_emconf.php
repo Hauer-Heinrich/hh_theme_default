@@ -24,10 +24,14 @@ $EM_CONF['hh_theme_default'] = [
     'version' => '0.0.1',
     'constraints' => [
         'depends' => [
-            'typo3' => '9.5.0-10.9.99',
-            'fluid_styled_content' => '9.5.0-10.9.9',
-            'hh_seo' => '',
-            'hh_slider' => ''
+            'typo3' => '10.4.0-10.4.99',
+            'fluid_styled_content' => '10.4.0-10.4.9',
+            'scheduler' => '',
+            'news' => '',
+            'tt_address' => '',
+            'powermail' => '',
+            'hh_slider' => '',
+            'hh_seo' => ''
         ],
         'conflicts' => [
         ],

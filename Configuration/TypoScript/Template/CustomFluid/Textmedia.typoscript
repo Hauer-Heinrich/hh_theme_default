@@ -1,0 +1,26 @@
+# Text & Media:
+# Any number of media wrapped right around a regular text element.
+#
+# CType: textmedia
+
+# tt_content.textmedia =< lib.contentElement
+tt_content.textmedia {
+    # templateName = TEXT
+    # templateName {
+    #     cObject = TEXT
+    #     cObject {
+    #         data = field:layout
+    #         required = 1
+    #         case = uppercamelcase
+    #     }
+    #     ifEmpty = Textmedia
+    # }
+
+    templateName.stdWrap.cObject = CASE
+    templateName.stdWrap.cObject {
+        key.data = field:layout
+
+        default = TEXT
+        default.value = Textmedia
+    }
+}

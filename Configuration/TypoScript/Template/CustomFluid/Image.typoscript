@@ -1,0 +1,14 @@
+# Image:
+# Any number of media wrapped right around a regular text element.
+#
+# CType: image
+
+tt_content.image {
+    templateName.stdWrap.cObject = CASE
+    templateName.stdWrap.cObject {
+        key.data = field:layout
+
+        default = TEXT
+        default.value = Image
+    }
+}

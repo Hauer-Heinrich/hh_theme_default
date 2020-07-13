@@ -2,11 +2,11 @@
 
 @import 'theme/utils/mixins';
 
-@import 'theme/reset';
-@import 'theme/fluid-styled-content';
-@import 'theme/custom_fluid-styled-content';
-@import 'theme/layout';
-
+@import 'theme/libs/reset';
 @import 'theme/libs/grid';
 @import 'theme/libs/io.nav.scss';
 @import 'theme/libs/baguetteBox';
+
+@import 'theme/fluid-styled-content';
+@import 'theme/custom_fluid-styled-content';
+@import 'theme/layout';

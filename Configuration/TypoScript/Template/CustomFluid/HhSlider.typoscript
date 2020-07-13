@@ -1,0 +1,9 @@
+tt_content.hhslider_hh_slider {
+    templateName.stdWrap.cObject = CASE
+    templateName.stdWrap.cObject {
+        key.data = field:layout
+
+        default = TEXT
+        default.value = HhSlider
+    }
+}

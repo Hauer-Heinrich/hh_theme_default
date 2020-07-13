@@ -128,14 +128,7 @@ TCEFORM {
             removeItems = default,ruler-before,ruler-after,indent,indent-left,indent-right,none
             addItems {
                 container = Container / Default
-                without-container = without Container
-                container-large = Container Large
-                container-medium-large = Container Medium-Large
-                container-medium = Container Medium
-                container-small = Container Small
                 fullwidth = Fullwidth
-                fullwidth-centered = Fullwidth - with centered content
-                fullwidthNoSpaceAfter = Fullwidth - no bottom spacing
             }
         }
 

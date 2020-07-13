@@ -22,11 +22,127 @@ lib.contentElement {
 <INCLUDE_TYPOSCRIPT: source="DIR: ./CustomFluid/" extensions="typoscript"">
 
 ################################################################
+### News - news ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:news\Configuration\TypoScript\setup.txt">
+plugin.tx_news {
+    view {
+        templateRootPaths {
+            5 = {$theme.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
+            10 = {$theme.urls.themeResources}Private/Extensions/news/Templates/
+        }
+        partialRootPaths {
+            5 = {$theme.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
+            10 = {$theme.urls.themeResources}Private/Extensions/news/Partials/
+        }
+        layoutRootPaths {
+            5 = {$theme.urls.themeResources}Private/Extensions/fluid_styled_content/Layouts/
+            10 = {$theme.urls.themeResources}Private/Extensions/news/Layouts/
+        }
+    }
+    settings {
+        cssFile >
+        link {
+            skipControllerAndAction = 0
+        }
+
+        displayDummyIfNoMedia = 0
+
+        detail {
+            showSocialShareButtons = 1
+
+            media {
+                image {
+                    maxWidth = 1920
+                }
+            }
+        }
+    }
+
+    _LOCAL_LANG {
+        de {
+            more-link-short = mehr
+        }
+    }
+}
+
+################################################################
+### Address - tt_address ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:tt_address\Configuration\TypoScript\setup.typoscript">
+plugin.tx_ttaddress {
+    view {
+        templateRootPaths {
+            10 = {$theme.urls.themeResources}Private/Extensions/tt_address/Templates/
+        }
+        partialRootPaths {
+            10 = {$theme.urls.themeResources}Private/Extensions/tt_address/Partials/
+        }
+        layoutRootPaths {
+            10 = {$theme.urls.themeResources}Private/Extensions/tt_address/Layouts/
+        }
+    }
+}
+
+################################################################
+### Form - powermail ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:powermail\Configuration\TypoScript\Main\setup.typoscript">
+plugin.tx_powermail {
+    view {
+        templateRootPaths {
+            100 = {$theme.urls.themeResources}Private/Extensions/powermail/Templates/
+        }
+        partialRootPaths {
+            100 = {$theme.urls.themeResources}Private/Extensions/powermail/Partials/
+        }
+        layoutRootPaths {
+            100 = {$theme.urls.themeResources}Private/Extensions/powermail/Layouts/
+        }
+    }
+
+    settings {
+        javascript {
+            addAdditionalJavaScript = 0
+            powermailJQuery = 0
+        }
+    }
+}
+
+################################################################
+### Form powermail - hh_powermail_checkboxlink ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_powermail_checkboxlink\Configuration\TypoScript\setup.typoscript">
+
+################################################################
 ### Hauer-Heinrich Slider - hh_slider ###
 ################################################################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_slider/Configuration/TypoScript/setup.typoscript">
-tt_content.hhslider_hh_slider.settings.cssFile >
-tt_content.hhslider_hh_slider.settings.jsFile >
+tt_content.hhslider_hh_slider {
+    layoutRootPaths {
+        0 = EXT:fluid_styled_content/Resources/Private/Layouts/
+        5 = EXT:hh_slider/Resources/Private/Layouts/
+        10 = {$theme.urls.themeResources}Private/Extensions/hh_slider/Layouts/
+        20 = {$plugin.tx_hhslider.view.layoutRootPath}
+    }
+    partialRootPaths {
+        0 = EXT:fluid_styled_content/Resources/Private/Partials/
+        5 = EXT:hh_slider/Resources/Private/Partials/
+        10 = {$theme.urls.themeResources}Private/Extensions/hh_slider/Partials/
+        20 = {$plugin.tx_hhslider.view.partialRootPath}
+    }
+    templateRootPaths {
+        0 = EXT:fluid_styled_content/Resources/Private/Templates/
+        5 = EXT:hh_slider/Resources/Private/Templates/
+        10 = {$theme.urls.themeResources}Private/Extensions/hh_slider/Templates/
+        20 = {$plugin.tx_hhslider.view.templateRootPath}
+    }
+
+    settings {
+        cssFile >
+        jsFile >
+    }
+}
 
 ################################################################
 ### Hauer-Heinrich SEO - hh_seo ###
