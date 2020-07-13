@@ -1,4 +1,8 @@
 services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
   HauerHeinrich\HhThemeDefault\EventListener\AfterExtensionInstall:
     tags:
       - name: event.listener

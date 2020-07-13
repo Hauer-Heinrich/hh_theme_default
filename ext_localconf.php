@@ -9,6 +9,13 @@ call_user_func(function() {
     if (trim($rootLineFields) != "") $rootLineFields .= ',';
     $rootLineFields .= 'backend_layout';
 
+    // Typo3 extension manager gearwheel icon (ext_conf_template.txt)
+    $extensionConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][$extensionKey];
+    $rtePresets = $extensionConfiguration['rtePresets'];
+
+    // Register own rte ckeditor config which comes from lines above
+    $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['rte_theme'] = $rtePresets;
+
     // register svg icons: identifier and filename
     $icons = [
         // BackendLayouts
