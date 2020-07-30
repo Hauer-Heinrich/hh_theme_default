@@ -33,8 +33,10 @@ Don't forget to include the PageTS -> backend->rootPage->site configuration->res
  - delivers example configurations and files like AdditionalConfiguration.php or site_config.yaml you can find these files at /Configuration/Typo3/
  - added a branding at the TYPO3 backend at the very top (customize this at Resources/Public/JavaScript/Backend/Bemain.js)
 
-# IMPORTENT NOTICE
+## IMPORTENT NOTICE
+ - does not support IE 11 and below
  - copies shipped AdditionalConfiguration.php on install if no one exists! This AdditonalConfiguration includes /Configuration/Typo3/AdditionalConfiguration.php.
+ - check if your server supports generation of webp format, else comment out or delete the corresponding positions at /Resources/Private/Extensions/fluid_styled_content/Partials/Media/Rendering/Image.html
 
 ### Todos
 
