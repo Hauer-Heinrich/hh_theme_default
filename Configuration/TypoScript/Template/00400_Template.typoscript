@@ -39,6 +39,14 @@ page {
 
         dataProcessing {
             ################################################################
+            ### SiteConfig (yaml) ###
+            ################################################################
+            5 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
+            5 {
+                as = site
+            }
+
+            ################################################################
             ### Main Menu ###
             ################################################################
             10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
@@ -212,8 +220,6 @@ page {
 
             AsideRight =< styles.content.get
             AsideRight.select.where = colPos = 2
-
-            Logo < lib.logo
 
             FooterColumn1 = CONTENT
             FooterColumn1 {
