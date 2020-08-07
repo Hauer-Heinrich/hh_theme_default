@@ -1,20 +1,25 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
-<f:asset.script identifier="functions" src="EXT:hh_theme_niedermaier/Resources/Public/JavaScript/functions.min.js" priority="true" />
+<!-- Header -->
+<f:asset.script identifier="first" priority="true">
+    document.documentElement.className += (("ontouchstart" in document.documentElement) ? ' touch' : ' no-touch');var root = document.documentElement;root.className += ' js';
+</f:asset.script>
+<f:asset.script identifier="functions" src="EXT:hh_theme_default/Resources/Public/JavaScript/functions.min.js" priority="true" />
 
-<f:asset.script identifier="jquery" src="EXT:hh_theme_niedermaier/Resources/Public/JavaScript/Libs/jquery-3.3.1.min.js" />
-<f:asset.script identifier="baguetteBox" src="EXT:hh_theme_niedermaier/Resources/Public/JavaScript/Libs/baguetteBox.min.js" />
-<f:asset.script identifier="io" src="EXT:hh_theme_niedermaier/Resources/Public/JavaScript/Libs/io.min.js" />
-
+<!-- Body end - librarys -->
+<f:asset.script identifier="jquery" src="EXT:hh_theme_default/Resources/Public/JavaScript/Libs/jquery-3.3.1.min.js" />
+<f:asset.script identifier="baguetteBox" src="EXT:hh_theme_default/Resources/Public/JavaScript/Libs/baguetteBox.min.js" />
+<f:asset.script identifier="io" src="EXT:hh_theme_default/Resources/Public/JavaScript/Libs/io.min.js" />
 <f:asset.script identifier="slider" src="EXT:hh_slider/Resources/Public/JavaScript/tiny-slider.min.js" />
-
-<f:asset.script identifier="baguetteBox.config" src="EXT:hh_theme_niedermaier/Resources/Public/JavaScript/LibsConfig/baguetteBox.config.min.js" />
 
 <f:asset.script identifier="powermail/datetimepicker" src="EXT:powermail/Resources/Public/JavaScript/Libraries/jquery.datetimepicker.min.js" />
 <f:asset.script identifier="powermail/parsley" src="EXT:powermail/Resources/Public/JavaScript/Libraries/parsley.min.js" />
 <f:asset.script identifier="powermail/Tabs" src="EXT:powermail/Resources/Public/JavaScript/Powermail/Tabs.min.js" />
 <f:asset.script identifier="powermail/Form" src="EXT:powermail/Resources/Public/JavaScript/Powermail/Form.min.js" />
 
+<!-- Body end - config -->
+<f:asset.script identifier="slider.config" src="EXT:hh_slider/Resources/Public/JavaScript/main.min.js" />
+<f:asset.script identifier="baguetteBox.config" src="EXT:hh_theme_default/Resources/Public/JavaScript/LibsConfig/baguetteBox.config.min.js" />
 
 </html>
