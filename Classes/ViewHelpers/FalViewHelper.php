@@ -50,8 +50,14 @@ class FalViewHelper extends AbstractViewHelper {
         ]);
     }
 
-    function registerArguments(Array $registers){
-        foreach($registers as $registerKey => $registerVal){
+    /**
+     * registerArguments
+     *
+     * @param Array $registers
+     * @return void
+     */
+    function registerArguments(Array $registers) {
+        foreach($registers as $registerKey => $registerVal) {
             $this->registerArgument(...$registerVal);
         }
     }
@@ -61,10 +67,15 @@ class FalViewHelper extends AbstractViewHelper {
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
      *
-     * @return string
+     * @return void
      */
     public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
+        $as = $arguments['as'];
         $fileRepository = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
-        return $fileRepository->findByRelation($arguments['table'], $arguments['field'], $arguments['id']);
+        $files = $fileRepository->findByRelation($arguments['table'], $arguments['field'], $arguments['id']);
+        $templateVariableContainer = $renderingContext->getVariableProvider();
+        $templateVariableContainer->add($as, $files);
+        // $content = $renderChildrenClosure();
+        // $templateVariableContainer->remove($as);
     }
 }

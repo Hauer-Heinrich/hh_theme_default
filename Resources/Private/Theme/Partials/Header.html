@@ -2,15 +2,7 @@
     data-namespace-typo3-fluid="true">
 
 <header id="header" class="main-header">
-    <f:for each="{hhdefault:fal(table: 'pages', field: 'media', id: '{site.rootPageId}')}" as="file" iteration="i">
-        <f:if condition="{i.cycle} == 1">
-            <div id="logo" itemscope="" itemtype="http://schema.org/Organization">
-                <f:link.typolink parameter="{file.link}">
-                    <f:image src="{file.uid}" treatIdAsReference="1" additionalAttributes="{itemprop: 'logo'}" />
-                </f:link.typolink>
-            </div>
-        </f:if>
-    </f:for>
+    <f:render partial="Logo" arguments="{_all}" />
 
     <nav id="menu-main" class="menu">
         <f:render partial="Menu/MainMenu" arguments="{_all}" />

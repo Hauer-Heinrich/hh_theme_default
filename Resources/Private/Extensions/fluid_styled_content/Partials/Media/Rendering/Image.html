@@ -42,13 +42,7 @@
                         <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" loading="lazy" />
                     </f:then>
                     <f:else>
-                        <img src="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default', height: '{dimensions.height}', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '{data.imagewidth}')}"
-                            {f:if(condition: '{data.imagewidth}', then: 'width="{data.imagewidth}"', else: 'width="{dimensions.width}"')}
-                            {f:if(condition: '{data.imageheight}', then: 'height="{data.imageheight}"', else: 'height="{dimensions.height}"')}
-                            {f:if(condition: '{file.title}', then: 'title="{file.title}"')}
-                            {f:if(condition: '{file.alternative}', then: 'alt="{file.alternative}"', else: 'alt=""')}
-                            loading="lazy"
-                        />
+                        <f:image class="image-embed-item" image="{file}" cropVariant="default" maxWidth="1920" loading="lazy" />
                     </f:else>
                 </f:if>
             </picture>

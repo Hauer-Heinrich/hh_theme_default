@@ -1,0 +1,12 @@
+<hhdefault:fal table="pages" field="media" id="{site.rootPageId}" as="logos" />
+<f:if condition="{logos}">
+    <f:for each="{logos}" as="file" iteration="i">
+        <f:if condition="{i.cycle} == 1">
+            <div id="logo" itemscope="" itemtype="http://schema.org/Organization">
+                <f:link.typolink parameter="{file.link}">
+                    <f:image src="{file.uid}" treatIdAsReference="1" additionalAttributes="{itemprop: 'logo'}" />
+                </f:link.typolink>
+            </div>
+        </f:if>
+    </f:for>
+</f:if>
