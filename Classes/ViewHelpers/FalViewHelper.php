@@ -72,7 +72,14 @@ class FalViewHelper extends AbstractViewHelper {
     public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
         $as = $arguments['as'];
         $fileRepository = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
-        $files = $fileRepository->findByRelation($arguments['table'], $arguments['field'], $arguments['id']);
+
+        if (is_numeric($arguments['id'])) {
+            $files = $fileRepository->findByRelation($arguments['table'], $arguments['field'], intval($arguments['id']));
+        } else {
+            $as = 'error';
+            $files = 'Error invalid arguments, argument: "'.$arguments['id'].'"';
+        }
+
         $templateVariableContainer = $renderingContext->getVariableProvider();
         $templateVariableContainer->add($as, $files);
         // $content = $renderChildrenClosure();
