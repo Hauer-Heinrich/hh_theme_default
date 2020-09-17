@@ -39,6 +39,8 @@ $customChanges = [
         'verify' => 1,
     ],
     'SYS' => [
+        'displayErrors' => 0,
+        'errorHandlerErrors' => 20480,
         'cookieSecure' => 1,
         'UTF8filesystem' => 1,
         'clearCacheSystem' => 1,
@@ -46,8 +48,23 @@ $customChanges = [
         'phpTimeZone' => 'Europe/Berlin',
         'systemLocale' => 'de_DE.UTF-8',
         'ipAnonymization' => '2',
-        'systemLogLevel' => '3',
-   ]
+    ],
+    'LOG' => [
+        'writerConfiguration' => [
+            \TYPO3\CMS\Core\Log\LogLevel::WARNING => [
+                \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+                    'disabled' => true,
+                ],
+            ],
+
+            \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
+                \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+                    'disabled' => false,
+                    'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_errors.log'
+                ],
+            ]
+        ]
+    ]
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customChanges);
 
@@ -83,12 +100,20 @@ if(\TYPO3\CMS\Core\Core\Environment::getContext()->__toString() === 'Development
             'verify' => 0,
         ],
         'SYS' => [
-            'cookieSecure' => 0,
             'displayErrors' => 1,
+            'errorHandlerErrors' => 30466,
+            'cookieSecure' => 0,
             'sqlDebug' => 1,
-            'systemLog' => 'error_log',
-            'systemLogLevel' => '2',
             'enableDeprecationLog' => 'file',
+        ],
+        'LOG' => [
+            'writerConfiguration' => [
+                \TYPO3\CMS\Core\Log\LogLevel::WARNING => [
+                    \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+                        'disabled' => false,
+                    ],
+                ]
+            ]
         ]
     ];
 
