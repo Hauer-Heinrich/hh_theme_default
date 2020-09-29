@@ -5,7 +5,7 @@
 [{
     <f:comment></f:comment>
     "shortcutIcon": "{hhSeo.shortcutIcon}",
-    "title": "{data.title}",
+    "title": "{f:if(condition: '{data.seo_title}', then: '{data.seo_title}', else: '{data.title}')}",
     "titleBefore": "{settings.titleBefore}",
     "titleAfter": "{settings.titleAfter}",
     "titleSeparate": " - ",
