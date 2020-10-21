@@ -28,8 +28,8 @@
         "hauerheinrich/hh_seo": ""
     },
     "suggest": {
-        "groundstack/gs-monitor-provider": "A TYPO3 extension used to monitor updates for TYPO3 and all installed extensions.",
-        "hauerheinrich/hh-widget-hhnews": "Hauer-Heinrich news widget for ext:dashboard"
+        "groundstack/gs-monitor-provider": "",
+        "hauerheinrich/hh-widget-hhnews": ""
     },
     "autoload": {
         "psr-4": {

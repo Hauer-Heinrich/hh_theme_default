@@ -35,7 +35,7 @@ h5 {
 }
 
 a {
-    color: $a-color;
+    color: $text-color;
     text-decoration: none;
     @include prefix(( transition: color $a-hover-transition-speed ));
 

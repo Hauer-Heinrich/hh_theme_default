@@ -9,3 +9,7 @@ services:
         identifier: 'afterExtensionInstall'
         event: TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent
         method: 'disableExtensions'
+      - name: event.listener
+        identifier: 'afterExtensionInstallAddAdditional'
+        event: TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent
+        method: 'addAdditionalConfiguration'

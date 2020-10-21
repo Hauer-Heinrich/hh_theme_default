@@ -33,9 +33,6 @@ editor:
       - { name: "btn-fullwidth", element: "div", attributes: {"class": "btn-fullwidth"} }
       - { name: "logo-icon", element: "span", attributes: {"class": "logo-icon"} }
 
-    customStylesSet:
-      - { name: "btn-default", element: "span", attributes: {"class": "btn-default"} }
-
     ### format tags:
     format_tags: "p"
 
@@ -67,7 +64,6 @@ editor:
       - { name: tools, groups: [ tools ] }
       - { name: others, groups: [ others ] }
       - { name: about, groups: [ about ] }
-      - { name: customsylesheet, groups: [ customsylesheet ] }
 
     justifyClasses:
       - text-left
@@ -109,10 +105,6 @@ editor:
 
     extraAllowedContent:
       - a[!href,document-href,tel]
-
-  ### external Plugin e. g.:
-  externalPlugins:
-    customsylesheet: { resource: "EXT:hh_theme_jobsdahoam/Resources/Public/JavaScript/RTE_Plugins/customSyleSheet/plugin.js" }
 
 ### Button config and defaults
 buttons:
