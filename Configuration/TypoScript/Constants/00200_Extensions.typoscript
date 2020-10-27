@@ -30,22 +30,22 @@ styles {
 ################################################################
 ### News - news ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:news\Configuration\TypoScript\constants.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:news/Configuration/TypoScript/constants.txt">
 
 ################################################################
 ### Address - tt_address ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:tt_address\Configuration\TypoScript\constants.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:tt_address/Configuration/TypoScript/constants.typoscript">
 
 ################################################################
 ### Form - powermail ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:powermail\Configuration\TypoScript\Main\constants.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:powermail/Configuration/TypoScript/Main/constants.typoscript">
 
 ################################################################
 ### Form powermail - hh_powermail_checkboxlink ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_powermail_checkboxlink\Configuration\TypoScript\constants.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_powermail_checkboxlink/Configuration/TypoScript/constants.typoscript">
 
 ################################################################
 ### Hauer-Heinrich Slider - hh_slider ###

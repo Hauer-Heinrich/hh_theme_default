@@ -24,7 +24,7 @@ lib.contentElement {
 ################################################################
 ### News - news ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:news\Configuration\TypoScript\setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:news/Configuration/TypoScript/setup.txt">
 plugin.tx_news {
     view {
         templateRootPaths {
@@ -69,7 +69,7 @@ plugin.tx_news {
 ################################################################
 ### Address - tt_address ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:tt_address\Configuration\TypoScript\setup.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:tt_address/Configuration/TypoScript/setup.typoscript">
 plugin.tx_ttaddress {
     view {
         templateRootPaths {
@@ -87,7 +87,7 @@ plugin.tx_ttaddress {
 ################################################################
 ### Form - powermail ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:powermail\Configuration\TypoScript\Main\setup.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:powermail/Configuration/TypoScript/Main/setup.typoscript">
 plugin.tx_powermail {
     view {
         templateRootPaths {
@@ -112,7 +112,7 @@ plugin.tx_powermail {
 ################################################################
 ### Form powermail - hh_powermail_checkboxlink ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_powermail_checkboxlink\Configuration\TypoScript\setup.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_powermail_checkboxlink/Configuration/TypoScript/setup.typoscript">
 
 ################################################################
 ### Hauer-Heinrich Slider - hh_slider ###
