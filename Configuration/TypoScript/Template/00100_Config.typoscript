@@ -57,7 +57,7 @@ page {
     }
 }
 
-[applicationContext = Development]
+[applicationContext == "Development"]
     config {
         no_cache = 1
         compressCss = 0
@@ -79,7 +79,7 @@ page {
     }
 [global]
 
-[applicationContext = Development/Server]
+[applicationContext == "Development/Server"]
     config {
         no_cache = 1
         compressCss = 0

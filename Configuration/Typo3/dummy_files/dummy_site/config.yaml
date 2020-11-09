@@ -1,11 +1,11 @@
 rootPageId: 1
-base: 'www.domain.tld'
+base: 'https://www.domain.tld'
 baseVariants:
   -
-    base: 'preview.domain.tld'
+    base: 'http://preview.domain.tld'
     condition: 'applicationContext == "Development/Server"'
   -
-    base: 'www.domain.localhost'
+    base: 'http://www.domain.localhost'
     condition: 'applicationContext == "Development"'
 languages:
   -
