@@ -14,6 +14,8 @@ config {
     cache_period = {$plugin.hhthemedefault.cacheperiod}
     extTarget = _blank
     contentObjectExceptionHandler = 0
+    ### is set in fluid layout file
+    disableBodyTag = 1
 
     ################################################################
     ### URL ###
@@ -116,7 +118,4 @@ page {
     ### Jede Seite eindeutig identifizieren - set in fluid layout ###
     ################################################################
     bodyTag >
-    config {
-        disableBodyTag = 1
-    }
 }
