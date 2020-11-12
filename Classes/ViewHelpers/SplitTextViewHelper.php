@@ -29,10 +29,10 @@ class SplitTextViewHelper extends AbstractViewHelper {
     }
 
     public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
-        $cssClass = !empty($arguments['class']) ? " class='".$arguments['class']."'" : "";
+        $cssClass = !empty($arguments['class']) ? "class='".$arguments['class']."'" : "";
         $tag = !empty($arguments['tag']) ? $arguments['tag'] : "span";
         $str = self::nth_replace($arguments['text'], "*", "|", 2);
-        $str = str_replace(["*", "|"], ["<{$tag}{$cssClass}>", "</{$tag}>"], $str);
+        $str = str_replace(["*", "|"], ["<{$tag} {$cssClass}>", "</{$tag}>"], $str);
 
         return $str;
     }
