@@ -21,13 +21,13 @@ editor:
       - "EXT:hh_theme_default/Resources/Public/Css/UserRTE.min.css"
 
     stylesSet:
-      - { name: "font-size xlarge", element: "p", attributes: { 'class': 'font-size-xlarge' } }
-      - { name: "font-size large", element: "p", attributes: { 'class': 'font-size-large' } }
-      - { name: "font-size medium", element: "p", attributes: { 'class': 'font-size-medium' } }
-      - { name: "font-size small", element: "p", attributes: { 'class': 'font-size-small' } }
-      - { name: "font-size xsmall", element: "p", attributes: { 'class': 'font-size-xsmall' } }
-      - { name: "letter-spacing 1", element: "span", attributes: { 'class': 'letter-spacing-1' } }
-      - { name: "letter-spacing 2", element: "span", attributes: { 'class': 'letter-spacing-2' } }
+      - { name: "font-size xlarge", element: "p", attributes: { "class": "font-size-xlarge" } }
+      - { name: "font-size large", element: "p", attributes: { "class": "font-size-large" } }
+      - { name: "font-size medium", element: "p", attributes: { "class": "font-size-medium" } }
+      - { name: "font-size small", element: "p", attributes: { "class": "font-size-small" } }
+      - { name: "font-size xsmall", element: "p", attributes: { "class": "font-size-xsmall" } }
+      - { name: "letter-spacing 1", element: "span", attributes: { "class": "letter-spacing-1" } }
+      - { name: "letter-spacing 2", element: "span", attributes: { "class": "letter-spacing-2" } }
 
       - { name: "btn-default", element: "span", attributes: {"class": "btn-default"} }
       - { name: "btn-fullwidth", element: "div", attributes: {"class": "btn-fullwidth"} }
