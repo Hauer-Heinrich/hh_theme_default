@@ -13,7 +13,7 @@ config {
     no_cache = {$plugin.hhthemedefault.cache}
     cache_period = {$plugin.hhthemedefault.cacheperiod}
     extTarget = _blank
-    contentObjectExceptionHandler = 0
+    contentObjectExceptionHandler = 1
     ### is set in fluid layout file
     disableBodyTag = 1
 
@@ -68,6 +68,7 @@ page {
         concatenateJs = 0
 
         admPanel = 1
+        contentObjectExceptionHandler = 0
     }
 
     page {
@@ -88,6 +89,7 @@ page {
         compressJs = 0
         concatenateCss = 0
         concatenateJs = 0
+        contentObjectExceptionHandler = 0
     }
 
     page {
