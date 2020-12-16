@@ -60,19 +60,23 @@ TCEFORM {
         categories.disabled = 1
         ### END: tt_content hide CEs and fields in BE
 
-
         removeItems = 1,2,3
         header_layout {
             altLabels {
                 ### Change header label
-                1 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.page.header1
-                2 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.page.header2
-                3 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.page.header3
-                4 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.page.header4
-                5 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.page.header5
+                1 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.ttContent.header1
+                2 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.ttContent.header2
+                3 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.ttContent.header3
+                4 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.ttContent.header4
+                5 = LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.ttContent.header5
             }
             addItems {
                 ### Add custom header layouts begin with 101 (!) as ID please
+            }
+        }
+
+        header_style {
+            addItems {
             }
         }
 
