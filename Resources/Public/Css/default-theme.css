@@ -515,45 +515,6 @@ template,
   img[src*=".svg"] {
     width: 100%; } }
 
-.ce-textpic.ce-intext.ce-nowrap {
-  display: flex;
-  flex-direction: column; }
-  .ce-textpic.ce-intext.ce-nowrap .ce-gallery {
-    flex-shrink: 2; }
-
-@media screen and (min-width: 1200px) {
-  .ce-textpic.ce-intext.ce-nowrap {
-    flex-direction: row; }
-    .ce-textpic.ce-intext.ce-nowrap .ce-gallery {
-      max-width: 50%; }
-    .ce-textpic.ce-intext.ce-nowrap.ce-left .ce-gallery {
-      margin-right: 20px; }
-    .ce-textpic.ce-intext.ce-nowrap.ce-right .ce-gallery {
-      margin-left: 20px; } }
-
-* {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-touch-callout: none;
-  /* disable callout, image save panel (popup) */
-  -webkit-tap-highlight-color: transparent;
-  /* "turn off" link highlight */ }
-
-a:focus {
-  outline: 0; }
-
-/* works default only if EXT:hh_video_extender is installed and enabled! */
-[data-type="external"] .video-embed {
-  position: relative;
-  overflow: hidden;
-  padding-top: 56.25%; }
-  [data-type="external"] .video-embed > iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0; }
-
 .row,
 .ce-row {
   box-sizing: border-box;
@@ -816,5 +777,72 @@ ul.ionav--hasSubnav.ionav--active {
     transform: scale(0); }
   50% {
     transform: scale(1); } }
+
+.ce-textpic.ce-intext.ce-nowrap {
+  display: flex;
+  flex-direction: column; }
+  .ce-textpic.ce-intext.ce-nowrap .ce-gallery {
+    flex-shrink: 2; }
+
+@media screen and (min-width: 1200px) {
+  .ce-textpic.ce-intext.ce-nowrap {
+    flex-direction: row; }
+    .ce-textpic.ce-intext.ce-nowrap .ce-gallery {
+      max-width: 50%; }
+    .ce-textpic.ce-intext.ce-nowrap.ce-left .ce-gallery {
+      margin-right: 20px; }
+    .ce-textpic.ce-intext.ce-nowrap.ce-right .ce-gallery {
+      margin-left: 20px; } }
+
+.ce-uploads {
+  margin-left: 20px; }
+
+.ce-uploads-imagegallery {
+  -webkit-column-width: 300px;
+  -moz-column-width: 300px;
+  column-width: 300px;
+  -webkit-column-gap: 0;
+  -moz-column-gap: 0;
+  column-gap: 0;
+  row-gap: 0;
+  gap: 0;
+  list-style: none;
+  margin-left: 0; }
+  .ce-uploads-imagegallery video {
+    max-width: 100%; }
+  .ce-uploads-imagegallery a {
+    display: block;
+    margin: 0;
+    padding: 5px;
+    overflow: hidden; }
+    .ce-uploads-imagegallery a figure {
+      overflow: hidden; }
+    .ce-uploads-imagegallery a img {
+      transition: all 400ms; }
+    .ce-uploads-imagegallery a:hover img {
+      transform: scale(1.1); }
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  /* disable callout, image save panel (popup) */
+  -webkit-tap-highlight-color: transparent;
+  /* "turn off" link highlight */ }
+
+a:focus {
+  outline: 0; }
+
+/* works default only if EXT:hh_video_extender is installed and enabled! */
+[data-type="external"] .video-embed {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%; }
+  [data-type="external"] .video-embed > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; }
 
 /*# sourceMappingURL=sourcemaps/default-theme.css.map */

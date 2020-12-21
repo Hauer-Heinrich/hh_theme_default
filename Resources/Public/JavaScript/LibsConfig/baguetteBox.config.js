@@ -1,4 +1,4 @@
-baguetteBox.run(".lightbox", {
+baguetteBox.run(".image-zoom", {
     fullScreen: true,
     titleTag: true,
     async: true
