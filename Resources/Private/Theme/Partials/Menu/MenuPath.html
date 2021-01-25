@@ -1,12 +1,13 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true">
-
+<f:spaceless>
 <f:if condition="{MenuPath}">
-    <ul class="menu-breadcrumb breadcrumbs">
-        <f:for each="{MenuPath}" as="item">
-            <f:render partial="Menu/Elements/Item" arguments="{item: item}"/>
+    <ol class="menu-breadcrumb breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <f:for each="{MenuPath}" as="item" iteration="i">
+            <f:render partial="Menu/Elements/MenuPathItem" arguments="{item: item, i: i}"/>
+            </li>
         </f:for>
-    </ul>
+    </ol>
 </f:if>
-
+</f:spaceless>
 </html>
