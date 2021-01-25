@@ -5,7 +5,9 @@
     <ol class="menu-breadcrumb breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
         <f:for each="{MenuPath}" as="item" iteration="i">
             <f:render partial="Menu/Elements/MenuPathItem" arguments="{item: item, i: i}"/>
-                <span class="separator">{settings.breadcrumbSeparator}</span>
+            <f:if condition="{i.isLast}">
+                <f:else><span class="separator">{settings.breadcrumbSeparator}</span></f:else>
+            </f:if>
             </li>
         </f:for>
     </ol>
