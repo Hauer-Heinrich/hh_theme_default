@@ -5,6 +5,7 @@
     <ol class="menu-breadcrumb breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
         <f:for each="{MenuPath}" as="item" iteration="i">
             <f:render partial="Menu/Elements/MenuPathItem" arguments="{item: item, i: i}"/>
+                <span class="separator">{settings.breadcrumbSeparator}</span>
             </li>
         </f:for>
     </ol>

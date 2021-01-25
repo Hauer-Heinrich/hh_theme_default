@@ -182,8 +182,8 @@ page {
         }
 
         settings {
-            applicationContext = getenv:TYPO3_CONTEXT
             indexedSearchId = {$plugin.hhthemedefault.indexedSearchId}
+            breadcrumbSeparator = {$plugin.hhthemedefault.breadcrumbSeparator}
         }
 
         variables {

@@ -27,4 +27,7 @@ plugin.hhthemedefault {
         multiLanguage = 0
     # cat=plugin.hhthemedefault_Layout/basic/0060; type=color; label= themeColor (interessant z. B. für Smartphones)
         themeColor =
+
+    # cat=plugin.hhthemedefault_Layout/basic/0100; type=string; label= breadcrumb separator (e. g. > or | ...)
+        breadcrumbSeparator = >
 }
