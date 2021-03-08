@@ -3,7 +3,7 @@
     <f:for each="{logos}" as="file" iteration="i">
         <f:if condition="{i.cycle} == 1">
             <div id="logo" itemscope="" itemtype="http://schema.org/Organization">
-                <f:link.typolink parameter="{file.link}">
+                <f:link.typolink parameter="{file.link}" absolute="1" additionalAttributes="{itemprop: 'url'}">
                     <f:image src="{file.uid}" treatIdAsReference="1" additionalAttributes="{itemprop: 'logo'}" />
                 </f:link.typolink>
             </div>
