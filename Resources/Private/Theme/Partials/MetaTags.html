@@ -1,44 +1,46 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:seo="http://typo3.org/ns/HauerHeinrich/HhSeo/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
 <hhseo:metaTag order="0">
-[{
-    <f:comment></f:comment>
-    "title": "{f:if(condition: '{data.seo_title}', then: '{data.seo_title}', else: '{data.title}')}",
-    "titleBefore": "{settings.titleBefore}",
-    "titleAfter": "{settings.titleAfter}",
-    "titleSeparate": " - ",
-    "titleSeparateBefore": "",
-    "titleSeparateAfter": "",
+title = {f:if(condition: '{data.seo_title}', then: '{data.seo_title}', else: '{data.title}')}
+titleBefore = {settings.titleBefore}
+titleAfter = {settings.titleAfter}
+titleSeparate = " - "
+titleSeparateBefore = ""
+titleSeparateAfter = ""
 
-    "description": "{data.description}",
+description = <seo:formatIni data="{data.description}" />
 
-    "designer": "{hhSeo.designer}",
-    "theme-color": "{hhSeo.themeColor}",
-    "shortcutIcon": "{hhSeo.shortcutIcon}",
-    "touchIcon": "{hhSeo.touchIcon}",
-    "format-detection": "false",
-    "last-modified": "{data.SYS_LASTCHANGED}",
+designer = {hhSeo.designer}
+theme-color = {hhSeo.themeColor}
+shortcutIcon = {hhSeo.shortcutIcon}
+touchIcon = {hhSeo.touchIcon}
+format-detection = false
+last-modified = {data.SYS_LASTCHANGED}
 
-    "author": "/humans.txt",
-    "link:author": "/humans.txt",
+author = /humans.txt
+link:author = /humans.txt
 
-    "robots:index": "{f:if(condition: '{data.no_index}', then: 'noindex')}",
-    "robots:follow": "{f:if(condition: '{data.no_follow}', then: 'nofollow')}",
+robots:index = {f:if(condition: '{data.no_index}', then: 'noindex')}
+robots:follow = {f:if(condition: '{data.no_follow}', then: 'nofollow')}
 
-    "og:title": "{data.og_title}",
-    "og:description": "{data.og_description}",
-    "og:image": "<f:if condition="{og_image.0}">{f:uri.image(src: '{og_image.0.uid}', treatIdAsReference: 1)}</f:if>",
+og:title = {data.og_title}
+og:description = <seo:formatIni data="{data.og_description}" />
+<f:if condition="{og_image->f:count()} > 0">
+    <f:for each="{og_image}" as="image" iteration="i">
+        og:image[] = {f:uri.image(src: '{image.uid}', treatIdAsReference: 1)}
+    </f:for>
+</f:if>
 
-    "twitter:title": "{data.twitter_title}",
-    "twitter:description": "{data.twitter_description}",
-    "twitter:image": "<f:if condition="{twitter_image.0}">{f:uri.image(src: '{twitter_image.0.uid}', treatIdAsReference: 1)}</f:if>",
+twitter:title = {data.twitter_title}
+twitter:description = <seo:formatIni data="{data.twitter_description}" />
+twitter:image[] = <f:if condition="{twitter_image.0}">{f:uri.image(src: '{twitter_image.0.uid}', treatIdAsReference: 1)}</f:if>
 
-    "geo:region": "{geoRegion}",
-    "geo:placename": "{geoPlacename}",
-    "geo:position:long": "{geoPositionLong}",
-    "geo:position:lat": "{geoPositionLat}"
-}]
+geo:region = {geoRegion}
+geo:placename = {geoPlacename}
+geo:position:long = {geoPositionLong}
+geo:position:lat = {geoPositionLat}
 </hhseo:metaTag>
 
 </html>
