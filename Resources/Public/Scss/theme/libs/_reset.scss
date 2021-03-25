@@ -618,6 +618,10 @@ template,
     visibility: hidden;
 }
 
+svg {
+    max-width: 100%;
+}
+
 /* IE FIX SVG */
 .ie img[src*=".svg"] {
     width: 100%;
