@@ -26,6 +26,7 @@ $EM_CONF['hh_theme_default'] = [
         'depends' => [
             'typo3' => '10.4.0-10.4.99',
             'fluid_styled_content' => '10.4.0-10.4.99',
+            'rte_ckeditor' => '',
             'scheduler' => '',
             'news' => '',
             'tt_address' => '',

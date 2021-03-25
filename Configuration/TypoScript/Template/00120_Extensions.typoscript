@@ -100,13 +100,6 @@ plugin.tx_powermail {
             100 = {$themeDefault.urls.themeResources}Private/Extensions/powermail/Layouts/
         }
     }
-
-    settings {
-        javascript {
-            addAdditionalJavaScript = 0
-            powermailJQuery = 0
-        }
-    }
 }
 
 ################################################################

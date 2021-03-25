@@ -20,6 +20,7 @@
         "typo3/cms-fluid": "^10.4.0 || ^10.4.99",
         "typo3/cms-frontend": "^10.4.0 || ^10.4.99",
         "typo3/cms-fluid-styled-content": "^10.4.0 || ^10.4.99",
+        "typo3/cms-rte-ckeditor": "",
         "typo3/cms-scheduler": "",
         "georgringer/news": "",
         "friendsoftypo3/tt-address": "",

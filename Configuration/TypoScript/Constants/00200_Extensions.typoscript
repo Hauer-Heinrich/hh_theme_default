@@ -41,6 +41,14 @@ styles {
 ### Form - powermail ###
 ################################################################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:powermail/Configuration/TypoScript/Main/constants.typoscript">
+plugin.tx_powermail {
+    settings {
+        javascript {
+            addJQueryFromGoogle = 0
+            addAdditionalJavaScript = 0
+        }
+    }
+}
 
 ################################################################
 ### Form powermail - hh_powermail_checkboxlink ###
