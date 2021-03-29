@@ -47,8 +47,8 @@ errorHandling:
     errorContentSource: 't3://page?uid=10' # uid = page UID from the BE page tree
 ### Import default Robots.txt
 imports:
-  - { resource: "EXT:hh_theme_default/Configuration/Typo3/sites/robots.yaml" }
-  - { resource: "EXT:hh_theme_default/Configuration/Typo3/sites/humans.yaml" }
+  - { resource: "EXT:hh_theme_default/Configuration/Typo3/dummy_files/dummy_site/robots.yaml" }
+  - { resource: "EXT:hh_theme_default/Configuration/Typo3/dummy_files/dummy_site/humans.yaml" }
 routeEnhancers:
   PageTypeSuffix:
     type: PageType
