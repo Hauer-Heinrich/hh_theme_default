@@ -39,41 +39,38 @@ class SystemInformationToolbarItemGit {
             );
 
             // get remote commit information
-            $remoteCommit = '';
-            exec('cd '. $extensionPath . ' && git ls-remote --refs --quiet', $remoteCommits);
+            $currentCommit = 'error';
+            $remoteCommit = 'error';
+            // exec('cd '. $extensionPath . ' && git ls-remote --refs --quiet 2>&1 || echo "ERROR"', $remoteCommits);
+            exec('cd ' . $extensionPath . ' git fetch');
+            exec('cd ' . $extensionPath . ' && git show-ref '.$currentBranch.' 2>&1', $remoteCommits);
+
+            $statusCode = 'danger';
             if(is_array($remoteCommits) && !empty($remoteCommits)) {
-                foreach ($remoteCommits as $key => $value) {
-                    if (substr($value, -strlen($currentBranch)) === $currentBranch) {
-                        $remoteCommit = substr($value, 0, 7);
-                    }
-                }
-            }
+                $currentCommit = substr(explode(' ', $remoteCommits[0])[0], 0, 7);
+                $remoteCommit = substr(explode(' ', $remoteCommits[1])[0], 0, 7);
 
-            // get current commit id
-            $currentCommit = exec('cd '. $extensionPath . ' && git rev-parse --short HEAD');
-
-            if (!empty($currentCommit) && !empty($remoteCommit)) {
-                $statusCode = 'success';
-                // status code for addSystemInformation(...)
-                if ($remoteCommit !== $currentCommit) {
+                if($currentCommit === $remoteCommit) {
+                    $statusCode = 'success';
+                } else {
                     $statusCode = 'warning';
                 }
-
-                // show current git commit
-                $systemInformation->addSystemInformation(
-                    'GIT commit',
-                    htmlspecialchars(trim($currentCommit)),
-                    'icon-git',
-                    $statusCode
-                );
-
-                // show remote git commit
-                $systemInformation->addSystemInformation(
-                    'GIT commit remote',
-                    htmlspecialchars(trim($remoteCommit)),
-                    'icon-git'
-                );
             }
+
+            // show current git commit
+            $systemInformation->addSystemInformation(
+                'GIT commit',
+                htmlspecialchars(trim($currentCommit)),
+                'icon-git',
+                $statusCode
+            );
+
+            // show remote git commit
+            $systemInformation->addSystemInformation(
+                'GIT commit remote',
+                htmlspecialchars(trim($remoteCommit)),
+                'icon-git'
+            );
         }
     }
 }
