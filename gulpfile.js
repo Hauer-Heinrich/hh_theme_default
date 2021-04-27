@@ -14,7 +14,6 @@
 
 // NPM PACKAGES
 let gulp = require('gulp'),
-    //gulpCli = require('gulp-cli'),
     sass = require('gulp-sass'),
     rename = require("gulp-rename"),
     minify = require("gulp-babel-minify"),

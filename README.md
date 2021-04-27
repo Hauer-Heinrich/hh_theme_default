@@ -14,7 +14,7 @@ hh_seo | [https://github.com/Hauer-Heinrich/hh_seo/blob/master/README.md]
 ### Requirements (for Development)
 1. Install NodeJS / NPM: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 2. Make sure NodeJS / NPM is up-to-date: `npm install -g npm`
-3. Install gulp and gulp-cli: `npm install -g gulp gulp-cli`
+3. Install gulp and gulp-cli: `npm install -g gulp-cli`
 
 ### Installation (for Development)
 1. `git clone https://github.com/Hauer-Heinrich/hh_theme_default.git`
