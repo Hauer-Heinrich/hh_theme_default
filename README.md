@@ -11,6 +11,17 @@ Extension | README
 hh_slider | [https://github.com/Hauer-Heinrich/hh_slider/blob/master/README.md]
 hh_seo | [https://github.com/Hauer-Heinrich/hh_seo/blob/master/README.md]
 
+### Requirements
+1. Install NodeJS / NPM: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+2. Make sure NodeJS / NPM is up-to-date: `npm install -g npm`
+3. Install gulp and gulp-cli: `npm install -g gulp gulp-cli
+
+### Installation
+1. git clone https://github.com/Hauer-Heinrich/hh_theme_default.git
+2. cd hh_theme_default
+3. npm install
+4. gulp         # This will list all available gulp commands for your theme build
+
 ### Plugins
 hh_theme_default is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
 

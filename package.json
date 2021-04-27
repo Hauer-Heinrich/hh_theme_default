@@ -1,5 +1,8 @@
 {
   "name": "typo3_gulp_scss",
+  "engines": {
+    "node": ">=14"
+  },
   "version": "1.1.0",
   "description": "Typo3 Gulp SCSS Autocompiler to CSS + CSS Minifier + CSS Sourcemaps + JS Minifier",
   "main": "gulpfile.js",
@@ -19,9 +22,14 @@
     "giftp": "1.0.2",
     "gulp": "^4.0.2",
     "gulp-babel-minify": "^0.5.1",
+    "gulp-cli": "^2.3.0",
     "gulp-download-stream": "0.0.19",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^3.0.0"
+  },
+  "devDependencies": {
+    "gulp-util": "^3.0.8",
+    "npm-force-resolutions": "0.0.10"
   }
 }
