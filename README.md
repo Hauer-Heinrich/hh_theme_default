@@ -65,7 +65,7 @@ io.pub("/globalEvent/"); // Or this.io.pub("/globalEvent/", overrideArgument...)
 ```
 
 #### MQL MANAGER
-// ---------------------------------------
+
 // Setup a Mql Manager Subscription (sets a new mql query subscription)
 // It behaves like https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList but in a much simpler way
 // (Use the defaults/options config to set the mqlQuery for the mqlManager (see the defaults setting)) or use a custom one
@@ -91,11 +91,12 @@ io.sub("/mqlManager/somethingElse/", () => console.log("Will be triggered by the
 
 #### Remove a Mql Manager Subscription
 
+
 ```
 io.mqlManagerRemove("/mqlManager/");
 ```
 
-#### UTILITIES
+#### Utilities
 
 ```
 // Element On / Off Events
