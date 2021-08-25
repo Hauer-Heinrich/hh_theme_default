@@ -104,7 +104,8 @@ editor:
       - colorbutton
 
     extraAllowedContent:
-      - a[!href,document-href,tel]
+      - "a[!href,document-href,tel]"
+      # - "*(*)[onclick]"
 
 ### Button config and defaults
 buttons:
@@ -155,16 +156,20 @@ classesAnchor:
   linkDownload:
     class: 'link-download'
     type: 'file'
+    titleText: 'Download file'
   linkFolder:
     class: 'link-folder'
     type: 'folder'
   linkExternal:
     class: 'link-external'
     type: 'url'
+    titleText: 'Opens External link in new window'
   linkExternalBlank:
     class: 'link-external-blank'
     type: 'url'
     target: '_blank'
+    titleText: 'Opens External link in new window'
   linkMail:
     class: 'link-mail'
     type: 'mail'
+    titleText: 'Email Address'

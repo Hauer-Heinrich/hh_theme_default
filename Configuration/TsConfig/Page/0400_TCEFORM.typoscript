@@ -44,6 +44,10 @@ TCEFORM {
             uploads.disabled = 1
             gridelements_pi1.disabled = 1
         }
+
+        ### disable "select and upload"-button
+        assets.config.appearance.fileUploadAllowed = 0
+
         imageborder.types {
             textmedia.disabled = 1
         }
@@ -156,6 +160,11 @@ TCEFORM {
         php_tree_stop.disabled = 1
         categories.disabled = 1
         rowDescription.disabled = 1
+
+        ### disable "select and upload"-button
+        media.config.appearance.fileUploadAllowed = 0
+        og_image.config.appearance.fileUploadAllowed = 0
+        twitter_image.config.appearance.fileUploadAllowed = 0
 
         # module.disabled = 1
         TSconfig.disabled = 1
