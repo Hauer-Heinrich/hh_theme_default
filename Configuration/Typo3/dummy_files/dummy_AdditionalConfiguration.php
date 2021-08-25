@@ -12,5 +12,5 @@ if (!defined('TYPO3_MODE')) {
     aus Sicherheitsgründen bitte die Datenbank zugänge außerhalb des document roots anlegen!
 */
 
-$ThemeDefaultAdditionalConfiguration = \TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3conf/ext/hh_theme_default/Configuration/Typo3/AdditionalConfiguration.php';
-if (file_exists($ThemeDefaultAdditionalConfiguration)) { require_once ($ThemeDefaultAdditionalConfiguration); }
+$themeDefaultAdditionalConfiguration = \TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3conf/ext/[ExtensionKey]/Configuration/Typo3/AdditionalConfiguration.php';
+if (file_exists($themeDefaultAdditionalConfiguration)) { require_once ($themeDefaultAdditionalConfiguration); }

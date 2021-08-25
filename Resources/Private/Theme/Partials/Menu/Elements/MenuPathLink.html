@@ -3,13 +3,13 @@
 <f:spaceless>
 <f:if condition="{item.data.target}">
     <f:then>
-        <a href="{item.link}" {f:if(condition:item.active, then: 'class="act"')} target="{item.data.target}" title="{item.data.title}" itemprop="item">
+        <a href="{item.link}" {f:if(condition: item.active, then: 'class="act"')} target="{item.data.target}" title="{item.data.title}" itemprop="item">
     </f:then>
     <f:else if="{item.target}">
-        <a href="{item.link}" {f:if(condition:item.active, then: 'class="act"')} target="{item.target}" title="{item.data.title}" itemprop="item">
+        <a href="{item.link}" {f:if(condition: item.active, then: 'class="act"')} target="{item.target}" title="{item.data.title}" itemprop="item">
     </f:else>
     <f:else>
-        <a href="{item.link}" {f:if(condition:item.active, then: 'class="act"')} title="{item.data.title}" itemprop="item">
+        <a href="{item.link}" {f:if(condition: item.active, then: 'class="act"')} title="{item.data.title}" itemprop="item">
     </f:else>
 </f:if>
     <f:if condition="{label} != 'false'">
