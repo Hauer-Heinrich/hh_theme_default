@@ -507,6 +507,10 @@ template,
   opacity: 0;
   visibility: hidden; }
 
+svg {
+  height: auto;
+  max-width: 100%; }
+
 /* IE FIX SVG */
 .ie img[src*=".svg"] {
   width: 100%; }
