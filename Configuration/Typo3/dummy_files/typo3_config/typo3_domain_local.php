@@ -27,10 +27,12 @@ $customChanges = [
     ],
     'GFX' => [
         // Windows example (GraphicsMagick)
+        // 'processor' => 'GraphicsMagick',
         // 'im_path' => 'C:\\Program Files\\GraphicsMagick-1.3.31-Q16\\',
         // 'processor_path' => 'C:\\Program Files\\GraphicsMagick-1.3.31-Q16\\'
 
         // Windows example (ImageMagick)
+        // 'processor' => 'ImageMagick',
         // 'im_path' => 'C:\\Program Files\\ImageMagick-7.0.8-Q16\\',
         // 'processor_path' => 'C:\\Program Files\\ImageMagick-7.0.8-Q16\\',
         // 'processor_path_lzw' => 'C:\\Program Files\\ImageMagick-7.0.8-Q16\\'

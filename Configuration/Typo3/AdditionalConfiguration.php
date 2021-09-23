@@ -25,8 +25,6 @@ $customChanges = [
         'loginSecurityLevel' => 'normal',
         'compressionLevel' => '0',
         'noPHPscriptInclude' => '1',
-        'pageNotFound_handling' => '404.html',
-        'pageUnavailable_handling' => '503.html',
         'disableNoCacheParameter' => 0,
         'hidePagesIfNotTranslatedByDefault' => 1,
         // only if server has no argon2i
