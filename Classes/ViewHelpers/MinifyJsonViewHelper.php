@@ -27,18 +27,24 @@ namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
  *   xmlns:hh="http://typo3.org/ns/VENDOR/NAMESPACE/ViewHelpers"
  *   data-namespace-typo3-fluid="true">
  *
- *  <hh:phoneNumber number="0564846 64 - 5">
+ *  <hh:minifyJson text="my text" />
  */
 
 // use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithContentArgumentAndRenderStatic;
 
-class PhoneNumberViewHelper extends AbstractViewHelper {
+class MinifyJsonViewHelper extends AbstractViewHelper {
+
+    use CompileWithContentArgumentAndRenderStatic;
+
+    protected $escapeOutput = false;
+
     public function initializeArguments() {
-        $this->registerArgument('number', 'string', 'Phone number, dont work with numbers like +49 (0) 3425..', true);
-        $this->registerArgument('country', 'string', 'country number, default: +49', false);
-        $this->registerArgument('trimAll', 'bool', 'get rid of all whitespaces and characters like ". / () ..."', false);
+        $this->registerArgument('text', 'string', 'Removes new lines from the given text.', false);
+        $this->registerArgument('trim', 'bool', 'Remove spaces befor and after given text', false, false);
     }
 
     /**
@@ -49,31 +55,12 @@ class PhoneNumberViewHelper extends AbstractViewHelper {
      * @return string
      */
     public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
-        $number = $arguments['number'];
-        $country_code = $arguments['country'];
+        $text = $renderChildrenClosure();
 
-        if($arguments['trimAll'] === true) {
-            return str_replace([' ', '.', '-', '(', ')', '(0)'], '', $number);
+        if($arguments['trim']) {
+            $text = trim($text);
         }
 
-        // Look up the country dialling code for this number:
-        if (empty($country_code)) {
-            $pfx = '+49';
-        } else {
-            $pfx = $country_code;
-        }
-
-        // Strip spaces and non-numeric characters:
-        $n = preg_replace("/[^0-9]/", "", $number);
-
-        // Strip out leading zeros:
-        $n = ltrim($n, '0');
-
-        // Check if the number doesn't already start with the correct dialling code:
-        if (!strrpos($n, $pfx, -strlen($n))) {
-            $n = $pfx.$n;
-        }
-
-        return $n;
+        return preg_replace(array('/\s{2,}/', '/[\t\n]/'), ' ', $text);
     }
 }

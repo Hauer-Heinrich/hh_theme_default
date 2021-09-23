@@ -74,12 +74,15 @@ plugin.tx_ttaddress {
     view {
         templateRootPaths {
             10 = {$themeDefault.urls.themeResources}Private/Extensions/tt_address/Templates/
+            100 = {$plugin.tx_ttaddress.view.templateRootPath}
         }
         partialRootPaths {
             10 = {$themeDefault.urls.themeResources}Private/Extensions/tt_address/Partials/
+            100 = {$plugin.tx_ttaddress.view.partialRootPath}
         }
         layoutRootPaths {
             10 = {$themeDefault.urls.themeResources}Private/Extensions/tt_address/Layouts/
+            100 = {$plugin.tx_ttaddress.view.layoutRootPath}
         }
     }
 }
