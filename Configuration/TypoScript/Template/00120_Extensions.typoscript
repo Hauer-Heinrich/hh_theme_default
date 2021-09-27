@@ -145,6 +145,41 @@ tt_content.hhslider_hh_slider {
 ################################################################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_seo/Configuration/TypoScript/setup.typoscript">
 
+plugin.tx_seo.config {
+    xmlSitemap {
+        sitemaps {
+            # news {
+            #     provider = GeorgRinger\News\Seo\NewsXmlSitemapDataProvider
+            #     config {
+            #         excludedTypes = 1,2
+            #         table = tx_news_domain_model_news
+            #         additionalWhere =
+            #         sortField = sorting
+            #         lastModifiedField = tstamp
+            #         changeFreqField = sitemap_changefreq
+            #         priorityField = sitemap_priority
+            #         pid = 116
+            #         recursive = 2
+            #         url {
+            #             pageId = 522
+            #             useCategorySinglePid = 1
+            #             fieldToParameterMap {
+            #                 uid = tx_news_pi1[news]
+            #             }
+
+            #             additionalGetParameters {
+            #                 tx_news_pi1.controller = News
+            #                 tx_news_pi1.action = detail
+            #             }
+
+            #             useCacheHash = 1
+            #         }
+            #     }
+            # }
+        }
+    }
+}
+
 ################################################################
 ### Hauer-Heinrich Cookie Consent - hh_ext_cookie_consent ###
 ################################################################
