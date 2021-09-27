@@ -12,6 +12,12 @@ imports:
 ### https://www.clickstorm.de/blog/der-neue-typo3-rte-ckeditor/
 ### https://www.thomaskieslich.de/blog/127-typo3-8x-ckeditor-konfigurieren/
 
+processing:
+  HTMLparser_db:
+    tags:
+      span:
+        allowedAttribs: "class, id, title, dir, lang, xml:lang, itemscope, itemtype, itemprop, data-color"
+
 editor:
 
   config:
@@ -76,6 +82,7 @@ editor:
       - specialchar
       - showblocks
       - link
+      - colorbutton
 
     removePlugins:
       - image
@@ -101,11 +108,15 @@ editor:
       - Smiley
       - Iframe
       - About
-      - colorbutton
 
     extraAllowedContent:
       - "a[!href,document-href,tel]"
-      # - "*(*)[onclick]"
+
+  colorButton_colors: "c5162d"
+  colorButton_backStyle: ""
+  colorButton_enableAutomatic: false
+  colorButton_enableMore: false
+  colorButton_foreStyle: { element: "span", attributes: { "data-color": "#(color)" } }
 
 ### Button config and defaults
 buttons:
