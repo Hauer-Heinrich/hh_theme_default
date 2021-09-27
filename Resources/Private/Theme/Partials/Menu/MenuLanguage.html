@@ -7,9 +7,9 @@
             <li class="{f:if(condition: item.active, then: 'active')}{f:if(condition: item.available, else: ' text-muted')}">
                 <f:if condition="{item.available}">
                 <f:then>
-                    <a href="{item.link}" hreflang="{item.hreflang}" title="{item.navigationTitle}">
+                    <f:link.page class="{f:if(condition: item.active, then: 'act')}" addQueryString="1" addQueryStringMethod="GET" title="{item.navigationTitle}" additionalParams="{L:item.languageUid}" additionalAttributes="{hreflang: '{item.hreflang}', data-langUid: '{item.languageUid}'}">
                         <span>{item.navigationTitle}</span>
-                    </a>
+                    </f:link.page>
                 </f:then>
                 <f:else>
                     <span>{item.navigationTitle}</span>
