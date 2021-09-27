@@ -2,17 +2,21 @@
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -219,16 +223,26 @@ if (window.NodeList && !NodeList.prototype.forEach) {
       }
     });
   });
-})([Element.prototype, Document.prototype, DocumentFragment.prototype]);
+})([Element.prototype, Document.prototype, DocumentFragment.prototype]); // ToDo: Expand all methods functionality by using "this" element, instead of the function parameter "element" for "easier" use
 
-var IoUtilities =
-/*#__PURE__*/
-function () {
+
+var IoUtilities = /*#__PURE__*/function () {
   function IoUtilities() {
     _classCallCheck(this, IoUtilities);
   }
 
   _createClass(IoUtilities, [{
+    key: "position",
+    // https://stackoverflow.com/questions/1350581/how-to-get-an-elements-top-position-relative-to-the-browsers-viewport
+    value: function position(element) {
+      var rect = element.getBoundingClientRect();
+      var win = element.ownerDocument.defaultView;
+      return {
+        top: rect.top + win.pageYOffset,
+        left: rect.left + win.pageXOffset
+      };
+    }
+  }, {
     key: "windowWidth",
     value: function windowWidth() {
       return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
@@ -244,7 +258,7 @@ function () {
       if (typeof _width != "undefined") {
         element.style.width = Number.isInteger(_width) ? _width + "px" : _width;
       } else {
-        return element.clientWidth || 0;
+        return typeof this.elements(element)[0] != "undefined" ? this.elements(element)[0].clientWidth || 0 : 0;
       }
     }
   }, {
@@ -253,7 +267,7 @@ function () {
       if (typeof _height != "undefined") {
         element.style.height = Number.isInteger(_height) ? _height + "px" : _height;
       } else {
-        return element.clientHeight || 0;
+        return typeof this.elements(element)[0] != "undefined" ? this.elements(element)[0].clientHeight || 0 : 0;
       }
     }
   }, {
@@ -329,6 +343,7 @@ function () {
         elementTarget.prepend(elementNode);
       } else if (position === "append" || position === "bottom") {
         elementTarget.append(elementNode);
+      } else {// @ToDo: Default...??
       }
 
       return elementNode;
@@ -419,9 +434,10 @@ function () {
   }, {
     key: "elementsEach",
     value: function elementsEach(selector, func) {
-      var elements = this.elements(selector);
-      elements.forEach(func); // @ToDo: Alternative??: elements.forEach((fn) => func.call(this, fn));
+      var elements = this.elements(selector); // @ToDo: There seems to be a scoping bug if there is a elementsEach in a elementsEach loop (check for alternatives)
+      // @ToDo: Alternative??: elements.forEach((fn) => func.call(this, fn));
 
+      elements.forEach(func);
       return elements;
     }
   }, {
@@ -552,10 +568,10 @@ function () {
   return IoUtilities;
 }();
 
-var Io =
-/*#__PURE__*/
-function (_IoUtilities) {
+var Io = /*#__PURE__*/function (_IoUtilities) {
   _inherits(Io, _IoUtilities);
+
+  var _super = _createSuper(Io);
 
   function Io() {
     var _this2;
@@ -565,7 +581,7 @@ function (_IoUtilities) {
     _classCallCheck(this, Io);
 
     // Super Class Constructor (needed if you use inheritance)
-    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(Io).call(this)); // Set Defaults, Options & Config
+    _this2 = _super.call(this); // Set Defaults, Options & Config
 
     _this2.options = options;
     _this2.config = {};
@@ -821,10 +837,10 @@ function (_IoUtilities) {
 
 var io = new Io();
 
-var IoAccordion =
-/*#__PURE__*/
-function (_Io) {
+var IoAccordion = /*#__PURE__*/function (_Io) {
   _inherits(IoAccordion, _Io);
+
+  var _super2 = _createSuper(IoAccordion);
 
   function IoAccordion() {
     var _this4;
@@ -834,7 +850,7 @@ function (_Io) {
     _classCallCheck(this, IoAccordion);
 
     // Super Class Constructor (needed if you use inheritance)
-    _this4 = _possibleConstructorReturn(this, _getPrototypeOf(IoAccordion).call(this, options)); // Set Defaults, Options & Config
+    _this4 = _super2.call(this, options); // Set Defaults, Options & Config
 
     _this4.name = "ioaccordion"; // Change this to your needs
 
@@ -943,10 +959,10 @@ function (_Io) {
   return IoAccordion;
 }(Io);
 
-var IoNav =
-/*#__PURE__*/
-function (_Io2) {
+var IoNav = /*#__PURE__*/function (_Io2) {
   _inherits(IoNav, _Io2);
+
+  var _super3 = _createSuper(IoNav);
 
   function IoNav() {
     var _this6;
@@ -956,7 +972,7 @@ function (_Io2) {
     _classCallCheck(this, IoNav);
 
     // Super Class Constructor (needed if you use inheritance)
-    _this6 = _possibleConstructorReturn(this, _getPrototypeOf(IoNav).call(this, options)); // Set Defaults, Options & Config
+    _this6 = _super3.call(this, options); // Set Defaults, Options & Config
 
     _this6.name = "ionav";
     _this6.defaults = {
@@ -966,6 +982,7 @@ function (_Io2) {
         minWidth: "0px",
         maxWidth: "1024px"
       },
+      // elements: [],				// See io.js (Array (HTML Elements) | NodeList | String)
       elementsNav: [],
       // Array (HTML Elements) | NodeList | String (Selector)
       elementsNavCollapsable: true,
@@ -974,8 +991,20 @@ function (_Io2) {
       // HTML Element | NodeElement
       buttonElement: "div",
       // HTML Tag Name | NodeElement
-      theme: "default" // String (Choose a Theme) - NOT IMPLEMENTED YET!
-
+      linkSubmenuClickable: false,
+      // Generates a additional submenu item on submenu's to click
+      activeClassToggleOthers: true,
+      // only one active element is possible at the same time
+      theme: "default",
+      // String (Choose a Theme) - NOT IMPLEMENTED YET!
+      lang: document.querySelector("html[lang]") ? document.querySelector("html[lang]").lang.slice(0, 2) : "en",
+      langDict: {
+        "de": "Zur Kategorie ",
+        "en": "To category ",
+        "it": "Alla categoria ",
+        "es": "A la categoría ",
+        "fr": "À la catégorie "
+      }
     }; // Merge Plugin Defaults and User Options to one Config
     // (everything is accessible through this.config then)
 
@@ -1005,6 +1034,7 @@ function (_Io2) {
       this.addClass(this.ui.btn, "btn");
       this.addClass(this.html, "-closed"); // Subscribers
 
+      this.sub("/initComplete/", this.initComplete);
       this.sub("/initOverlay/", this.initOverlay);
       this.sub("/initElementsNav/", this.elementsNav);
       this.sub("/openOverlay/", this.openOverlay);
@@ -1033,9 +1063,14 @@ function (_Io2) {
         if (e.target === e.currentTarget) {
           _this7.pub("/closeOverlay/");
         }
-      }); // Logging
+      });
+      this.pub("/initComplete/"); // Logging
 
       this.logAll();
+    }
+  }, {
+    key: "initComplete",
+    value: function initComplete() {// Once the Initialization completes...
     }
   }, {
     key: "destroyAll",
@@ -1095,6 +1130,136 @@ function (_Io2) {
     value: function elementsNav(selector) {
       var _this8 = this;
 
+      var activeClassName = this.config.prefix + "-active";
+      document.querySelectorAll(selector).forEach(function (el) {
+        el.querySelectorAll("ul li").forEach(function (li, index) {
+          var link = false;
+          var subnav = false;
+          li.childNodes.forEach(function (node) {
+            if (node.tagName == "A") {
+              link = node;
+            }
+
+            if (node.tagName == "A" || node.tagName == "UL") {
+              _this8.addClass(node, "-hasSubnav");
+            }
+
+            if (node.tagName == "UL") {
+              subnav = node;
+            }
+          });
+
+          if (link && subnav) {
+            _this8.addClass(li, "-hasSubnav");
+
+            _this8.on(link, "click", function (e) {
+              e.preventDefault(); // If activeClassToggleOthers flag is set, then only one active element is possible at the same time
+
+              if (_this8.config.activeClassToggleOthers) {
+                el.querySelectorAll("." + activeClassName).forEach(function (eli) {
+                  if (!eli.isEqualNode(li) && !eli.isEqualNode(link) && !eli.isEqualNode(subnav)) {
+                    _this8.removeClass(eli, "-active");
+                  }
+                });
+              } // Toggle active classes
+
+
+              _this8.toggleClass(li, "-active");
+
+              _this8.toggleClass(link, "-active");
+
+              _this8.toggleClass(subnav, "-active");
+            }); // Add a additional link button (optional, see linkSubmenuClickable), so the user is able to click on the main category,
+            // otherwise the user is only able to open the accordion/submenu, not the main category link itself
+
+
+            if (_this8.config.linkSubmenuClickable && subnav) {
+              var linkSubmenuClickable = _this8.prependTo("li", subnav);
+
+              _this8.addClass(linkSubmenuClickable, "-linkSubmenuClickable");
+
+              linkSubmenuClickable.innerHTML = link.outerHTML;
+              linkSubmenuClickable.querySelector("a").textContent = _this8.config.langDict[_this8.config.lang] + linkSubmenuClickable.querySelector("a").textContent;
+            }
+          }
+        });
+      });
+    }
+  }]);
+
+  return IoNav;
+}(Io);
+
+var IoNavTouch = /*#__PURE__*/function (_Io3) {
+  _inherits(IoNavTouch, _Io3);
+
+  var _super4 = _createSuper(IoNavTouch);
+
+  function IoNavTouch() {
+    var _this9;
+
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    _classCallCheck(this, IoNavTouch);
+
+    // Super Class Constructor (needed if you use inheritance)
+    _this9 = _super4.call(this, options); // Set Defaults, Options & Config
+
+    _this9.name = "ionavTouch";
+    _this9.defaults = {
+      prefix: _this9.name + "-",
+      mqlQuery: {
+        // Media Query Parameters (use a camelcase css notation)
+        minWidth: "1025px",
+        maxWidth: false
+      },
+      elementsNav: [],
+      // Array (HTML Elements) | NodeList | String (Selector)
+      linkSubmenuClickable: true,
+      // Generates a additional submenu item on submenu's to click
+      lang: document.querySelector("html[lang]") ? document.querySelector("html[lang]").lang.slice(0, 2) : "en",
+      langDict: {
+        "de": "Zur Kategorie ",
+        "en": "To category ",
+        "it": "Alla categoria ",
+        "es": "A la categoría ",
+        "fr": "À la catégorie "
+      }
+    }; // Merge Plugin Defaults and User Options to one Config
+    // (everything is accessible through this.config then)
+
+    _extends(_this9.config, _this9.defaults, _this9.options); // Initialize Mobi Main-Logic
+
+
+    _this9.sub("/init/", _this9.init);
+
+    _this9.pub("/init/");
+
+    return _this9;
+  }
+
+  _createClass(IoNavTouch, [{
+    key: "init",
+    value: function init() {
+      this.mqlManager("/mqlMain/", this.config.mqlQuery, function (mql) {
+        if (mql.matches) {
+          console.log("IS MATCHING");
+        } else {
+          console.log("IS NOT MATCHING");
+        }
+      }); // Subscribers
+
+      this.sub("/initElementsNav/", this.elementsNav); // Publishers & Events
+
+      this.pub("/initElementsNav/", this.config.elementsNav); // Logging
+
+      this.logAll();
+    }
+  }, {
+    key: "elementsNav",
+    value: function elementsNav(selector) {
+      var _this10 = this;
+
       document.querySelectorAll(selector).forEach(function (el) {
         el.querySelectorAll("ul li").forEach(function (li) {
           var link = false;
@@ -1104,32 +1269,43 @@ function (_Io2) {
               link = node;
             }
 
-            if (node.tagName == "UL") {
-              subnav = node;
+            if (node.tagName == "A" || node.tagName == "UL") {
+              _this10.addClass(node, "-hasSubnav");
             }
 
-            if (node.tagName == "A" || node.tagName == "UL") {
-              _this8.addClass(node, "-hasSubnav");
+            if (node.tagName == "UL") {
+              subnav = node;
             }
           });
 
           if (link && subnav) {
-            _this8.addClass(li, "-hasSubnav");
+            _this10.addClass(li, "-hasSubnav");
 
-            _this8.on(link, "click", function (e) {
+            _this10.on(link, "click", function (e) {
               e.preventDefault();
 
-              _this8.toggleClass(li, "-active");
+              _this10.toggleClass(li, "-active");
 
-              _this8.toggleClass(link, "-active");
+              _this10.toggleClass(link, "-active");
 
-              _this8.toggleClass(subnav, "-active");
-            });
+              _this10.toggleClass(subnav, "-active");
+            }); // Add a additional link button (optional, see linkSubmenuClickable), so the user is able to click on the main category,
+            // otherwise the user is only able to open the accordion/submenu, not the main category link itself
+
+
+            if (_this10.config.linkSubmenuClickable && subnav) {
+              var linkSubmenuClickable = _this10.prependTo("li", subnav);
+
+              _this10.addClass(linkSubmenuClickable, "-linkSubmenuClickable");
+
+              linkSubmenuClickable.innerHTML = link.outerHTML;
+              linkSubmenuClickable.querySelector("a").textContent = _this10.config.langDict[_this10.config.lang] + linkSubmenuClickable.querySelector("a").textContent;
+            }
           }
         });
       });
     }
   }]);
 
-  return IoNav;
+  return IoNavTouch;
 }(Io);
