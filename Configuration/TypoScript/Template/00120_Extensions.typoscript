@@ -111,6 +111,62 @@ plugin.tx_powermail {
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_powermail_checkboxlink/Configuration/TypoScript/setup.typoscript">
 
 ################################################################
+### indexed_search - Suche ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/setup.typoscript">
+plugin.tx_indexedsearch {
+    view {
+        templateRootPaths {
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
+            20 = {$themeDefault.urls.themeResources}Private/Extensions/indexed_search/Templates/
+            30 = {$plugin.tx_indexedsearch.view.templateRootPath}
+        }
+        partialRootPaths {
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
+            20 = {$themeDefault.urls.themeResources}Private/Extensions/indexed_search/Partials/
+            30 = {$plugin.tx_indexedsearch.view.partialRootPath}
+        }
+        layoutRootPaths {
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Layouts/
+            20 = {$themeDefault.urls.themeResources}Private/Extensions/indexed_search/Layouts/
+            30 = {$plugin.tx_indexedsearch.view.layoutRootPath}
+        }
+    }
+
+    settings {
+        targetPid = {$plugin.hhthemedefault.indexedSearchId}
+        displayRules = 0
+        displayAdvancedSearchLink = 0
+
+        defaultOptions {
+            languageUid = 0
+        }
+    }
+}
+
+config {
+    index_enable = 1
+    index_metatags = 1
+    ### Wenn gesetzt, werden externe Medien, auf die auf Seiten verlinkt wird, ebenfalls indiziert.
+    index_externals = 0
+}
+
+### liefert blanke Ergebnisse ohne Header etc. für Ajax nachladen
+search = PAGE
+search {
+    typeNum = 1981
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = none
+        admPanel = 0
+        metaCharset = utf-8
+        additionalHeaders = Content-Type:text/html;charset=utf-8
+        disablePrefixComment = 1
+    }
+    10 < plugin.tx_indexedsearch
+}
+
+################################################################
 ### Hauer-Heinrich Slider - hh_slider ###
 ################################################################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_slider/Configuration/TypoScript/setup.typoscript">
