@@ -28,7 +28,7 @@
     <ul>
         <f:for each="{menu}" as="page">
             <li>
-                <a href="{page.link}" {f:if(condition: page.target, then: 'target="{page.target}"')} title="{page.title}" class="{f:if(condition: page.active, then: 'act')}">
+                <a href="{page.link}" {f:if(condition: page.target, then: 'target="{page.target}"')} title="{page.title}" class="{f:if(condition: page.active, then: 'act')}" {f:if(condition: '{page.data.doktype} == 3', then: 'rel="noopener"')}>
                     <span>{page.title}</span>
                 </a>
             </li>
@@ -40,7 +40,7 @@
     <ul class="menu-border">
         <f:for each="{menu}" as="page">
             <li>
-                <a href="{page.link}" {f:if(condition: page.target, then: 'target="{page.target}"')} title="{page.title}" class="{f:if(condition: page.active, then: 'act')}">
+                <a href="{page.link}" {f:if(condition: page.target, then: 'target="{page.target}"')} title="{page.title}" class="{f:if(condition: page.active, then: 'act')}" {f:if(condition: '{page.data.doktype} == 3', then: 'rel="noopener"')}>
                     <span>{page.title}</span>
                 </a>
             </li>
@@ -52,7 +52,7 @@
     <ul class="menu-icons sub-menu-icons">
         <f:for each="{menu}" as="page">
             <li>
-                <a href="{page.link}" {f:if(condition: page.target, then: 'target="{page.target}"')} title="{page.title}" class="{f:if(condition: page.active, then: 'act')}">
+                <a href="{page.link}" {f:if(condition: page.target, then: 'target="{page.target}"')} title="{page.title}" class="{f:if(condition: page.active, then: 'act')}" {f:if(condition: '{page.data.doktype} == 3', then: 'rel="noopener"')}>
                     <f:for each="{page.files}" as="file">
                         <img src="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default', minWidth: 40, maxWidth: 40)}" width="40" height="40" />
                     </f:for>
@@ -66,7 +66,7 @@
     <ul class="menu-images sub-menu-images">
         <f:for each="{menu}" as="page">
             <li>
-                <a href="{page.link}" {f:if(condition: page.target, then: 'target="{page.target}"')} title="{page.title}" class="{f:if(condition: page.active, then: 'act')}">
+                <a href="{page.link}" {f:if(condition: page.target, then: 'target="{page.target}"')} title="{page.title}" class="{f:if(condition: page.active, then: 'act')}" {f:if(condition: '{page.data.doktype} == 3', then: 'rel="noopener"')}>
                     <f:for each="{page.files}" as="file">
                         <img src="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default')}" />
                     </f:for>
@@ -80,7 +80,7 @@
     <ul class="menu-horizontal">
         <f:for each="{menu}" as="page">
             <li>
-                <a href="{page.link}" {f:if(condition: page.target, then: 'target="{page.target}"')} title="{page.title}" class="{f:if(condition: page.active, then: 'act')}">
+                <a href="{page.link}" {f:if(condition: page.target, then: 'target="{page.target}"')} title="{page.title}" class="{f:if(condition: page.active, then: 'act')}" {f:if(condition: '{page.data.doktype} == 3', then: 'rel="noopener"')}>
                     <span>{page.title}</span>
                 </a>
             </li>

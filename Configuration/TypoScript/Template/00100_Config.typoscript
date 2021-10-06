@@ -119,6 +119,13 @@ page {
         viewport = initial-scale=1.0,maximum-scale=2.0,minimum-scale=1.0,user-scalable=yes,width=device-width
     }
 
+    headerData {
+        100 = TEXT
+        100.value (
+            <link rel="preload" href="{$themeDefault.urls.themeResources}Public/Fonts/fontello.woff2" as="font" crossorigin />
+        )
+    }
+
     ################################################################
     ### Jede Seite eindeutig identifizieren - set in fluid layout ###
     ################################################################
