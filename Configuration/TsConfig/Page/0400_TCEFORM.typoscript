@@ -46,7 +46,27 @@ TCEFORM {
         }
 
         ### disable "select and upload"-button
-        assets.config.appearance.fileUploadAllowed = 0
+        image {
+            config {
+                appearance {
+                    fileUploadAllowed = 0
+                }
+            }
+        }
+        assets {
+            config {
+                appearance {
+                    fileUploadAllowed = 0
+                }
+            }
+        }
+        media {
+            config {
+                appearance {
+                    fileUploadAllowed = 0
+                }
+            }
+        }
 
         imageborder.types {
             textmedia.disabled = 1
