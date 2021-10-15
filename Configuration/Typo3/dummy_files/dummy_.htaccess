@@ -7,6 +7,11 @@ ServerSignature Off
 </ifmodule>
 
 RewriteEngine On
+### forwarding www / none-www
+# RewriteCond %{HTTP_HOST} !^www.domain.tld$ [NC]
+# RewriteRule ^(.*)$ https://www.domain.tld/$1 [L,R=301]
+
+### forwarding https/SSL
 # RewriteCond %{HTTP_HOST} ^(www\.)?domain\.tld$ [NC]
 # RewriteCond %{HTTPS} !on [NC]
 # RewriteRule ^(.*)$ https://www.domain.tld/$1 [R=301,L]
