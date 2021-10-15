@@ -1149,6 +1149,8 @@ routes:
       ### CUSTOM:\r\n
       User-Agent: *\r\n
       Allow: /\r\n
+      Allow: /typo3conf/ext/*/Public/\r\n
+      Allow: /typo3temp/assets/\r\n
       Disallow: /fileadmin/templates\r\n
       Disallow: /typo3/\r\n
       Disallow: /t3lib/\r\n
