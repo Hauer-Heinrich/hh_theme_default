@@ -55,7 +55,8 @@ html {
   -webkit-text-size-adjust: 100%;
   /* 5 */
   word-break: break-word;
-  /* 6 */ }
+  /* 6 */
+  hyphens: auto; }
 
 /* Sections
   * ========================================================================== */
