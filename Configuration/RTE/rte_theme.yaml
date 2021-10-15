@@ -16,7 +16,7 @@ processing:
   HTMLparser_db:
     tags:
       span:
-        allowedAttribs: "class, id, title, dir, lang, xml:lang, itemscope, itemtype, itemprop, data-color"
+        allowedAttribs: "class, id, title, dir, lang, xml:lang, itemscope, itemtype, itemprop, data-color, data-color-bg"
 
 editor:
 
@@ -50,10 +50,11 @@ editor:
     # toolbar:
     #   - { name: 'colors', items: [ 'TextColor' ] }
 
-    # colorButton_colors: "F49800,B9B9B9,75A75A"
-    # colorButton_backStyle: ""
-    # colorButton_enableAutomatic: false
-    # colorButton_enableMore: false
+    colorButton_colors: "c5162d"
+    colorButton_enableAutomatic: false
+    colorButton_enableMore: false
+    colorButton_foreStyle: { element: "span", attributes: { "data-color": "#(color)" } }
+    colorButton_backStyle: { element: "span", attributes: { "data-color-bg": "#(color)" } }
 
     toolbarGroups:
       - { name: document, groups: [ mode, document, doctools ] }
@@ -111,12 +112,6 @@ editor:
 
     extraAllowedContent:
       - "a[!href,document-href,tel]"
-
-  colorButton_colors: "c5162d"
-  colorButton_backStyle: ""
-  colorButton_enableAutomatic: false
-  colorButton_enableMore: false
-  colorButton_foreStyle: { element: "span", attributes: { "data-color": "#(color)" } }
 
 ### Button config and defaults
 buttons:
