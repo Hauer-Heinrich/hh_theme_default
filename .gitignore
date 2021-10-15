@@ -38,6 +38,7 @@ giftp.json
 /deploy.php
 /typo3-deploy/
 /deploy/
+/*.zip
 ._*
 Desktop.ini
 Thumbs.db
