@@ -63,7 +63,7 @@ routeEnhancers:
         routePath: '/list/{page}'
         _controller: 'News::list'
         _arguments:
-          page: '@widget_0/currentPage'
+          page: 'currentPage'
       -
         routePath: '/tag/{tag_name}'
         _controller: 'News::list'
