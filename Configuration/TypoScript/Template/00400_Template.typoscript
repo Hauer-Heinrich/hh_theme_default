@@ -101,6 +101,33 @@ page {
             }
 
             ################################################################
+            ### categories - sys_category - for pages ###
+            ################################################################
+            # 50 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            # 50 {
+            #     if.isTrue.field = categories
+            #     table = sys_category
+            #     pidInList = root,-1
+            #     selectFields = sys_category.*
+            #     recursive = 99
+            #     as = CategoriesAll
+            # }
+
+            # 55 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            # 55 {
+            #     if.isTrue.field = categories
+            #     table = sys_category
+            #     selectFields = sys_category.*
+            #     pidInList = root,-1
+            #     recursive = 999
+            #     join = sys_category_record_mm ON sys_category_record_mm.uid_local = sys_category.uid
+            #     where.dataWrap = sys_category_record_mm.uid_foreign={field:_ORIG_uid // field:uid} AND sys_category_record_mm.tablenames = 'pages' AND sys_category_record_mm.fieldname = 'categories'
+            #     orderBy = sys_category_record_mm.sorting_foreign
+            #     languageField = 0
+            #     as = CategoriesCurrentSelected
+            # }
+
+            ################################################################
             ### Additional Top Menu ###
             ################################################################
             90 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
