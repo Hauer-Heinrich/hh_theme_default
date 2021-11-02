@@ -105,6 +105,46 @@ plugin.tx_powermail {
     }
 }
 
+plugin.tx_powermail {
+    settings {
+        sender.attachment = 1
+        setup {
+            misc.ajaxSubmit = 1
+            ### To set a sender email address for the main email (to receiver)
+            ### Settings needed especially for SMTP and SPF
+            receiver {
+                overwrite {
+                    // senderName = TEXT
+                    // senderName.value = Your_Company - Website
+
+                    // senderEmail = TEXT
+                    // senderEmail.value = example@domain.tld
+
+                    replyToName = TEXT
+                    replyToName.value >
+                    replyToName.data = GP:tx_powermail_pi1|field|name
+
+                    replyToEmail = TEXT
+                    replyToEmail.value >
+                    replyToEmail.data = GP:tx_powermail_pi1|field|email
+                }
+            }
+
+            sender {
+                overwrite {
+                    // senderName = TEXT
+                    // senderName.value >
+                    // senderName.value = Your_Company
+
+                    // senderEmail = TEXT
+                    // senderEmail.value >
+                    // senderEmail.value = example@domain.tld
+                }
+            }
+        }
+    }
+}
+
 ################################################################
 ### Form powermail - hh_powermail_checkboxlink ###
 ################################################################
