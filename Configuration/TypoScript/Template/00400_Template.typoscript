@@ -105,11 +105,10 @@ page {
             ################################################################
             # 50 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
             # 50 {
-            #     if.isTrue.field = categories
             #     table = sys_category
-            #     pidInList = root,-1
+            #     pidInList.data = site:rootPageId
             #     selectFields = sys_category.*
-            #     recursive = 99
+            #     recursive = 999
             #     as = CategoriesAll
             # }
 
@@ -118,7 +117,7 @@ page {
             #     if.isTrue.field = categories
             #     table = sys_category
             #     selectFields = sys_category.*
-            #     pidInList = root,-1
+            #     pidInList.data = site:rootPageId
             #     recursive = 999
             #     join = sys_category_record_mm ON sys_category_record_mm.uid_local = sys_category.uid
             #     where.dataWrap = sys_category_record_mm.uid_foreign={field:_ORIG_uid // field:uid} AND sys_category_record_mm.tablenames = 'pages' AND sys_category_record_mm.fieldname = 'categories'
