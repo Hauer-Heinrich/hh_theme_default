@@ -14,8 +14,8 @@ languages:
     languageId: '0'
     base: /
     typo3Language: de
-    locale: de_DE.UTF-8
-    iso-639-1: de
+    locale: de_DE.UTF-8 # https://gist.github.com/jasef/337431c43c3addb2cbd5eb215b376179
+    iso-639-1: de # https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
     navigationTitle:  DE
     hreflang: de
     direction: ltr
