@@ -21,6 +21,8 @@ plugin.hhthemedefault {
         footerMenu =
     # cat=plugin.hhthemedefault_Layout/basic/0032; type=int+; label= Page ID des Trenners für social Menü
         socialMenu =
+    # cat=plugin.hhthemedefault_Layout/basic/0045; type=int+; label= Trenner ID der Inhalte die Quicklinks (link buttons right)
+        quickLinks =
     # cat=plugin.hhthemedefault_Layout/basic/0033; type=int+; label= Page ID der Such-Ergebnisseite der EXT: indexed_search
         indexedSearchId =
     # cat=plugin.hhthemedefault_Layout/basic/0055; type=boolean; label= Webseite mehrsprachig? (default de || en)
