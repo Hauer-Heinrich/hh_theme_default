@@ -25,7 +25,7 @@ languages:
   -
     title: English
     enabled: true
-    languageId: '2'
+    languageId: '1'
     base: /en/
     typo3Language: default
     locale: en_US.UTF-8
@@ -33,7 +33,7 @@ languages:
     navigationTitle: EN
     hreflang: en
     direction: ltr
-    fallbackType: fallback
+    fallbackType: free
     fallbacks: '0'
     flag: en-us-gb
 errorHandling:
