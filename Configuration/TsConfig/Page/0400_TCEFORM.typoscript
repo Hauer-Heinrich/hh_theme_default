@@ -198,4 +198,8 @@ TCEFORM {
         backend_layout_next_level.removeItems= -1
         backend_layout.removeItems= -1
     }
+
+    tt_address {
+        image.config.appearance.fileUploadAllowed = 0
+    }
 }

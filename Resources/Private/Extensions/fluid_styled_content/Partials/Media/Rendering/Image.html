@@ -38,7 +38,7 @@
                     <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" loading="lazy" />
                 </f:then>
                 <f:else>
-                    <f:image class="image-embed-item" image="{file}" cropVariant="default" maxWidth="1920" loading="lazy" />
+                    <f:image class="image-embed-item" image="{file}" width="{dimensions.width}" height="{dimensions.height}" cropVariant="default" maxWidth="1920" loading="lazy" />
                 </f:else>
             </f:if>
         </picture>
