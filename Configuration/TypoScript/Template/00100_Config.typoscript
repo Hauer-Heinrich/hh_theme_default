@@ -27,8 +27,8 @@ config {
     ################################################################
     ### E-Mail verschlüsseln ###
     ################################################################
-    spamProtectEmailAddresses = 2
-    spamProtectEmailAddresses_atSubst = <i class="icon icon-at"></i>
+    spamProtectEmailAddresses = -2
+    spamProtectEmailAddresses_atSubst = @~@
 
     ################################################################
     ### CSS & JS Komprimieren ###
