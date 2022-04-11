@@ -15,7 +15,7 @@
             <f:for each="{files}" as="file" iteration="fileIterator">
                 <li>
                     <f:if condition="{data.uploads_type} == 1">
-                        <img src="{f:uri.resource(path: 'Icons/FileIcons/{file.extension}.gif', extensionName: 'frontend')}" alt="">
+                        <img src="{f:uri.resource(path: 'Icons/FileIcons/{file.extension}.gif', extensionName: 'frontend')}" alt="" loading="lazy" />
                     </f:if>
                     <f:if condition="{data.uploads_type} == 2">
                         <f:if condition="{file.type} > 1">
@@ -26,7 +26,7 @@
                                     </a>
                                 </f:then>
                                 <f:else>
-                                    <img src="{f:uri.resource(path: 'Icons/FileIcons/{file.extension}.gif', extensionName: 'frontend')}" alt="">
+                                    <img src="{f:uri.resource(path: 'Icons/FileIcons/{file.extension}.gif', extensionName: 'frontend')}" alt="" loading="lazy" />
                                 </f:else>
                             </f:if>
                         </f:if>

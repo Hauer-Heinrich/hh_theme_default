@@ -61,7 +61,7 @@ editor:
       - { name: clipboard, groups: [ clipboard, undo ] }
       - { name: editing, groups: [ find, selection, spellchecker, editing, removeformat ] }
       - { name: forms, groups: [ forms ] }
-      - { name: basicstyles, groups: [ basicstyles, cleanup ] }
+      - { name: basicstyles, groups: [ basicstyles, cleanup, insertcharacters ] }
       - "/"
       - { name: paragraph, groups: [ list, indent, blocks, align, bidi, paragraph ] }
       - { name: links, groups: [ links ] }
@@ -112,6 +112,13 @@ editor:
 
     extraAllowedContent:
       - "a[!href,document-href,tel]"
+
+  # external Plugin e. g.:
+  externalPlugins:
+    softhyphen:
+      resource: "EXT:rte_ckeditor/Resources/Public/JavaScript/Plugins/softhyphen/"
+      # set whether the shortcut for this plugin is activated or not
+      enableShortcut: true
 
 ### Button config and defaults
 buttons:

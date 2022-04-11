@@ -54,7 +54,7 @@
             <li>
                 <a href="{page.link}" {f:if(condition: page.target, then: 'target="{page.target}"')} title="{page.title}" class="{f:if(condition: page.active, then: 'act')}" {f:if(condition: '{page.data.doktype} == 3', then: 'rel="noopener"')}>
                     <f:for each="{page.files}" as="file">
-                        <img src="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default', minWidth: 40, maxWidth: 40)}" width="40" height="40" />
+                        <img src="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default', minWidth: 40, maxWidth: 40)}" width="40" height="40" loading="lazy" />
                     </f:for>
                 </a>
             </li>
@@ -68,7 +68,7 @@
             <li>
                 <a href="{page.link}" {f:if(condition: page.target, then: 'target="{page.target}"')} title="{page.title}" class="{f:if(condition: page.active, then: 'act')}" {f:if(condition: '{page.data.doktype} == 3', then: 'rel="noopener"')}>
                     <f:for each="{page.files}" as="file">
-                        <img src="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default')}" />
+                        <img src="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default')}" loading="lazy" />
                     </f:for>
                 </a>
             </li>
