@@ -64,4 +64,8 @@ call_user_func(function() {
             \HauerHeinrich\HhThemeDefault\Backend\ToolbarItem\SystemInformationToolbarItemGit::class,
             'addGitInformation'
         );
+
+    // Hook tt_address add fields to flexform
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS'][\TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools::class]['flexParsing'][] =
+        \HauerHeinrich\HhThemeDefault\Hooks\TtAddressFlexFormHook::class;
 });

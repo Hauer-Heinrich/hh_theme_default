@@ -1,0 +1,64 @@
+<content>
+    <addToExistingSection>
+        <sDISPLAY>
+            <ROOT>
+                <el>
+                    <settings.itemColumns>
+                        <TCEforms>
+                            <label>Anzahl an Spalten</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <eval>int</eval>
+                                <default>3</default>
+                                <items>
+                                    <numIndex index="0">
+                                        <numIndex index="0">1</numIndex>
+                                        <numIndex index="1">1</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1">
+                                        <numIndex index="0">2</numIndex>
+                                        <numIndex index="1">2</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2">
+                                        <numIndex index="0">3</numIndex>
+                                        <numIndex index="1">3</numIndex>
+                                    </numIndex>
+                                    <numIndex index="3">
+                                        <numIndex index="0">4</numIndex>
+                                        <numIndex index="1">4</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.itemColumns>
+                </el>
+            </ROOT>
+        </sDISPLAY>
+    </addToExistingSection>
+    <!--
+    <addCompleteNewSection>
+        <newTab>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Fo</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.postsPerPage>
+                        <TCEforms>
+                            <label>Max. number of posts to display per page</label>
+                            <config>
+                                <type>input</type>
+                                <size>2</size>
+                                <eval>int</eval>
+                                <default>3</default>
+                            </config>
+                        </TCEforms>
+                    </settings.postsPerPage>
+                </el>
+            </ROOT>
+        </newTab>
+    </addCompleteNewSection>
+    -->
+</content>

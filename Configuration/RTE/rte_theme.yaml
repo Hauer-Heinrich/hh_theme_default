@@ -113,7 +113,7 @@ editor:
     extraAllowedContent:
       - "a[!href,document-href,tel]"
 
-  # external Plugin e. g.:
+  ### external Plugin e. g.:
   externalPlugins:
     softhyphen:
       resource: "EXT:rte_ckeditor/Resources/Public/JavaScript/Plugins/softhyphen/"

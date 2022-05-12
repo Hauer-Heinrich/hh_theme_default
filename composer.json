@@ -16,10 +16,10 @@
         "typo3-ter/hh-theme-default": "self.version"
     },
     "require": {
-        "typo3/cms-core": "^10.4.0 || ^10.4.99",
-        "typo3/cms-fluid": "^10.4.0 || ^10.4.99",
-        "typo3/cms-frontend": "^10.4.0 || ^10.4.99",
-        "typo3/cms-fluid-styled-content": "^10.4.0 || ^10.4.99",
+        "typo3/cms-core": "^11.5.0 || ^11.5.99",
+        "typo3/cms-fluid": "^11.5.0 || ^11.5.99",
+        "typo3/cms-frontend": "^11.5.0 || ^11.5.99",
+        "typo3/cms-fluid-styled-content": "^11.5.0 || ^11.5.99",
         "typo3/cms-rte-ckeditor": "",
         "typo3/cms-scheduler": "",
         "georgringer/news": "",
