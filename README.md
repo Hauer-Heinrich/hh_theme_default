@@ -49,9 +49,9 @@ Don't forget to include the PageTS -> backend->rootPage->site configuration->res
  - copies shipped AdditionalConfiguration.php on install if no one exists! This AdditonalConfiguration includes /Configuration/Typo3/AdditionalConfiguration.php.
  - check if your server supports generation of webp format, else comment out or delete the corresponding positions at /Resources/Private/Extensions/fluid_styled_content/Partials/Media/Rendering/Image.html
 
-## IO Plugin Framework
+## Included JS Framework "IO Plugin Framework"
 
-The main purpose of the IO Plugin Framework is to write your own Plugins as simply as possible with a slim framework and less overhead. The IO Plugin Framework has the ability to use the [MediaQueryList](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList) in a simplistic way and has the option to use a Pub/Sub Event System (https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern). The plugins are written in a object oriented way, so its extensibility isn't limited.
+The main purpose of the IO Plugin Framework (https://bitbucket.org/iocron/io/src/master/) is to write your own JS Plugins as simply as possible with a slim framework and less overhead. The IO Plugin Framework has the ability to use the [MediaQueryList](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList) in a simplistic way and has the option to use a Pub/Sub Event System (https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern). The plugins are written in a object oriented way, so its extensibility isn't limited.
 
 The IO Plugin Framework is already shipped with a io.nav.js and io.accordion.js plugin (based on the io plugin framework). If you want a custom plugin of your own, then follow the full documentation instead and have a look at the io.skeleton.js: https://bitbucket.org/iocron/io/src/master/src/js/plugins/io.skeleton.js
 

@@ -1,28 +1,28 @@
 "use strict";
 
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 // Production steps of ECMA-262, Edition 5, 15.4.4.18
@@ -233,8 +233,8 @@ var IoUtilities = /*#__PURE__*/function () {
 
   _createClass(IoUtilities, [{
     key: "position",
-    // https://stackoverflow.com/questions/1350581/how-to-get-an-elements-top-position-relative-to-the-browsers-viewport
-    value: function position(element) {
+    value: // https://stackoverflow.com/questions/1350581/how-to-get-an-elements-top-position-relative-to-the-browsers-viewport
+    function position(element) {
       var rect = element.getBoundingClientRect();
       var win = element.ownerDocument.defaultView;
       return {
@@ -343,7 +343,7 @@ var IoUtilities = /*#__PURE__*/function () {
         elementTarget.prepend(elementNode);
       } else if (position === "append" || position === "bottom") {
         elementTarget.append(elementNode);
-      } else {// @ToDo: Default...??
+      } else {// TODO: Implementing a addChild position default??
       }
 
       return elementNode;
@@ -434,8 +434,8 @@ var IoUtilities = /*#__PURE__*/function () {
   }, {
     key: "elementsEach",
     value: function elementsEach(selector, func) {
-      var elements = this.elements(selector); // @ToDo: There seems to be a scoping bug if there is a elementsEach in a elementsEach loop (check for alternatives)
-      // @ToDo: Alternative??: elements.forEach((fn) => func.call(this, fn));
+      var elements = this.elements(selector); // TODO: There seems to be a scoping bug if there is a elementsEach in a elementsEach loop (check for alternatives)
+      // TODO: Alternative??: elements.forEach((fn) => func.call(this, fn));
 
       elements.forEach(func);
       return elements;
@@ -470,22 +470,22 @@ var IoUtilities = /*#__PURE__*/function () {
     }
   }, {
     key: "elementsTarget",
-    value: function elementsTarget(selector, func) {// @ToDo: Targets prefixed selectors/id elements (Really Needed?!?!)
+    value: function elementsTarget(selector, func) {// TODO: Targets prefixed selectors/id elements (Really Needed?!?!)
     }
   }, {
     key: "elementsFilter",
-    value: function elementsFilter(selector) {// @ToDo: Needs to be implemented!! (only if needed?!)
+    value: function elementsFilter(selector) {// TODO: Needs to be implemented!! (only if needed?!)
     }
   }, {
     key: "elementBreakpoint",
-    value: function elementBreakpoint(element) {} // @ToDo: Return a breakpoint on which the element will definitely break / not fit into the available space
-    // (needs to check multiple breakpoints dynamically, how?!?!)
-    // Add Event to a Element
+    value: function elementBreakpoint(element) {// TODO: Return a breakpoint on which the element will definitely break / not fit into the available space
+      // (needs to check multiple breakpoints dynamically, how?!?!)
+    } // Add Event to a Element
 
   }, {
     key: "on",
     value: function on(selector, eventName, func) {
-      // @ToDo: on/off need an ELEMENT STACK (to remove all elements events later on at once if neccessary?!)
+      // TODO: on/off need an ELEMENT STACK (to remove all elements events later on at once if neccessary?!)
       if (eventName) {
         this.elementsEach(selector, function (el) {
           el._events = _typeof(el._events) === "object" ? el._events : {};
@@ -622,7 +622,8 @@ var Io = /*#__PURE__*/function (_IoUtilities) {
 
       mMatch._fn = fn;
       mMatch._path = this._eventPath(path);
-      mMatch.addListener(this._mqlHandler);
+      mMatch.addEventListener("change", this._mqlHandler); // Deprecated "addListener" replaced (see: https://stackoverflow.com/questions/68309889/addlistener-is-deprecated-whats-the-alternative#answer-68309940)
+
       fn.call(this, mMatch);
       this.sub(path, fn, {
         _mql: mMatch
@@ -689,8 +690,8 @@ var Io = /*#__PURE__*/function (_IoUtilities) {
         args[_key3 - 1] = arguments[_key3];
       }
 
-      /* @ToDo: Implementing Async Promises (e.g. async pub(...))?!? */
-      // @ToDo: Optimaly _eventListValues(), etc. should use _eventPath() internally instead of const path!
+      /* TODO: Implementing Async Promises (e.g. async pub(...))?!? */
+      // TODO: Optimaly _eventListValues(), etc. should use _eventPath() internally instead of const path!
       setTimeout(function () {
         var path = _this3._eventPath(eventPath);
 
@@ -911,7 +912,7 @@ var IoAccordion = /*#__PURE__*/function (_Io) {
           _this5.addClass(accW, "content-wrapper");
 
           accContentWrapper.push(accW);
-        }); // @ToDo: Needs some refactoring.. (all in pub/sub needed, +more dynamic, accContentWrapper refactoring..)
+        }); // TODO: Needs some refactoring.. (all in pub/sub needed, +more dynamic, accContentWrapper refactoring..)
 
         accToggle.forEach(function (el, cnt) {
           var accContentNext = accContent[cnt].parentNode;
@@ -927,7 +928,7 @@ var IoAccordion = /*#__PURE__*/function (_Io) {
               }
             });
             accContentWrapper.forEach(function (accCW, accIndex) {
-              // @ToDo: Replace/Make compatible to pub/sub
+              // TODO: Replace/Make compatible to pub/sub
               if (cnt == accIndex) {
                 _this5.toggleClass(accCW, "-active");
 
@@ -986,7 +987,7 @@ var IoNav = /*#__PURE__*/function (_Io2) {
       elementsNav: [],
       // Array (HTML Elements) | NodeList | String (Selector)
       elementsNavCollapsable: true,
-      // @ToDo: Still needs to be integrated!!
+      // TODO: elementsNavCollapsable still needs to be integrated!!
       buttonTarget: document.body,
       // HTML Element | NodeElement
       buttonElement: "div",
@@ -1133,32 +1134,35 @@ var IoNav = /*#__PURE__*/function (_Io2) {
       var activeClassName = this.config.prefix + "-active";
       document.querySelectorAll(selector).forEach(function (el) {
         el.querySelectorAll("ul li").forEach(function (li, index) {
-          var link = false;
-          var subnav = false;
-          li.childNodes.forEach(function (node) {
-            if (node.tagName == "A") {
-              link = node;
-            }
+          var link = li.querySelector(":scope > a");
+          var subnav = li.querySelector(":scope > .hasCustomSubnav") ? li.querySelector(":scope > .hasCustomSubnav") : li.querySelector(":scope > ul");
 
-            if (node.tagName == "A" || node.tagName == "UL") {
-              _this8.addClass(node, "-hasSubnav");
-            }
+          if (link) {
+            _this8.addClass(link, "-hasSubnav");
+          }
 
-            if (node.tagName == "UL") {
-              subnav = node;
+          if (subnav) {
+            _this8.addClass(subnav, "-hasSubnav");
+
+            if (!link) {
+              // Show Subnavigation if no Toggler / Link is set (otherwise the subnav is not accessible at all)
+              _this8.addClass(subnav, "-active");
             }
-          });
+          }
 
           if (link && subnav) {
             _this8.addClass(li, "-hasSubnav");
 
             _this8.on(link, "click", function (e) {
-              e.preventDefault(); // If activeClassToggleOthers flag is set, then only one active element is possible at the same time
+              e.preventDefault(); // If activeClassToggleOthers flag is set, then only one
+              // active element (on the same level) is possible at the same time
 
               if (_this8.config.activeClassToggleOthers) {
-                el.querySelectorAll("." + activeClassName).forEach(function (eli) {
+                li.parentNode.querySelectorAll(":scope > *").forEach(function (eli) {
                   if (!eli.isEqualNode(li) && !eli.isEqualNode(link) && !eli.isEqualNode(subnav)) {
-                    _this8.removeClass(eli, "-active");
+                    eli.querySelectorAll(":scope > *").forEach(function (eli2) {
+                      _this8.removeClass(eli2, "-active");
+                    });
                   }
                 });
               } // Toggle active classes
