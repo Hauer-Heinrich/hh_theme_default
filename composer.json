@@ -5,7 +5,20 @@
     "authors": [
         {
             "name": "Christian Hackl",
-            "email": "web@hauer-heinrich.de"
+            "email": "web@hauer-heinrich.de",
+            "homepage": "http://www.hauer-heinrich.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Hauer-Heinrich/hh_theme_default/issues",
+        "source": "https://github.com/Hauer-Heinrich/hh_theme_default",
+        "docs": "https://github.com/Hauer-Heinrich/hh_theme_default/blob/master/README.md"
+    },
+    "funding": [
+        {
+            "type": "paypal",
+            "url": "https://www.paypal.com/paypalme/hauerheinrich"
         }
     ],
     "version": "0.1.0",
@@ -29,7 +42,6 @@
         "hauerheinrich/hh_seo": ""
     },
     "suggest": {
-        "groundstack/gs-monitor-provider": "",
         "hauerheinrich/hh-widget-hhnews": ""
     },
     "autoload": {
@@ -39,6 +51,8 @@
     },
     "extra": {
         "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": ".Build/Web",
             "extension-key": "hh_theme_default"
         }
     }
