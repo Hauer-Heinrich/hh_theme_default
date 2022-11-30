@@ -74,15 +74,6 @@ if(\TYPO3\CMS\Core\Core\Environment::getContext()->__toString() === 'Production'
                     ],
                 ]
             ],
-            'TYPO3' => [
-                'CMS' => [
-                    'deprecations' => [
-                        'writerConfiguration' => [
-                            'writerConfiguration' => []
-                        ]
-                    ]
-                ]
-            ]
         ]
     ];
     $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customProductionChanges);
