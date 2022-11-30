@@ -7,6 +7,7 @@ if (!defined('TYPO3_MODE')) {
 $databaseCredentialsFile = \TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/../typo3_config/typo3_domain.php';
 if (file_exists($databaseCredentialsFile)) { require_once ($databaseCredentialsFile); }
 
+// Default custom settings for all TYPO3 context's
 $customChanges = [
     'BE' => [
         'lockSSL' => 1,
@@ -47,24 +48,45 @@ $customChanges = [
         'systemLocale' => 'de_DE.UTF-8',
         'ipAnonymization' => '2',
     ],
-    'LOG' => [
-        'writerConfiguration' => [
-            \TYPO3\CMS\Core\Log\LogLevel::WARNING => [
-                \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
-                    'disabled' => true,
-                ],
-            ],
-
-            \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
-                \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
-                    'disabled' => false,
-                    'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_errors.log'
-                ],
-            ]
-        ]
-    ]
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customChanges);
+
+// Production only
+if(\TYPO3\CMS\Core\Core\Environment::getContext()->__toString() === 'Production') {
+    $customProductionChanges = [
+        'LOG' => [
+            'writerConfiguration' => [
+                \TYPO3\CMS\Core\Log\LogLevel::NOTICE => [
+                    \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+                        'disabled' => true,
+                    ],
+                ],
+                \TYPO3\CMS\Core\Log\LogLevel::WARNING => [
+                    \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+                        'disabled' => true,
+                    ],
+                ],
+
+                \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
+                    \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+                        'disabled' => false,
+                        'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_errors.log'
+                    ],
+                ]
+            ],
+            'TYPO3' => [
+                'CMS' => [
+                    'deprecations' => [
+                        'writerConfiguration' => [
+                            'writerConfiguration' => []
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ];
+    $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customProductionChanges);
+}
 
 // Developement - Stage / Preview:
 if(\TYPO3\CMS\Core\Core\Environment::getContext()->__toString() === 'Development/Server') {
@@ -103,15 +125,6 @@ if(\TYPO3\CMS\Core\Core\Environment::getContext()->__toString() === 'Development
             'cookieSecure' => 0,
             'sqlDebug' => 1,
             'enableDeprecationLog' => 'file',
-        ],
-        'LOG' => [
-            'writerConfiguration' => [
-                \TYPO3\CMS\Core\Log\LogLevel::WARNING => [
-                    \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
-                        'disabled' => false,
-                    ],
-                ]
-            ]
         ]
     ];
 
