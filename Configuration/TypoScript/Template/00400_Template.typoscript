@@ -213,6 +213,14 @@ page {
         }
 
         variables {
+            currentPageNewUntil = TEXT
+            currentPageNewUntil {
+                value = 0
+                override = 1
+                override.if.isPositive.dataWrap = {field:newUntil}-{date:U}
+                // wrap = <sup>|</sup>
+            }
+
             layout = TEXT
             layout {
                 cObject = TEXT
