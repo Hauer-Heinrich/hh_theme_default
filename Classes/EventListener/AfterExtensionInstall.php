@@ -54,6 +54,8 @@ class AfterExtensionInstall implements SingletonInterface {
         if($data->getPackageKey() === $this->extensionKey) {
             $path = GeneralUtility::getFileAbsFileName('typo3conf');
 
+            // TYPO3 <= 11
+            // @deprecated version <= 11
             if(!file_exists($path.'/AdditionalConfiguration.php')) {
                 copy($path.'/ext/'.$this->extensionKey.'/Configuration/Typo3/dummy_files/dummy_AdditionalConfiguration.php', $path.'/AdditionalConfiguration.php');
                 if (!file_exists($path.'/AdditionalConfiguration.php')) {
@@ -62,6 +64,18 @@ class AfterExtensionInstall implements SingletonInterface {
                 }
             } else {
                 $logMessage = 'typo3conf/AdditionalConfiguration.php not created/copied because it seems that this file already exist!';
+                $this->logger->log(\TYPO3\CMS\Core\Log\LogLevel::WARNING, $logMessage);
+            }
+
+            // TYPO3 >= 12
+            if(!file_exists($path.'/system/additional.php')) {
+                copy($path.'/ext/'.$this->extensionKey.'/dummy_files/dummy_system/additional.php', $path.'/system/additional.php');
+                if (!file_exists($path.'/system/additional.php')) {
+                    $logMessage = 'typo3conf/system/additional.php can not copied, maybe file permissions...? (you can find the theme_default AdditionalConfiguration file at typo3conf/ext/'.$this->extensionKey.'/dummy_files';
+                    $this->logger->log(\TYPO3\CMS\Core\Log\LogLevel::ERROR, $logMessage);
+                }
+            } else {
+                $logMessage = 'typo3conf/system/additional.php not created/copied because it seems that this file already exist!';
                 $this->logger->log(\TYPO3\CMS\Core\Log\LogLevel::WARNING, $logMessage);
             }
         }
