@@ -50,6 +50,9 @@ $customChanges = [
         'transport_smtp_server' => '', // e. g. smtp.gmail.com:587 // :465
         'transport_smtp_username' => '',
     ],
+    'EXTENSION' => [
+        // 'powermailDevelopContextEmail' => 'your@mail-address.tld'
+    ],
 ];
 
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customChanges);
