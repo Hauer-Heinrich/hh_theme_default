@@ -210,6 +210,8 @@ page {
         settings {
             indexedSearchId = {$plugin.hhthemedefault.indexedSearchId}
             breadcrumbSeparator = {$plugin.hhthemedefault.breadcrumbSeparator}
+            compressFiles = {$plugin.hhthemewimmerbau.compress}
+            concatenateCFiles = {$plugin.hhthemewimmerbau.concatenate}
         }
 
         variables {
