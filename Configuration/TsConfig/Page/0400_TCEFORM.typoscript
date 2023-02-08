@@ -22,7 +22,6 @@ TCEFORM {
             menu.disabled = 1
             shortcut.disabled = 1
             uploads.disabled = 1
-            gridelements_pi1.disabled = 1
         }
         linkToTop.types {
             text.disabled = 1
@@ -32,7 +31,6 @@ TCEFORM {
             menu.disabled = 1
             shortcut.disabled = 1
             uploads.disabled = 1
-            gridelements_pi1.disabled = 1
         }
         sectionIndex.types {
             text.disabled = 1

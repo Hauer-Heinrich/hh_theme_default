@@ -56,15 +56,6 @@ call_user_func(function() {
     // Register "hhdefault" as global fluid namespace
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['hhdefault'] = ['HauerHeinrich\\HhThemeDefault\\ViewHelpers'];
 
-    // System information toolbar
-    \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class)
-        ->connect(
-            \TYPO3\CMS\Backend\Backend\ToolbarItems\SystemInformationToolbarItem::class,
-            'getSystemInformation',
-            \HauerHeinrich\HhThemeDefault\Backend\ToolbarItem\SystemInformationToolbarItemGit::class,
-            'addGitInformation'
-        );
-
     // Hook tt_address add fields to flexform
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS'][\TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools::class]['flexParsing'][] =
         \HauerHeinrich\HhThemeDefault\Hooks\TtAddressFlexFormHook::class;
