@@ -21,13 +21,3 @@ if(Environment::getContext()->__toString() === 'Development') {
     $additionalConfigDevelopment = Environment::getPublicPath() . '/typo3conf/ext/hh_theme_default/System/additional/development.php';
     if (file_exists($additionalConfigDevelopment)) { require_once ($additionalConfigDevelopment); }
 }
-
-// Special for windows systems
-if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-    $customWindows = [
-        'SYS' => [
-            'systemLocale' => 'de-de',
-        ]
-    ];
-    $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customWindows);
-}
