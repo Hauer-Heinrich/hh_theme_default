@@ -33,14 +33,14 @@ config {
     ################################################################
     ### CSS & JS Komprimieren ###
     ################################################################
-    compressCss = {$plugin.hhthemedefault.compress}
-    compressJs = {$plugin.hhthemedefault.compress}
+    compressCss = {$plugin.hhthemedefault.compressFiles}
+    compressJs = {$plugin.hhthemedefault.compressFiles}
 
     ################################################################
     ### CSS & JS Zusammenfassen zu jeweils einer Datei ###
     ################################################################
-    concatenateCss = {$plugin.hhthemedefault.concatenate}
-    concatenateJs = {$plugin.hhthemedefault.concatenate}
+    concatenateCss = {$plugin.hhthemedefault.concatenateFiles}
+    concatenateJs = {$plugin.hhthemedefault.concatenateFiles}
 }
 
 page {
