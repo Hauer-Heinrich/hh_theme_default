@@ -38,8 +38,9 @@
         "georgringer/news": "",
         "friendsoftypo3/tt-address": "",
         "in2code/powermail": "",
-        "hauerheinrich/hh_slider": "",
-        "hauerheinrich/hh_seo": ""
+        "hauerheinrich/hh-powermail-checkboxlink": "",
+        "hauerheinrich/hh-slider": "",
+        "hauerheinrich/hh-seo": ""
     },
     "suggest": {
         "hauerheinrich/hh-widget-hhnews": ""

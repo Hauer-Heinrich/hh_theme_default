@@ -124,9 +124,9 @@ if(\TYPO3\CMS\Core\Core\Environment::getContext()->__toString() === 'Development
     // Disable All Caches (in Development Mode)
     // disable Caching: https://usetypo3.com/did-you-know.html
     // (https://medium.com/typo3blog/disabling-typo3-caches-a137667848c9)
-    foreach ($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'] as $cacheName => $cacheConfiguration) {
-        $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$cacheName]['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;
-    }
+    // foreach ($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'] as $cacheName => $cacheConfiguration) {
+    //     $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$cacheName]['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;
+    // }
 }
 
 // Special for windows systems

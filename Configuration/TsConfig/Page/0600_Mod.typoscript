@@ -53,12 +53,12 @@ mod {
             ################################################################
             ### Hide news in list-view ###
             ################################################################
-            tx_news_domain_model_link.hideTable = 1
-            tx_news_domain_model_news.hideTable = 1
+            tx_news_domain_model_link.hideTable = 0
+            tx_news_domain_model_news.hideTable = 0
             tx_news_domain_model_news_related_mm.hideTable = 1
             tx_news_domain_model_news_tag_mm.hideTable = 1
             tx_news_domain_model_news_ttcontent_mm.hideTable = 1
-            tx_news_domain_model_tag.hideTable = 1
+            tx_news_domain_model_tag.hideTable = 0
         }
     }
 }

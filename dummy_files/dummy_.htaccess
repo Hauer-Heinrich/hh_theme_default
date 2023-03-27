@@ -1,0 +1,628 @@
+## disable the server signature
+ServerSignature Off
+
+## preserve bandwidth for PHP enabled servers
+<ifmodule mod_php4.c>
+    php_value zlib.output_compression 16386
+</ifmodule>
+
+RewriteEngine On
+### forwarding www / none-www
+# RewriteCond %{HTTP_HOST} !^www.domain.tld$ [NC]
+# RewriteRule ^(.*)$ https://www.domain.tld/$1 [L,R=301]
+
+### forwarding https/SSL
+# RewriteCond %{HTTP_HOST} ^(www\.)?domain\.tld$ [NC]
+# RewriteCond %{HTTPS} !on [NC]
+# RewriteRule ^(.*)$ https://www.domain.tld/$1 [R=301,L]
+
+## With HSTS you can tell browsers when users visit your site to only request from the HTTPS version of the site, no interactions over HTTP.
+## Gilt dann für alle Webseiten die innerhalb einer Typo3 Installation liegen!
+# <IfModule mod_headers.c>
+#     Header set Strict-Transport-Security "max-age=15768000; includeSubDomains; preload"
+# </IfModule>
+
+RewriteRule .? - [E=TYPO3_CONTEXT:Production]
+
+RewriteCond %{HTTP_HOST} ^preview.domain.tld$
+RewriteRule .? - [E=TYPO3_CONTEXT:Development/Server]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?domain\.localhost$ [NC]
+RewriteRule (.*) $1 [E=TYPO3_CONTEXT:Development]
+
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+### Example for directorys cache and log outside of document root for better security
+### TYPO3_PATH_APP = absolute path outside of document root
+### TYPO3_PATH_ROOT = absolute path to the document root
+# SetEnv TYPO3_PATH_APP /var/httpdocs
+# SetEnv TYPO3_PATH_ROOT /var/httpdocs/public
+# SetEnvIf Referer www\.domain\.localhost TYPO3_PATH_APP=C:\MAMP\htdocs\testings
+# SetEnvIf Referer www\.domain\.localhost TYPO3_PATH_ROOT=C:\MAMP\htdocs\domain.localhost
+
+#####
+#
+# Example .htaccess file for TYPO3 CMS - for use with Apache Webserver
+#
+# This file includes settings for the following configuration options:
+#
+# - Compression
+# - Caching
+# - MIME types
+# - Cross Origin requests
+# - Rewriting and Access
+# - Miscellaneous
+# - PHP optimisation
+#
+# If you want to use it, you have to copy it to the root folder of your TYPO3 installation (if its
+# not there already) and rename it to '.htaccess'. To make .htaccess files work, you might need to
+# adjust the 'AllowOverride' directive in your Apache configuration file.
+#
+# IMPORTANT: You may need to change this file depending on your TYPO3 installation!
+#            Consider adding this file's content to your webserver's configuration directly for speed improvement
+#
+# Lots of the options are taken from https://github.com/h5bp/html5-boilerplate/blob/master/dist/.htaccess
+#
+####
+
+
+### Begin: Compression ###
+
+# Compressing resource files will save bandwidth and so improve loading speed especially for users
+# with slower internet connections. TYPO3 can compress the .js and .css files for you.
+# *) Uncomment the following lines and
+# *) Set $GLOBALS['TYPO3_CONF_VARS']['BE']['compressionLevel'] = 9 for the Backend
+# *) Set $GLOBALS['TYPO3_CONF_VARS']['FE']['compressionLevel'] = 9 together with the TypoScript properties
+#    config.compressJs and config.compressCss for GZIP compression of Frontend JS and CSS files.
+
+#<FilesMatch "\.js\.gzip$">
+#	AddType "text/javascript" .gzip
+#</FilesMatch>
+#<FilesMatch "\.css\.gzip$">
+#	AddType "text/css" .gzip
+#</FilesMatch>
+#AddEncoding gzip .gzip
+
+<IfModule mod_deflate.c>
+    # Force compression for mangled `Accept-Encoding` request headers
+    <IfModule mod_setenvif.c>
+        <IfModule mod_headers.c>
+            SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+            RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+        </IfModule>
+    </IfModule>
+
+    # Compress all output labeled with one of the following media types.
+    #
+    # (!) For Apache versions below version 2.3.7 you don't need to
+    # enable `mod_filter` and can remove the `<IfModule mod_filter.c>`
+    # and `</IfModule>` lines as `AddOutputFilterByType` is still in
+    # the core directives.
+    #
+    # https://httpd.apache.org/docs/current/mod/mod_filter.html#addoutputfilterbytype
+
+    <IfModule mod_filter.c>
+        AddOutputFilterByType DEFLATE application/atom+xml \
+            application/javascript \
+            application/json \
+            application/ld+json \
+            application/manifest+json \
+            application/rdf+xml \
+            application/rss+xml \
+            application/schema+json \
+            application/vnd.geo+json \
+            application/geo+json \
+            application/vnd.ms-fontobject \
+            application/x-font-ttf \
+            application/x-javascript \
+            application/x-web-app-manifest+json \
+            application/xhtml+xml \
+            application/xml \
+            font/eot \
+            font/opentype \
+            font/otf \
+            font/ttf \
+            image/bmp \
+            image/svg+xml \
+            image/vnd.microsoft.icon \
+            image/x-icon \
+            text/cache-manifest \
+            text/css \
+            text/html \
+            text/javascript \
+            text/plain \
+            text/vcard \
+            text/vnd.rim.location.xloc \
+            text/vtt \
+            text/x-component \
+            text/x-cross-domain-policy \
+            text/xml
+    </IfModule>
+
+    <IfModule mod_mime.c>
+        AddEncoding gzip svgz
+    </IfModule>
+</IfModule>
+
+### End: Compression ###
+
+
+
+### Begin: Browser caching of resource files ###
+
+# This affects Frontend and Backend and increases performance.
+<IfModule mod_expires.c>
+
+    ExpiresActive On
+    ExpiresDefault                                      "access plus 1 month"
+
+    ExpiresByType text/css                              "access plus 1 year"
+
+    ExpiresByType application/json                      "access plus 0 seconds"
+    ExpiresByType application/ld+json                   "access plus 0 seconds"
+    ExpiresByType application/schema+json               "access plus 0 seconds"
+    ExpiresByType application/vnd.geo+json              "access plus 0 seconds"
+    ExpiresByType application/geo+json                  "access plus 0 seconds"
+    ExpiresByType application/xml                       "access plus 0 seconds"
+    ExpiresByType text/xml                              "access plus 0 seconds"
+
+    ExpiresByType image/vnd.microsoft.icon              "access plus 1 week"
+    ExpiresByType image/x-icon                          "access plus 1 week"
+
+    ExpiresByType text/x-component                      "access plus 1 month"
+
+    ExpiresByType text/html                             "access plus 0 seconds"
+
+    ExpiresByType application/javascript                "access plus 1 year"
+    ExpiresByType application/x-javascript              "access plus 1 year"
+    ExpiresByType text/javascript                       "access plus 1 year"
+
+    ExpiresByType application/manifest+json             "access plus 1 week"
+    ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+    ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+
+    ExpiresByType audio/ogg                             "access plus 1 month"
+    ExpiresByType image/apng                            "access plus 1 month"
+    ExpiresByType image/avif                            "access plus 1 month"
+    ExpiresByType image/avif-sequence                   "access plus 1 month"
+    ExpiresByType image/bmp                             "access plus 1 month"
+    ExpiresByType image/gif                             "access plus 1 month"
+    ExpiresByType image/jpeg                            "access plus 1 month"
+    ExpiresByType image/jxl                             "access plus 1 month"
+    ExpiresByType image/png                             "access plus 1 month"
+    ExpiresByType image/svg+xml                         "access plus 1 month"
+    ExpiresByType image/webp                            "access plus 1 month"
+    ExpiresByType video/mp4                             "access plus 1 month"
+    ExpiresByType video/ogg                             "access plus 1 month"
+    ExpiresByType video/webm                            "access plus 1 month"
+
+    ExpiresByType application/atom+xml                  "access plus 1 hour"
+    ExpiresByType application/rdf+xml                   "access plus 1 hour"
+    ExpiresByType application/rss+xml                   "access plus 1 hour"
+
+    ExpiresByType font/collection                       "access plus 1 month"
+    ExpiresByType application/vnd.ms-fontobject         "access plus 1 month"
+    ExpiresByType font/eot                              "access plus 1 month"
+    ExpiresByType font/opentype                         "access plus 1 month"
+    ExpiresByType font/otf                              "access plus 1 month"
+    ExpiresByType application/x-font-ttf                "access plus 1 month"
+    ExpiresByType font/ttf                              "access plus 1 month"
+    ExpiresByType application/font-woff                 "access plus 1 month"
+    ExpiresByType application/x-font-woff               "access plus 1 month"
+    ExpiresByType font/woff                             "access plus 1 month"
+    ExpiresByType application/font-woff2                "access plus 1 month"
+    ExpiresByType font/woff2                            "access plus 1 month"
+
+    ExpiresByType text/x-cross-domain-policy            "access plus 1 week"
+
+</IfModule>
+
+### End: Browser caching of resource files ###
+
+
+### Begin: MIME types ###
+
+# Proper MIME types for all files
+<IfModule mod_mime.c>
+    # Security configuration
+    RemoveType .html .htm
+    <FilesMatch ".+\.html?$">
+        AddType text/html .html .htm
+    </FilesMatch>
+
+    RemoveType .svg .svgz
+    <FilesMatch ".+\.svgz?$">
+        AddType image/svg+xml .svg .svgz
+    </FilesMatch>
+
+    # Data interchange
+    AddType application/atom+xml                        atom
+    AddType application/json                            json map topojson
+    AddType application/ld+json                         jsonld
+    AddType application/rss+xml                         rss
+    AddType application/vnd.geo+json                    geojson
+    AddType application/xml                             rdf xml
+
+    # JavaScript
+    AddType application/javascript                      js
+
+    # Manifest files
+    AddType application/manifest+json                   webmanifest
+    AddType application/x-web-app-manifest+json         webapp
+    AddType text/cache-manifest                         appcache
+
+    # Media files
+
+    AddType audio/mp4                                   f4a f4b m4a
+    AddType audio/ogg                                   oga ogg opus
+    AddType image/avif                                  avif
+    AddType image/avif-sequence                         avifs
+    AddType image/bmp                                   bmp
+    AddType image/jxl                                   jxl
+    AddType image/webp                                  webp
+    AddType video/mp4                                   f4v f4p m4v mp4
+    AddType video/ogg                                   ogv
+    AddType video/webm                                  webm
+    AddType video/x-flv                                 flv
+    AddType image/x-icon                                cur ico
+
+    # Web fonts
+    AddType font/woff                                   woff
+    AddType font/woff2                                  woff2
+    AddType application/vnd.ms-fontobject               eot
+    AddType font/ttf                                    ttc ttf
+    AddType font/otf                                    otf
+
+    # Other
+    AddType application/octet-stream                    safariextz
+    AddType application/x-bb-appworld                   bbaw
+    AddType application/x-chrome-extension              crx
+    AddType application/x-opera-extension               oex
+    AddType application/x-xpinstall                     xpi
+    AddType text/vcard                                  vcard vcf
+    AddType text/vnd.rim.location.xloc                  xloc
+    AddType text/vtt                                    vtt
+    AddType text/x-component                            htc
+
+</IfModule>
+
+# UTF-8 encoding
+AddDefaultCharset utf-8
+<IfModule mod_mime.c>
+    AddCharset utf-8 .atom .css .js .json .manifest .rdf .rss .vtt .webapp .webmanifest .xml
+</IfModule>
+
+### End: MIME types ###
+
+
+
+### Begin: Cross Origin ###
+
+# Send the CORS header for images when browsers request it.
+<IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+        <FilesMatch "\.(avifs?|bmp|cur|gif|ico|jpe?g|png|svgz?|webp)$">
+            SetEnvIf Origin ":" IS_CORS
+            Header set Access-Control-Allow-Origin "*" env=IS_CORS
+        </FilesMatch>
+    </IfModule>
+</IfModule>
+
+# Allow cross-origin access to web fonts.
+<IfModule mod_headers.c>
+    <FilesMatch "\.(eot|otf|tt[cf]|woff2?)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+
+### End: Cross Origin ###
+
+
+
+### Begin: Rewriting and Access ###
+
+# You need rewriting, if you use a URL-Rewriting extension (RealURL, CoolUri).
+
+<IfModule mod_rewrite.c>
+    # Enable URL rewriting
+    RewriteEngine On
+
+    # Store the current location in an environment variable CWD to use
+    # mod_rewrite in .htaccess files without knowing the RewriteBase
+    RewriteCond $0#%{REQUEST_URI} ([^#]*)#(.*)\1$
+    RewriteRule ^.*$ - [E=CWD:%2]
+
+    # Rules to set ApplicationContext based on hostname
+    #RewriteCond %{HTTP_HOST} ^dev\.example\.com$
+    #RewriteRule .? - [E=TYPO3_CONTEXT:Development]
+    #RewriteCond %{HTTP_HOST} ^staging\.example\.com$
+    #RewriteRule .? - [E=TYPO3_CONTEXT:Production/Staging]
+    #RewriteCond %{HTTP_HOST} ^www\.example\.com$
+    #RewriteRule .? - [E=TYPO3_CONTEXT:Production]
+
+    # Rule for versioned static files, configured through:
+    # - $GLOBALS['TYPO3_CONF_VARS']['BE']['versionNumberInFilename']
+    # - $GLOBALS['TYPO3_CONF_VARS']['FE']['versionNumberInFilename']
+    # IMPORTANT: This rule has to be the very first RewriteCond in order to work!
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.+)\.(\d+)\.(php|js|css|png|jpg|gif|gzip)$ %{ENV:CWD}$1.$3 [L]
+
+    # Access block for folders
+    RewriteRule _(?:recycler|temp)_/ - [F]
+    RewriteRule fileadmin/templates/.*\.(?:txt|ts)$ - [F]
+    RewriteRule ^(?:vendor|typo3_src|typo3temp/var) - [F]
+    RewriteRule (?:typo3conf/ext|typo3/sysext|typo3/ext)/[^/]+/(?:Configuration|Resources/Private|Tests?|Documentation|docs?)/ - [F]
+
+    # Block access to all hidden files and directories with the exception of
+    # the visible content from within the `/.well-known/` hidden directory (RFC 5785).
+    RewriteCond %{REQUEST_URI} "!(^|/)\.well-known/([^./]+./?)+$" [NC]
+    RewriteCond %{SCRIPT_FILENAME} -d [OR]
+    RewriteCond %{SCRIPT_FILENAME} -f
+    RewriteRule (?:^|/)\. - [F]
+
+    # Stop rewrite processing, if we are in any other known directory
+    # NOTE: Add your additional local storages here
+    RewriteRule ^(?:fileadmin/|typo3conf/|typo3temp/|uploads/) - [L]
+
+    # If the file/symlink/directory does not exist but is below /typo3/, redirect to the TYPO3 Backend entry point.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+    RewriteRule ^typo3/(.*)$ %{ENV:CWD}typo3/index.php [QSA,L]
+
+    # If the file/symlink/directory does not exist => Redirect to index.php.
+    # For httpd.conf, you need to prefix each '%{REQUEST_FILENAME}' with '%{DOCUMENT_ROOT}'.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+    RewriteRule ^.*$ %{ENV:CWD}index.php [QSA,L]
+</IfModule>
+
+# Access block for files
+# Apache < 2.3
+<IfModule !mod_authz_core.c>
+    <FilesMatch "(?i:^\.|^#.*#|^(?:ChangeLog|ToDo|Readme|License)(?:\.md|\.txt)?|^composer\.(?:json|lock)|^ext_conf_template\.txt|^ext_typoscript_constants\.txt|^ext_typoscript_setup\.txt|flexform[^.]*\.xml|locallang[^.]*\.(?:xml|xlf)|\.(?:bak|co?nf|cfg|ya?ml|ts|typoscript|tsconfig|dist|fla|in[ci]|log|sh|sql(?:\..*)?|sqlite(?:\..*)?|sw[op]|git.*|rc)|.*~)$">
+        Order allow,deny
+        Deny from all
+        Satisfy All
+    </FilesMatch>
+</IfModule>
+# Apache ≥ 2.3
+<IfModule mod_authz_core.c>
+    <If "%{REQUEST_URI} =~ m#(?i:/\.|/\x23.*\x23|/(?:ChangeLog|ToDo|Readme|License)(?:\.md|\.txt)?|/composer\.(?:json|lock)|/ext_conf_template\.txt|/ext_typoscript_constants\.txt|/ext_typoscript_setup\.txt|flexform[^.]*\.xml|locallang[^.]*\.(?:xml|xlf)|\.(?:bak|co?nf|cfg|ya?ml|ts|typoscript|tsconfig|dist|fla|in[ci]|log|sh|sql(?:\..*)?|sqlite(?:\..*)?|sw[op]|git.*|rc)|.*~)$#">
+        Require all denied
+    </If>
+</IfModule>
+
+# Block access to vcs directories
+<IfModule mod_alias.c>
+    RedirectMatch 404 /\.(?:git|svn|hg)/
+</IfModule>
+
+### End: Rewriting and Access ###
+
+
+
+### Begin: Miscellaneous ###
+
+# 404 error prevention for non-existing redirected folders
+Options -MultiViews
+
+# Make sure that directory listings are disabled.
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Force IE to render pages in the highest available mode
+    Header set X-UA-Compatible "IE=edge"
+    <FilesMatch "\.(appcache|avifs?|crx|css|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff2?|xml|xpi)$">
+        Header unset X-UA-Compatible
+    </FilesMatch>
+
+    # Reducing MIME type security risks
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# ETag removal
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
+
+### End: Miscellaneous ###
+
+
+
+# ----------------------------------------------------------------------
+# | Add your own rules here.
+# ----------------------------------------------------------------------
+
+#Alternative caching using Apache's "mod_headers", if it's installed.
+#Caching of common files - ENABLED
+<IfModule mod_headers.c>
+    <filesmatch "\\.(ico|jpe?g|png|svg|gif|swf)$">
+        # Header set Cache-Control "max-age=2592000, public"
+        ### ONLY DEVELOPMENT
+        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+    </filesmatch>
+    <filesmatch "\\.(css)$">
+        # Header set Cache-Control "max-age=604800, public"
+        ### ONLY DEVELOPMENT
+        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+    </filesmatch>
+    <filesmatch "\\.(js)$">
+        # Header set Cache-Control "max-age=216000, private"
+        ### ONLY DEVELOPMENT
+        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+    </filesmatch>
+</IfModule>
+
+# Set Keep Alive Header
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(js|css|xml|gz)$">
+        Header append Vary Accept-Encoding
+    </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | 6g Firewall für Sicherheit
+# ----------------------------------------------------------------------
+
+# 6G FIREWALL/BLACKLIST
+# @ https://perishablepress.com/6g/
+
+# 6G:[QUERY STRINGS]
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{QUERY_STRING} (eval\() [NC,OR]
+    RewriteCond %{QUERY_STRING} (127\.0\.0\.1) [NC,OR]
+    RewriteCond %{QUERY_STRING} ([a-z0-9]{2000}) [NC,OR]
+    RewriteCond %{QUERY_STRING} (javascript:)(.*)(;) [NC,OR]
+    RewriteCond %{QUERY_STRING} (base64_encode)(.*)(\() [NC,OR]
+    RewriteCond %{QUERY_STRING} (GLOBALS|REQUEST)(=|\[|%) [NC,OR]
+    RewriteCond %{QUERY_STRING} (<|%3C)(.*)script(.*)(>|%3) [NC,OR]
+    # Typo3 mag das im Backend nicht, deshalb auskommentiert:
+    # RewriteCond %{QUERY_STRING} (\\|\.\.\.|\.\./|~|`|<|>|\|) [NC,OR]
+    RewriteCond %{QUERY_STRING} (boot\.ini|etc/passwd|self/environ) [NC,OR]
+    RewriteCond %{QUERY_STRING} (thumbs?(_editor|open)?|tim(thumb)?)\.php [NC,OR]
+    RewriteCond %{QUERY_STRING} (\'|\")(.*)(drop|insert|md5|select|union) [NC]
+    RewriteRule .* - [F]
+</IfModule>
+# 6G:[REQUEST METHOD]
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_METHOD} ^(connect|debug|delete|move|put|trace|track) [NC]
+    RewriteRule .* - [F]
+</IfModule>
+# 6G:[REFERRERS]
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_REFERER} ([a-z0-9]{2000}) [NC,OR]
+    RewriteCond %{HTTP_REFERER} (semalt.com|todaperfeita) [NC]
+    RewriteRule .* - [F]
+</IfModule>
+# 6G:[REQUEST STRINGS]
+<IfModule mod_alias.c>
+    RedirectMatch 403 (?i)([a-z0-9]{2000})
+    RedirectMatch 403 (?i)(https?|ftp|php):/
+    RedirectMatch 403 (?i)(base64_encode)(.*)(\()
+    RedirectMatch 403 (?i)(=\\\'|=\\%27|/\\\'/?)\.
+    RedirectMatch 403 (?i)/(\$(\&)?|\*|\"|\.|,|&|&amp;?)/?$
+    RedirectMatch 403 (?i)(\{0\}|\(/\(|\.\.\.|\+\+\+|\\\"\\\")
+    ### don't work with TYPO3 > 11!
+    #RedirectMatch 403 (?i)(~|`|<|>|:|;|,|%|\\|\s|\{|\}|\[|\]|\|)
+    RedirectMatch 403 (?i)/(=|\$&|_mm|cgi-|etc/passwd|muieblack)
+    RedirectMatch 403 (?i)(&pws=0|_vti_|\(null\)|\{\$itemURL\}|echo(.*)kae|etc/passwd|eval\(|self/environ)
+    RedirectMatch 403 (?i)\.(aspx?|bash|bak?|cfg|cgi|dll|exe|git|hg|ini|jsp|log|mdb|out|sql|svn|swp|tar|rar|rdf)$
+    RedirectMatch 403 (?i)/(^$|(wp-)?config|mobiquo|phpinfo|shell|sqlpatch|thumb|thumb_editor|thumbopen|timthumb|webshell)\.php
+</IfModule>
+
+# 6G:[USER AGENTS]
+<IfModule mod_setenvif.c>
+    SetEnvIfNoCase User-Agent ([a-z0-9]{2000}) bad_bot
+    SetEnvIfNoCase User-Agent (archive.org|binlar|casper|checkpriv|choppy|clshttp|cmsworld|diavol|dotbot|extract|feedfinder|flicky|g00g1e|harvest|heritrix|httrack|kmccrew|loader|miner|nikto|nutch|planetwork|postrank|purebot|pycurl|python|seekerspider|siclab|skygrid|sqlmap|sucker|turnit|vikspider|winhttp|xxxyy|youda|zmeu|zune) bad_bot
+    <limit GET POST PUT>
+        Order Allow,Deny
+        Allow from All
+        Deny from env=bad_bot
+    </limit>
+</IfModule>
+
+# 6G:[BAD IPS]
+<Limit GET HEAD OPTIONS POST PUT>
+    Order Allow,Deny
+    Allow from All
+    # uncomment/edit/repeat next line to block IPs
+    # Deny from 123.456.789
+</Limit>
+
+# ----------------------------------------------------------------------
+# | Zeichensatz setzen
+# ----------------------------------------------------------------------
+
+AddDefaultCharset UTF-8
+
+# ----------------------------------------------------------------------
+#   Wichtige Dateien gegen den Zugriff von außen blocken
+# ----------------------------------------------------------------------
+
+# Kein Zugriff auf TypoScript Dateien
+<FilesMatch "\.ts">
+    deny from all
+</FilesMatch>
+
+<Files AdditionalConfiguration.php>
+    Order deny,allow
+    Deny from all
+</Files>
+
+<Files LocalConfiguration.php>
+    Order deny,allow
+    Deny from all
+</Files>
+
+# Kein Zugriff auf die readme.html
+<Files readme.html>
+    Order Allow,Deny
+    Deny from all
+    Satisfy all
+</Files>
+<Files readme.md>
+    Order Allow,Deny
+    Deny from all
+    Satisfy all
+</Files>
+
+# Kein Zugriff auf die liesmich.html für die DE Edition
+<Files liesmich.html>
+    Order Allow,Deny
+    Deny from all
+    Satisfy all
+</Files>
+
+# Kein Zugriff auf das Error-Log
+<Files error_log>
+    Order allow,deny
+    Deny from all
+</Files>
+
+#Zugriff auf .htaccess und .htpasswd verbieten. Wenn keine .htpasswd benutzt wird, kann der Code dafür entfernt werden.
+<FilesMatch "(\.htaccess|\.htpasswd)">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+# Schutz des Administrator-Bereichs. Wenn der .htaccess/.htpasswd Schutz genutzt werden soll, auskommentieren.
+#<Files wp-login.php>
+    #AuthName "Admin-Bereich"
+    #AuthType Basic
+    #AuthUserFile dein/pfad/zur/.htpasswd
+    #require valid-user
+#</Files>
+
+# ----------------------------------------------------------------------
+#   Hotlinking verbieten - WICHTIG: Füge Deine Domain hinzu, ansonsten werden keine Bilder angezeigt!
+# ----------------------------------------------------------------------
+# <IfModule mod_rewrite.c>
+#   RewriteEngine on
+#   RewriteCond %{HTTP_REFERER} !^$
+#   RewriteCond %{HTTP_REFERER} !^https://(www\.)?domain\.tld(/.*)?$ [NC]
+#   RewriteRule \.(jpg|jpeg|gif||png)$ - [F]
+# </ifModule>
+
+#  # XML-RPC Schnittstelle komplett abschalten
+# <Files xmlrpc.php>
+#   Order Deny,Allow
+#   Deny from all
+# </Files>
+
+###############
+# Error Docs
+# ErrorDocument 403 "<h1>403</h1><p>Als Benutzer haben Sie hier keinen Zugriff.<br />You don't have permission to access this file on this server.</p>"

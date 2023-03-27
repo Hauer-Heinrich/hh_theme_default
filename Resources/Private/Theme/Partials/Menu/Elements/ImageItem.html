@@ -6,8 +6,15 @@
         <li class="{f:if(condition:item.current, then:' active current')}{f:if(condition:item.spacer, then:' spacer')}">
             <f:render partial="Menu/Elements/ImageLink" arguments="{item: item, files: item.files, label: label}"/>
     </f:then>
-    <f:else if="{item.active}">
-        <li class="{f:if(condition:item.active, then:' active')}">
+    <f:comment>
+        https://forge.typo3.org/issues/97037
+        https://forge.typo3.org/issues/97186
+        ORIGINAL: <f:else if="{item.active}"></f:else>
+        WORKAROUND: <f:else if="{item.active} && {item.data.doktype} !== 4"></f:else>
+        doktype 4 = shortcut page
+    </f:comment>
+    <f:else if="{item.active} && {item.data.doktype} !== 4">
+        <li class="{f:if(condition: '{item.active} ', then:' active')}">
             <f:render partial="Menu/Elements/ImageLink" arguments="{item: item, files: item.files, label: label}"/>
     </f:else>
     <f:else>

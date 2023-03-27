@@ -31,6 +31,7 @@ $EM_CONF['hh_theme_default'] = [
             'news' => '',
             'tt_address' => '',
             'powermail' => '',
+            'hh_powermail_checkboxlink' => '',
             'hh_slider' => '',
             'hh_seo' => ''
         ],

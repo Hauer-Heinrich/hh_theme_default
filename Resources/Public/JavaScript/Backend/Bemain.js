@@ -1,3 +1,9 @@
+/*
+ * Werbeagentur Hauer-Heinrich GmbH
+ *  E-Mail: info@hauer-heinrich.de
+ * Website: http://www.hauer-heinrich.de
+ */
+
 document.documentElement.className += (("ontouchstart" in document.documentElement) ? ' touch' : ' no-touch');
 var root = document.documentElement;root.className += ' js';
 

@@ -31,6 +31,5 @@ admPanel {
 [backend.user.isAdmin == "1"]
     options {
         pageTree.showPageIdWithTitle = 1
-        folderTree.uploadFieldsInLinkBrowser = 3
     }
 [GLOBAL]

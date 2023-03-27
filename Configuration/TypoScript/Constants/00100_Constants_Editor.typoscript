@@ -8,9 +8,9 @@ plugin.hhthemedefault {
     # cat=plugin.hhthemedefault_mainconfig/basic/0070; type=int+; label= Cache Dauer in Sekunden (86400 = 24 hours)
         cacheperiod = 432000
     # cat=plugin.hhthemedefault_mainconfig/basic/0080; type=boolean; label= CSS & JS Komprimieren (0 aus / 1 ein)
-        compress = 1
+        compressFiles = 1
     # cat=plugin.hhthemedefault_mainconfig/basic/0090; type=boolean; label= CSS & JS Zusammenfassen zu jeweils einer Datei (0 aus / 1 ein)
-        concatenate = 1
+        concatenateFiles = 1
 
     ### Layout
     # cat=plugin.hhthemedefault_Layout/basic/0031; type=int+; label= Page ID der Seite für den Inhalt für den Footer
@@ -27,8 +27,6 @@ plugin.hhthemedefault {
         indexedSearchId =
     # cat=plugin.hhthemedefault_Layout/basic/0055; type=boolean; label= Webseite mehrsprachig? (default de || en)
         multiLanguage = 0
-    # cat=plugin.hhthemedefault_Layout/basic/0060; type=color; label= themeColor (interessant z. B. für Smartphones)
-        themeColor =
 
     # cat=plugin.hhthemedefault_Layout/basic/0100; type=string; label= breadcrumb separator (e. g. > or | ...)
         breadcrumbSeparator = >
