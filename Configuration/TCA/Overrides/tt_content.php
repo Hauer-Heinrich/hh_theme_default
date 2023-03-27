@@ -1,42 +1,83 @@
 <?php
 defined('TYPO3') or die();
 
-// Configure new fields:
-$fields = [
-    'header_style' => [
-        'label' => 'LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_pageconfig.xlf:tceform.ttContent.headerStyle',
-        'exclude' => 1,
-        'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-                ['default', 0],
-            ],
-        ],
-    ],
-];
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
+use \B13\Container\Tca\Registry;
+use \B13\Container\Tca\ContainerConfiguration;
 
-// Add new fields to table:
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $fields);
+call_user_func(function() {
+    $extensionKey = 'hh_theme_default';
 
-// Add fields to specific pallete
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
-    'tt_content',
-    'headers',
-    'header_style',
-    'after:header_layout'
-);
+    // Change header field to RTE
+    $GLOBALS['TCA']['tt_content']['columns']['header']['config'] = [
+        'type' => 'text',
+        'eval' => 'trim',
+        'max' => 255,
+        'rows' => 1,
+        'enableRichtext' => true,
+        'richtextConfiguration' => 'rte_header',
+    ];
 
-// Add fields to TCAtypes instead of adding it to a specific palette like above:
-// for example add a custom_palette:
-// \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-//     'tt_content', // Table name
-//     '--palette--;custom_palette;header_style', // Field list to add
-//     '', // List of specific types to add the field list to. (If empty, all type entries are affected)
-//     'after:header_layout' // Insert fields before (default) or after one, or replace a field
-// );
+    // EXT: container
+    $containerRegistry = GeneralUtility::makeInstance(Registry::class);
+    $containerRegistry->configureContainer(
+        (
+            new ContainerConfiguration(
+                'grid-col-2', // CType
+                '2 Column Container With Header', // label
+                '', // description
+                [
+                    // [
+                    //     ['name' => 'header', 'colPos' => 200, 'colspan' => 2, 'allowed' => ['CType' => 'header, textmedia']]
+                    // ],
+                    [
+                        ['name' => 'left side', 'colPos' => 201],
+                        ['name' => 'right side', 'colPos' => 202]
+                    ]
+                ]
+            )
+        )
+        // override default configurations
+        // ->setIcon('EXT:container_example/Resources/Public/Icons/b13-2cols-with-header-container.svg')
+        ->setSaveAndCloseInNewContentElementWizard(false)
+    );
 
-// Add the new custom_palette:
-// $GLOBALS['TCA']['pages']['palettes']['custom_palette'] = [
-//     'showitem' => 'header_style'
-// ];
+    // override default settings
+    $GLOBALS['TCA']['tt_content']['types']['grid-col-2']['showitem'] = '
+        --palette--;;general,
+        --palette--;;headers,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+            --palette--;;frames,
+            --palette--;;appearanceLinks,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+            --palette--;;language,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+            --palette--;;hidden,
+            --palette--;;access';
+
+    $containerRegistry->configureContainer(
+        (
+            new ContainerConfiguration(
+                'grid-col-3', // CType
+                '3 Column Container With Header', // label
+                '', // description
+                [
+                    // [
+                    //     ['name' => 'header', 'colPos' => 200, 'colspan' => 2, 'allowed' => ['CType' => 'header, textmedia']]
+                    // ],
+                    [
+                        ['name' => 'left side', 'colPos' => 201],
+                        ['name' => 'middle side', 'colPos' => 202],
+                        ['name' => 'right side', 'colPos' => 203]
+                    ]
+                ]
+            )
+        )
+        // override default configurations
+        // ->setIcon('EXT:container_example/Resources/Public/Icons/b13-2cols-with-header-container.svg')
+        ->setSaveAndCloseInNewContentElementWizard(false)
+    );
+
+    // override default settings
+    $GLOBALS['TCA']['tt_content']['types']['grid-col-3']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['grid-col-2']['showitem'];
+});

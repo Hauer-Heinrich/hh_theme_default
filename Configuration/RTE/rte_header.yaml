@@ -1,0 +1,36 @@
+####
+# Example of what CKEditor can all bring
+###
+
+### Load default processing options
+imports:
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Processing.yaml' }
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml' }
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml' }
+
+### Add configuration for the editor
+### For complete documentation see https://ckeditor.com/docs/ckeditor5/latest/features/index.html
+editor:
+  config:
+    contentsCss: 'EXT:hh_theme_default/Resources/Public/Css/backend/UserRte.min.css'
+    height: 60
+
+    # style:
+      # definitions:
+        ### Inline styles
+        # - { name: "btn-default", element: "span", classes: ["btn-default"]  }
+        # - { name: "btn-fullwidth", element: "span", classes: ["btn-fullwidth"] }
+
+    toolbar:
+      items:
+        - removeFormat
+        - undo
+        - redo
+        - bold
+        - italic
+        - softhyphen
+        - style
+
+    wordCount:
+      displayWords: false
+      displayCharacters: false

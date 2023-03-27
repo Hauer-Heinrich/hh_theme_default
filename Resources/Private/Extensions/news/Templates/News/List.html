@@ -1,0 +1,67 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:layout name="General" />
+
+<f:section name="content">
+    <!--TYPO3SEARCH_end-->
+    <f:if condition="{news}">
+        <f:then>
+            <f:switch expression="{settings.templateLayout}">
+                <f:case value="slider">
+                    <f:render section="slider" arguments="{_all}" />
+                </f:case>
+                <f:defaultCase>
+                    <div class="news-list-view" id="news-container-{contentObjectData.uid}">
+                        <f:if condition="{settings.hidePagination}">
+                            <f:then>
+                                <f:for each="{news}" as="newsItem" iteration="iterator">
+                                    <f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                                </f:for>
+                            </f:then>
+                            <f:else>
+                                <f:if condition="{settings.list.paginate.insertAbove}">
+                                    <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+                                </f:if>
+                                <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+                                    <f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                                </f:for>
+                                <f:if condition="{settings.list.paginate.insertBelow}">
+                                    <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+                                </f:if>
+                            </f:else>
+                        </f:if>
+                    </div>
+                </f:defaultCase>
+            </f:switch>
+        </f:then>
+        <f:else>
+            <div class="no-news-found">
+                <f:translate key="list_nonewsfound" />
+            </div>
+        </f:else>
+    </f:if>
+    <!--TYPO3SEARCH_begin-->
+</f:section>
+
+<f:section name="slider">
+    <div class="news-list-view" id="news-container-{contentObjectData.uid}">
+        <f:for each="{news}" as="newsItem" iteration="iterator">
+            <f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+        </f:for>
+    </div>
+
+    <f:asset.script identifier="hhSliderJson-news-{contentObjectData.uid}" class="hhSliderJson" type="application/json">
+        {
+            <f:comment></f:comment>"uid": "{contentObjectData.uid}",
+            "disableOnInteraction": "{f:if(condition: "{data.tx_hhslider_disable_on_interaction}", then: "true", else: "false")}",
+            "container": "#news-container-{contentObjectData.uid}",
+            "mode": "carousel",
+            "axis": "horizontal",
+            "items": 3
+        }
+    </f:asset.script>
+</f:section>
+
+</html>

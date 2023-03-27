@@ -10,7 +10,7 @@ use \TYPO3\CMS\Core\Log\Writer\FileWriter;
 // for env:TYPO3_CONTEXT = Production (which is the default) only!
 // typo3_config directory contains configuration for e.g. database access,
 // install tool password and configuration for system dependent settings.
-$databaseCredentialsFile = Environment::getPublicPath() . '/../typo3_config/typo3_domain.php';
+$databaseCredentialsFile = Environment::getPublicPath() . '/../typo3_config/typo3_default.php';
 if (file_exists($databaseCredentialsFile)) { require_once ($databaseCredentialsFile); }
 
 $customChanges = [
@@ -22,10 +22,10 @@ $customChanges = [
         'RTE_imageStorageDir' => 'fileadmin/uploads_rte/',
         'lockIP' => 4, // DSGVO / GDPR,
         // only if server has no argon2i
-        'passwordHashing' => [
-            'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\BcryptPasswordHash',
-            'options' => [],
-        ]
+        // 'passwordHashing' => [
+        //     'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\BcryptPasswordHash',
+        //     'options' => [],
+        // ]
     ],
     'FE' => [
         'loginSecurityLevel' => 'normal',
@@ -34,10 +34,10 @@ $customChanges = [
         'disableNoCacheParameter' => 0,
         'hidePagesIfNotTranslatedByDefault' => 1,
         // only if server has no argon2i
-        'passwordHashing' => [
-            'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\BcryptPasswordHash',
-            'options' => [],
-        ]
+        // 'passwordHashing' => [
+        //     'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\BcryptPasswordHash',
+        //     'options' => [],
+        // ]
     ],
     'HTTP' => [
         'verify' => 1,
@@ -63,6 +63,9 @@ $customChanges = [
             ]
         ],
     ],
+    'GFX' => [
+        'imagefile_ext' => 'pdf,png,jpg,jpeg,svg,webp'
+    ],
     'SYS' => [
         'displayErrors' => 0,
         'errorHandlerErrors' => 20480,
@@ -75,4 +78,4 @@ $customChanges = [
         'ipAnonymization' => '2',
     ],
 ];
-$GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customChanges);
+$GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customChanges);

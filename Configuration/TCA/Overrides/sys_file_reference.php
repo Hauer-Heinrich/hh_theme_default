@@ -36,25 +36,4 @@ call_user_func(function() {
             ],
         ],
     ];
-
-    // RTE for sys_file_reference description field
-    // TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
-    //     'sys_file_reference',
-    //     [
-    //         'description' => [
-    //             'exclude' => 1,
-    //             'label' => 'Description (Caption)',
-    //             'config' => [
-    //                 'type' => 'text',
-    //                 'enableRichtext' => true,
-    //                 'fieldControl' => [
-    //                     'fullScreenRichtext' => [
-    //                         'disabled' => false,
-    //                     ],
-    //                 ],
-    //                 'richtextConfiguration' => 'default',
-    //             ],
-    //         ]
-    //     ]
-    // );
 });

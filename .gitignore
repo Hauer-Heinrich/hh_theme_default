@@ -1,4 +1,4 @@
-## TYPO3 v6.2
+## TYPO3 v6.2 test2
 # Ignore serveral upload and file directories.
 /fileadmin/user_upload/
 /fileadmin/_temp_/
@@ -38,7 +38,6 @@ giftp.json
 /deploy.php
 /typo3-deploy/
 /deploy/
-/*.zip
 ._*
 Desktop.ini
 Thumbs.db

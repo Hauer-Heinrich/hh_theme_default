@@ -1,0 +1,85 @@
+mod.web_layout.BackendLayouts {
+    default {
+        title = One Column
+        iconIdentifier = be_layout_one_column
+        config {
+            backend_layout {
+                colCount = 1
+                rowCount = 2
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = Banner
+                                colPos = 0
+                            }
+                        }
+                    }
+                    2 {
+                        columns {
+                            1 {
+                                name = Main Content
+                                colPos = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    default_with_side_nav {
+        title = One Column with side Nav and optional content before / after
+        iconIdentifier = hh_navaside_left
+        config {
+            backend_layout {
+                colCount = 3
+                rowCount = 4
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = Banner
+                                colPos = 0
+                                colspan = 2
+                            }
+                        }
+                    }
+                    2 {
+                        columns {
+                            1 {
+                                name = Aside Nav Content Before (Optional)
+                                colPos = 3
+                                colspan = 1
+                            }
+                            2 {
+                                name = Main Content
+                                colPos = 1
+                                rowspan = 3
+                                colspan = 2
+                            }
+                        }
+                    }
+                    3 {
+                        columns {
+                            1 {
+                                name = Aside Nav (Optional: kann mit Inhalt überschrieben werden)
+                                colPos = 2
+                                colspan = 1
+                            }
+                        }
+                    }
+                    4 {
+                        columns {
+                            1 {
+                                name = Aside Nav Content After (Optional)
+                                colPos = 4
+                                colspan = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

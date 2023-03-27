@@ -1,0 +1,336 @@
+################################################################
+### Fluid Styled Content ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript">
+lib.contentElement {
+    templateRootPaths {
+        20 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
+        30 = {$styles.templates.templateRootPath}
+    }
+    partialRootPaths {
+        20 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
+        30 = {$styles.templates.partialRootPath}
+    }
+    layoutRootPaths {
+        20 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Layouts/
+        30 = {$styles.templates.layoutRootPath}
+    }
+}
+<INCLUDE_TYPOSCRIPT: source="DIR: ./CustomFluid/" extensions="typoscript"">
+
+################################################################
+### News - news ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:news/Configuration/TypoScript/setup.typoscript">
+plugin.tx_news {
+    view {
+        templateRootPaths {
+            5 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/news/Templates/
+        }
+        partialRootPaths {
+            5 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/news/Partials/
+        }
+        layoutRootPaths {
+            5 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Layouts/
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/news/Layouts/
+        }
+    }
+    settings {
+        cssFile >
+        link {
+            skipControllerAndAction = 0
+        }
+
+        displayDummyIfNoMedia = 0
+
+        detail {
+            showSocialShareButtons = 1
+
+            media {
+                image {
+                    maxWidth = 1920
+                }
+            }
+        }
+    }
+
+    _LOCAL_LANG {
+        de {
+            more-link = mehr
+        }
+    }
+}
+
+################################################################
+### Address - tt_address ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:tt_address/Configuration/TypoScript/setup.typoscript">
+plugin.tx_ttaddress {
+    view {
+        templateRootPaths {
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/tt_address/Templates/
+            100 = {$plugin.tx_ttaddress.view.templateRootPath}
+        }
+        partialRootPaths {
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/tt_address/Partials/
+            100 = {$plugin.tx_ttaddress.view.partialRootPath}
+        }
+        layoutRootPaths {
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/tt_address/Layouts/
+            100 = {$plugin.tx_ttaddress.view.layoutRootPath}
+        }
+    }
+}
+
+################################################################
+### Form - powermail ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:powermail/Configuration/TypoScript/Main/setup.typoscript">
+plugin.tx_powermail {
+    view {
+        templateRootPaths {
+            100 = {$themeDefault.urls.themeResources}Private/Extensions/powermail/Templates/
+        }
+        partialRootPaths {
+            100 = {$themeDefault.urls.themeResources}Private/Extensions/powermail/Partials/
+        }
+        layoutRootPaths {
+            100 = {$themeDefault.urls.themeResources}Private/Extensions/powermail/Layouts/
+        }
+    }
+
+    settings {
+        sender.attachment = 1
+        setup {
+            misc.ajaxSubmit = 1
+            ### To set a sender email address for the main email (to receiver)
+            ### Settings needed especially for SMTP and SPF
+            receiver {
+                overwrite {
+                    // senderName = TEXT
+                    // senderName.value = Your_Company - Website
+
+                    // senderEmail = TEXT
+                    // senderEmail.value = example@domain.tld
+
+                    replyToName = TEXT
+                    replyToName.value >
+                    replyToName.data = GP:tx_powermail_pi1|field|name
+
+                    replyToEmail = TEXT
+                    replyToEmail.value >
+                    replyToEmail.data = GP:tx_powermail_pi1|field|email
+                }
+            }
+
+            sender {
+                overwrite {
+                    // senderName = TEXT
+                    // senderName.value >
+                    // senderName.value = Your_Company
+
+                    // senderEmail = TEXT
+                    // senderEmail.value >
+                    // senderEmail.value = example@domain.tld
+                }
+            }
+        }
+    }
+}
+
+################################################################
+### Form powermail - hh_powermail_checkboxlink ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_powermail_checkboxlink/Configuration/TypoScript/setup.typoscript">
+
+################################################################
+### indexed_search - Suche ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/setup.typoscript">
+plugin.tx_indexedsearch {
+    view {
+        templateRootPaths {
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
+            20 = {$themeDefault.urls.themeResources}Private/Extensions/indexed_search/Templates/
+            30 = {$plugin.tx_indexedsearch.view.templateRootPath}
+        }
+        partialRootPaths {
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
+            20 = {$themeDefault.urls.themeResources}Private/Extensions/indexed_search/Partials/
+            30 = {$plugin.tx_indexedsearch.view.partialRootPath}
+        }
+        layoutRootPaths {
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Layouts/
+            20 = {$themeDefault.urls.themeResources}Private/Extensions/indexed_search/Layouts/
+            30 = {$plugin.tx_indexedsearch.view.layoutRootPath}
+        }
+    }
+
+    settings {
+        targetPid = {$plugin.hhthemedefault.indexedSearchId}
+        displayRules = 0
+        displayAdvancedSearchLink = 0
+
+        defaultOptions {
+            languageUid = 0
+        }
+    }
+}
+
+config {
+    index_enable = 1
+    index_metatags = 1
+    ### Wenn gesetzt, werden externe Medien, auf die auf Seiten verlinkt wird, ebenfalls indiziert.
+    index_externals = 0
+}
+
+### liefert blanke Ergebnisse ohne Header etc. für Ajax nachladen
+search = PAGE
+search {
+    typeNum = 1981
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = none
+        admPanel = 0
+        metaCharset = utf-8
+        additionalHeaders = Content-Type:text/html;charset=utf-8
+        disablePrefixComment = 1
+    }
+    10 < plugin.tx_indexedsearch
+}
+
+################################################################
+### b13 container - container ###
+################################################################
+### default container / grid settings
+lib.container < lib.contentElement
+lib.container {
+    templateRootPaths {
+        1000 = {$themeDefault.urls.themeResources}Private/Extensions/container/Templates
+    }
+    partialRootPaths {
+        1000 = {$themeDefault.urls.themeResources}Private/Extensions/container/Partials/
+    }
+    layoutRootPaths {
+        1000 = {$themeDefault.urls.themeResources}Private/Extensions/container/Layouts
+    }
+}
+
+// explicitly set colPos/variable values
+tt_content.grid-col-2 < lib.container
+tt_content.grid-col-2 {
+    templateName = Grid-col-2
+
+    dataProcessing {
+        201 = B13\Container\DataProcessing\ContainerProcessor
+        201 {
+            colPos = 201
+            as = childrenLeft
+        }
+        202 = B13\Container\DataProcessing\ContainerProcessor
+        202 {
+            colPos = 202
+            as = childrenRight
+        }
+    }
+}
+
+tt_content.grid-col-3 < lib.container
+tt_content.grid-col-3 {
+    templateName = Grid-col-3
+
+    dataProcessing {
+        201 = B13\Container\DataProcessing\ContainerProcessor
+        201 {
+            colPos = 201
+            as = childrenLeft
+        }
+        202 = B13\Container\DataProcessing\ContainerProcessor
+        202 {
+            colPos = 202
+            as = childrenMiddle
+        }
+        203 = B13\Container\DataProcessing\ContainerProcessor
+        203 {
+            colPos = 203
+            as = childrenRight
+        }
+    }
+}
+
+################################################################
+### Hauer-Heinrich Slider - hh_slider ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_slider/Configuration/TypoScript/setup.typoscript">
+tt_content.hhslider_hh_slider {
+    layoutRootPaths {
+        0 = EXT:fluid_styled_content/Resources/Private/Layouts/
+        5 = EXT:hh_slider/Resources/Private/Layouts/
+        10 = {$themeDefault.urls.themeResources}Private/Extensions/hh_slider/Layouts/
+        20 = {$plugin.tx_hhslider.view.layoutRootPath}
+    }
+    partialRootPaths {
+        0 = EXT:fluid_styled_content/Resources/Private/Partials/
+        5 = EXT:hh_slider/Resources/Private/Partials/
+        10 = {$themeDefault.urls.themeResources}Private/Extensions/hh_slider/Partials/
+        20 = {$plugin.tx_hhslider.view.partialRootPath}
+    }
+    templateRootPaths {
+        0 = EXT:fluid_styled_content/Resources/Private/Templates/
+        5 = EXT:hh_slider/Resources/Private/Templates/
+        10 = {$themeDefault.urls.themeResources}Private/Extensions/hh_slider/Templates/
+        20 = {$plugin.tx_hhslider.view.templateRootPath}
+    }
+
+    settings {
+        cssFile >
+        jsFile >
+    }
+}
+
+################################################################
+### Hauer-Heinrich SEO - hh_seo ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_seo/Configuration/TypoScript/setup.typoscript">
+
+plugin.tx_seo.config {
+    xmlSitemap {
+        sitemaps {
+            # news {
+            #     provider = GeorgRinger\News\Seo\NewsXmlSitemapDataProvider
+            #     config {
+            #         excludedTypes = 1,2
+            #         table = tx_news_domain_model_news
+            #         additionalWhere =
+            #         sortField = sorting
+            #         lastModifiedField = tstamp
+            #         changeFreqField = sitemap_changefreq
+            #         priorityField = sitemap_priority
+            #         pid = 116
+            #         recursive = 2
+            #         url {
+            #             pageId = 522
+            #             useCategorySinglePid = 1
+            #             fieldToParameterMap {
+            #                 uid = tx_news_pi1[news]
+            #             }
+
+            #             additionalGetParameters {
+            #                 tx_news_pi1.controller = News
+            #                 tx_news_pi1.action = detail
+            #             }
+
+            #             useCacheHash = 1
+            #         }
+            #     }
+            # }
+        }
+    }
+}
+
+################################################################
+### Hauer-Heinrich Cookie Consent - hh_ext_cookie_consent ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_ext_cookie_consent/Configuration/TypoScript/setup.typoscript">

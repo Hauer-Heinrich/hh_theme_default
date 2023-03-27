@@ -4,38 +4,31 @@
         <header/>
         <body>
 
-        <trans-unit id="tceform.ttContent.header1" approved="yes">
-            <source>Header 1 (h1)</source>
+        <trans-unit id="tceform.ttContent.header1">
             <target state="translated">Überschrift 1 (h1)</target>
         </trans-unit>
 
-        <trans-unit id="tceform.ttContent.header2" approved="yes">
-            <source>Header 2 (h2)</source>
+        <trans-unit id="tceform.ttContent.header2">
             <target state="translated">Überschrift 2 (h2)</target>
         </trans-unit>
 
-        <trans-unit id="tceform.ttContent.header3" approved="yes">
-            <source>Header 3 (h3)</source>
+        <trans-unit id="tceform.ttContent.header3">
             <target state="translated">Überschrift 3 (h3)</target>
         </trans-unit>
 
-        <trans-unit id="tceform.ttContent.header4" approved="yes">
-            <source>Header 4 (h4)</source>
+        <trans-unit id="tceform.ttContent.header4">
             <target state="translated">Überschrift 4 (h4)</target>
         </trans-unit>
 
-        <trans-unit id="tceform.ttContent.header5" approved="yes">
-            <source>Header 5 (h5)</source>
+        <trans-unit id="tceform.ttContent.header5">
             <target state="translated">Überschrift 5 (h5)</target>
         </trans-unit>
 
-        <trans-unit id="tceform.ttContent.onlybold" approved="yes">
-            <source>No header, only bold</source>
+        <trans-unit id="tceform.ttContent.onlybold">
             <target state="translated">keine Überschrift, nur bold</target>
         </trans-unit>
 
-        <trans-unit id="tceform.ttContent.headerStyle" approved="yes">
-            <source>Header style</source>
+        <trans-unit id="tceform.ttContent.headerStyle">
             <target state="translated">Überschrift Style</target>
         </trans-unit>
 

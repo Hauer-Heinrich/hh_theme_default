@@ -1,0 +1,82 @@
+################################################################
+### News - news ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:news/Configuration/TSconfig/Page/mod.linkvalidator.tsconfig">
+tx_news.templateLayouts {
+    slider = Slider
+}
+
+TCEFORM {
+    tt_content {
+        pi_flexform.news_pi1 {
+            sDEF {
+                settings\.recursive.disabled = 1
+            }
+            additional {
+                settings\.offset.disabled = 1
+                settings\.tags.disabled = 1
+                settings\.excludeAlreadyDisplayedNews.disabled = 1
+            }
+            template {
+                settings\.media\.maxWidth.disabled = 1
+                settings\.media\.maxHeight.disabled = 1
+                settings\.cropMaxCharacters.disabled = 1
+            }
+        }
+    }
+
+    tx_news_domain_model_news {
+        content_elements.disabled = 0
+        categories.disabled = 1
+        related.disabled = 1
+        related_from.disabled = 1
+        related_links.disabled = 1
+        tags.disabled = 1
+        fe_group.disabled = 1
+        notes.disabled = 1
+
+        fal_related_files.config.appearance.fileUploadAllowed = 0
+    }
+}
+
+### if pagesettings "module" is set to "news" / contains news-records
+[traverse(page, "module") == "news"]
+    TCEFORM {
+        tt_content {
+            CType {
+                ### Remove all CTypes from allowed additional news content field 'content_elements'
+                removeItems = *
+
+                ### allow
+                keepItems = text, textmedia
+            }
+        }
+    }
+    TCAdefaults {
+        tt_content {
+            CType = textmedia
+            colPos = 1
+        }
+    }
+[global]
+
+################################################################
+### Addresses - tt_address ###
+################################################################
+TCEFORM.tt_address {
+    image.config.appearance.fileUploadAllowed = 0
+
+    name.disabled = 1
+    fe_group.disabled = 1
+    categories.disabled = 1
+}
+
+################################################################
+### Hauer-Heinrich Slider - hh_slider ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_slider/Configuration/TsConfig/AllPage.typoscript">
+
+################################################################
+### Form powermail - hh_powermail_checkboxlink ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_powermail_checkboxlink/Configuration/TsConfig/AllPage.typoscript">

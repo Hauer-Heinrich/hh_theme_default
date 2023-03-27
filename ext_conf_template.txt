@@ -4,3 +4,6 @@
 
 # cat=RTE; type=string; label=LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_extconftemplate.xlf:rtePresetsPath
 rtePresets = EXT:hh_theme_default/Configuration/RTE/rte_theme.yaml
+
+# cat=RTE; type=string; label=LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_extconftemplate.xlf:rtePresetsPathHeader
+rtePresetHeader = EXT:hh_theme_default/Configuration/RTE/rte_header.yaml

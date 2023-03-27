@@ -9,7 +9,7 @@ routes:
       Contact:\r\n
       \r\n
       /* DESIGN & DEVELOPEMENT */\r\n
-      Chef:\r\n
+      Chef: Gabriele Heinrich-Hauer\r\n
       Contact: www.hauer-heinrich.de\r\n
       From: Passau, Bavaria, Germany\r\n
       \r\n
@@ -23,7 +23,7 @@ routes:
       From: Passau, Bavaria, Germany\r\n
       \r\n
       /* SITE */\r\n
-      Last update: 2023-01-24\r\n
+      Last update: 2023-14-03\r\n
       Language: Deutsch / English\r\n
       Standards: HTML5, CSS3, PHP\r\n
       Software: VS Code, Sourcetree\r\n"

@@ -1,0 +1,332 @@
+page = PAGE
+page {
+    typeNum = 0
+    adminPanelStyles = 1
+
+    ### set in fluid layout
+    bodyTag >
+
+    includeCSS >
+    includeJSLibs >
+    includeJSFooterlibs >
+    includeJSFooter >
+
+    config {
+        additionalHeaders {
+            ### https://securityheaders.com/
+            1.header = Server:
+            5.header = X-Powered-By:
+            ### sagt dem Browser er soll bitte gleich https verwenden !!erst ab IE 11!! Sperrt WEBMAIL
+            10.header = strict-transport-security: max-age=31536000
+            ### don't allow that iframes loads our side
+            20.header = X-Frame-Options: SAMEORIGIN
+            40.header = X-Content-Type-Options: nosniff
+            50.header = Referrer-Policy: strict-origin
+            ### wird von hh_ext_cookie_consent gesetzt
+            # 60.header = Content-Security-Policy: default-src 'self'  'unsafe-inline' 'unsafe-eval' data:;
+            70.header = Cross-Origin-Opener-Policy: same-origin
+        }
+    }
+
+    headerData {
+        100 = TEXT
+        100.value (
+            <link rel="preload" href="{$themeDefault.urls.themeResources}Public/Fonts/fontello.woff2" as="font" crossorigin />
+        )
+    }
+
+    10 = FLUIDTEMPLATE
+    10 {
+        format = html
+        layoutRootPaths {
+            10 = {$themeDefault.urls.themeResources}Private/Theme/Layouts/
+        }
+
+        templateRootPaths {
+            10 = {$themeDefault.urls.themeResources}Private/Theme/Templates/
+        }
+
+        partialRootPaths {
+            10 = {$themeDefault.urls.themeResources}Private/Theme/Partials/
+        }
+
+        ### Template file name must be the same as the ID of the backendlayout
+        templateName = TEXT
+        templateName {
+            cObject = TEXT
+            cObject {
+                data = pagelayout
+                required = 1
+                case = uppercamelcase
+                split {
+                    token = pagets__
+                    cObjNum = 1
+                    1.current = 1
+                }
+            }
+            ifEmpty = Default
+        }
+
+        dataProcessing {
+            ################################################################
+            ### SiteConfig (yaml) ###
+            ################################################################
+            5 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
+            5 {
+                as = site
+            }
+
+            ################################################################
+            ### Main Menu ###
+            ################################################################
+            10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            10 {
+                special = list
+                special.value.field = pages
+                levels = 7
+                expandAll = 1
+                includeSpacer = 0
+                titleField = nav_title // title
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = media
+                    }
+                }
+                as = MenuMain
+            }
+
+            ################################################################
+            ### Menu Aside / Submenu ###
+            ################################################################
+            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            20 {
+                levels = 4
+                entryLevel = 1
+                expandAll = 1
+                includeSpacer = 1
+                as = MenuAside
+            }
+
+            ################################################################
+            ### Path Menu / Breadcrumb Menu ###
+            ################################################################
+            30 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            30 {
+                special = rootline
+                special.range = 0|-1
+                includeNotInMenu = 1
+                as = MenuPath
+            }
+
+            ################################################################
+            ### Language Menu ###
+            ################################################################
+            # 40 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+            # 40 {
+            #     languages = auto
+            #     as = MenuLanguage
+
+            #     if.isTrue = {$plugin.hhthemedefault.multiLanguage}
+            # }
+
+            ################################################################
+            ### categories - sys_category - for pages ###
+            ################################################################
+            # 50 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            # 50 {
+            #     table = sys_category
+            #     pidInList.data = site:rootPageId
+            #     selectFields = sys_category.*
+            #     recursive = 999
+            #     as = CategoriesAll
+            # }
+
+            # 55 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            # 55 {
+            #     if.isTrue.field = categories
+            #     table = sys_category
+            #     selectFields = sys_category.*
+            #     pidInList.data = site:rootPageId
+            #     recursive = 999
+            #     join = sys_category_record_mm ON sys_category_record_mm.uid_local = sys_category.uid
+            #     where.dataWrap = sys_category_record_mm.uid_foreign={field:_ORIG_uid // field:uid} AND sys_category_record_mm.tablenames = 'pages' AND sys_category_record_mm.fieldname = 'categories'
+            #     orderBy = sys_category_record_mm.sorting_foreign
+            #     languageField = 0
+            #     as = CategoriesCurrentSelected
+            # }
+
+            ################################################################
+            ### Additional Top Menu ###
+            ################################################################
+            # 90 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            # 90 {
+            #     special = directory
+            #     special.value = {$plugin.hhthemedefault.additionalTopMenu}
+            #     entryLevel = 0
+            #     levels = 1
+            #     expandAll = 1
+            #     includeSpacer = 0
+            #     titleField = nav_title // title
+            #     dataProcessing {
+            #         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            #         10 {
+            #             references.fieldName = media
+            #         }
+            #     }
+            #     as = AdditionalTopMenu
+
+            #     if.isTrue = {$plugin.hhthemedefault.additionalTopMenu}
+            # }
+
+            ################################################################
+            ### Footer Menu ###
+            ################################################################
+            # 95 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            # 95 {
+            #     special = directory
+            #     special.value = {$plugin.hhthemedefault.footerMenu}
+            #     entryLevel = 0
+            #     levels = 1
+            #     expandAll = 1
+            #     includeSpacer = 0
+            #     titleField = nav_title // title
+            #     as = FooterMenu
+            # }
+
+            ################################################################
+            ### Social Menu ###
+            ################################################################
+            # 96 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            # 96 {
+            #     special = directory
+            #     special.value = {$plugin.hhthemedefault.socialMenu}
+            #     entryLevel = 0
+            #     levels = 1
+            #     expandAll = 1
+            #     includeSpacer = 0
+            #     titleField = nav_title // title
+            #     dataProcessing {
+            #         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            #         10 {
+            #             references.fieldName = media
+            #         }
+            #     }
+            #     as = SocialMenu
+            # }
+
+            ################################################################
+            ### Quick Menu ###
+            ################################################################
+            # 100 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            # 100 {
+            #     special = directory
+            #     special.value = {$plugin.hhthemedefault.quickLinks}
+            #     entryLevel = 0
+            #     levels = 7
+            #     expandAll = 1
+            #     includeSpacer = 0
+            #     titleField = nav_title // title
+            #     dataProcessing {
+            #         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            #         10 {
+            #             references.fieldName = media
+            #         }
+            #     }
+            #     as = Quicklinks
+            # }
+        }
+
+        settings {
+            indexedSearchId = {$plugin.hhthemedefault.indexedSearchId}
+            breadcrumbSeparator = {$plugin.hhthemedefault.breadcrumbSeparator}
+            compressFiles = {$plugin.hhthemedefault.compressFiles}
+            concatenateFiles = {$plugin.hhthemedefault.concatenateFiles}
+        }
+
+        variables {
+            currentPageNewUntil = TEXT
+            currentPageNewUntil {
+                value = 0
+                override = 1
+                override.if.isPositive.dataWrap = {field:newUntil}-{date:U}
+                // wrap = <sup>|</sup>
+            }
+
+            layout = TEXT
+            layout {
+                cObject = TEXT
+                cObject {
+                    data = pagelayout
+                    required = 1
+                    case = uppercamelcase
+                    split {
+                        token = pagets__
+                        cObjNum = 1
+                        1.current = 1
+                    }
+                }
+                ifEmpty = Default
+            }
+
+            Banner =< styles.content.get
+            Banner.select.where = colPos = 0
+
+            MainContent =< styles.content.get
+            MainContent.select.where = colPos = 1
+
+            NavAside =< styles.content.get
+            NavAside.select.where = colPos = 2
+
+            NavAsideBefore =< styles.content.get
+            NavAsideBefore.select.where = colPos = 3
+
+            NavAsideAfter =< styles.content.get
+            NavAsideAfter.select.where = colPos = 4
+
+            AsideRight =< styles.content.get
+            AsideRight.select.where = colPos = 2
+
+            FooterColumn1 = CONTENT
+            FooterColumn1 {
+                table = tt_content
+                select {
+                    where = colPos = 1000
+                    pidInList = {$plugin.hhthemedefault.footerSeitenID}
+                    orderBy = sorting ASC, colPos ASC
+                    languageField = sys_language_uid
+                }
+            }
+
+            FooterColumn2 < .FooterColumn1
+            FooterColumn2.select.where = colPos = 1010
+
+            FooterColumn3 < .FooterColumn1
+            FooterColumn3.select.where = colPos = 1020
+        }
+    }
+}
+
+[applicationContext == "Development"]
+    page {
+        10.settings {
+            applicationContext = Development
+        }
+
+        meta {
+            robots = NOINDEX,NOFOLLOW
+        }
+    }
+[global]
+
+[applicationContext == "Development/Server"]
+    page {
+        10.settings {
+            applicationContext = Development/Server
+        }
+
+        meta {
+            robots = NOINDEX,NOFOLLOW
+        }
+    }
+[global]

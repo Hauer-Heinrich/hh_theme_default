@@ -1,6 +1,8 @@
 <?php
 defined('TYPO3') or die();
 
+use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 call_user_func(function() {
     $extensionKey = 'hh_theme_default';
 
@@ -12,51 +14,15 @@ call_user_func(function() {
     // Typo3 extension manager gearwheel icon (ext_conf_template.txt)
     $extensionConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][$extensionKey];
     $rtePresets = $extensionConfiguration['rtePresets'];
+    $rtePresetHeader = $extensionConfiguration['rtePresetHeader'];
 
     // Register own rte ckeditor config which comes from lines above
     $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['rte_theme'] = $rtePresets;
-
-    // register svg icons: identifier and filename
-    $icons = [
-        // BackendLayouts
-        'hh_one_column' => 'BackendIcons/header-1col.png',
-        'hh_navaside_left' => 'BackendIcons/header-sidenav-left.png',
-    ];
-
-    $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-        \TYPO3\CMS\Core\Imaging\IconRegistry::class
-    );
-
-    foreach ($icons as $identifier => $path) {
-        $iconType = substr($path, -3);
-
-        switch ($iconType) {
-            case 'svg':
-                $iconRegistry->registerIcon(
-                    $identifier,
-                    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-                    ['source' => "EXT:{$extensionKey}/Resources/Public/Images/{$path}"]
-                );
-                break;
-
-            default:
-                # png
-                $iconRegistry->registerIcon(
-                    $identifier,
-                    \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
-                    ['source' => "EXT:{$extensionKey}/Resources/Public/Images/{$path}"]
-                );
-                break;
-        }
-    };
+    $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['rte_header'] = $rtePresetHeader;
 
     // Add UserTS config as default for all BE users
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_theme_default/Configuration/TsConfig/User/0100_default.typoscript">');
+    ExtensionManagementUtility::addUserTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_theme_default/Configuration/TsConfig/User/user.tsconfig">');
 
     // Register "hhdefault" as global fluid namespace
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['hhdefault'] = ['HauerHeinrich\\HhThemeDefault\\ViewHelpers'];
-
-    // Hook tt_address add fields to flexform
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS'][\TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools::class]['flexParsing'][] =
-        \HauerHeinrich\HhThemeDefault\Hooks\TtAddressFlexFormHook::class;
 });

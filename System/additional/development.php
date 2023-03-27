@@ -11,7 +11,7 @@ use \TYPO3\CMS\Core\Log\Writer\FileWriter;
 // Overwrites previously set settings!
 // typo3_config directory contains configuration for e.g. database access,
 // install tool password and configuration for system dependent settings.
-$databaseCredentialsFile = Environment::getPublicPath() . '/../typo3_config/typo3_domain_local.php';
+$databaseCredentialsFile = Environment::getPublicPath() . '/../typo3_config/typo3_default_local.php';
 if (file_exists($databaseCredentialsFile)) { require_once ($databaseCredentialsFile); }
 
 $customDevelopmentChanges = [
@@ -38,28 +38,29 @@ $customDevelopmentChanges = [
         'enableDeprecationLog' => 'file',
     ],
     'LOG' => [
-        'writerConfiguration' => [
-            LogLevel::NOTICE => [
-                FileWriter::class => [
-                    'disabled' => false,
-                ],
-            ],
-            LogLevel::WARNING => [
-                FileWriter::class => [
-                    'disabled' => false,
-                ],
-            ],
+        // TODO:
+        // 'writerConfiguration' => [
+        //     LogLevel::NOTICE => [
+        //         FileWriter::class => [
+        //             'disabled' => false,
+        //         ],
+        //     ],
+        //     LogLevel::WARNING => [
+        //         FileWriter::class => [
+        //             'disabled' => false,
+        //         ],
+        //     ],
 
-            LogLevel::ERROR => [
-                FileWriter::class => [
-                    'disabled' => false,
-                    'logFile' => Environment::getVarPath() . '/log/typo3_errors.log'
-                ],
-            ]
-        ],
+        //     LogLevel::ERROR => [
+        //         FileWriter::class => [
+        //             'disabled' => false,
+        //             'logFile' => Environment::getVarPath() . '/log/typo3_errors.log'
+        //         ],
+        //     ]
+        // ],
     ]
 ];
-$GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customDevelopmentChanges);
+$GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customDevelopmentChanges);
 
 // Disable All Caches (in Development Mode)
 // disable Caching: https://usetypo3.com/did-you-know.html

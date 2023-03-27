@@ -1,0 +1,6 @@
+mod {
+    web_list {
+        allowedNewTables = tt_address
+        hideTables = tt_content
+    }
+}

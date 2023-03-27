@@ -1,7 +1,5 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die('Access denied.');
-}
+defined('TYPO3') or die();
 
 /*
     !IMPORTANT!
@@ -12,5 +10,5 @@ if (!defined('TYPO3_MODE')) {
     aus Sicherheitsgründen bitte die Datenbank zugänge außerhalb des document roots anlegen!
 */
 
-$themeDefaultAdditionalConfiguration = \TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3conf/ext/[ExtensionKey]/System/additional.php';
+$themeDefaultAdditionalConfiguration = \TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3conf/ext/hh_theme_default/system/additional.php';
 if (file_exists($themeDefaultAdditionalConfiguration)) { require_once ($themeDefaultAdditionalConfiguration); }

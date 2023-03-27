@@ -1,13 +1,17 @@
 {
-    "name": "hauerheinrich/hh-theme-default",
     "type": "typo3-cms-extension",
-    "description": "",
+    "name": "hauerheinrich/hh-theme-default",
+    "keywords": [ "TYPO3 CMS", "TYPO3", "theme", "distribution", "extension" ],
+    "homepage": "https://www.hauer-heinrich.de",
+    "readme": "README.md",
+    "time": "2023-03-09",
+    "version": "1.0.0",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Christian Hackl",
-            "email": "web@hauer-heinrich.de",
-            "homepage": "http://www.hauer-heinrich.de",
-            "role": "Developer"
+            "homepage": "https://www.hauer-heinrich.de",
+            "role": "Defeloper"
         }
     ],
     "support": {
@@ -21,29 +25,18 @@
             "url": "https://www.paypal.com/paypalme/hauerheinrich"
         }
     ],
-    "version": "0.1.0",
-    "license": "GPL-2.0",
-    "keywords": ["TYPO3 CMS", "Theme", "Distribution"],
     "replace": {
-        "hh_theme_default": "self.version",
+        "hauerheinrich/hh_theme_default": "self.version",
         "typo3-ter/hh-theme-default": "self.version"
     },
     "require": {
-        "typo3/cms-core": "^11.5.0 || ^11.5.99",
-        "typo3/cms-fluid": "^11.5.0 || ^11.5.99",
-        "typo3/cms-frontend": "^11.5.0 || ^11.5.99",
-        "typo3/cms-fluid-styled-content": "^11.5.0 || ^11.5.99",
-        "typo3/cms-rte-ckeditor": "",
+        "typo3/cms-core": "^12.2.0",
+        "typo3/cms-extbase": "",
+        "typo3/cms-fluid": "",
+        "typo3/cms-frontend": "",
+        "typo3/cms-fluid-styled-content": "",
         "typo3/cms-scheduler": "",
-        "georgringer/news": "",
-        "friendsoftypo3/tt-address": "",
-        "in2code/powermail": "",
-        "hauerheinrich/hh-powermail-checkboxlink": "",
-        "hauerheinrich/hh-slider": "",
-        "hauerheinrich/hh-seo": ""
-    },
-    "suggest": {
-        "hauerheinrich/hh-widget-hhnews": ""
+        "typo3/cms-seo": ""
     },
     "autoload": {
         "psr-4": {

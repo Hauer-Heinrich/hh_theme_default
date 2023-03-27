@@ -1,188 +1,66 @@
+####
+# Example of what CKEditor can all bring
+###
+
 ### Load default processing options
 imports:
-    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
-    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
-    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Processing.yaml' }
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml' }
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml' }
 
 ### Add configuration for the editor
-### For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
-### English tutorials:
-### https://typo3worx.eu/2017/02/configure-ckeditor-in-typo3/
-### German Tutorials:
-### https://www.clickstorm.de/blog/der-neue-typo3-rte-ckeditor/
-### https://www.thomaskieslich.de/blog/127-typo3-8x-ckeditor-konfigurieren/
-
-processing:
-  HTMLparser_db:
-    tags:
-      span:
-        allowedAttribs: "class, id, title, dir, lang, xml:lang, itemscope, itemtype, itemprop, data-color, data-color-bg"
-
+### For complete documentation see https://ckeditor.com/docs/ckeditor5/latest/features/index.html
 editor:
-
   config:
+    contentsCss: 'EXT:hh_theme_default/Resources/Public/Css/backend/UserRte.min.css'
 
-    contentsCss:
-      - "EXT:rte_ckeditor/Resources/Public/Css/contents.css"
-      - "EXT:hh_theme_default/Resources/Public/Css/UserRTE.min.css"
+    style:
+      definitions:
+        ### block level styles
+        - { name: 'Orange title p', element: 'p', classes: ["color-orange"] }
+        - { name: 'blue title p', element: 'p', classes: ["color-blue"] }
+        ### Inline styles
+        - { name: "btn-default", element: "span", classes: ["btn-default"]  }
+        - { name: "btn-fullwidth", element: "span", classes: ["btn-fullwidth"] }
 
-    stylesSet:
-      - { name: "font-size xlarge", element: "p", attributes: { "class": "font-size-xlarge" } }
-      - { name: "font-size large", element: "p", attributes: { "class": "font-size-large" } }
-      - { name: "font-size medium", element: "p", attributes: { "class": "font-size-medium" } }
-      - { name: "font-size small", element: "p", attributes: { "class": "font-size-small" } }
-      - { name: "font-size xsmall", element: "p", attributes: { "class": "font-size-xsmall" } }
-      - { name: "letter-spacing 1", element: "span", attributes: { "class": "letter-spacing-1" } }
-      - { name: "letter-spacing 2", element: "span", attributes: { "class": "letter-spacing-2" } }
+    heading:
+      options:
+        - { model: 'paragraph', title: 'Paragraph' }
 
-      - { name: "btn-default", element: "span", attributes: {"class": "btn-default"} }
-      - { name: "btn-fullwidth", element: "div", attributes: {"class": "btn-fullwidth"} }
-      - { name: "logo-icon", element: "span", attributes: {"class": "logo-icon"} }
+    toolbar:
+      items:
+        - clipboard
+        - removeFormat
+        - undo
+        - redo
+        ### grouping separator
+        - '|'
+        - find
+        - selectAll
+        - '|'
+        - link
+        - '|'
+        - horizontalLine
+        ### line break
+        # - '-'
+        - bold
+        - italic
+        - underline
+        - strikethrough
+        - subscript
+        - superscript
+        - softhyphen
+        - '|'
+        - bulletedList
+        - numberedList
+        - alignment
+        - style
+        - '|'
+        - sourceEditing
 
-    ### format tags:
-    format_tags: "p"
-
-    ### RTE Backend Color:
-    # uiColor: 074e7c
-
-    ### RTE Backend Button List
-    ### - "/" = new line
-    # toolbar:
-    #   - { name: 'colors', items: [ 'TextColor' ] }
-
-    colorButton_colors: "c5162d"
-    colorButton_enableAutomatic: false
-    colorButton_enableMore: false
-    colorButton_foreStyle: { element: "span", attributes: { "data-color": "#(color)" } }
-    colorButton_backStyle: { element: "span", attributes: { "data-color-bg": "#(color)" } }
-
-    toolbarGroups:
-      - { name: document, groups: [ mode, document, doctools ] }
-      - { name: clipboard, groups: [ clipboard, undo ] }
-      - { name: editing, groups: [ find, selection, spellchecker, editing, removeformat ] }
-      - { name: forms, groups: [ forms ] }
-      - { name: basicstyles, groups: [ basicstyles, cleanup, insertcharacters ] }
-      - "/"
-      - { name: paragraph, groups: [ list, indent, blocks, align, bidi, paragraph ] }
-      - { name: links, groups: [ links ] }
-      - { name: insert, groups: [ insert ] }
-      - { name: styles, groups: [ styles ] }
-      - { name: colors, groups: [ colors ] }
-      - { name: tools, groups: [ tools ] }
-      - { name: others, groups: [ others ] }
-      - { name: about, groups: [ about ] }
-
-    justifyClasses:
-      - text-left
-      - text-center
-      - text-right
-      - text-justify
-
-    extraPlugins:
-      - justify
-      - specialchar
-      - showblocks
-      - link
-      - colorbutton
-
-    removePlugins:
-      - image
-
-    removeButtons:
-      - Save
-      - NewPage
-      - Preview
-      - Print
-      - Form
-      - Checkbox
-      - Radio
-      - TextField
-      - Textarea
-      - Select
-      - Button
-      - ImageButton
-      - HiddenField
-      - CreateDiv
-      - Image
-      - Flash
-      - Table
-      - Smiley
-      - Iframe
-      - About
-
-    extraAllowedContent:
-      - "a[!href,document-href,tel]"
-
-  ### external Plugin e. g.:
-  externalPlugins:
-    softhyphen:
-      resource: "EXT:rte_ckeditor/Resources/Public/JavaScript/Plugins/softhyphen/"
-      # set whether the shortcut for this plugin is activated or not
-      enableShortcut: true
-
-### Button config and defaults
-buttons:
-  link:
-    relAttribute:
-      enabled: false
-    properties:
-      class:
-        allowedClasses: '
-            link-internal,
-            link-internal-blank,
-            link-download,
-            link-folder,
-            link-external,
-            link-external-blank,
-            link-mail
-        '
-    page:
-      properties:
-        class:
-          default: 'link-internal'
-    file:
-      properties:
-        class:
-          default: 'link-download'
-    folder:
-      properties:
-        class:
-          default: 'link-folder'
-    url:
-      properties:
-        class:
-          default: 'link-external-blank'
-    mail:
-      properties:
-        class:
-          default: 'link-mail'
-
-### Classes config
-classesAnchor:
-  linkInternal:
-    class: 'link-internal'
-    type: 'page'
-  linkInternalBlank:
-    class: 'link-internal-blank'
-    type: 'page'
-    target: '_blank'
-  linkDownload:
-    class: 'link-download'
-    type: 'file'
-    titleText: 'Download file'
-  linkFolder:
-    class: 'link-folder'
-    type: 'folder'
-  linkExternal:
-    class: 'link-external'
-    type: 'url'
-    titleText: 'Opens External link in new window'
-  linkExternalBlank:
-    class: 'link-external-blank'
-    type: 'url'
-    target: '_blank'
-    titleText: 'Opens External link in new window'
-  linkMail:
-    class: 'link-mail'
-    type: 'mail'
-    titleText: 'Email Address'
+    alignment:
+      options:
+        - { name: 'left', className: 'text-left' }
+        - { name: 'center', className: 'text-center' }
+        - { name: 'right', className: 'text-right' }
+        - { name: 'justify', className: 'text-justify' }

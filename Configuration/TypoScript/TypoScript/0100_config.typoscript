@@ -1,0 +1,68 @@
+config {
+    admPanel = 0
+    doctype = html5
+    # htmlTag_setParams = manifest="/webstorage.appcache"
+    # metaCharset = utf-8
+    noPageTitle = 2
+    pageTitleFirst = 0
+    inlineStyle2TempFile = 1
+    removeDefaultJS = external
+    removeDefaultCss = 1
+    moveJsFromHeaderToFooter = 0
+    disableImgBorderAttr = 1
+    no_cache = {$plugin.hhthemedefault.cache}
+    cache_period = {$plugin.hhthemedefault.cacheperiod}
+    extTarget = _blank
+    contentObjectExceptionHandler = 1
+    ### is set in fluid layout file
+    disableBodyTag = 1
+
+    ################################################################
+    ### URL ###
+    ################################################################
+    prefixLocalAnchors = all
+    absRefPrefix = auto
+    typolinkEnableLinksAcrossDomains = 1
+
+    ################################################################
+    ### E-Mail verschlüsseln ###
+    ################################################################
+    spamProtectEmailAddresses = -2
+    spamProtectEmailAddresses_atSubst = @~@
+
+    ################################################################
+    ### CSS & JS Komprimieren ###
+    ################################################################
+    compressCss = {$plugin.hhthemedefault.compressFiles}
+    compressJs = {$plugin.hhthemedefault.compressFiles}
+
+    ################################################################
+    ### CSS & JS Zusammenfassen zu jeweils einer Datei ###
+    ################################################################
+    concatenateCss = {$plugin.hhthemedefault.concatenateFiles}
+    concatenateJs = {$plugin.hhthemedefault.concatenateFiles}
+}
+
+[applicationContext == "Development"]
+    config {
+        no_cache = 1
+        compressCss = 0
+        compressJs = 0
+        concatenateCss = 0
+        concatenateJs = 0
+
+        admPanel = 1
+        contentObjectExceptionHandler = 0
+    }
+[global]
+
+[applicationContext == "Development/Server"]
+    config {
+        no_cache = 1
+        compressCss = 0
+        compressJs = 0
+        concatenateCss = 0
+        concatenateJs = 0
+        contentObjectExceptionHandler = 0
+    }
+[global]

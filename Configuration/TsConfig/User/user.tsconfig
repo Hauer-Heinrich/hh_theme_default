@@ -1,0 +1,42 @@
+### https://docs.typo3.org/m/typo3/reference-tsconfig/main/en-us/UserTsconfig/Options.html#foldertree-uploadfieldsinlinkbrowser
+options {
+    clearCache.pages = 1
+    folderTree.uploadFieldsInLinkBrowser = 0
+    pageTree.showDomainNameWithTitle = 1
+    enableBookmarks = 0
+}
+
+admPanel {
+    enable {
+        all = 0
+        preview = 1
+        cache = 0
+        publish = 0
+        edit = 0
+        tsdebug = 0
+        info = 0
+    }
+
+    override {
+        edit {
+            displayFieldIcons = 0
+            displayIcons = 0
+        }
+        preview {
+            showFluidDebug = 0
+            showHiddenPages = 1
+            showHiddenRecords = 1
+        }
+
+        cache.noCache = 1
+    }
+
+    hide = 0
+}
+
+### Show pageUID in the pagetree
+[backend.user.isAdmin == "1"]
+    options {
+        pageTree.showPageIdWithTitle = 1
+    }
+[GLOBAL]

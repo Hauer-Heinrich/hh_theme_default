@@ -1,0 +1,19 @@
+themeDefault {
+    name = hh_theme_default
+    urls {
+        themeResources = typo3conf/ext/hh_theme_default/Resources/
+        themeFileadmin = fileadmin/hh_theme_default/
+    }
+}
+
+plugin.hhthemedefault {
+    ### Basic
+    # cat=plugin.hhthemedefault_mainconfig/basic/0060; type=boolean; label= Page Cache ein (KEIN Hacken 0) oder ausschalten (Hacken 1)
+        cache = 0
+    # cat=plugin.hhthemedefault_mainconfig/basic/0070; type=int+; label= Cache Dauer in Sekunden (86400 = 24 hours)
+        cacheperiod = 432000
+    # cat=plugin.hhthemedefault_mainconfig/basic/0080; type=boolean; label= CSS & JS Komprimieren (0 aus / 1 ein)
+        compressFiles = 1
+    # cat=plugin.hhthemedefault_mainconfig/basic/0090; type=boolean; label= CSS & JS Zusammenfassen zu jeweils einer Datei (0 aus / 1 ein)
+        concatenateFiles = 1
+}

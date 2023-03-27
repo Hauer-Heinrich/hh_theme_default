@@ -3,13 +3,8 @@ services:
     autowire: true
     autoconfigure: true
     public: false
-  HauerHeinrich\HhThemeDefault\EventListener\AfterExtensionInstall:
+
+  HauerHeinrich\HhThemeDefault\EventListener\AfterBackendPageRenderEventListener:
     tags:
       - name: event.listener
-        identifier: 'afterExtensionInstall'
-        event: TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent
-        method: 'disableExtensions'
-      - name: event.listener
-        identifier: 'afterExtensionInstallAddAdditional'
-        event: TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent
-        method: 'addAdditionalConfiguration'
+        event: TYPO3\CMS\Backend\Controller\Event\AfterBackendPageRenderEvent

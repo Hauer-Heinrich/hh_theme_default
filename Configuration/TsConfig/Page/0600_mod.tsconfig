@@ -1,0 +1,29 @@
+mod {
+    wizards {
+        newContentElement {
+            wizardItems {
+                common {
+                    elements {
+                        image.tt_content_defValues {
+                            ### Images: Anzal der Spalten bei Bilder default Wert
+                            imagecols = 1
+                            ### Images: Bildposition "Oben links"
+                            imageorient = 0
+                            ### Position: textmedia position left
+                            header_position = left
+                        }
+                        textmedia.tt_content_defValues {
+                            ### Images: Anzal der Spalten bei Bilder default Wert
+                            imagecols = 1
+                            ### Images: Bildposition "Oben links"
+                            imageorient = 0
+                            ### Position: textmedia position left
+                            header_position = left
+                        }
+                    }
+                }
+                plugins.show := removeFromList(tx_ttaddress, tt_address_pi1, tt_address)
+            }
+        }
+    }
+}

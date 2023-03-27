@@ -4,20 +4,19 @@
 <f:variable name="minified"><f:if condition="{settings.compressFiles}">.min</f:if></f:variable>
 
 <f:comment><!-- Header --></f:comment>
-<f:asset.script identifier="first" priority="true">
+<!--
+    TODO:
+    <f:asset.script identifier="first" priority="true">
     document.documentElement.className += (("ontouchstart" in document.documentElement) ? ' touch' : ' no-touch');var root = document.documentElement;root.className += ' js';
-</f:asset.script>
-<f:asset.script identifier="functions" src="EXT:hh_theme_default/Resources/Public/JavaScript/functions{minified}.js" priority="true" additionalAttributes="{rel: 'preload', as: 'script', crossorigin: ''}" />
+</f:asset.script> -->
 
 <f:comment><!-- Body end - librarys --></f:comment>
-<f:asset.script identifier="emailSpamProtection" src="EXT:hh_theme_default/Resources/Public/JavaScript/email-spam-protection{minified}.js" />
-<f:asset.script identifier="jquery" src="EXT:hh_theme_default/Resources/Public/JavaScript/Libs/jquery-3.6.3{minified}.js" />
-<f:asset.script identifier="baguetteBox" src="EXT:hh_theme_default/Resources/Public/JavaScript/Libs/baguetteBox{minified}.js" />
+<!-- TODO: <f:asset.script identifier="emailSpamProtection" src="EXT:hh_theme_default/Resources/Public/JavaScript/email-spam-protection{minified}.js" /> -->
+<!-- TODO: IO evtl. austauschen (da derzeit nur fuer mobile navi verwendet wird) -->
 <f:asset.script identifier="io" src="EXT:hh_theme_default/Resources/Public/JavaScript/Libs/io{minified}.js" />
 <f:asset.script identifier="slider" src="EXT:hh_slider/Resources/Public/JavaScript/tiny-slider{minified}.js" />
 
 <f:comment><!-- Body end - config --></f:comment>
 <f:asset.script identifier="slider.config" src="EXT:hh_slider/Resources/Public/JavaScript/main{minified}.js" />
-<f:asset.script identifier="baguetteBox.config" src="EXT:hh_theme_default/Resources/Public/JavaScript/LibsConfig/baguetteBox.config{minified}.js" />
 
 </html>

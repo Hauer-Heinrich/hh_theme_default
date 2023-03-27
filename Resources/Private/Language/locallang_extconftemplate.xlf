@@ -8,6 +8,10 @@
                 <source>RTE yaml config path</source>
             </trans-unit>
 
+            <trans-unit id="rtePresetsPathHeader" xml:space="preserve">
+                <source>RTE yaml config path</source>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>
