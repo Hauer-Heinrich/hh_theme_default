@@ -36,7 +36,14 @@
         "typo3/cms-frontend": "",
         "typo3/cms-fluid-styled-content": "",
         "typo3/cms-scheduler": "",
-        "typo3/cms-seo": ""
+        "typo3/cms-seo": "",
+        "typo3/cms-rte-ckeditor": "",
+        "georgringer/news": "",
+        "friendsoftypo3/tt-address": "",
+        "in2code/powermail": "",
+        "hauerheinrich/hh-powermail-checkboxlink": "",
+        "hauerheinrich/hh-slider": "",
+        "hauerheinrich/hh-seo": ""
     },
     "autoload": {
         "psr-4": {
