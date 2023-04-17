@@ -1,8 +1,7 @@
 config {
     admPanel = 0
     doctype = html5
-    # htmlTag_setParams = manifest="/webstorage.appcache"
-    # metaCharset = utf-8
+    htmlTag.attributes.class = no-js
     noPageTitle = 2
     pageTitleFirst = 0
     inlineStyle2TempFile = 1
