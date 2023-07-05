@@ -7,6 +7,12 @@ ServerSignature Off
 </ifmodule>
 
 RewriteEngine On
+
+# Store the current location in an environment variable CWD to use
+# mod_rewrite in .htaccess files without knowing the RewriteBase
+RewriteCond $0#%{REQUEST_URI} ([^#]*)#(.*)\1$
+RewriteRule ^.*$ - [E=CWD:%2]
+
 ### forwarding www / none-www
 # RewriteCond %{HTTP_HOST} !^www.domain.tld$ [NC]
 # RewriteRule ^(.*)$ https://www.domain.tld/$1 [L,R=301]
