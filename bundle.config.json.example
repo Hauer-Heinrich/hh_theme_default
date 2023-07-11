@@ -1,0 +1,16 @@
+{
+    "outdir": ".",
+    "entryPoints": [
+        { "in": "./src/css/main.css", "out": "./dist/css/bundle" },
+        { "in": "./src/js/main.js", "out": "./dist/js/bundle" }
+    ],
+    "bundle": true,
+    "write": true,
+    "minify": true,
+    "sourcemap": true,
+    "logLevel": "info",
+    "external": [ "./public/*", "../public/*", "./static/*", "../static/*" ],
+    "supported": {
+    "nesting": false
+    }
+}
