@@ -4,7 +4,7 @@
         "build": "node bundle.mjs \"build\"",
         "watch": "node bundle.mjs \"watch\"",
         "options": "node bundle.mjs \"options\"",
-        "upgrade": "curl --remote-name-all https://raw.githubusercontent.com/iocron/esbuild-template-starter/main/{bundle.mjs,bundle.config.json.example,package.json}"
+        "upgrade": "curl --remote-name-all https://raw.githubusercontent.com/iocron/esbuild-template-starter/main/{bundle.mjs,bundle.config.json.example}"
     },
     "dependencies": {
         "esbuild": "0.17.19"

@@ -19,7 +19,7 @@ The hh_theme_default is a TYPO3 extension/theme (starter kit) that includes a JS
 - `npm run build` (build css, css nesting, js, sourcemaps & other files)
 - `npm run watch` (build css, css nesting, js, sourcemaps & other files everytime a file changes)
 - `npm run options` (show current build configuration/options)
-- `npm run upgrade` (download latest build tools)
+- `npm run upgrade` (upgrade to latest build tools from the official [esbuild-template-starter](https://github.com/iocron/esbuild-template-starter) iocron repository without package.json/package-lock.json)
 
 More informations/docs about the esbuild usage: https://github.com/iocron/esbuild-template-starter
 
