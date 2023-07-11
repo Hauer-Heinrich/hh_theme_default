@@ -12,11 +12,15 @@ hh_seo | [https://github.com/Hauer-Heinrich/hh_seo/blob/master/README.md]
 ### Install Build Tools
 1. Install NodeJS / NPM if not installed: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 2. `npm install`
+3. Copy .env.example to .env: `cp .env.example .env`
+4. Adjust .env file to your needs
+5. `npm run init`
 
 ### Usage of Build Tools
-- `npm run build`
-- `npm run watch`
-- `npm run options`
+- `npm run init` (only needed on first installation, see section "Install Build Tools")
+- `npm run build` (build css, js & more once)
+- `npm run watch` (build css, js & more everytime a file changes)
+- `npm run options` (show current build configuration/options)
 
 More informations/docs about the build tools: https://github.com/iocron/esbuild-template-starter
 

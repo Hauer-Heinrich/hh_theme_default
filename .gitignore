@@ -33,6 +33,7 @@ giftp.json
 .giftp
 
 ### other ###
+.env
 /install.php
 /symlink.php
 /deploy.php
