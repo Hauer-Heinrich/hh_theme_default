@@ -40,6 +40,9 @@ More informations/docs about the esbuild usage: https://github.com/iocron/esbuil
 |   Theme Images        |   [Resources/Public/Images](./Resources/Public/Images/)   |
 |   Sites Configuration |   [sites](./sites/)   |
 
+### Custom Bundler Configuration
+If you really need to have multiple bundler files (e.g. for css/js) or need to enable/disable some features, then you can edit the file [bundle.config.json](./bundle.config.json)
+
 ## Features
  - Delivers default responsive css and FLUID files for the default FLUID content-elements (for example uses html picture tag for images)
  - Comes with various viewhelpers
