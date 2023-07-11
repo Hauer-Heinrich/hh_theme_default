@@ -16,15 +16,24 @@ The hh_theme_default is a TYPO3 extension/theme (starter kit) that includes a JS
 
 ### Usage of Build Tools
 - `npm run init` (only needed on first setup)
-- `npm run build` (build css, js & other files)
-- `npm run watch` (build css, js & other files everytime a file changes)
+- `npm run build` (build css, css nesting, js, sourcemaps & other files)
+- `npm run watch` (build css, css nesting, js, sourcemaps & other files everytime a file changes)
 - `npm run options` (show current build configuration/options)
 - `npm run upgrade` (download latest build tools)
 
 More informations/docs about the esbuild usage: https://github.com/iocron/esbuild-template-starter
 
-## Examples
-You can find some examples about webserver configurations, site configs, robots, typo3_config and more in the "Examples" folder.
+## Folder/Logic structure
+|   Info                |   Path                    |   Description
+|-----------------------|---------------------------|------------------------------------------------------|
+|   Classes             |   [Classes](./Classes/)   |   PHP Classes, ViewHelpers, ..
+|   Configuration       |   [Configuration](./Configuration/)   |   TsConfig, TypoScript, TCA, ..
+|   Examples            |   [Examples](./Examples/)   |   Examples of webserver config, site config, typo3 config, ..
+|   Fluid Files         |   [Resources/Private](./Resources/Private/)   |
+|   Main CSS            |   [Resources/Public/Css/main.css](./Resources/Public/Css/main.css)   |
+|   Main JS             |   [Resources/Public/JavaScript/main.js](./Resources/Public/JavaScript/main.js)   |
+|   Theme Images        |   [Resources/Public/Images](./Resources/Public/Images/)   |
+|   Sites Configuration |   [sites](./sites/)   |
 
 ## Features
  - Delivers default responsive css and FLUID files for the default FLUID content-elements (for example uses html picture tag for images)
@@ -36,6 +45,9 @@ You can find some examples about webserver configurations, site configs, robots,
     - [TYPO3 Extension hh_slider](https://github.com/Hauer-Heinrich/hh_slider/blob/master/README.md)
     - [TYPO3 Extension hh_seo](https://github.com/Hauer-Heinrich/hh_seo/blob/master/README.md)
  - Custom JavaScript Framework ["IO Plugin Framework"](./README-io.plugin.md) included
+ - You can use CSS Nesting out-of-the-box (https://www.w3.org/TR/css-nesting-1/)
+ - Use the latest JavaScript ES6 Features & More
+ - Automatically generated SoureMaps for JS and CSS
  - And many more..
 
 ## Important Notice
