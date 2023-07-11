@@ -25,8 +25,8 @@ hh_seo | [https://github.com/Hauer-Heinrich/hh_seo/blob/master/README.md]
 More informations/docs about the build tools: https://github.com/iocron/esbuild-template-starter
 
 ### Update Build Tools (optional)
-1. `curl --remote-name-all https://raw.githubusercontent.com/iocron/esbuild-template-starter/main/{bundle.mjs,package.json,package-lock.json,.env_example}`
-2. Compare and update your .env file according to the .env_example file if needed
+1. `curl --remote-name-all https://raw.githubusercontent.com/iocron/esbuild-template-starter/main/{bundle.mjs,bundle.config.json.example,package.json,package-lock.json,.env.example}`
+2. Compare and update your bundle.config.json according to the bundle.config.json.example if the config changes greatly (same goes for the .env file according to .env.example)
 
 -------
 
