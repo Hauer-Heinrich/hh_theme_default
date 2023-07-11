@@ -8,9 +8,6 @@
 /* PLUGINS */
 @import url('plugins/io.nav.css');
 
-/* COMPONENTS CUSTOM */
-@import url('components-custom/login.css');
-
 /* COMPONENTS */
 @import url('components/header.css');
 @import url('components/banner.css');
