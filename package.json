@@ -1,5 +1,6 @@
 {
     "scripts": {
+        "init": "bash init.sh",
         "build": "node bundle.mjs \"build\"",
         "watch": "node bundle.mjs \"watch\"",
         "options": "node bundle.mjs \"options\"",
