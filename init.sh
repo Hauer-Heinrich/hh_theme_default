@@ -17,12 +17,6 @@ green() { print_in_color "\e[32m" "$*"; }
 yellow() { print_in_color "\e[33m" "$*"; }
 blue() { print_in_color "\e[34m" "$*"; }
 
-COLOR_RED="\e[31m%b"
-COLOR_GREEN="\e[32m%b"
-COLOR_YELLOW="\e[33m%b"
-COLOR_BLUE="\e[34m%b"
-COLOR_END="\e[0m"
-
 EXTENSION_KEY="$(basename "$PWD")"
 EXTENSION_NAME="$(echo "$EXTENSION_KEY" | sed -E 's/_//g')"
 EXTENSION_NAMESPACE="$(echo "$EXTENSION_KEY" | sed -E 's/(^|\\<|_)([[:alnum:]])/\U\2/g')"
