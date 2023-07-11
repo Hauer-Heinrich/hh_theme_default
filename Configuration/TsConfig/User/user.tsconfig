@@ -40,3 +40,9 @@ admPanel {
         pageTree.showPageIdWithTitle = 1
     }
 [GLOBAL]
+
+[backend.user.isAdmin == "0"]
+    options {
+        hideModules = site_configuration
+    }
+[GLOBAL]

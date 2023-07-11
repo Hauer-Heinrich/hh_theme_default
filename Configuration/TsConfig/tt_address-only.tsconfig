@@ -4,3 +4,15 @@ mod {
         hideTables = tt_content
     }
 }
+
+### set default values
+TCAdefaults.tt_address {
+    tx_extbase_type = ttAddress_default
+}
+
+TCEFORM.tt_address {
+    tx_extbase_type.disabled = 1
+    tx_extbase_type {
+        removeItems = ttAddress_location
+    }
+}

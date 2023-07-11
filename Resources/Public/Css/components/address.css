@@ -1,0 +1,90 @@
+/* COMPONENT - VARIABLES */
+.tt_address_list {
+    --addr-card-gap-row: 50px;
+    --addr-card-gap-column: 20px;
+    --addr-card-min-width: min(280px, 100%);
+    --addr-card-padding: 1rem;
+}
+
+/* COMPONENT - STYLING */
+.tt_address_list {
+    & .article-container {
+        height: 100%;
+        padding: 0;
+    }
+
+    & .ce-image {
+        padding-bottom: var(--addr-card-padding);
+    }
+
+    & .ce-bodytext {
+        word-break: break-word;
+    }
+
+    & .article-container .ce-image img {
+        max-height: 50vh;
+        width: auto;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    & .position {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+
+    & .name {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .tt_address_list {
+        & .article-container {
+            display: grid;
+            grid-template-columns: 50% 1fr;
+            align-items: flex-end;
+            gap: 20px;
+
+            &[data-has-media="false"] {
+                & .ce-bodytext {
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+                }
+            }
+        }
+
+        & .ce-image {
+            padding-bottom: 0;
+        }
+
+        & .ce-bodytext {
+        }
+    }
+}
+
+/* THEME SLIDER */
+.tt_address_list-slider {}
+
+/* THEME DEFAULT */
+.tt_address_list-default {
+    & .tt_address_list-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: var(--addr-card-gap-column);
+        row-gap : var(--addr-card-gap-row);
+    }
+
+    &[data-columns="2"] .tt_address_list-container {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 2 - var(--addr-card-gap-column), var(--addr-card-min-width)), 2fr));
+    }
+
+    &[data-columns="3"] .tt_address_list-container {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 3 - var(--addr-card-gap-column), var(--addr-card-min-width)), 3fr));
+    }
+
+    &[data-columns="4"] .tt_address_list-container {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 4 - var(--addr-card-gap-column), var(--addr-card-min-width)), 4fr));
+    }
+}

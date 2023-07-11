@@ -1,34 +1,39 @@
-# hh_theme_default (Warning: Is under heavy development!)
+# {{EXTENSION_KEY}} (Warning: Is under heavy development!)
 ## do not use it now - only test and give feedback :grinning:
-hh_theme_default is a TYPO3 extension / distribution.
+{{EXTENSION_KEY}} is a TYPO3 extension / distribution.
 This theme is to try out or use as a kick-start for your own theme/project - it can also be extended or overwritten (TODO: add a link for an example extension)
 
 ### Extensions
-hh_theme_default is currently extended with the following extensions. Instructions on how to use them in your own application are linked below.
+{{EXTENSION_KEY}} is currently extended with the following extensions. Instructions on how to use them in your own application are linked below.
 
 Extension | README
 ------------ | -------------
 hh_slider | [https://github.com/Hauer-Heinrich/hh_slider/blob/master/README.md]
 hh_seo | [https://github.com/Hauer-Heinrich/hh_seo/blob/master/README.md]
 
-### Requirements (for Development)
-1. Install NodeJS / NPM: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-2. Make sure NodeJS / NPM is up-to-date: `npm install -g npm`
-3. Install gulp and gulp-cli: `npm install -g gulp-cli`
+### Install Build Tools
+1. Install NodeJS / NPM if not installed: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+2. `npm install`
 
-### Installation (for Development)
-1. `git clone https://github.com/Hauer-Heinrich/hh_theme_default.git`
-2. `cd hh_theme_default`
-3. `npm install`
-4. `gulp`         # This will list all available gulp commands for your theme build
+### Usage of Build Tools
+- `npm run build`
+- `npm run watch`
+- `npm run options`
+
+More informations/docs about the build tools: https://github.com/iocron/esbuild-template-starter
+
+### Update Build Tools (optional)
+1. `curl --remote-name-all https://raw.githubusercontent.com/iocron/esbuild-template-starter/main/{bundle.mjs,package.json,package-lock.json,.env_example}`
+2. Compare and update your .env file according to the .env_example file if needed
+
+-------
 
 ### Plugins
-hh_theme_default is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
+{{EXTENSION_KEY}} is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
 
 Plugin | README
 ------------ | -------------
 io.js (Slim Plugin Framework with Pub/Sub Event System) | [https://bitbucket.org/iocron/io/src/master/README.md]
-baguetteBox.js (lightbox) | [https://github.com/feimosi/baguetteBox.js/blob/dev/README.md]
 
 ### Files
 site_config
@@ -43,6 +48,7 @@ Don't forget to include the PageTS -> backend->rootPage->site configuration->res
  - comes with various viewhelpers
  - delivers example configurations and files like AdditionalConfiguration.php or site_config.yaml you can find these files at /Configuration/Typo3/
  - added a branding at the TYPO3 backend at the very top (customize this at Resources/Public/JavaScript/Backend/Bemain.js)
+ - adds "Number of columns" field to tt_address plugin
 
 ## IMPORTENT NOTICE
  - does not support IE 11 and below
@@ -154,21 +160,6 @@ io.logAll(); // Logs config, events, ui elements
 ### Development
 
 Want to contribute? Great!
-
-hh_theme_default uses [GULP](https://github.com/iocron/typo3-gulp-scss/ "gulp") for fast developing.
-Make a change in your file and instantaneously see your updates!
-
-Open your favorite Terminal and run these commands in the theme folder.
-
-First Tab:
-```sh
-$ npm install
-```
-
-Second Tab:
-```sh
-$ gulp watch
-```
 
 ##### Copyright notice
 

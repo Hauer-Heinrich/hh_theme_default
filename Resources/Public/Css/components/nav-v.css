@@ -1,0 +1,47 @@
+/* COMPONENT - VARIABLES */
+.nav-v {
+    --nav-padding: 10px;
+}
+
+/* COMPONENT - STYLING */
+.nav-v {
+    & ul {
+        list-style: none;
+        display: inline-block;
+        padding: 0;
+    }
+
+    & li {
+        position: relative;
+    }
+
+    & li.active {}
+
+    & li.active>a {
+        color: var(--color-link-hover);
+    }
+
+    & li>ul {
+        background-color: var(--nav-sub-bg);
+        display: none;
+        position: absolute;
+        padding: var(--nav-padding);
+    }
+
+    & li:hover>ul {
+        display: block;
+    }
+
+    &>ul>li {
+        padding: min(1vw, var(--nav-padding)) min(1vw, var(--nav-padding) * 2);
+    }
+
+    & a {
+        color: var(--nav-link-color);
+        text-decoration: none;
+    }
+
+    & a:hover {
+        color: var(--nav-link-color-hover);
+    }
+}

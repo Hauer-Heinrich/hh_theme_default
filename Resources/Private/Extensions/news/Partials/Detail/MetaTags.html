@@ -1,0 +1,27 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:hhseo="http://typo3.org/ns/HauerHeinrich/HhSeo/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<hhseo:metaTag order="10">
+title = {f:if(condition: '{newsItem.alternative_title}', then: '{newsItem.alternative_title}', else: '{newsItem.title}')}
+description = <hhseo:formatIni data="{newsItem.description}" />
+author = {f:if(condition: '{newsItem.author}', then: '{newsItem.author}', else: '{pageData.author}')}
+
+<f:if condition="{newsItem.datetime}">
+last-modified = {f:format.date(date:'{newsItem.datetime}', format:'U')}
+</f:if>
+
+og:title = {f:if(condition: '{newsItem.alternative_title}', then: '{newsItem.alternative_title}', else: '{newsItem.title}')}
+og:description = <hhseo:formatIni data="{newsItem.description}" />
+<f:if condition="{og_image->f:count()} > 0">
+    <f:for each="{og_image}" as="image" iteration="i">
+        og:image[] = {f:uri.image(src: '{image.uid}', treatIdAsReference: 1)}
+    </f:for>
+</f:if>
+
+twitter:title = {f:if(condition: '{newsItem.alternative_title}', then: '{newsItem.alternative_title}', else: '{newsItem.title}')}
+twitter:description = <hhseo:formatIni data="{newsItem.description}" />
+twitter:image[] = <f:if condition="{twitter_image.0}">{f:uri.image(src: '{twitter_image.0.uid}', treatIdAsReference: 1)}</f:if>
+</hhseo:metaTag>
+
+</html>

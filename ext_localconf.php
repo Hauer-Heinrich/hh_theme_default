@@ -4,12 +4,12 @@ defined('TYPO3') or die();
 use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 call_user_func(function() {
-    $extensionKey = 'hh_theme_default';
+    $extensionKey = '{{EXTENSION_KEY}}';
 
     // Add addRootLineFields for example slide in TypoScript
     $rootLineFields = &$GLOBALS['TYPO3_CONF_VARS']['FE']['addRootLineFields'];
     if (trim($rootLineFields) != "") $rootLineFields .= ',';
-    $rootLineFields .= 'backend_layout';
+    $rootLineFields .= 'backend_layout,footer_col1,footer_col2,footer_col3,footer_logo,footer_links,';
 
     // Typo3 extension manager gearwheel icon (ext_conf_template.txt)
     $extensionConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][$extensionKey];
@@ -21,8 +21,30 @@ call_user_func(function() {
     $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['rte_header'] = $rtePresetHeader;
 
     // Add UserTS config as default for all BE users
-    ExtensionManagementUtility::addUserTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_theme_default/Configuration/TsConfig/User/user.tsconfig">');
+    ExtensionManagementUtility::addUserTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:{{EXTENSION_KEY}}/Configuration/TsConfig/User/user.tsconfig">');
 
     // Register "hhdefault" as global fluid namespace
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['hhdefault'] = ['HauerHeinrich\\HhThemeDefault\\ViewHelpers'];
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['hhdefault'] = ['HauerHeinrich\\{{EXTENSION_NAMESPACE}}\\ViewHelpers'];
+
+    // EID for WastemanagementRequest
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        // extension name, matching the PHP namespaces (but without the vendor)
+        '{{EXTENSION_NAMESPACE}}',
+        // arbitrary, but unique plugin name (not visible in the backend)
+        'Wastemanagement',
+        // all actions
+        [
+            \HauerHeinrich\{{EXTENSION_NAMESPACE}}\Helpers\LoginWastemanagementHelper::class => 'login, logout, changePassword',
+        ],
+        // non-cacheable actions
+        [
+            \HauerHeinrich\{{EXTENSION_NAMESPACE}}\Helpers\LoginWastemanagementHelper::class => 'login, logout, changePassword',
+        ]
+    );
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['wasteLogin'] =
+        \HauerHeinrich\{{EXTENSION_NAMESPACE}}\Helpers\LoginWastemanagementHelper::class . '::login';
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['wasteLogout'] =
+        \HauerHeinrich\{{EXTENSION_NAMESPACE}}\Helpers\LoginWastemanagementHelper::class . '::logout';
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['wasteChangePassword'] =
+        \HauerHeinrich\{{EXTENSION_NAMESPACE}}\Helpers\LoginWastemanagementHelper::class . '::changePassword';
 });

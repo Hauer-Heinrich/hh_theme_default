@@ -1,0 +1,147 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="main">
+    <f:switch expression="{settings.displayMode}">
+        <f:case value="slider">
+            <div class="tt_address_list tt_address_list-slider slider-container-{contentObjectData.uid} article-layout-{settings.cardLayout}"
+                data-columns="{settings.displayColumns}">
+                <f:render section="displayMode_{settings.displayMode}" arguments="{_all}" />
+            </div>
+        </f:case>
+        <f:defaultCase>
+            <div class="tt_address_list tt_address_list-default {f:if(condition: '{settings.displayMode}', then: '{settings.displayMode}')} article-layout-{settings.cardLayout}"
+                data-columns="{settings.displayColumns}">
+                <f:render section="displayMode_{settings.displayMode}" arguments="{_all}" />
+            </div>
+        </f:defaultCase>
+    </f:switch>
+</f:section>
+
+<f:section name="displayMode_list">
+    <!--TYPO3SEARCH_end-->
+    <f:switch expression="{settings.cardLayout}">
+        <f:case value="default-without-image">
+            <f:variable name="listPartial">ListItemWithoutImage</f:variable>
+        </f:case>
+        <f:defaultCase>
+            <f:variable name="listPartial">ListItem</f:variable>
+        </f:defaultCase>
+    </f:switch>
+
+    <f:if condition="{settings.hidePagination}">
+        <f:then>
+            <div class="tt_address_list-container">
+                <f:for each="{addresses}" as="address" iteration="iterator">
+                    <f:render partial="{listPartial}" arguments="{_all}" />
+                </f:for>
+            </div>
+        </f:then>
+        <f:else>
+            <f:if condition="{settings.paginate.insertAbove}">
+                <f:render partial="Pagination"
+                    arguments="{pagination: pagination.pagination, pages: pagination.pages, paginator: pagination.paginator}" />
+            </f:if>
+
+            <div class="tt_address_list-container">
+                <f:for each="{pagination.paginator.paginatedItems}" as="address" iteration="iterator">
+                    <f:render partial="{listPartial}" arguments="{_all}" />
+                </f:for>
+            </div>
+            <f:if condition="{settings.paginate.insertBelow}">
+                <f:render partial="Pagination"
+                    arguments="{pagination: pagination.pagination, pages: pagination.pages, paginator: pagination.paginator}" />
+            </f:if>
+
+        </f:else>
+    </f:if>
+    <!--TYPO3SEARCH_begin-->
+</f:section>
+
+<f:section name="displayMode_single">
+    <div class="tt_address_list-container">
+        <f:for each="{addresses}" as="address">
+            <f:render partial="Full" arguments="{_all}" />
+        </f:for>
+    </div>
+</f:section>
+
+<f:section name="displayMode_map">
+    <div class="tt_address_list-container">
+        <f:render partial="Maps" section="{settings.map.rendering}" arguments="{_all}" />
+    </div>
+</f:section>
+
+<f:section name="displayMode_slider">
+    <div class="tt_address_list-container">
+        <f:for each="{addresses}" as="address" iteration="iterator">
+            <f:render partial="ListItem" arguments="{_all}" />
+        </f:for>
+    </div>
+
+    <f:asset.css identifier="hh-slider-styles" href="EXT:hh_slider/Resources/Public/Css/slider.min.css" />
+    <f:asset.script identifier="hh-slider-tiny-slider"
+        src="EXT:hh_slider/Resources/Public/JavaScript/tiny-slider.min.js" />
+    <f:asset.script identifier="hh-slider-tiny-slider-config"
+        src="EXT:hh_slider/Resources/Public/JavaScript/main.min.js" />
+
+    <f:asset.script identifier="hhSliderJson-tt_address-{contentObjectData.uid}" class="hhSliderJson"
+        type="application/json">
+        {
+        <f:comment></f:comment>"uid": "{contentObjectData.uid}",
+        "disableOnInteraction": true,
+        "container": ".slider-container-{contentObjectData.uid} .tt_address_list-container",
+        "mode": "carousel",
+        "axis": "horizontal",
+        "items": "{settings.displayColumns}",
+        "gutter": 16,
+        "edgePadding": 0,
+        "center": false,
+        "controls": false,
+        "controlsPosition": "bottom",
+        "controlsText": ["prev", "next"],
+        "controlsContainer": false,
+        "prevButton": ".slider-button-prev",
+        "nextButton": ".slider-button-next",
+        "nav": false,
+        "navPosition": "bottom",
+        "navContainer": ".slider-thumbs-{contentObjectData.uid}",
+        "navAsThumbnails": true,
+        "arrowKeys": true,
+        "speed": 2000,
+        "autoplay": true,
+        "autoplayPosition": "top",
+        "autoplayTimeout": 4000,
+        "autoplayDirection": "forward",
+        "autoplayText": ["start", "stop"],
+        "autoplayHoverPause": false,
+        "autoplayButton": false,
+        "autoplayButtonOutput": false,
+        "autoplayResetOnVisibility": false,
+        "animateIn": "tns-fadeIn",
+        "animateOut": "tns-fadeOut",
+        "animateNormal": "tns-normal",
+        "animateDelay": false,
+        "loop": true,
+        "rewind": false,
+        "autoHeight": false,
+        "lazyload": false,
+        "lazyloadSelector": ".tns-lazy-img",
+        "touch": true,
+        "mouseDrag": true,
+        "swipeAngle": 15,
+        "preventActionWhenRunning": false,
+        "preventScrollOnTouch": false,
+        "nested": false,
+        "freezable": false,
+        "disable": false,
+        "startIndex": 0,
+        "onInit": false,
+        "useLocalStorage": true,
+        "responsive": ""
+        }
+    </f:asset.script>
+</f:section>
+
+</html>

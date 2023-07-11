@@ -2,35 +2,36 @@
     data-namespace-typo3-fluid="true">
 
 <f:if condition="{subheader}">
+    <f:variable name="cSubheader"><f:format.stripTags allowedTags="<br><b><strong><i>">{subheader}</f:format.stripTags></f:variable>
     <f:switch expression="{layout}">
         <f:case value="1">
             <h2 class="{positionClass} subheader">
-                <f:format.html>{subheader}</f:format.html>
+                <f:format.raw>{cSubheader}</f:format.raw>
             </h2>
         </f:case>
         <f:case value="2">
             <h3 class="{positionClass} subheader">
-                <f:format.html>{subheader}</f:format.html>
+                <f:format.raw>{cSubheader}</f:format.raw>
             </h3>
         </f:case>
         <f:case value="3">
             <h4 class="{positionClass} subheader">
-                <f:format.html>{subheader}</f:format.html>
+                <f:format.raw>{cSubheader}</f:format.raw>
             </h4>
         </f:case>
         <f:case value="4">
             <h5 class="{positionClass} subheader">
-                <f:format.html>{subheader}</f:format.html>
+                <f:format.raw>{cSubheader}</f:format.raw>
             </h5>
         </f:case>
         <f:case value="5">
             <h6 class="{positionClass} subheader">
-                <f:format.html>{subheader}</f:format.html>
+                <f:format.raw>{cSubheader}</f:format.raw>
             </h6>
         </f:case>
         <f:case value="6">
             <p class="{positionClass} subheader">
-                <f:format.html>{subheader}</f:format.html>
+                <f:format.raw>{cSubheader}</f:format.raw>
             </p>
         </f:case>
         <f:defaultCase>

@@ -66,6 +66,16 @@ plugin.tx_powermail {
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_slider/Configuration/TypoScript/constants.typoscript">
 
 ################################################################
+### Hauer-Heinrich Accordion - hh_accordion ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_accordion/Configuration/TypoScript/constants.typoscript">
+
+################################################################
+### Hauer-Heinrich Jobs - hh_simple_job_posts ###
+################################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_simple_job_posts/Configuration/TypoScript/constants.typoscript">
+
+################################################################
 ### Hauer-Heinrich SEO - hh_seo ###
 ################################################################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_seo/Configuration/TypoScript/constants.typoscript">

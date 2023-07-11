@@ -1,26 +1,33 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-    data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
 <f:if condition="{Menu}">
-    <nav class="menu menu-trenner-image">
-        <ul class="">
+    <f:variable name="label"><f:if condition="{label}"><f:then>true</f:then><f:else>false</f:else></f:if></f:variable>
+    <nav class="menu menu-trenner-image {cssClasses}">
+        <ul>
             <f:for each="{Menu}" as="mainItem">
-                <f:render partial="Menu/Elements/ImageItem" arguments="{item: mainItem, label: 'false'}"/>
+                <f:render partial="Menu/Elements/ImageItem" arguments="{item: '{mainItem}', label: '{label}'}" />
                 <f:if condition="{mainItem.children}">
-                    <f:render section="submenu" arguments="{submenu: mainItem.children}"/>
+                    <f:render section="submenu" arguments="{submenu: '{mainItem.children}'}" />
                 </f:if>
                 </li>
             </f:for>
+            <f:if condition="{linkToTop}">
+                <li class="link-to-top">
+                    <div class="files">
+                        <img src="typo3conf/ext/{{EXTENSION_KEY}}/Resources/Public/Icons/arrow-up-white.svg" alt="Zeigt einen Pfeil nach oben." />
+                    </div>
+                </li>
+            </f:if>
         </ul>
     </nav>
 </f:if>
 
 <f:section name="submenu">
-    <ul class="">
+    <ul>
         <f:for each="{submenu}" as="subItem">
-            <f:render partial="Menu/Elements/ImageItem" arguments="{item: subItem, label: 'false'}"/>
+            <f:render partial="Menu/Elements/ImageItem" arguments="{item: '{subItem}', label: '{label}'}" />
             <f:if condition="{subItem.children}">
-                <f:render section="submenu" arguments="{submenu: subItem.children}"/>
+                <f:render section="submenu" arguments="{submenu: '{subItem.children}'}" />
             </f:if>
             </li>
         </f:for>

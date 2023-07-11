@@ -1,0 +1,141 @@
+/* BOX SIZING with optional Inheritance */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    font: inherit;
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+/* BODY */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* DEFAULT DISPLAY TYPE */
+main,
+article,
+aside,
+figure,
+footer,
+header,
+nav,
+section,
+details,
+summary {
+    display: block;
+}
+
+/* RESPONSIVE Images, Videos, Iframes */
+img,
+video,
+iframe {
+    /* New way responsive images/video (but with side effects?!?): */
+    /* block-size: auto; max-inline-size: 100%; */
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+
+/* PICTURE TAGS */
+picture {
+    display: inline-block;
+}
+
+/* TEXT */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* LISTS */
+ul,
+ol {
+    list-style: none;
+}
+
+/* BLOCK QUOTES */
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/* BOLD */
+strong,
+b {
+    font-weight: bold;
+}
+
+/* TABLES */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* HELPERS */
+[hidden] {
+    display: none;
+}
+
+/* FORMS */
+input,
+button,
+textarea,
+select,
+label {
+    font: inherit;
+    max-width: 100%;
+    vertical-align: baseline;
+}
+
+textarea {
+    vertical-align: middle;
+}
+
+input[type=checkbox],
+input[type=radio] {
+    display: inline-block;
+}
+
+input[type=checkbox]+label,
+input[type=radio]+label {
+    /*display: inline-block;*/
+    font-weight: normal;
+}
+
+input[type=range] {
+    vertical-align: top;
+}
+
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+    cursor: pointer;
+}
+
+/* ROOT STACKING CONTEXT */
+#root,
+#__next,
+#app {
+    isolation: isolate;
+}

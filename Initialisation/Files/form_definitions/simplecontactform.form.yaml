@@ -1,0 +1,74 @@
+
+renderingOptions:
+  submitButtonLabel: Submit
+type: Form
+identifier: simpleContactForm
+label: 'Simple Contact Form'
+prototypeName: standard
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: 'Previous step'
+      nextButtonLabel: 'Next step'
+    type: Page
+    identifier: page-1
+    label: Step
+    renderables:
+      -
+        defaultValue: ''
+        type: Text
+        identifier: text-1
+        label: Name
+        properties:
+          fluidAdditionalAttributes:
+            placeholder: 'Max Mustermann'
+        validators:
+          -
+            identifier: Alphanumeric
+      -
+        defaultValue: ''
+        type: Email
+        identifier: email-1
+        label: E-Mail
+        properties:
+          fluidAdditionalAttributes:
+            placeholder: example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
+            required: required
+        validators:
+          -
+            identifier: EmailAddress
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        type: Textarea
+        identifier: textarea-1
+        label: 'Your Message'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        properties:
+          pageUid: '2'
+          linkText: Datenschutzerklärung
+          fluidAdditionalAttributes:
+            required: required
+          elementDescription: ''
+          additionalLinks:
+            2: 'My Link Text'
+            3: blubb
+        type: LinkedCheckbox
+        identifier: linkedcheckbox-1
+        label: 'Ich akzeptiere die %s.'
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        properties:
+          text: '* Pflichtfeld(er)!'
+        type: StaticText
+        identifier: statictext-1
+        label: ''

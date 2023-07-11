@@ -4,7 +4,7 @@
 <f:if condition="{MenuLanguage}">
     <ul id="menu-language" class="menu-language">
         <f:for each="{MenuLanguage}" as="item">
-            <li class="{f:if(condition: item.active, then: 'active')}{f:if(condition: item.available, else: ' text-muted')}">
+            <li class="{f:if(condition: '{item.active}', then: 'active')}{f:if(condition: '{item.available}', else: ' text-muted')}">
                 <f:if condition="{item.available}">
                 <f:then>
                     <f:link.page class="{f:if(condition: item.active, then: 'act')}" addQueryString="1" addQueryStringMethod="GET" title="{item.navigationTitle}" additionalParams="{L:item.languageUid}" additionalAttributes="{hreflang: '{item.hreflang}', data-langUid: '{item.languageUid}'}">

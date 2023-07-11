@@ -1,0 +1,64 @@
+/* HELPERS */
+.full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.color-brand {
+    color: var(--color-primary);
+}
+
+.icon {}
+
+.icon-at {
+    background-image: url("../Icons/at_icon.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translateY(3px);
+    width: 1.5ch;
+    height: 1.5ch;
+    display: inline-block;
+}
+
+.btn {
+    display: inline-block;
+    position: relative;
+    margin-right: var(--margin);
+}
+
+.btn:last-of-type {
+    margin-right: 0;
+}
+
+.btn-default {
+    background-color: var(--color-button-bg);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--color-button-bg);
+    border-radius: 36px;
+    color: var(--color-button-text);
+    padding: 10px 20px;
+    transition: all 400ms;
+
+    &:hover {
+        background-color: var(--color-button-bg-hover);
+        color: var(--color-button-text-hover);
+    }
+}
+
+.btn-center {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ce-headline-center,
+.text-center {
+    text-align: center;
+}

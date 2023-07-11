@@ -1,0 +1,20 @@
+/* COMPONENT - VARIABLES */
+.ce-uploads {}
+
+/* COMPONENT - STYLING */
+.ce-uploads li {
+  margin-bottom: min(var(--gap), 25px);
+}
+
+.ce-uploads-icon,
+.ce-uploads-filename,
+.ce-uploads-filesize,
+.ce-uploads-description {
+  display: inline-block;
+  margin-right: min(var(--gap), 25px);
+  vertical-align: middle;
+}
+
+.ce-uploads-icon {
+  max-width: 32px;
+}

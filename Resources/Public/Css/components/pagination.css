@@ -1,0 +1,36 @@
+/* COMPONENT - VARIABLES */
+.f3-widget-paginator {
+    --paginator-border-radius: var(--border-radius, 5px);
+    --paginator-bg: #ccc;
+    --paginator-bg-hover: var(--color-primary, #000);
+    --paginator-color-text: #fff;
+    --paginator-color-text-hover: #fff;
+}
+
+/* COMPONENT - STYLING */
+.f3-widget-paginator {
+    text-align: center;
+    padding: 8px;
+
+    & li,
+    & a {
+        display: inline-block;
+        background: var(--paginator-bg);
+        color: var(--paginator-color-text);
+        border-radius: var(--paginator-border-radius);
+    }
+
+    & li {
+        margin: 0 3px;
+    }
+
+    & li a {
+        padding: 6px 14px;
+    }
+
+    & li a:hover,
+    & li.current a {
+        background: var(--paginator-bg-hover);
+        color: var(--paginator-color-text-hover);
+    }
+}

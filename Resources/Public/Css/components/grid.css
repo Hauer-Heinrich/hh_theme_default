@@ -1,0 +1,92 @@
+/* COMPONENT - VARIABLES */
+.grid-container {
+    --grid-item-gap: 1rem;
+    --grid-item-min-width: min(280px, 100%);
+}
+
+/* COMPONENT - STYLING */
+.grid-container {
+
+    /* GRID LAYOUT (+RESPONSIVE) */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--grid-item-gap);
+
+    &[data-columns="2"] {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 2 - var(--grid-item-gap), var(--grid-item-min-width)), 2fr));
+    }
+
+    &[data-columns="3"] {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 3 - var(--grid-item-gap), var(--grid-item-min-width)), 3fr));
+    }
+
+    &[data-columns="4"] {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 4 - var(--grid-item-gap), var(--grid-item-min-width)), 4fr));
+    }
+
+    & .frame {
+        height: 100%;
+    }
+}
+
+/* GRID SPECIAL THEMES */
+.frame-type-grid-row-1--col-2--33-66 .grid-container {
+    /*grid-template-columns: repeat(auto-fill, minmax(max(100% / 3 - var(--grid-item-gap), var(--grid-item-min-width)), 3fr));*/
+    grid-template-columns: 1fr 2fr;
+
+    & .grid-item-1 {
+        /*grid-column: span 1;*/
+    }
+
+    & .grid-item-2 {
+        /*grid-column: span 2;*/
+    }
+}
+
+.frame-type-grid-row-1--col-2--66-33 .grid-container {
+    /*grid-template-columns: repeat(auto-fill, minmax(max(100% / 3 - var(--grid-item-gap), var(--grid-item-min-width)), 3fr));*/
+    grid-template-columns: 2fr 1fr;
+
+    & .grid-item-1 {
+        /*grid-column: span 2;*/
+    }
+
+    & .grid-item-2 {
+        /*grid-column: span 1;*/
+    }
+
+
+}
+
+.frame-type-grid-row-1--col-2--25-75 .grid-container {
+    /*.grid-template-columns: repeat(auto-fill, minmax(max(100% / 4 - var(--grid-item-gap), var(--grid-item-min-width)), 4fr));*/
+    grid-template-columns: 1fr 3fr;
+
+    & .grid-item-1 {
+        /*grid-column: span 1;*/
+    }
+
+    & .grid-item-2 {
+        /*grid-column: span 3;*/
+    }
+
+}
+
+.frame-type-grid-row-1--col-2--75-25 .grid-container {
+    /*.grid-template-columns: repeat(auto-fill, minmax(max(100% / 4 - var(--grid-item-gap), var(--grid-item-min-width)), 4fr));*/
+    grid-template-columns: 3fr 1fr;
+
+    & .grid-item-1 {
+        /*grid-column: span 3;*/
+    }
+
+    & .grid-item-2 {
+        /*grid-column: span 1;*/
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .frame-type-grid .grid-container {
+        grid-template-columns: 1fr;
+    }
+}

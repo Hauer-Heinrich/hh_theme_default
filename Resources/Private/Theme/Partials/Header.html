@@ -1,0 +1,39 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<header id="header" class="frame frame-max-width">
+    <div class="header-container">
+        <f:render partial="Logo" arguments="{_all}" />
+
+        <nav class="nav-main">
+            <f:render partial="Menu/MainMenu" arguments="{menu: '{MenuMain}'}" />
+        </nav>
+
+        <div class="login-container">
+            <div class="login-btn">
+                <span class="login-btn-icon"></span>
+                <span class="login-btn-text">Kundenportal</span>
+            </div>
+            <div class="login-popup">
+                <span class="login-popup-label">Kundenportal</span>
+
+                <f:if condition="{wastemanagementLoginPopUpMenu}">
+                    <f:render partial="Menu/TrennerMenu" arguments="{Menu: '{wastemanagementLoginPopUpMenu}'}" />
+                </f:if>
+
+                <form id="login" class="login-popup-form" action="?eID=wasteLogin" method="POST">
+                    <fieldset>
+                        <label for="name">First name:</label><br>
+                        <input type="text" id="name" name="name"><br>
+
+                        <label for="password">Last name:</label><br>
+                        <input type="text" id="password" name="password">
+
+                        <button type="submit">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+</html>

@@ -1,0 +1,121 @@
+/* COMPONENT - VARIABLES */
+.frame {
+    --frame-max-width: 1320px;
+    --frame-small-max-width: 1024px;
+    --frame-large-max-width: 1680px;
+    --frame-xlarge-max-width: 100vw;
+    --frame-gap: 70px;
+    --frame-gap-small: 2rem;
+    --frame-gap-large: 4rem;
+    --frame-gap-xlarge: 6rem;
+    --frame-padding: 2rem;
+}
+
+/* COMPONENT - STYLING */
+.frame {
+    padding: var(--frame-padding);
+    margin: 0 auto;
+    margin-bottom: var(--frame-gap);
+    max-width: var(--frame-max-width);
+
+    /* Reset Centering if sidebar exists */
+    .be-default_with_side_nav & {
+        margin: 0;
+    }
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.frame-none {
+    max-width: 100%;
+}
+
+.frame-small {
+    max-width: var(--frame-small-max-width);
+}
+
+.frame-large {
+    max-width: var(--frame-large-max-width);
+}
+
+.frame-xlarge {
+    max-width: var(--frame-xlarge-max-width);
+}
+
+.frame-max-width {
+    max-width: 1920px;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.frame-full-width {
+    width: 100vw;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.frame-space-before-none {
+    margin-top: 0;
+}
+
+.frame-space-before-small {
+    margin-top: var(--frame-gap-small);
+}
+
+.frame-space-before-large {
+    margin-top: var(--frame-gap-large);
+}
+
+.frame-space-before-xlarge {
+    margin-top: var(--frame-gap-xlarge);
+}
+
+.frame-space-after-none {
+    margin-bottom: 0;
+}
+
+.frame-space-after-small {
+    margin-bottom: var(--frame-gap-small);
+}
+
+.frame-space-after-large {
+    margin-bottom: var(--frame-gap-large);
+}
+
+.frame-space-after-xlarge {
+    margin-bottom: var(--frame-gap-xlarge);
+}
+
+.frame-default {}
+
+.frame-type-text {}
+
+.frame-type-textmedia {}
+
+.frame-type-grid {}
+
+.frame-type-menu_pages {}
+
+.frame-type-menu_subpages {}
+
+.frame-type-html {}
+
+.frame-type-uploads {}
+
+.frame-type-image {}
+
+.frame-type-hhslider_hh_slider {}
+
+.frame-type-list {}
+
+.frame-type-news_pi1 {}
+
+.frame-type-hhaccordion_hh_accordion {}
+
+.frame-type-felogin_login {}
+
+.frame-type-form_formframework {}

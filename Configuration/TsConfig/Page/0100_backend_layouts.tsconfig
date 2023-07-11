@@ -1,6 +1,6 @@
 mod.web_layout.BackendLayouts {
     default {
-        title = One Column
+        title = 1 Column
         iconIdentifier = be_layout_one_column
         config {
             backend_layout {
@@ -29,7 +29,7 @@ mod.web_layout.BackendLayouts {
     }
 
     default_with_side_nav {
-        title = One Column with side Nav and optional content before / after
+        title = 2 Columns (with sidenav)
         iconIdentifier = hh_navaside_left
         config {
             backend_layout {

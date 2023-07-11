@@ -1,0 +1,28 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<hhdefault:fal table="pages" field="media" id="{site.rootPageId}" as="logos" />
+<f:if condition="{logos}">
+    <f:for each="{logos}" as="file" iteration="i">
+        <f:if condition="{i.cycle} == 1">
+            <div id="logo">
+                <f:link.typolink parameter="{file.link}" absolute="1">
+                    <f:image src="{file.uid}" treatIdAsReference="1" />
+                </f:link.typolink>
+            </div>
+
+            <f:asset.script identifier="logo-orga-uid-" type="application/ld+json">
+            <hhdefault:minifyJson trim="true">
+                {<f:comment></f:comment>
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "url": "{f:uri.typolink(parameter: '{file.link}', absolute: '1')}",
+                    "logo": "{f:uri.image(src: '{file.uid}', treatIdAsReference: 1, absolute: 1)}"
+                }
+            </hhdefault:minifyJson>
+            </f:asset.script>
+        </f:if>
+    </f:for>
+</f:if>
+
+</html>

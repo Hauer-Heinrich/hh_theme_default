@@ -1,0 +1,28 @@
+/* COMPONENT - VARIABLES */
+#content {
+    --content-item-gap: 2rem;
+    --content-item-min-width: 250px;
+    --sidebar-padding: 2rem;
+}
+
+/* COMPONENT - STYLING */
+/* CONTENT */
+#content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--content-item-min-width), 1fr));
+    gap: var(--content-item-gap);
+    justify-content: center;
+}
+
+/* MAIN / SIDEBAR (LEFT) */
+#main {
+    max-width: 100vw;
+    grid-column: span 3;
+}
+
+#sidebar-left,
+#sidebar-right {
+    background: rgba(0, 0, 0, 0.4);
+    grid-column: span 1;
+    padding: var(--sidebar-padding);
+}

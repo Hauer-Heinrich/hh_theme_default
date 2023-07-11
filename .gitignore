@@ -39,6 +39,7 @@ giftp.json
 /typo3-deploy/
 /deploy/
 ._*
+.helix
 Desktop.ini
 Thumbs.db
 .Spotlight-V100

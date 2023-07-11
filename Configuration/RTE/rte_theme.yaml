@@ -12,7 +12,7 @@ imports:
 ### For complete documentation see https://ckeditor.com/docs/ckeditor5/latest/features/index.html
 editor:
   config:
-    contentsCss: 'EXT:hh_theme_default/Resources/Public/Css/backend/UserRte.min.css'
+    contentsCss: 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/backend/user-rte.css'
 
     style:
       definitions:
@@ -20,8 +20,8 @@ editor:
         - { name: 'Orange title p', element: 'p', classes: ["color-orange"] }
         - { name: 'blue title p', element: 'p', classes: ["color-blue"] }
         ### Inline styles
-        - { name: "btn-default", element: "span", classes: ["btn-default"]  }
-        - { name: "btn-fullwidth", element: "span", classes: ["btn-fullwidth"] }
+        - { name: "btn-default", element: "span", classes: ["btn", "btn-default"]  }
+        - { name: "btn-fullwidth", element: "span", classes: ["btn", "btn-fullwidth"] }
 
     heading:
       options:

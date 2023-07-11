@@ -1,22 +1,18 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-    data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
-<f:variable name="minified"><f:if condition="{settings.compressFiles}">.min</f:if></f:variable>
+<f:variable name="minified">
+    <f:if condition="{settings.compressFiles}">.min</f:if>
+</f:variable>
 
-<f:comment><!-- Header --></f:comment>
-<!--
-    TODO:
-    <f:asset.script identifier="first" priority="true">
-    document.documentElement.className += (("ontouchstart" in document.documentElement) ? ' touch' : ' no-touch');var root = document.documentElement;root.className += ' js';
-</f:asset.script> -->
+<f:comment><!-- HTML Head --></f:comment>
+<f:comment>
+    <f:asset.script identifier="first" priority="true">console.log("jo")</f:asset.script>
+</f:comment>
 
-<f:comment><!-- Body end - librarys --></f:comment>
-<!-- TODO: <f:asset.script identifier="emailSpamProtection" src="EXT:hh_theme_default/Resources/Public/JavaScript/email-spam-protection{minified}.js" /> -->
-<!-- TODO: IO evtl. austauschen (da derzeit nur fuer mobile navi verwendet wird) -->
-<f:asset.script identifier="io" src="EXT:hh_theme_default/Resources/Public/JavaScript/Libs/io{minified}.js" />
-<f:asset.script identifier="slider" src="EXT:hh_slider/Resources/Public/JavaScript/tiny-slider{minified}.js" />
-
-<f:comment><!-- Body end - config --></f:comment>
-<f:asset.script identifier="slider.config" src="EXT:hh_slider/Resources/Public/JavaScript/main{minified}.js" />
+<f:comment><!-- HTML Body --></f:comment>
+<f:asset.script identifier="theme.io.framework" src="EXT:{{EXTENSION_KEY}}/Resources/Public/JavaScript/plugins/io.min.js" />
+<f:asset.script identifier="theme.main.bundle" src="EXT:{{EXTENSION_KEY}}/Resources/Public/JavaScript/main.bundle.js" />
+<f:asset.script identifier="hh-slider-tiny-slider" src="EXT:hh_slider/Resources/Public/JavaScript/tiny-slider.js" />
+<f:asset.script identifier="hh-slider-tiny-slider-config" src="EXT:hh_slider/Resources/Public/JavaScript/main.js" />
 
 </html>

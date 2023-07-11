@@ -1,0 +1,23 @@
+{
+    "outdir": ".",
+    "entryPoints": [
+        { "in": "./Resources/Public/Css/main.css", "out": "./Resources/Public/Css/main.bundle" },
+        { "in": "./Resources/Public/JavaScript/main.js", "out": "./Resources/Public/JavaScript/main.bundle" }
+    ],
+    "bundle": true,
+    "write": true,
+    "minify": true,
+    "sourcemap": true,
+    "logLevel": "info",
+    "external": [
+        "./Images/*", "../Images/*",
+        "./Fonts/*", "../Fonts/*",
+        "./Icons/*", "../Icons/*",
+        "./Static/*", "../Static/*",
+        "./public/*", "../public/*",
+        "./static/*", "../static/*"
+    ],
+    "supported": {
+        "nesting": false
+    }
+}

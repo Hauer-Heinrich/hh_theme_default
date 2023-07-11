@@ -1,0 +1,39 @@
+/* COMPONENT VARIABLES */
+#header {
+    --header-bg: #fff;
+    --header-padding: 0rem;
+    --header-margin: 1rem;
+    --header-color-text: #fff;
+}
+
+/* HEADER */
+#header {
+    background: var(--header-bg);
+
+    #logo {
+        padding: 0.5rem 1rem 0.5rem 2rem;
+        justify-self: start;
+    }
+
+    #logo img {
+        max-height: 82px;
+        width: auto;
+    }
+
+    .header-container {
+        padding: var(--header-padding);
+        color: var(--header-color-text);
+        z-index: 1111;
+        position: relative;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        /*grid-auto-flow: column;*/
+        justify-content: stretch;
+        justify-items: end;
+        align-items: start;
+    }
+
+    .header-container nav {
+        align-self: flex-end;
+    }
+}

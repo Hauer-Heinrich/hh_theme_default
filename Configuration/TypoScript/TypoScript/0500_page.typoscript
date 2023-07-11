@@ -28,13 +28,6 @@ page {
         }
     }
 
-    headerData {
-        100 = TEXT
-        100.value (
-            <link rel="preload" href="{$themeDefault.urls.themeResources}Public/Fonts/fontello.woff2" as="font" crossorigin />
-        )
-    }
-
     10 = FLUIDTEMPLATE
     10 {
         format = html
@@ -122,13 +115,13 @@ page {
             ################################################################
             ### Language Menu ###
             ################################################################
-            # 40 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
-            # 40 {
-            #     languages = auto
-            #     as = MenuLanguage
+            40 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+            40 {
+                languages = auto
+                as = MenuLanguage
 
-            #     if.isTrue = {$plugin.hhthemedefault.multiLanguage}
-            # }
+                if.isTrue = {$plugin.{{EXTENSION_NAME}}.multiLanguage}
+            }
 
             ################################################################
             ### categories - sys_category - for pages ###
@@ -162,7 +155,7 @@ page {
             # 90 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 90 {
             #     special = directory
-            #     special.value = {$plugin.hhthemedefault.additionalTopMenu}
+            #     special.value = {$plugin.{{EXTENSION_NAME}}.additionalTopMenu}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -176,31 +169,77 @@ page {
             #     }
             #     as = AdditionalTopMenu
 
-            #     if.isTrue = {$plugin.hhthemedefault.additionalTopMenu}
+            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.additionalTopMenu}
             # }
+
+            ################################################################
+            ### Footer images / logos ###
+            ################################################################
+            94 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            94 {
+                references.data = levelfield:-2, footer_logo, slide
+                references.table = pages
+                as = FooterLogos
+            }
 
             ################################################################
             ### Footer Menu ###
             ################################################################
-            # 95 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            # 95 {
-            #     special = directory
-            #     special.value = {$plugin.hhthemedefault.footerMenu}
-            #     entryLevel = 0
-            #     levels = 1
-            #     expandAll = 1
-            #     includeSpacer = 0
-            #     titleField = nav_title // title
-            #     as = FooterMenu
-            # }
+            95 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            95 {
+                special = list
+                special.value.data = levelfield:-2, footer_links, slide
+                entryLevel = 0
+                levels = 1
+                expandAll = 1
+                includeSpacer = 0
+                titleField = nav_title // title
+                as = FooterLinks
+            }
+
+            96 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            96 {
+                special = directory
+                special.value = {$plugin.{{EXTENSION_NAME}}.legalInformation}
+                entryLevel = 0
+                levels = 1
+                expandAll = 1
+                includeSpacer = 0
+                titleField = nav_title // title
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = media
+                    }
+                }
+                as = legalInformation
+            }
+
+            97 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            97 {
+                special = directory
+                special.value = {$plugin.{{EXTENSION_NAME}}.socialMedia}
+                entryLevel = 0
+                levels = 1
+                expandAll = 1
+                includeSpacer = 0
+                titleField = nav_title // title
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = media
+                    }
+                }
+                as = socialMedia
+            }
 
             ################################################################
             ### Social Menu ###
             ################################################################
-            # 96 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            # 96 {
+            # 99 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            # 99 {
             #     special = directory
-            #     special.value = {$plugin.hhthemedefault.socialMenu}
+            #     special.value = {$plugin.{{EXTENSION_NAME}}.socialMenu}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -218,30 +257,51 @@ page {
             ################################################################
             ### Quick Menu ###
             ################################################################
-            # 100 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            # 100 {
-            #     special = directory
-            #     special.value = {$plugin.hhthemedefault.quickLinks}
-            #     entryLevel = 0
-            #     levels = 7
-            #     expandAll = 1
-            #     includeSpacer = 0
-            #     titleField = nav_title // title
-            #     dataProcessing {
-            #         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-            #         10 {
-            #             references.fieldName = media
-            #         }
-            #     }
-            #     as = Quicklinks
-            # }
+            100 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            100 {
+                special = directory
+                special.value = {$plugin.{{EXTENSION_NAME}}.quickLinks}
+                entryLevel = 0
+                levels = 7
+                expandAll = 1
+                includeSpacer = 0
+                titleField = nav_title // title
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = media
+                    }
+                }
+                as = Quicklinks
+            }
+
+            ################################################################
+            ### Login wastemanagement popup menu ###
+            ################################################################
+            500 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            500 {
+                special = directory
+                special.value = {$plugin.{{EXTENSION_NAME}}.wastemanagementLoginPopUpMenuTrennerUid}
+                entryLevel = 0
+                levels = 1
+                expandAll = 1
+                includeSpacer = 0
+                titleField = nav_title // title
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = media
+                    }
+                }
+                as = wastemanagementLoginPopUpMenu
+            }
         }
 
         settings {
-            indexedSearchId = {$plugin.hhthemedefault.indexedSearchId}
-            breadcrumbSeparator = {$plugin.hhthemedefault.breadcrumbSeparator}
-            compressFiles = {$plugin.hhthemedefault.compressFiles}
-            concatenateFiles = {$plugin.hhthemedefault.concatenateFiles}
+            indexedSearchId = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
+            breadcrumbSeparator = {$plugin.{{EXTENSION_NAME}}.breadcrumbSeparator}
+            compressFiles = {$plugin.{{EXTENSION_NAME}}.compressFiles}
+            concatenateFiles = {$plugin.{{EXTENSION_NAME}}.concatenateFiles}
         }
 
         variables {
@@ -287,30 +347,30 @@ page {
             AsideRight =< styles.content.get
             AsideRight.select.where = colPos = 2
 
-            FooterColumn1 = CONTENT
-            FooterColumn1 {
-                table = tt_content
-                select {
-                    where = colPos = 1000
-                    pidInList = {$plugin.hhthemedefault.footerSeitenID}
-                    orderBy = sorting ASC, colPos ASC
-                    languageField = sys_language_uid
-                }
+            FooterCol1 = TEXT
+            FooterCol1 {
+                data = levelfield:-2, footer_col1, slide
             }
 
-            FooterColumn2 < .FooterColumn1
-            FooterColumn2.select.where = colPos = 1010
+            FooterCol2 = TEXT
+            FooterCol2 {
+                data = levelfield:-2, footer_col2, slide
+            }
 
-            FooterColumn3 < .FooterColumn1
-            FooterColumn3.select.where = colPos = 1020
+            FooterCol3 = TEXT
+            FooterCol3 {
+                data = levelfield:-2, footer_col3, slide
+            }
         }
     }
 }
 
 [applicationContext == "Development"]
     page {
-        10.settings {
-            applicationContext = Development
+        10 {
+            settings {
+                applicationContext = Development
+            }
         }
 
         meta {
@@ -321,8 +381,10 @@ page {
 
 [applicationContext == "Development/Server"]
     page {
-        10.settings {
-            applicationContext = Development/Server
+        10 {
+            settings {
+                applicationContext = Development/Server
+            }
         }
 
         meta {

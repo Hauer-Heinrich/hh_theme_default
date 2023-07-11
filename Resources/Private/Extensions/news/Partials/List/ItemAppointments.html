@@ -1,0 +1,41 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<article class="article articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}"
+    itemscope="itemscope" itemtype="https://schema.org/Article">
+
+    <n:excludeDisplayedNews newsItem="{newsItem}" />
+
+    <div class="ce-textpic">
+        <footer>
+            <span class="news-list-date">
+                <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+                    <span class="day"><f:format.date format="d.">{newsItem.datetime}</f:format.date></span>
+                    <span class="month"><f:format.date format="M">{newsItem.datetime}</f:format.date></span>
+                </time>
+            </span>
+        </footer>
+        <header class="header">
+            <h4>
+                <span itemprop="headline">{newsItem.title}</span>
+            </h4>
+        </header>
+
+        <div class="teaser-text">
+            <n:removeMediaTags>
+                <f:if condition="{newsItem.teaser}">
+                    <f:then>
+                        <div itemprop="description">{newsItem.teaser -> f:format.crop(maxCharacters:
+                            '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}</div>
+                    </f:then>
+                    <f:else>
+                        <div itemprop="description">{newsItem.bodytext -> f:format.crop(maxCharacters:
+                            '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}</div>
+                    </f:else>
+                </f:if>
+            </n:removeMediaTags>
+        </div>
+    </div>
+</article>
+
+</html>

@@ -1,6 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
-      data-namespace-typo3-fluid="true">
+    xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
 
 <f:layout name="General" />
 
@@ -9,26 +8,34 @@
     <f:if condition="{news}">
         <f:then>
             <f:switch expression="{settings.templateLayout}">
+                <f:case value="appointments">
+                    <f:render section="appointments" arguments="{_all}" />
+                </f:case>
                 <f:case value="slider">
                     <f:render section="slider" arguments="{_all}" />
                 </f:case>
                 <f:defaultCase>
-                    <div class="news-list-view" id="news-container-{contentObjectData.uid}">
+                    <div class="news-list-view news-container" id="news-container-{contentObjectData.uid}"
+                        data-columns="{settings.displayColumns}" data-items="{news -> f:count()}">
                         <f:if condition="{settings.hidePagination}">
                             <f:then>
                                 <f:for each="{news}" as="newsItem" iteration="iterator">
-                                    <f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                                    <f:render partial="List/Item"
+                                        arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
                                 </f:for>
                             </f:then>
                             <f:else>
                                 <f:if condition="{settings.list.paginate.insertAbove}">
-                                    <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+                                    <f:render partial="List/Pagination"
+                                        arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
                                 </f:if>
                                 <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
-                                    <f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                                    <f:render partial="List/Item"
+                                        arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
                                 </f:for>
                                 <f:if condition="{settings.list.paginate.insertBelow}">
-                                    <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+                                    <f:render partial="List/Pagination"
+                                        arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
                                 </f:if>
                             </f:else>
                         </f:if>
@@ -46,22 +53,107 @@
 </f:section>
 
 <f:section name="slider">
-    <div class="news-list-view" id="news-container-{contentObjectData.uid}">
-        <f:for each="{news}" as="newsItem" iteration="iterator">
-            <f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
-        </f:for>
+    <div class="news-list-view news-container ce-gallery" id="news-container-{contentObjectData.uid}" data-columns="{settings.displayColumns}" data-items="{news -> f:count()}">
+        <div class="ce-gallery-container">
+            <f:for each="{news}" as="newsItem" iteration="iterator">
+                <f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+            </f:for>
+        </div>
+
+        <f:if condition="{settings.listPid}">
+            <f:link.page pageUid="{settings.listPid}" class="btn btn-default btn-center">Mehr Neuigkeiten</f:link.page>
+        </f:if>
     </div>
 
-    <f:asset.script identifier="hhSliderJson-news-{contentObjectData.uid}" class="hhSliderJson" type="application/json">
-        {
-            <f:comment></f:comment>"uid": "{contentObjectData.uid}",
-            "disableOnInteraction": "{f:if(condition: "{data.tx_hhslider_disable_on_interaction}", then: "true", else: "false")}",
-            "container": "#news-container-{contentObjectData.uid}",
-            "mode": "carousel",
-            "axis": "horizontal",
-            "items": 3
-        }
-    </f:asset.script>
+    <f:if condition="{news -> f:count()} > {settings.displayColumns}">
+        <f:asset.script identifier="hhSliderJson-news-{contentObjectData.uid}" class="hhSliderJson" type="application/json">
+            {
+                <f:comment></f:comment>"uid": "{contentObjectData.uid}",
+                "disableOnInteraction": "{f:if(condition: "{data.tx_hhslider_disable_on_interaction}", then: "true", else: "false")}",
+                "container": "#news-container-{contentObjectData.uid} > .ce-gallery-container",
+                "mode": "carousel",
+                "axis": "horizontal",
+                "items": "{settings.displayColumns}",
+                "gutter": 16,
+                "edgePadding": 0,
+                "fixedWidth": false,
+                "autoWidth": false,
+                "viewportMax": false,
+                "slideBy": 1,
+                "center": false,
+                "controls": false,
+                "controlsPosition": "bottom",
+                "controlsText": ["prev", "next"],
+                "controlsContainer": false,
+                "prevButton": ".slider-button-prev",
+                "nextButton": ".slider-button-next",
+                "nav": false,
+                "navPosition": "bottom",
+                "navContainer": ".slider-thumbs-{contentObjectData.uid}",
+                "navAsThumbnails": true,
+                "arrowKeys": true,
+                "speed": 2000,
+                "autoplay": true,
+                "autoplayPosition": "top",
+                "autoplayTimeout": 4000,
+                "autoplayDirection": "forward",
+                "autoplayText": ["start", "stop"],
+                "autoplayHoverPause": false,
+                "autoplayButton": false,
+                "autoplayButtonOutput": false,
+                "autoplayResetOnVisibility": false,
+                "animateIn": "tns-fadeIn",
+                "animateOut": "tns-fadeOut",
+                "animateNormal": "tns-normal",
+                "animateDelay": false,
+                "loop": true,
+                "rewind": false,
+                "autoHeight": false,
+                "lazyload": false,
+                "lazyloadSelector": ".tns-lazy-img",
+                "touch": true,
+                "mouseDrag": true,
+                "swipeAngle": 15,
+                "preventActionWhenRunning": false,
+                "preventScrollOnTouch": false,
+                "nested": false,
+                "freezable": false,
+                "disable": false,
+                "startIndex": 0,
+                "onInit": false,
+                "useLocalStorage": true,
+                "responsive": ""
+            }
+        </f:asset.script>
+    </f:if>
+</f:section>
+
+<f:section name="appointments">
+    <div class="news-list-view news-container" id="news-container-{contentObjectData.uid}"
+        data-columns="{settings.displayColumns}" data-items="{news -> f:count()}">
+        <f:if condition="{settings.hidePagination}">
+            <f:then>
+                <f:for each="{news}" as="newsItem" iteration="iterator">
+                    <f:render partial="List/ItemAppointments"
+                        arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                </f:for>
+            </f:then>
+            <f:else>
+                <f:if condition="{settings.list.paginate.insertAbove}">
+                    <f:render partial="List/Pagination"
+                        arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+                </f:if>
+                <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+                    <f:render partial="List/ItemAppointments"
+                        arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                </f:for>
+                <f:if condition="{settings.list.paginate.insertBelow}">
+                    <f:render partial="List/Pagination"
+                        arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+                </f:if>
+            </f:else>
+        </f:if>
+    </div>
 </f:section>
 
 </html>

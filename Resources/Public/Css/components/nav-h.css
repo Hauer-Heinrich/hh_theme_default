@@ -1,0 +1,39 @@
+/* COMPONENT - VARIABLES */
+.nav-h {
+    --nav-bg: transparent;
+    --nav-bg-hover: transparent;
+    --nav-color-link: var(--color-secondary, #333);
+    --nav-color-link-hover: var(--color-primary, #333);
+    --nav-indent: 1rem;
+    --nav-gap: 1rem;
+    --nav-padding: 1rem;
+}
+
+/* COMPONENT - STYLING */
+.nav-h {
+    & a {
+        background: var(--nav-bg);
+        color: var(--nav-color-link);
+        padding: var(--nav-padding);
+    }
+
+    & a:hover {
+        background: var(--nav-bg-hover);
+        color: var(--nav-color-link-hover);
+    }
+
+    &>ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        gap: var(--nav-gap);
+    }
+
+    &.nav-center ul {
+        justify-content: center;
+    }
+
+    &.nav-right ul {
+        justify-content: right;
+    }
+}

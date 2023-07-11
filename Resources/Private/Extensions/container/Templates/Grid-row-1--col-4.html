@@ -1,0 +1,38 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="main">
+    <div class="grid-container" data-columns="4">
+        <div class="grid-item grid-item-1">
+            <f:if condition="{childrenLeft}">
+                <f:for each="{childrenLeft}" as="child">
+                    <f:format.raw>{child.renderedContent}</f:format.raw>
+                </f:for>
+            </f:if>
+        </div>
+        <div class="grid-item grid-item-2">
+            <f:if condition="{childrenMiddleLeft}">
+                <f:for each="{childrenMiddleLeft}" as="child">
+                    <f:format.raw>{child.renderedContent}</f:format.raw>
+                </f:for>
+            </f:if>
+        </div>
+        <div class="grid-item grid-item-3">
+            <f:if condition="{childrenMiddleRight}">
+                <f:for each="{childrenMiddleRight}" as="child">
+                    <f:format.raw>{child.renderedContent}</f:format.raw>
+                </f:for>
+            </f:if>
+        </div>
+        <div class="grid-item grid-item-4">
+            <f:if condition="{childrenRight}">
+                <f:for each="{childrenRight}" as="child">
+                    <f:format.raw>{child.renderedContent}</f:format.raw>
+                </f:for>
+            </f:if>
+        </div>
+    </div>
+</f:section>
+
+</html>

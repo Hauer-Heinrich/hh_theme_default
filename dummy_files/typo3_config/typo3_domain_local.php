@@ -1,5 +1,5 @@
 <?php
-if (!defined('TYPO3_MODE')) {
+if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
@@ -57,11 +57,11 @@ $customChanges = [
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customChanges);
 
 // Special for windows systems
-if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-    $customWindows = [
-        'SYS' => [
-            'systemLocale' => 'de-de',
-        ]
-    ];
-    $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customWindows);
-}
+// if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+//     $customWindows = [
+//         'SYS' => [
+//             'systemLocale' => 'de-de',
+//         ]
+//     ];
+//     $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], (array)$customWindows);
+// }

@@ -12,7 +12,7 @@ imports:
 ### For complete documentation see https://ckeditor.com/docs/ckeditor5/latest/features/index.html
 editor:
   config:
-    contentsCss: 'EXT:hh_theme_default/Resources/Public/Css/backend/UserRte.min.css'
+    contentsCss: 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/backend/user-rte.css'
     height: 60
 
     # style:

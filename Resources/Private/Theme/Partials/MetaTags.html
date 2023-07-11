@@ -12,7 +12,7 @@ titleSeparate = "{settings.titleSeparate}"
 titleSeparateBefore = "{settings.titleSeparateBefore}"
 titleSeparateAfter = "{settings.titleSeparateAfter}"
 
-description = <seo:formatIni data="{data.description}" />
+description = <hhseo:formatIni data="{data.description}" />
 author = {f:if(condition: '{data.author}', then: '{data.author}', else: '{hhSeo.author}')}
 designer = {f:if(condition: '{hhSeo.designer}', then: '{hhSeo.designer}')}
 link:designer = /humans.txt
@@ -27,7 +27,7 @@ robots:index = {f:if(condition: '{data.no_index}', then: 'noindex')}
 robots:follow = {f:if(condition: '{data.no_follow}', then: 'nofollow')}
 
 og:title = {data.og_title}
-og:description = <seo:formatIni data="{data.og_description}" />
+og:description = <hhseo:formatIni data="{data.og_description}" />
 <f:if condition="{og_image->f:count()} > 0">
     <f:for each="{og_image}" as="image" iteration="i">
         og:image[] = {f:uri.image(src: '{image.uid}', treatIdAsReference: 1)}
@@ -35,7 +35,7 @@ og:description = <seo:formatIni data="{data.og_description}" />
 </f:if>
 
 twitter:title = {data.twitter_title}
-twitter:description = <seo:formatIni data="{data.twitter_description}" />
+twitter:description = <hhseo:formatIni data="{data.twitter_description}" />
 twitter:image[] = <f:if condition="{twitter_image.0}">{f:uri.image(src: '{twitter_image.0.uid}', treatIdAsReference: 1)}</f:if>
 
 geo:region = {geoRegion}

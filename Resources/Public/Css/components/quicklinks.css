@@ -1,0 +1,61 @@
+.quicklinks {
+    top: 300px;
+    position: fixed;
+    right: 0;
+    z-index: 600;
+
+    & li {
+        background-color: var(--color-primary);
+        color: #fff;
+        left: calc(100% - 58px);
+        margin-bottom: 5px;
+        padding: 16px;
+        transition: all 500ms;
+
+        & a {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 20px;
+        }
+
+        & .files {
+            & img {
+                max-height: 30px;
+                max-width: 30px;
+            }
+        }
+
+        & .title {
+
+        }
+
+        &:hover {
+            left: 0;
+        }
+
+        &.link-to-top {
+            background-image: url("../Icons/arrow-up-white.svg");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            left: calc(100% - 58px);
+
+            &:not(:first-child) {
+                margin-top: 15px;
+            }
+        }
+    }
+}
+
+@media screen and (min-height: 700px) {
+    .quicklinks {
+        top: 61vh;
+    }
+}
+
+@media screen and (min-height: 1081px) {
+    .quicklinks {
+        top: 650px;
+    }
+}

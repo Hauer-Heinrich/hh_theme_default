@@ -4,7 +4,13 @@ services:
     autoconfigure: true
     public: false
 
-  HauerHeinrich\HhThemeDefault\EventListener\AfterBackendPageRenderEventListener:
+  HauerHeinrich\{{EXTENSION_NAMESPACE}}\:
+    resource: '../Classes/*'
+
+  HauerHeinrich\{{EXTENSION_NAMESPACE}}\EventListener\AfterBackendPageRenderEventListener:
     tags:
       - name: event.listener
         event: TYPO3\CMS\Backend\Controller\Event\AfterBackendPageRenderEvent
+
+  HauerHeinrich\{{EXTENSION_NAMESPACE}}\Http\WastemanagementRequest:
+    public: true

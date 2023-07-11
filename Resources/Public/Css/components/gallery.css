@@ -1,0 +1,84 @@
+/* COMPONENT - VARIABLES */
+.ce-gallery {
+    --gallery-item-min-width: min(280px, 100%);
+    --gallery-item-gap: 1rem;
+    --gallery-item-caption-bg: rgba(0, 0, 0, 0.8);
+    --gallery-item-caption-color: var(--color-text-invert);
+}
+
+/* COMPONENT - STYLING */
+.ce-gallery {
+
+    /* & picture img, */
+    & .image-wrapper,
+    & figure,
+    & picture {
+        height: 100%;
+        width: 100%;
+    }
+
+    & figure {
+        position: relative;
+    }
+
+    & picture img {
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    & figcaption {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: var(--padding);
+        background: var(--gallery-item-caption-bg);
+        color: var(--gallery-item-caption-color);
+        text-align: center;
+        line-height: var(--line-height);
+        transition: all 0.5s;
+        opacity: 0;
+    }
+
+    & figure:hover figcaption {
+        opacity: 1;
+    }
+
+    & figure a+figcaption {
+        pointer-events: none;
+    }
+
+    /* COLUMN LAYOUT (+RESPONSIVE) */
+    & .ce-gallery-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--gallery-item-gap);
+    }
+
+    &[data-columns="2"] .ce-gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 2 - var(--gallery-item-gap), var(--gallery-item-min-width)), 2fr));
+    }
+
+    &[data-columns="3"] .ce-gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 3 - var(--gallery-item-gap), var(--gallery-item-min-width)), 3fr));
+    }
+
+    &[data-columns="4"] .ce-gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 4 - var(--gallery-item-gap), var(--gallery-item-min-width)), 4fr));
+    }
+
+    &[data-columns="5"] .ce-gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 5 - var(--gallery-item-gap), var(--gallery-item-min-width)), 5fr));
+    }
+
+    &[data-columns="6"] .ce-gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 6 - var(--gallery-item-gap), var(--gallery-item-min-width)), 6fr));
+    }
+
+    &[data-columns="7"] .ce-gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 7 - var(--gallery-item-gap), var(--gallery-item-min-width)), 7fr));
+    }
+
+    &[data-columns="8"] .ce-gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 8 - var(--gallery-item-gap), var(--gallery-item-min-width)), 8fr));
+    }
+}

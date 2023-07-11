@@ -1,0 +1,45 @@
+/* COMPONENT - VARIABLES */
+.tns-slider,
+.ce-gallery-container.tns-slider {
+    display: block;
+}
+
+/* COMPONENT - STYLING */
+.tns-slider {
+    &.tns-horizontal.tns-subpixel {
+        white-space: normal;
+    }
+
+    & .tns-item {}
+
+    & .tns-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center center;
+    }
+}
+
+
+.hh-slider {
+    position: relative;
+
+    & > .pagination {
+        bottom: var(--frame-gap);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+        & button {
+            background-color: #CECECE;
+            border: 0;
+            border-radius: 0;
+            height: 7px;
+            width: 65px;
+
+            &.tns-nav-active {
+                background-color: var(--color-primary);
+            }
+        }
+    }
+}

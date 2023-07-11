@@ -6,7 +6,7 @@ use \B13\Container\Tca\Registry;
 use \B13\Container\Tca\ContainerConfiguration;
 
 call_user_func(function() {
-    $extensionKey = 'hh_theme_default';
+    $extensionKey = '{{EXTENSION_KEY}}';
 
     // Change header field to RTE
     $GLOBALS['TCA']['tt_content']['columns']['header']['config'] = [
@@ -18,19 +18,25 @@ call_user_func(function() {
         'richtextConfiguration' => 'rte_header',
     ];
 
+    // Overwrite Flexform
+    $GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['ttaddress_listview,list']
+        = 'FILE:EXT:{{EXTENSION_KEY}}/Configuration/Flexforms/ttAddress/List.xml';
+
+    $GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['*,news_pi1']
+        = 'FILE:EXT:{{EXTENSION_KEY}}/Configuration/Flexforms/news/flexform_news_list.xml';
+
     // EXT: container
     $containerRegistry = GeneralUtility::makeInstance(Registry::class);
     $containerRegistry->configureContainer(
         (
             new ContainerConfiguration(
-                'grid-col-2', // CType
+                'grid-row-1--col-2', // CType
                 '2 Column Container With Header', // label
                 '', // description
                 [
-                    // [
-                    //     ['name' => 'header', 'colPos' => 200, 'colspan' => 2, 'allowed' => ['CType' => 'header, textmedia']]
-                    // ],
+                    // rows
                     [
+                        // columns
                         ['name' => 'left side', 'colPos' => 201],
                         ['name' => 'right side', 'colPos' => 202]
                     ]
@@ -38,12 +44,11 @@ call_user_func(function() {
             )
         )
         // override default configurations
-        // ->setIcon('EXT:container_example/Resources/Public/Icons/b13-2cols-with-header-container.svg')
+        ->setIcon('EXT:'.$extensionKey.'/Resources/Public/Icons/Container/col-2.svg')
         ->setSaveAndCloseInNewContentElementWizard(false)
     );
-
-    // override default settings
-    $GLOBALS['TCA']['tt_content']['types']['grid-col-2']['showitem'] = '
+    // override default TCA settings (enable fields like "header", "subheader"...)
+    $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2']['showitem'] = '
         --palette--;;general,
         --palette--;;headers,
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
@@ -58,13 +63,10 @@ call_user_func(function() {
     $containerRegistry->configureContainer(
         (
             new ContainerConfiguration(
-                'grid-col-3', // CType
+                'grid-row-1--col-3', // CType
                 '3 Column Container With Header', // label
-                '', // description
+                '',
                 [
-                    // [
-                    //     ['name' => 'header', 'colPos' => 200, 'colspan' => 2, 'allowed' => ['CType' => 'header, textmedia']]
-                    // ],
                     [
                         ['name' => 'left side', 'colPos' => 201],
                         ['name' => 'middle side', 'colPos' => 202],
@@ -73,11 +75,106 @@ call_user_func(function() {
                 ]
             )
         )
-        // override default configurations
-        // ->setIcon('EXT:container_example/Resources/Public/Icons/b13-2cols-with-header-container.svg')
+        ->setIcon('EXT:'.$extensionKey.'/Resources/Public/Icons/Container/col-3.svg')
         ->setSaveAndCloseInNewContentElementWizard(false)
     );
+    $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-3']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2']['showitem'];
 
-    // override default settings
-    $GLOBALS['TCA']['tt_content']['types']['grid-col-3']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['grid-col-2']['showitem'];
+    $containerRegistry->configureContainer(
+        (
+            new ContainerConfiguration(
+                'grid-row-1--col-4',
+                '4 Column Container With Header',
+                '',
+                [
+                    [
+                        ['name' => 'left side', 'colPos' => 201],
+                        ['name' => 'middle left side', 'colPos' => 202],
+                        ['name' => 'middle right side', 'colPos' => 203],
+                        ['name' => 'right side', 'colPos' => 204]
+                    ]
+                ]
+            )
+        )
+        ->setIcon('EXT:'.$extensionKey.'/Resources/Public/Icons/Container/col-4.svg')
+        ->setSaveAndCloseInNewContentElementWizard(false)
+    );
+    $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-4']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2']['showitem'];
+
+    $containerRegistry->configureContainer(
+        (
+            new ContainerConfiguration(
+                'grid-row-1--col-2--66-33',
+                '2 Column (66-33) Container With Header',
+                '',
+                [
+                    [
+                        ['name' => 'left side', 'colPos' => 201],
+                        ['name' => 'right side', 'colPos' => 202]
+                    ]
+                ]
+            )
+        )
+        ->setIcon('EXT:'.$extensionKey.'/Resources/Public/Icons/Container/col-66-33.svg')
+        ->setSaveAndCloseInNewContentElementWizard(false)
+    );
+    $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2--66-33']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2']['showitem'];
+
+    $containerRegistry->configureContainer(
+        (
+            new ContainerConfiguration(
+                'grid-row-1--col-2--33-66',
+                '2 Column (33-66) Container With Header',
+                '',
+                [
+                    [
+                        ['name' => 'left side', 'colPos' => 201], // , 'colspan' => 2
+                        ['name' => 'right side', 'colPos' => 202] // , 'colspan' => 1
+                    ]
+                ]
+            )
+        )
+        ->setIcon('EXT:'.$extensionKey.'/Resources/Public/Icons/Container/col-33-66.svg')
+        ->setSaveAndCloseInNewContentElementWizard(false)
+    );
+    $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2--33-66']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2']['showitem'];
+
+    $containerRegistry->configureContainer(
+        (
+            new ContainerConfiguration(
+                'grid-row-1--col-2--75-25',
+                '2 Column (75-25) Container With Header',
+                '',
+                [
+                    [
+                        ['name' => 'left side', 'colPos' => 201],
+                        ['name' => 'right side', 'colPos' => 202]
+                    ]
+                ]
+            )
+        )
+        ->setIcon('EXT:'.$extensionKey.'/Resources/Public/Icons/Container/col-75-25.svg')
+        ->setSaveAndCloseInNewContentElementWizard(false)
+    );
+    $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2--75-25']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2']['showitem'];
+
+    $containerRegistry->configureContainer(
+        (
+            new ContainerConfiguration(
+                'grid-row-1--col-2--25-75',
+                '2 Column (25-75) Container With Header',
+                '',
+                [
+                    [
+                        ['name' => 'left side', 'colPos' => 201],
+                        ['name' => 'right side', 'colPos' => 202]
+                    ]
+                ]
+            )
+        )
+        ->setIcon('EXT:'.$extensionKey.'/Resources/Public/Icons/Container/col-25-75.svg')
+        ->setSaveAndCloseInNewContentElementWizard(false)
+    );
+    $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2--25-75']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2']['showitem'];
+    // EXT: container end
 });

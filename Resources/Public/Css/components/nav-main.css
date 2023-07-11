@@ -1,0 +1,126 @@
+/* COMPONENT - VARIABLES */
+.nav-main {
+    --nav-item-bg: transparent;
+    --nav-item-bg-hover: transparent;
+    --nav-item-color-text: #333;
+    --nav-item-color-text-hover: #4DAF2E;
+    --nav-item-gap: 0rem;
+    --nav-item-padding: 1rem min(1.5rem, 1vw);
+    --nav-item-border-active: 3px solid var(--color-primary);
+    --nav-subitem-bg: #fefefe;
+    --nav-subitem-bg-hover: #dbefd5;
+    --nav-subitem-color-text: #333;
+    --nav-subitem-color-text-hover: #333;
+    --nav-subitem-padding: 1rem 1.5rem;
+}
+
+/* COMPONENT - STYLING */
+.nav-main {
+    /*margin-left: auto;*/
+    padding: 0 1.25rem;
+
+    &>ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        gap: var(--nav-item-gap);
+    }
+
+    /* NAV - DEFAULTS */
+    & ul,
+    & li,
+    & a {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    & li {
+        position: relative;
+    }
+
+    & li:hover>ul,
+    & li:active>ul,
+    & li:focus>ul {
+        display: block;
+    }
+
+    /* NAV - 1. LEVEL */
+    &>ul>li>a {
+        padding: var(--nav-item-padding);
+        background: var(--nav-item-bg);
+        color: var(--nav-item-color-text);
+        border-bottom: var(--nav-item-border-active);
+        border-bottom-color: transparent;
+    }
+
+    &>ul>li>a:hover {
+        background: var(--nav-item-bg-hover);
+        color: var(--nav-item-color-text-hover);
+        border-bottom-color: transparent;
+    }
+
+    &>ul>li>a.active {
+        color: var(--nav-item-color-text-hover);
+        border-bottom: var(--nav-item-border-active);
+    }
+
+    /* NAV - 2. and 3. LEVEL */
+    &>ul ul {
+        background: var(--nav-subitem-bg);
+        display: none;
+    }
+
+    &>ul>li li a {
+        width: 100%;
+        background: var(--nav-subitem-bg);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: var(--nav-subitem-padding);
+    }
+
+    &>ul>li li a:hover {
+        background: var(--nav-subitem-bg-hover);
+        color: var(--nav-subitem-color-text-hover);
+    }
+
+    &>ul>li li:last-of-type a {
+        border-bottom: 0;
+    }
+}
+
+/* NAV - DESKTOP SPECIFIC */
+@media only screen and (min-width: 1024px) {
+
+    .nav-main {
+
+        /* NAV - GLOBALS */
+        & ul,
+        & li,
+        & a {
+            width: auto;
+        }
+
+        /* NAV - 1. LEVEL */
+        &>ul {}
+
+        /* NAV - 2. and 3. LEVEL */
+        &>ul ul {
+            display: none;
+            left: 0;
+            position: absolute;
+            top: 100%;
+            width: auto;
+            min-width: 100%;
+        }
+
+        &>ul>li li a {
+            width: 100%;
+        }
+
+        /* NAV - 3. LEVEL */
+        &>ul ul ul {
+            left: 100%;
+            top: 0;
+        }
+    }
+}

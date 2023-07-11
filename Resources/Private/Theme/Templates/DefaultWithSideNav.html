@@ -4,11 +4,10 @@
 <f:layout name="Default" />
 
 <f:section name="Content">
-
     <f:render partial="Banner" arguments="{_all}" />
 
-    <div id="content-main" class="content-main">
-        <aside class="aside-left aside-nav">
+    <div id="content">
+        <aside id="sidebar-left" class="sidebar-left">
             <f:if condition="{NavAsideBefore}">
                 <div id="asideNavBefore">
                     <f:format.raw>{NavAsideBefore}</f:format.raw>
@@ -20,7 +19,7 @@
                     <f:format.raw>{NavAside}</f:format.raw>
                 </f:then>
                 <f:else>
-                    <f:render partial="Menu/MenuAside" arguments="{MenuAside: MenuAside}" />
+                    <f:render partial="Menu/MenuAside" arguments="{menu: '{MenuAside}', orientation: 'vertical'}" />
                 </f:else>
             </f:if>
             <f:if condition="{NavAsideAfter}">
@@ -38,7 +37,6 @@
             </main>
         </f:if>
     </div>
-
 </f:section>
 
 </html>

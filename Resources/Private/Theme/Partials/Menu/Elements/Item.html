@@ -1,9 +1,8 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-    data-namespace-typo3-fluid="true">
-
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{item.spacer} || {item.current}">
     <f:then>
-        <li class="{f:if(condition: '{item.current}', then:' active current')}{f:if(condition:item.spacer, then:' spacer')}">
+        <li
+            class="{f:if(condition: '{item.current}', then:' active current')}{f:if(condition:item.spacer, then:' spacer')} {f:if(condition:'{item.hasSubpages}', then:'has--children')}">
             <f:render partial="Menu/Elements/Link" arguments="{item: item, files: files, label: label}" />
     </f:then>
     <f:comment>
@@ -14,11 +13,12 @@
         doktype 4 = shortcut page
     </f:comment>
     <f:else if="{item.active} && {item.data.doktype} !== 4">
-        <li class="{f:if(condition: '{item.active}', then:'active')}">
+        <li
+            class="{f:if(condition: '{item.active}', then:'active')} {f:if(condition:'{item.hasSubpages}', then:'has--children')}">
             <f:render partial="Menu/Elements/Link" arguments="{item: item, files: files, label: label}" />
     </f:else>
     <f:else>
-        <li>
+        <li class="{f:if(condition:'{item.hasSubpages}', then:'has--children')}">
             <f:render partial="Menu/Elements/Link" arguments="{item: item, files: files, label: label}" />
     </f:else>
 </f:if>

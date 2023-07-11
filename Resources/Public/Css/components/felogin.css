@@ -1,0 +1,8 @@
+/* COMPONENT - VARIABLES */
+
+/* COMPONENT - STYLING */
+.frame-type-felogin_login {
+    padding: var(--padding, 1rem);
+    background: rgba(20, 20, 20, 0.2);
+    border-radius: var(--border-radius, 5px);
+}

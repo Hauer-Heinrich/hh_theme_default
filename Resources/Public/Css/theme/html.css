@@ -1,0 +1,222 @@
+/* CUSTOM HTML - BODY/HTML */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+    color: var(--color-text);
+    line-height: var(--line-height);
+    background: var(--body-bg);
+    background-size: cover;
+}
+
+/* CUSTOM HTML - ELEMENTS */
+a {
+    color: var(--color-link);
+    display: inline-block;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+    transition: all 400ms;
+}
+
+p:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+hr {
+    background: var(--color-secondary);
+    border: none;
+    height: 1px;
+    margin: var(--margin) 0;
+    width: 100%;
+}
+
+[hidden] {
+    display: none;
+}
+
+/* FORMS */
+form {
+    max-width: var(--form-max-width, 680px);
+}
+
+form * {
+    padding: 0;
+    margin: 0;
+}
+
+input,
+textarea,
+select,
+label,
+legend {
+    padding: var(--padding-input);
+}
+
+label,
+legend {
+    padding-left: 0;
+}
+
+label input {
+    margin-left: var(--gap-input);
+}
+
+fieldset {
+    border: 0;
+    min-width: 250px;
+    max-width: var(--form-max-width, 680px);
+    /*max-width: var(--form-input-max-width);*/
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*gap: var(--gap-input);*/
+    /*padding: var(--gap-input);*/
+}
+
+fieldset>* {
+    margin-bottom: var(--gap-input);
+}
+
+fieldset label {
+    display: inline-flex;
+    flex: 0 1 auto;
+    width: 29.5%;
+    /*min-width: min(150px, 100%);*/
+}
+
+fieldset input[type="checkbox"],
+fieldset input[type="radio"] {
+    display: inline-flex;
+    inline-size: 1.25rem;
+    padding: 0;
+    margin: 0 calc(var(--gap-input) / 2);
+}
+
+fieldset select,
+fieldset textarea,
+fieldset input[type=text],
+fieldset input[type=search],
+fieldset input[type=email],
+fieldset input[type=tel],
+fieldset input[type=month],
+fieldset input[type=week],
+fieldset input[type=password],
+fieldset input[type=url],
+fieldset input[type=number],
+fieldset input[type=time],
+fieldset input[type=date],
+fieldset input[type=datetime],
+fieldset input[data-datepicker-format] {
+    display: inline-flex;
+    flex: 1 1 auto;
+    width: 69.5%;
+    /*max-width: var(--form-input-max-width);*/
+    background: var(--color-input-bg);
+    border: var(--border-input);
+    border-radius: var(--border-radius);
+}
+
+fieldset .powermail_field {
+    display: inline-flex;
+    flex: 1 1 auto;
+    width: 69.5%;
+}
+
+/* BUTTONS */
+.button,
+button:not(:empty),
+input[type=button],
+input[type=submit],
+input[type=file],
+input[type=reset] {
+    padding: var(--padding-button);
+    margin-right: var(--gap-input);
+    background: var(--color-button-bg);
+    color: var(--color-button-text);
+    box-shadow: var(--box-shadow-button);
+    cursor: pointer;
+    border: var(--border-button);
+    border-radius: var(--border-radius);
+    display: inline-block;
+    transition: all 0.5s;
+    max-width: 90vw;
+
+    &:is(input):last-of-type {
+        margin-right: 0;
+    }
+}
+
+.button:hover,
+button:not(:empty):hover,
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=file]:hover,
+input[type=reset]:hover {
+    background: var(--color-button-bg-hover);
+    color: var(--color-button-text-hover);
+}
+
+/* CUSTOM HTML - HEADINGS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: var(--line-height);
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+    margin-bottom: 19px;
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+    font-weight: 600;
+    margin-bottom: 38px;
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+h4 {
+    font-size: var(--font-size-h4);
+    margin-bottom: 7px;
+}
+
+h5 {
+    font-size: var(--font-size-h5);
+}
+
+h6 {
+    font-size: var(--font-size-h6);
+}
+
+/* CUSTOM HTML - DIALOG */
+dialog {
+    border: 1px solid #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow) var(--color-shadow);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    z-index: 999;
+}
+
+/* IFRAME VIDEO */
+iframe.video-embed-item {
+    aspect-ratio: 16 / 9;
+}

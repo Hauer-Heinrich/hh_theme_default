@@ -7,6 +7,6 @@ return [
     'imports' => [
         // recursive definiton, all *.js files in this folder are import-mapped
         // trailing slash is required per importmap-specification
-        '@HauerHeinrich/hh-theme-default/' => 'EXT:hh_theme_default/Resources/Public/JavaScript/Backend/',
+        '@HauerHeinrich/{{EXTENSION_NAMESPACE_ES6}}/' => 'EXT:{{EXTENSION_KEY}}/Resources/Public/JavaScript/Backend/',
     ],
 ];

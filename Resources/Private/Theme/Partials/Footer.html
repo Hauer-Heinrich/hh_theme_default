@@ -1,0 +1,56 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<footer id="footer">
+    <div class="footer-colnav-spacing"></div>
+    <div class="row row-1 footer-container">
+        <f:if condition="{FooterLogos}">
+            <div class="footer-item footer-logo">
+                <f:for each="{FooterLogos}" as="reference" iteration="i">
+                    <f:image src="{reference.uid}" treatIdAsReference="1" />
+                </f:for>
+            </div>
+        </f:if>
+
+        <div class="footer-item footer-col-1 footer-address">
+            <f:format.html>{FooterCol1}</f:format.html>
+        </div>
+
+        <div class="footer-item footer-col-2 footer-address">
+            <f:format.html>{FooterCol2}</f:format.html>
+        </div>
+
+        <div class="footer-item footer-col-3 footer-contact">
+            <f:format.html>{FooterCol3}</f:format.html>
+        </div>
+
+        <f:if condition="{FooterLinks}">
+            <div class="footer-item footer-col-4 footer-colnav">
+                <div class="footer-colnav-container">
+                    <div class="footer-colnav-info-text">Das wichtigste auf einen Klick:</div>
+                    <f:render partial="Menu/TrennerMenu"
+                        arguments="{Menu: '{FooterLinks}', cssClasses: 'nav-h nav-center'}" />
+                </div>
+            </div>
+        </f:if>
+    </div>
+
+    <div class="row row-2 footer-links">
+        <div class="footer-links-container">
+            <f:if condition="{legalInformation}">
+                <div class="footer-links-nav">
+                    <f:render partial="Menu/TrennerMenu"
+                        arguments="{Menu: '{legalInformation}', cssClasses: 'nav-h'}" />
+                </div>
+            </f:if>
+            <f:if condition="{socialMedia}">
+                <div class="footer-links-socialmedia">
+                    <span class="footer-links-info-text">Besuchen Sie uns auf: </span>
+                    <f:render partial="Menu/TrennerImageMenu"
+                        arguments="{Menu: '{socialMedia}', cssClasses: 'nav-h'}" />
+                </div>
+            </f:if>
+        </div>
+    </div>
+</footer>
+
+</html>
