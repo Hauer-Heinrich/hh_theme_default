@@ -1,7 +1,5 @@
-# hh_theme_default (Warning: Is under heavy development!)
-## do not use it now - only test and give feedback :grinning:
-hh_theme_default is a TYPO3 extension / distribution.
-This theme is to try out or use as a kick-start for your own theme/project - it can also be extended or overwritten (TODO: add a link for an example extension)
+# hh_theme_default (Alpha)
+hh_theme_default is a TYPO3 extension / theme (starter kit). Customize the theme as needed.
 
 ### Extensions
 hh_theme_default is currently extended with the following extensions. Instructions on how to use them in your own application are linked below.
@@ -35,12 +33,11 @@ Plugin | README
 ------------ | -------------
 io.js (Slim Plugin Framework with Pub/Sub Event System) | [https://bitbucket.org/iocron/io/src/master/README.md]
 
-### Files
+### Site Config
 site_config
 This theme shippes a dummy site_config - if you want to use/copy the file(s) don't forget to adjust the ID, paths and other information in it
 
 ### Theme Placeholder
-
 Extension Name | Value
 ------------ | -------------
 {{EXTENSION_KEY}} | hh_theme_default
@@ -62,7 +59,6 @@ Don't forget to include the PageTS -> backend->rootPage->site configuration->res
  - adds "Number of columns" field to tt_address plugin
 
 ## IMPORTENT NOTICE
- - does not support IE 11 and below
  - copies shipped AdditionalConfiguration.php on install if no one exists! This AdditonalConfiguration includes /Configuration/Typo3/AdditionalConfiguration.php.
  - check if your server supports generation of webp format, else comment out or delete the corresponding positions at /Resources/Private/Extensions/fluid_styled_content/Partials/Media/Rendering/Image.html
 
