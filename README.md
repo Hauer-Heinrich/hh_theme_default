@@ -8,7 +8,10 @@ The hh_theme_default is a TYPO3 extension/theme (starter kit) that includes a JS
 
 ### Setup
 1. Go to your typo3 ext folder, e.g.: `cd typo3conf/ext/`
-2. Clone repository (replace "MY_EXTENSION_NAME"): `git clone git@github.com:Hauer-Heinrich/hh_theme_default.git MY_EXTENSION_NAME`
+2. Clone repository (replace "MY_EXTENSION_NAME"):
+    ```
+    git clone git@github.com:Hauer-Heinrich/hh_theme_default.git MY_EXTENSION_NAME
+    ```
 3. `cd MY_EXTENSION_NAME`
 4. `npm install`
 5. `npm run init`
