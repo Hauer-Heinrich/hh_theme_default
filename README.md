@@ -1,10 +1,10 @@
-# {{EXTENSION_KEY}} (Warning: Is under heavy development!)
+# hh_theme_default (Warning: Is under heavy development!)
 ## do not use it now - only test and give feedback :grinning:
-{{EXTENSION_KEY}} is a TYPO3 extension / distribution.
+hh_theme_default is a TYPO3 extension / distribution.
 This theme is to try out or use as a kick-start for your own theme/project - it can also be extended or overwritten (TODO: add a link for an example extension)
 
 ### Extensions
-{{EXTENSION_KEY}} is currently extended with the following extensions. Instructions on how to use them in your own application are linked below.
+hh_theme_default is currently extended with the following extensions. Instructions on how to use them in your own application are linked below.
 
 Extension | README
 ------------ | -------------
@@ -29,7 +29,7 @@ More informations/docs about the build tools: https://github.com/iocron/esbuild-
 -------
 
 ### Plugins
-{{EXTENSION_KEY}} is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
+hh_theme_default is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
 
 Plugin | README
 ------------ | -------------
@@ -38,6 +38,17 @@ io.js (Slim Plugin Framework with Pub/Sub Event System) | [https://bitbucket.org
 ### Files
 site_config
 This theme shippes a dummy site_config - if you want to use/copy the file(s) don't forget to adjust the ID, paths and other information in it
+
+### Theme Placeholder
+
+Extension Name | Value
+------------ | -------------
+{{EXTENSION_KEY}} | hh_theme_default
+{{EXTENSION_NAME}} | hhthemedefault
+{{EXTENSION_NAMESPACE}} | HhThemeDefault
+{{EXTENSION_NAMESPACE_ES6}} | hh-theme-default
+{{EXTENSION_DOMAIN_NAME}} | example
+{{EXTENSION_DOMAIN_TLD}} | com
 
 ### Installation
 ... like any other TYPO3 extension [extensions.typo3.org](https://extensions.typo3.org/ "TYPO3 Extension Repository")
