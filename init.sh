@@ -52,12 +52,19 @@ fi
 
 if [[ -n "$EXTENSION_KEY" && -n "$EXTENSION_NAME" && -n "$EXTENSION_NAMESPACE" && -n "$EXTENSION_NAMESPACE_ES6" && -n "$EXTENSION_DOMAIN_NAME" && -n "$EXTENSION_DOMAIN_TLD" ]]; then
     while read file; do
-        sed -Ei 's/\{\{EXTENSION_KEY\}\}/'"$EXTENSION_KEY"'/g' "$file"
-        sed -Ei 's/\{\{EXTENSION_NAME\}\}/'"$EXTENSION_NAME"'/g' "$file"
-        sed -Ei 's/\{\{EXTENSION_NAMESPACE\}\}/'"$EXTENSION_NAMESPACE"'/g' "$file"
-        sed -Ei 's/\{\{EXTENSION_NAMESPACE_ES6\}\}/'"$EXTENSION_NAMESPACE_ES6"'/g' "$file"
-        sed -Ei 's/\{\{EXTENSION_DOMAIN_NAME\}\}/'"$EXTENSION_DOMAIN_NAME"'/g' "$file"
-        sed -Ei 's/\{\{EXTENSION_DOMAIN_TLD\}\}/'"$EXTENSION_DOMAIN_TLD"'/g' "$file"
+        perl -pi -w -e 's/\{\{EXTENSION_KEY\}\}/'"$EXTENSION_KEY"'/g;' "$file"
+        perl -pi -w -e 's/\{\{EXTENSION_NAME\}\}/'"$EXTENSION_NAME"'/g;' "$file"
+        perl -pi -w -e 's/\{\{EXTENSION_NAMESPACE\}\}/'"$EXTENSION_NAMESPACE"'/g;' "$file"
+        perl -pi -w -e 's/\{\{EXTENSION_NAMESPACE_ES6\}\}/'"$EXTENSION_NAMESPACE_ES6"'/g;' "$file"
+        perl -pi -w -e 's/\{\{EXTENSION_DOMAIN_NAME\}\}/'"$EXTENSION_DOMAIN_NAME"'/g;' "$file"
+        perl -pi -w -e 's/\{\{EXTENSION_DOMAIN_TLD\}\}/'"$EXTENSION_DOMAIN_TLD"'/g;' "$file"
+
+        # sed -Ei 's/\{\{EXTENSION_KEY\}\}/'"$EXTENSION_KEY"'/g' "$file"
+        # sed -Ei 's/\{\{EXTENSION_NAME\}\}/'"$EXTENSION_NAME"'/g' "$file"
+        # sed -Ei 's/\{\{EXTENSION_NAMESPACE\}\}/'"$EXTENSION_NAMESPACE"'/g' "$file"
+        # sed -Ei 's/\{\{EXTENSION_NAMESPACE_ES6\}\}/'"$EXTENSION_NAMESPACE_ES6"'/g' "$file"
+        # sed -Ei 's/\{\{EXTENSION_DOMAIN_NAME\}\}/'"$EXTENSION_DOMAIN_NAME"'/g' "$file"
+        # sed -Ei 's/\{\{EXTENSION_DOMAIN_TLD\}\}/'"$EXTENSION_DOMAIN_TLD"'/g' "$file"
     done <<< "$(find . -not -path '*/\.*' -type f -iregex '.*\.\(php\|xml\|yaml\|yml\|tsconfig\|typoscript\|html\|css\|js\|json\|xlf\|txt\|code-workspace\)$')"
 else
     echo "ERROR: Some Extension Variables are empty or invalid."
