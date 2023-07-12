@@ -370,6 +370,26 @@ tt_content.hhslider_hh_slider {
 ### Hauer-Heinrich Accordion - hh_accordion ###
 ################################################################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_accordion/Configuration/TypoScript/setup.typoscript">
+tt_content.hhaccordion_hh_accordion {
+    templateRootPaths {
+        20 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
+        30 = {$styles.templates.templateRootPath}
+        100 = EXT:hh_accordion/Resources/Private/Templates/
+        200 = {$plugin.tx_hhaccordion.view.templateRootPath}
+    }
+    partialRootPaths {
+        20 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
+        30 = {$styles.templates.partialRootPath}
+        100 = EXT:hh_accordion/Resources/Private/Partials/
+        200 = {$plugin.tx_hhaccordion.view.partialRootPath}
+    }
+    layoutRootPaths {
+        20 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Layouts/
+        30 = {$styles.templates.layoutRootPath}
+        100 = EXT:hh_accordion/Resources/Private/Layouts/
+        200 = {$plugin.tx_hhaccordion.view.layoutRootPath}
+    }
+}
 
 ################################################################
 ### Hauer-Heinrich Jobs - hh_simple_job_posts ###
