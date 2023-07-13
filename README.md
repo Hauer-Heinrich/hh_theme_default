@@ -59,5 +59,4 @@ If you really need to have multiple bundler files (e.g. for css/js) or need to e
  - And many more..
 
 ## Important Notice
- - A copy of AdditionalConfiguration.php is shipped on install if no one exists! This AdditonalConfiguration includes /Configuration/Typo3/AdditionalConfiguration.php
  - Check if your server supports the generation of webp format, else comment out or delete the corresponding positions at /Resources/Private/Extensions/fluid_styled_content/Partials/Media/Rendering/Image.html
