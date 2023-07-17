@@ -274,27 +274,6 @@ page {
                 }
                 as = Quicklinks
             }
-
-            ################################################################
-            ### Login wastemanagement popup menu ###
-            ################################################################
-            500 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            500 {
-                special = directory
-                special.value = {$plugin.{{EXTENSION_NAME}}.wastemanagementLoginPopUpMenuTrennerUid}
-                entryLevel = 0
-                levels = 1
-                expandAll = 1
-                includeSpacer = 0
-                titleField = nav_title // title
-                dataProcessing {
-                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                    10 {
-                        references.fieldName = media
-                    }
-                }
-                as = wastemanagementLoginPopUpMenu
-            }
         }
 
         settings {

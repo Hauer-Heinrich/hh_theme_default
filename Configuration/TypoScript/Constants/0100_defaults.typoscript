@@ -25,7 +25,4 @@ plugin.{{EXTENSION_NAME}} {
         legalInformation =
     # cat=plugin.{{EXTENSION_NAME}}_footer/footer/0020; type=int+; label= Trenner UID für das Menü für Social Media Seiten
         socialMedia =
-
-    # cat=plugin.{{EXTENSION_NAME}}_wastemanagement/wastemanagement/0200; type=int+; label= Trenner UID for the menu shown at the login-popup
-        wastemanagementLoginPopUpMenuTrennerUid = 0
 }

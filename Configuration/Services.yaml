@@ -12,5 +12,3 @@ services:
       - name: event.listener
         event: TYPO3\CMS\Backend\Controller\Event\AfterBackendPageRenderEvent
 
-  HauerHeinrich\{{EXTENSION_NAMESPACE}}\Http\WastemanagementRequest:
-    public: true

@@ -25,26 +25,4 @@ call_user_func(function() {
 
     // Register "hhdefault" as global fluid namespace
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['hhdefault'] = ['HauerHeinrich\\{{EXTENSION_NAMESPACE}}\\ViewHelpers'];
-
-    // EID for WastemanagementRequest
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        // extension name, matching the PHP namespaces (but without the vendor)
-        '{{EXTENSION_NAMESPACE}}',
-        // arbitrary, but unique plugin name (not visible in the backend)
-        'Wastemanagement',
-        // all actions
-        [
-            \HauerHeinrich\{{EXTENSION_NAMESPACE}}\Helpers\LoginWastemanagementHelper::class => 'login, logout, changePassword',
-        ],
-        // non-cacheable actions
-        [
-            \HauerHeinrich\{{EXTENSION_NAMESPACE}}\Helpers\LoginWastemanagementHelper::class => 'login, logout, changePassword',
-        ]
-    );
-    $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['wasteLogin'] =
-        \HauerHeinrich\{{EXTENSION_NAMESPACE}}\Helpers\LoginWastemanagementHelper::class . '::login';
-    $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['wasteLogout'] =
-        \HauerHeinrich\{{EXTENSION_NAMESPACE}}\Helpers\LoginWastemanagementHelper::class . '::logout';
-    $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['wasteChangePassword'] =
-        \HauerHeinrich\{{EXTENSION_NAMESPACE}}\Helpers\LoginWastemanagementHelper::class . '::changePassword';
 });
