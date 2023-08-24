@@ -177,7 +177,7 @@ page {
             ################################################################
             94 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
             94 {
-                references.data = levelfield:-2, footer_logo, slide
+                references.data = levelfield:-1, footer_logo, slide
                 references.table = pages
                 as = FooterLogos
             }
@@ -188,7 +188,7 @@ page {
             95 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             95 {
                 special = list
-                special.value.data = levelfield:-2, footer_links, slide
+                special.value.data = levelfield:-1, footer_links, slide
                 entryLevel = 0
                 levels = 1
                 expandAll = 1
@@ -328,17 +328,17 @@ page {
 
             FooterCol1 = TEXT
             FooterCol1 {
-                data = levelfield:-2, footer_col1, slide
+                data = levelfield:-1, footer_col1, slide
             }
 
             FooterCol2 = TEXT
             FooterCol2 {
-                data = levelfield:-2, footer_col2, slide
+                data = levelfield:-1, footer_col2, slide
             }
 
             FooterCol3 = TEXT
             FooterCol3 {
-                data = levelfield:-2, footer_col3, slide
+                data = levelfield:-1, footer_col3, slide
             }
         }
     }
