@@ -51,7 +51,6 @@ $customChanges = [
             LogLevel::ERROR => [
                 FileWriter::class => [
                     'disabled' => false,
-                    'logFile' => Environment::getVarPath() . '/log/typo3_errors.log'
                 ],
             ]
         ],
@@ -61,7 +60,7 @@ $customChanges = [
     ],
     'SYS' => [
         'displayErrors' => 0,
-        'errorHandlerErrors' => 20480,
+        'errorHandlerErrors' => 6485,
         'cookieSecure' => 1,
         'UTF8filesystem' => 1,
         'clearCacheSystem' => 1,
@@ -69,6 +68,7 @@ $customChanges = [
         'phpTimeZone' => 'Europe/Berlin',
         'systemLocale' => 'de_DE.UTF-8',
         'ipAnonymization' => '2',
+        'belogErrorReporting' => 6485,
     ],
     'EXTENSIONS' => [
         'backend' => [

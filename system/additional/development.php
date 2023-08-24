@@ -25,35 +25,34 @@ $customDevelopmentChanges = [
     'HTTP' => [
         'verify' => 0,
     ],
+    'LOG' => [
+        'writerConfiguration' => [
+            LogLevel::NOTICE => [
+                FileWriter::class => [
+                    'disabled' => false,
+                ],
+            ],
+            LogLevel::WARNING => [
+                FileWriter::class => [
+                    'disabled' => false,
+                ],
+            ],
+
+            LogLevel::ERROR => [
+                FileWriter::class => [
+                    'disabled' => false,
+                ],
+            ]
+        ],
+    ],
     'SYS' => [
         'displayErrors' => 1,
-        'errorHandlerErrors' => 30466,
+        'errorHandlerErrors' => 32767,
         'cookieSecure' => 0,
         'sqlDebug' => 1,
         'enableDeprecationLog' => 'file',
+        'belogErrorReporting' => 32767,
     ],
-    'LOG' => [
-        // TODO:
-        // 'writerConfiguration' => [
-        //     LogLevel::NOTICE => [
-        //         FileWriter::class => [
-        //             'disabled' => false,
-        //         ],
-        //     ],
-        //     LogLevel::WARNING => [
-        //         FileWriter::class => [
-        //             'disabled' => false,
-        //         ],
-        //     ],
-
-        //     LogLevel::ERROR => [
-        //         FileWriter::class => [
-        //             'disabled' => false,
-        //             'logFile' => Environment::getVarPath() . '/log/typo3_errors.log'
-        //         ],
-        //     ]
-        // ],
-    ]
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customDevelopmentChanges);
 
