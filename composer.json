@@ -31,23 +31,23 @@
         "typo3-ter/{{EXTENSION_NAMESPACE_ES6}}": "self.version"
     },
     "require": {
-        "typo3/cms-core": "^12.2.0",
-        "typo3/cms-extbase": "^12.2.0",
-        "typo3/cms-fluid": "^12.2.0",
-        "typo3/cms-frontend": "^12.2.0",
-        "typo3/cms-fluid-styled-content": "^12.2.0",
-        "typo3/cms-scheduler": "^12.2.0",
-        "typo3/cms-seo": "^12.2.0",
-        "typo3/cms-rte-ckeditor": "^12.2.0",
+        "typo3/cms-core": "^12.4.0",
+        "typo3/cms-extbase": "^12.4.0",
+        "typo3/cms-fluid": "^12.4.0",
+        "typo3/cms-frontend": "^12.4.0",
+        "typo3/cms-fluid-styled-content": "^12.4.0",
+        "typo3/cms-scheduler": "^12.4.0",
+        "typo3/cms-seo": "^12.4.0",
+        "typo3/cms-rte-ckeditor": "^12.4.0",
         "georgringer/news": "^11",
         "friendsoftypo3/tt-address": "^7.1",
         "b13/container": "",
         "hauerheinrich/hh-slider": "^4",
-        "hauerheinrich/hh-accordion": "^4",
-        "hauerheinrich/hh-simple-job-posts": "^4",
         "hauerheinrich/hh-seo": "^7"
     },
     "suggest": {
+        "hauerheinrich/hh-accordion": "^4",
+        "hauerheinrich/hh-simple-job-posts": "^4"
     },
     "autoload": {
         "psr-4": {

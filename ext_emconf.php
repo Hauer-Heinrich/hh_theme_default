@@ -24,22 +24,22 @@ $EM_CONF['{{EXTENSION_KEY}}'] = [
     'version' => '1.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '^12.2.0',
+            'typo3' => '^12.4.0',
             'fluid_styled_content' => '',
             'rte_ckeditor' => '',
             'scheduler' => '',
+            'container' => '',
             'news' => '',
             'tt_address' => '',
             // 'powermail' => '',
             // 'hh_powermail_checkboxlink' => '',
             'hh_slider' => '',
-            'hh_accordion' => '',
-            'hh_simple_job_posts' => '',
             'hh_seo' => ''
         ],
         'conflicts' => [
         ],
         'suggests' => [
+            'hh_accordion' => '',
             'hh_video_extender' => '',
             'hh_simple_job_posts' => '',
             'hh_widget_hhnews' => '',
