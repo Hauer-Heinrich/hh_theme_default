@@ -213,6 +213,8 @@ page {
             #         }
             #     }
             #     as = legalInformation
+            #
+            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.legalInformation}
             # }
 
             # 97 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
@@ -231,6 +233,8 @@ page {
             #         }
             #     }
             #     as = socialMedia
+            #
+            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.socialMedia}
             # }
 
             ################################################################
@@ -252,6 +256,8 @@ page {
             #         }
             #     }
             #     as = SocialMenu
+            #
+            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.socialMenu}
             # }
 
             ################################################################
@@ -273,6 +279,8 @@ page {
                     }
                 }
                 as = Quicklinks
+
+                if.isTrue = {$plugin.{{EXTENSION_NAME}}.quickLinks}
             }
         }
 
