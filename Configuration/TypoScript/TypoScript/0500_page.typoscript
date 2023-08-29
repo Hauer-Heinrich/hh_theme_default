@@ -197,41 +197,41 @@ page {
                 as = FooterLinks
             }
 
-            96 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            96 {
-                special = directory
-                special.value = {$plugin.{{EXTENSION_NAME}}.legalInformation}
-                entryLevel = 0
-                levels = 1
-                expandAll = 1
-                includeSpacer = 0
-                titleField = nav_title // title
-                dataProcessing {
-                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                    10 {
-                        references.fieldName = media
-                    }
-                }
-                as = legalInformation
-            }
+            # 96 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            # 96 {
+            #     special = directory
+            #     special.value = {$plugin.{{EXTENSION_NAME}}.legalInformation}
+            #     entryLevel = 0
+            #     levels = 1
+            #     expandAll = 1
+            #     includeSpacer = 0
+            #     titleField = nav_title // title
+            #     dataProcessing {
+            #         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            #         10 {
+            #             references.fieldName = media
+            #         }
+            #     }
+            #     as = legalInformation
+            # }
 
-            97 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            97 {
-                special = directory
-                special.value = {$plugin.{{EXTENSION_NAME}}.socialMedia}
-                entryLevel = 0
-                levels = 1
-                expandAll = 1
-                includeSpacer = 0
-                titleField = nav_title // title
-                dataProcessing {
-                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                    10 {
-                        references.fieldName = media
-                    }
-                }
-                as = socialMedia
-            }
+            # 97 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            # 97 {
+            #     special = directory
+            #     special.value = {$plugin.{{EXTENSION_NAME}}.socialMedia}
+            #     entryLevel = 0
+            #     levels = 1
+            #     expandAll = 1
+            #     includeSpacer = 0
+            #     titleField = nav_title // title
+            #     dataProcessing {
+            #         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            #         10 {
+            #             references.fieldName = media
+            #         }
+            #     }
+            #     as = socialMedia
+            # }
 
             ################################################################
             ### Social Menu ###

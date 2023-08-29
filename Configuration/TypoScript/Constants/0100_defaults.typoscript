@@ -20,9 +20,4 @@ plugin.{{EXTENSION_NAME}} {
         multiLanguage = 0
     # cat=plugin.{{EXTENSION_NAME}}_mainconfig/basic/0110; type=int+; label= Trenner UID für die QuickLinks
         quickLinks =
-
-    # cat=plugin.{{EXTENSION_NAME}}_footer/footer/0010; type=int+; label= Trenner UID für das Menü für Legal Inforamtion
-        legalInformation =
-    # cat=plugin.{{EXTENSION_NAME}}_footer/footer/0020; type=int+; label= Trenner UID für das Menü für Social Media Seiten
-        socialMedia =
 }

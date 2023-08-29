@@ -33,24 +33,6 @@
             </div>
         </f:if>
     </div>
-
-    <div class="row row-2 footer-links">
-        <div class="footer-links-container">
-            <f:if condition="{legalInformation}">
-                <div class="footer-links-nav">
-                    <f:render partial="Menu/TrennerMenu"
-                        arguments="{Menu: '{legalInformation}', cssClasses: 'nav-h'}" />
-                </div>
-            </f:if>
-            <f:if condition="{socialMedia}">
-                <div class="footer-links-socialmedia">
-                    <span class="footer-links-info-text">Besuchen Sie uns auf: </span>
-                    <f:render partial="Menu/TrennerImageMenu"
-                        arguments="{Menu: '{socialMedia}', cssClasses: 'nav-h'}" />
-                </div>
-            </f:if>
-        </div>
-    </div>
 </footer>
 
 </html>
