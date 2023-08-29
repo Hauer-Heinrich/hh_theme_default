@@ -7,7 +7,6 @@ import navmain from './components/nav-main.js'
 export default {
     // io,
     // address,
-    newsCustom,
     navmain,
     // spamEmailProtection
 }
