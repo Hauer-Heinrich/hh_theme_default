@@ -12,7 +12,7 @@ imports:
 ### For complete documentation see https://ckeditor.com/docs/ckeditor5/latest/features/index.html
 editor:
   config:
-    contentsCss: 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/backend/user-rte.css'
+    contentsCss: 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/main-rte.css'
 
     style:
       definitions:

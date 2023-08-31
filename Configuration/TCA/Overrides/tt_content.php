@@ -2,11 +2,47 @@
 defined('TYPO3') or die();
 
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
+use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use \B13\Container\Tca\Registry;
 use \B13\Container\Tca\ContainerConfiguration;
 
 call_user_func(function() {
     $extensionKey = '{{EXTENSION_KEY}}';
+
+    // START: Add custom header_size field
+    ExtensionManagementUtility::addTCAcolumns('tt_content',
+        [
+            'header_size' => [
+                'exclude' => 1,
+                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.header_size',
+                'description' => '',
+                'config' => [
+                    'type' => 'select',
+                    'renderType' => 'selectSingle',
+                    'items' => [
+                        ['Default', 'default',],
+                        ['Medium', 'medium',],
+                        ['Large', 'large',],
+                    ],
+                    'size' => 1,
+                    'maxitems' => 1,
+                ],
+            ],
+        ]
+    );
+    ExtensionManagementUtility::addFieldsToPalette(
+        'tt_content',
+        'header',
+        'header_size',
+        'after: header_layout'
+    );
+    ExtensionManagementUtility::addFieldsToPalette(
+        'tt_content',
+        'headers',
+        'header_size',
+        'after: header_layout'
+    );
+    // END: Add custom header_size field
 
     // Change header field to RTE
     $GLOBALS['TCA']['tt_content']['columns']['header']['config'] = [

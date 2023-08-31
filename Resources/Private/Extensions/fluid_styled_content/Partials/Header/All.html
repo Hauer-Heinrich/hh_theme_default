@@ -3,7 +3,7 @@
 
 <f:if condition="{data.header_layout} != 100">
     <f:if condition="{data.header} || {data.subheader} || {data.date}">
-        <header class="layout-{data.header_layout} style-{data.header_style}">
+        <header class="layout-{data.header_layout} style-{data.header_style} font-size-{data.header_size}">
             <f:render partial="Header/Header" arguments="{
                 header: data.header,
                 layout: data.header_layout,

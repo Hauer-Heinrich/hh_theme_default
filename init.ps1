@@ -16,7 +16,7 @@ function str_search_replace
         [string]$replaceString
     )
 
-    $configFiles = Get-ChildItem . -Include '*.typoscript', '*.tsconfig', '*.php', '*.html', '*.scss', '*.css', '*.js', '*.sql', '*.json', '*.md', '*.config', '*.yaml', '*.xml', '*.txt' -rec
+    $configFiles = Get-ChildItem . -Include '*.typoscript', '*.tsconfig', '*.php', '*.html', '*.scss', '*.css', '*.js', '*.sql', '*.json', '*.md', '*.config', '*.yaml', '*.xml', '*.xlf', '*.txt', '*.code-workspace' -rec
 
     foreach ($file in $configFiles)
     {
