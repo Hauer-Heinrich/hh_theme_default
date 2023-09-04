@@ -16,6 +16,8 @@ routes:
     route: robots.txt
     type: staticText # content: end of line change the URL to the sitemap!
     content: "
+      User-agent: GPTBot\r\n
+      Disallow: /\r\n
       User-agent: *\r\n
       Disallow: /wp-admin/\r\n
       Allow: /wp-admin/admin-ajax.php\r\n
