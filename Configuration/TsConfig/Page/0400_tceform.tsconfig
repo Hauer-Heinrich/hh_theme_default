@@ -144,6 +144,8 @@ TCEFORM {
         TSconfig.disabled = 1
         categories.disabled = 1
         rowDescription.disabled = 1
+        layout.disabled = 1
+        content_from_pid.disabled = 1
     }
 
     sys_file_collection {
