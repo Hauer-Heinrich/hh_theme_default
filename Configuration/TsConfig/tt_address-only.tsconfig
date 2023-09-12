@@ -1,5 +1,6 @@
 mod {
     web_list {
+        listOnlyInSingleTableView = 0
         allowedNewTables = tt_address
         hideTables = tt_content
     }

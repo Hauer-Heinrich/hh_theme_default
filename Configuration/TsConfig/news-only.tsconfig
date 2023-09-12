@@ -1,5 +1,6 @@
 mod {
     web_list {
+        listOnlyInSingleTableView = 0
         allowedNewTables = tx_news_domain_model_news, tx_news_domain_model_link, tx_news_domain_model_tag
         hideTables = tt_content
     }
