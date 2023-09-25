@@ -19,7 +19,7 @@
     /*margin-left: auto;*/
     padding: 0 1.25rem;
 
-    &>ul {
+    & > ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: left;
@@ -39,14 +39,15 @@
         position: relative;
     }
 
-    & li:hover>ul,
-    & li:active>ul,
-    & li:focus>ul {
+    & li:hover > ul,
+    & li:active > ul,
+    & li:focus >ul,
+    & li > a:focus + ul {
         display: block;
     }
 
     /* NAV - 1. LEVEL */
-    &>ul>li>a {
+    & > ul > li > a {
         padding: var(--nav-item-padding);
         background: var(--nav-item-bg);
         color: var(--nav-item-color-text);
@@ -54,36 +55,36 @@
         border-bottom-color: transparent;
     }
 
-    &>ul>li>a:hover {
+    & > ul > li > a:hover {
         background: var(--nav-item-bg-hover);
         color: var(--nav-item-color-text-hover);
         border-bottom-color: transparent;
     }
 
-    &>ul>li>a.active {
+    & > ul > li > a.active {
         color: var(--nav-item-color-text-hover);
         border-bottom: var(--nav-item-border-active);
     }
 
     /* NAV - 2. and 3. LEVEL */
-    &>ul ul {
+    & > ul ul {
         background: var(--nav-subitem-bg);
         display: none;
     }
 
-    &>ul>li li a {
+    & > ul > li li a {
         width: 100%;
         background: var(--nav-subitem-bg);
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         padding: var(--nav-subitem-padding);
     }
 
-    &>ul>li li a:hover {
+    & > ul > li li a:hover {
         background: var(--nav-subitem-bg-hover);
         color: var(--nav-subitem-color-text-hover);
     }
 
-    &>ul>li li:last-of-type a {
+    & > ul > li li:last-of-type a {
         border-bottom: 0;
     }
 }
@@ -101,10 +102,10 @@
         }
 
         /* NAV - 1. LEVEL */
-        &>ul {}
+        & > ul {}
 
         /* NAV - 2. and 3. LEVEL */
-        &>ul ul {
+        & > ul ul {
             display: none;
             left: 0;
             position: absolute;
@@ -113,12 +114,12 @@
             min-width: 100%;
         }
 
-        &>ul>li li a {
+        & > ul > li li a {
             width: 100%;
         }
 
         /* NAV - 3. LEVEL */
-        &>ul ul ul {
+        & > ul ul ul {
             left: 100%;
             top: 0;
         }
