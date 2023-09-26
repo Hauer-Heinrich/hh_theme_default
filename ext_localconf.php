@@ -25,4 +25,12 @@ call_user_func(function() {
 
     // Register "hhdefault" as global fluid namespace
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['hhdefault'] = ['HauerHeinrich\\{{EXTENSION_NAMESPACE}}\\ViewHelpers'];
+
+    // Exclude Params from cacheHash
+    // for example to get rid of params for canonical generation
+    // utm_id : for facebook
+    $cacheFeExcludedParameters = &$GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParameters'];
+    if(!in_array('utm_id', $cacheFeExcludedParameters)) {
+        array_push($cacheFeExcludedParameters, 'utm_id');
+    }
 });
