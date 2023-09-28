@@ -5,7 +5,7 @@ mod.web_layout.BackendLayouts {
         config {
             backend_layout {
                 colCount = 1
-                rowCount = 2
+                rowCount = 3
                 rows {
                     1 {
                         columns {
@@ -23,13 +23,21 @@ mod.web_layout.BackendLayouts {
                             }
                         }
                     }
+                    3 {
+                        columns {
+                            1 {
+                                name = (OPTIONAL) Used only for detail views of extensions e. g. news
+                                colPos = 100
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 
     default_with_side_nav {
-        title = 2 Columns (with sidenav)
+        title = One Column with side Nav and optional content before / after
         iconIdentifier = hh_navaside_left
         config {
             backend_layout {
@@ -43,6 +51,10 @@ mod.web_layout.BackendLayouts {
                                 colPos = 0
                                 colspan = 2
                             }
+                            2 {
+                                name = Banner right
+                                colPos = 50
+                            }
                         }
                     }
                     2 {
@@ -55,7 +67,7 @@ mod.web_layout.BackendLayouts {
                             2 {
                                 name = Main Content
                                 colPos = 1
-                                rowspan = 3
+                                rowspan = 2
                                 colspan = 2
                             }
                         }
@@ -75,6 +87,11 @@ mod.web_layout.BackendLayouts {
                                 name = Aside Nav Content After (Optional)
                                 colPos = 4
                                 colspan = 1
+                            }
+                            2 {
+                                name = (OPTIONAL) Used only for detail views of extensions e. g. news
+                                colPos = 100
+                                colspan = 2
                             }
                         }
                     }

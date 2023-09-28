@@ -379,3 +379,45 @@ page {
         }
     }
 [global]
+
+### Disable all other content if detail view of news
+[traverse(request.getQueryParams(), 'tx_news_pi1/news') > 0]
+    page.10.variables.MainContent >
+    page.10.variables.MainContent =< styles.content.get
+    page.10.variables.MainContent.select.where = colPos = 100
+
+#     lib.news = USER
+#     lib.news {
+#         userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+#         pluginName = Pi1
+#         vendorName = GeorgRinger
+#         extensionName = News
+#         controller = News
+#         settings =< plugin.tx_news.settings
+#         persistence =< plugin.tx_news.persistence
+#         view =< plugin.tx_news.view
+#     }
+#     page.10.variables.MainContent =< lib.news
+[global]
+
+### Disable all other content if detail view of job-posts
+[traverse(request.getQueryParams(), 'tx_hhsimplejobposts_jobslist/jobpost') > 0]
+    page.10.variables.MainContent >
+    page.10.variables.MainContent =< styles.content.get
+    page.10.variables.MainContent.select.where = colPos = 100
+
+    # lib.leftcontent = USER
+    # lib.leftcontent {
+    #     userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    #     pluginName = Jobslist
+    #     extensionName = HhSimpleJobPosts
+    #     vendorName = HauerHeinrich
+    #     controller = Jobpost
+    #     action = show
+
+    #     view < plugin.tx_hhsimplejobposts.view
+    #     persistence < plugin.tx_hhsimplejobposts.persistence
+    #     settings < plugin.tx_hhsimplejobposts.settings
+    # }
+    # page.10.variables.MainContent =< lib.leftcontent
+[global]
