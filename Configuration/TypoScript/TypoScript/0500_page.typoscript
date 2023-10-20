@@ -381,7 +381,7 @@ page {
 [global]
 
 ### Disable all other content if detail view of news
-[traverse(request.getQueryParams(), 'tx_news_pi1/news') > 0]
+[request && traverse(request.getQueryParams(), 'tx_news_pi1/news') > 0]
     page.10.variables.MainContent >
     page.10.variables.MainContent =< styles.content.get
     page.10.variables.MainContent.select.where = colPos = 100
@@ -401,7 +401,7 @@ page {
 [global]
 
 ### Disable all other content if detail view of job-posts
-[traverse(request.getQueryParams(), 'tx_hhsimplejobposts_jobslist/jobpost') > 0]
+[request && traverse(request.getQueryParams(), 'tx_hhsimplejobposts_jobslist/jobpost') > 0]
     page.10.variables.MainContent >
     page.10.variables.MainContent =< styles.content.get
     page.10.variables.MainContent.select.where = colPos = 100
