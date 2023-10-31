@@ -19,7 +19,8 @@ $customChanges = [
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2idPasswordHash', // BcryptPasswordHash
             'options' => [],
-        ]
+        ],
+        'requireMfa' => 3,
     ],
     'FE' => [
         'loginSecurityLevel' => 'normal',
