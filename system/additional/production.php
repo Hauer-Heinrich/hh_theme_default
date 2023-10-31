@@ -11,7 +11,6 @@ use \TYPO3\CMS\Core\Log\Writer\FileWriter;
 $customChanges = [
     'BE' => [
         'lockSSL' => 1,
-        'loginSecurityLevel' => 'normal',
         'compressionLevel' => '0',
         'versionNumberInFilename' => 0,
         'RTE_imageStorageDir' => 'fileadmin/uploads_rte/',
@@ -23,7 +22,6 @@ $customChanges = [
         'requireMfa' => 3,
     ],
     'FE' => [
-        'loginSecurityLevel' => 'normal',
         'compressionLevel' => '0',
         'noPHPscriptInclude' => '1',
         'disableNoCacheParameter' => 0,
