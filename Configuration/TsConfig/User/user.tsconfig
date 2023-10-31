@@ -6,6 +6,15 @@ options {
     enableBookmarks = 0
 }
 
+### MFA
+auth {
+    mfa {
+        recommendedProvider = yubikey
+        disableProviders := addToList(recovery-codes)
+        disableProviders := addToList(totp)
+    }
+}
+
 admPanel {
     enable {
         all = 0
