@@ -62,6 +62,10 @@ h6 {
 /* LISTS */
 ul,
 ol {
+    list-style-position: inside;
+}
+
+nav ul {
     list-style: none;
 }
 

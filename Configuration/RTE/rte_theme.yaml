@@ -20,7 +20,7 @@ editor:
         - { name: 'Orange title p', element: 'p', classes: ["color-orange"] }
         - { name: 'blue title p', element: 'p', classes: ["color-blue"] }
         ### Inline styles
-        - { name: "btn-default", element: "span", classes: ["btn", "btn-default"]  }
+        - { name: "btn-default", element: "span", classes: ["btn", "btn-default"] }
         - { name: "btn-fullwidth", element: "span", classes: ["btn", "btn-fullwidth"] }
 
     heading:

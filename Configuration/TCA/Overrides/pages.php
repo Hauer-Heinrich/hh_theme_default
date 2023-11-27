@@ -93,6 +93,8 @@ $fields = [
             'appearance' => [
                 'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
                 'showPossibleLocalizationRecords' => true,
+                'expandSingle' => true,
+                'collapseAll' => true,
             ],
             // custom configuration for displaying fields in the overlay/reference table
             // to use the imageoverlayPalette instead of the basicoverlayPalette

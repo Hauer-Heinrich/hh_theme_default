@@ -40,9 +40,11 @@
         "typo3/cms-seo": "^12.4.0",
         "typo3/cms-rte-ckeditor": "^12.4.0",
         "derhansen/mfa_yubikey": ">=2.0.0",
+        "b13/container": ">=2.3.0",
         "georgringer/news": ">=11.0.0",
         "friendsoftypo3/tt-address": ">=7.1.0",
-        "b13/container": ">=2.3.0",
+        "in2code/powermail": ">=12.0.0",
+        "hauerheinrich/hh-powermail-checkboxlink": ">=0.1.2",
         "hauerheinrich/hh-slider": ">=4.0.0",
         "hauerheinrich/hh-seo": ">=7.0.0"
     },

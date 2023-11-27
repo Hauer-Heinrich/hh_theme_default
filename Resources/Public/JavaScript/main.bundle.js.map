@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["components/nav-main.js", "main.js"],
+  "sourcesContent": ["document.addEventListener(\"DOMContentLoaded\", function(e) {\r\n    // Usage of the IoNav\r\n    let ionav = new IoNav({\r\n        // buttonTarget: document.querySelector(\"#header\"),\r\n        elements: \".logo, .nav-main\",\r\n        elementsNav: \".ionav-canvas .ionav-nav-main\",\r\n        linkSubmenuClickable: false,\r\n        activeClassToggleOthers: true, // Only one active element is possible at the same time\r\n        mqlQuery: {\r\n            minWidth: \"0px\",\r\n            maxWidth: \"1280px\"\r\n        },\r\n        debug: false\r\n    });\r\n});\r\n\r\n", "// INFO: The io framework is beeing imported globally (TOOD: Replace io framework)\n// import io from './plugins/io.js'\n// import address from './components/address.js'\n// import spamEmailProtection from './components/email-spam-protection.js'\nimport navmain from './components/nav-main.js'\n\nexport default {\n    // io,\n    // address,\n    navmain,\n    // spamEmailProtection\n}\n"],
+  "mappings": "+gBAAA,IAAAA,EAAAC,EAAA,cAAS,iBAAiB,mBAAoB,SAASC,EAAG,CAEtD,IAAIC,EAAQ,IAAI,MAAM,CAElB,SAAU,mBACV,YAAa,gCACb,qBAAsB,GACtB,wBAAyB,GACzB,SAAU,CACN,SAAU,MACV,SAAU,QACd,EACA,MAAO,EACX,CAAC,CACL,CAAC,ICVD,IAAAC,EAAoB,OAEbC,EAAQ,CAGX,UAAAC,OAEJ",
+  "names": ["require_nav_main", "__commonJSMin", "e", "ionav", "import_nav_main", "main_default", "navmain"]
+}
