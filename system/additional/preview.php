@@ -4,6 +4,8 @@ if (!defined('TYPO3')) {
 }
 
 use \TYPO3\CMS\Core\Core\Environment;
+use \TYPO3\CMS\Core\Log\LogLevel;
+use \TYPO3\CMS\Core\Log\Writer\FileWriter;
 
 // for env:TYPO3_CONTEXT = Development/Server only!
 // Overwrites previously set settings!
