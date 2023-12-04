@@ -55,7 +55,7 @@ $customChanges = [
         ],
     ],
     'GFX' => [
-        'imagefile_ext' => 'pdf,png,jpg,jpeg,svg,webp'
+        'imagefile_ext' => 'pdf,png,jpg,jpeg,svg,webp',
     ],
     'SYS' => [
         'displayErrors' => 0,
@@ -68,6 +68,7 @@ $customChanges = [
         'systemLocale' => 'de_DE.UTF-8',
         'ipAnonymization' => '2',
         'belogErrorReporting' => 6485,
+        'mediafile_ext' => 'gif,jpg,jpeg,png,webp,pdf,svg,mp3,mp4,webm,youtube,vimeo',
     ],
     'EXTENSIONS' => [
         'backend' => [
