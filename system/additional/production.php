@@ -69,6 +69,7 @@ $customChanges = [
         'ipAnonymization' => '2',
         'belogErrorReporting' => 6485,
         'mediafile_ext' => 'gif,jpg,jpeg,png,webp,pdf,svg,mp3,mp4,webm,youtube,vimeo',
+        'defaultScheme' => 'https',
     ],
     'EXTENSIONS' => [
         'backend' => [
