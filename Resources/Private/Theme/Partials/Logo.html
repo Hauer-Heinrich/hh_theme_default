@@ -1,9 +1,8 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
-<hhdefault:fal table="pages" field="media" id="{site.rootPageId}" as="logos" />
-<f:if condition="{logos}">
-    <f:for each="{logos}" as="file" iteration="i">
+<f:if condition="{Logos}">
+    <f:for each="{Logos}" as="file" iteration="i">
         <f:if condition="{i.cycle} == 1">
             <div id="logo">
                 <f:link.typolink parameter="{file.link}" absolute="1">

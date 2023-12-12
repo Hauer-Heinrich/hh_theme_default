@@ -70,6 +70,16 @@ page {
             }
 
             ################################################################
+            ### Page Resources Media - as Logos ###
+            ################################################################
+            8 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            8 {
+                references.data = levelfield:-1, media, slide
+                references.table = pages
+                as = Logos
+            }
+
+            ################################################################
             ### Main Menu ###
             ################################################################
             10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor

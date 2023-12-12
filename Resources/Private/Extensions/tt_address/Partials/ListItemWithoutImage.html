@@ -1,13 +1,11 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
-<div class="article" itemscope itemtype="http://schema.org/Person">
+<article class="article" itemscope itemtype="http://schema.org/Person">
     <div class="article-container" data-has-media="false">
         <div class="ce-bodytext">
-            <f:if condition="{address.position}">
-                <p class="position"><em>{address.position}</em></p>
-            </f:if>
-            <p class="name">{address.fullName}</p>
+            <f:render section="position" partial="Address" arguments="{_all}" />
+            <p class="name" itemprop="name">{address.fullName}</p>
 
             <f:render section="address" partial="Address" arguments="{_all}" />
             <f:render section="contact" partial="Address" arguments="{_all}" />
@@ -20,6 +18,6 @@
             </f:if>
         </div>
     </div>
-</div>
+</article>
 
 </html>

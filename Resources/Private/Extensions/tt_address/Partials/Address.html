@@ -24,7 +24,7 @@
         <f:if condition="{address.phone}">
             <li>
                 <i class="fas fa-phone"></i>
-                {f:translate(key:'label.telephone')}: <a href="tel:{address.cleanedPhone}">
+                {f:translate(key:'label.telephone')} <a href="tel:{address.cleanedPhone}">
                 <span itemprop="telephone">{address.phone}</span>
             </a>
             </li>
@@ -33,7 +33,7 @@
         <f:if condition="{address.mobile}">
             <li>
                 <i class="fas fa-mobile-alt"></i>
-                {f:translate(key:'label.mobile')}: <a href="tel:{address.cleanedMobile}">
+                {f:translate(key:'label.mobile')} <a href="tel:{address.cleanedMobile}">
                 <span itemprop="telephone">{address.mobile}</span>
             </a>
             </li>
@@ -42,31 +42,31 @@
         <f:if condition="{address.fax}">
             <li>
                 <i class="fas fa-fax"></i>
-                {f:translate(key:'label.fax')}: <span itemprop="faxNumber">{address.fax}</span>
+                {f:translate(key:'label.fax')} <span itemprop="faxNumber">{address.fax}</span>
             </li>
         </f:if>
 
         <f:if condition="{address.email}">
             <li>
                 <i class="fas fa-envelope"></i>
-                {f:translate(key:'label.email')}:
+                {f:translate(key:'label.email')}
                 <span><f:link.email email="{address.email}" /></span>
             </li>
         </f:if>
 
         <f:if condition="{address.www}">
-            <meta itemprop="url" content="{f:uri.typolink(parameter:address.www)}"/>
             <li>
+                <meta itemprop="url" content="{f:uri.typolink(parameter:address.www)}"/>
                 <i class="fas fa-link"></i>
-                {f:translate(key:'label.www')}:
+                {f:translate(key:'label.www')}
                 <f:link.typolink parameter="{address.www}">{address.wwwSimplified}</f:link.typolink>
             </li>
         </f:if>
         <f:if condition="{address.birthday}">
-            <meta itemprop="birthDate" content="{address.birthday -> f:format.date(format:'%Y-%m-%d')}">
             <li>
+                <meta itemprop="birthDate" content="{address.birthday -> f:format.date(format:'%Y-%m-%d')}">
                 <i class="fas fa-birthday-cake"></i>
-                {f:translate(key:'label.birthday')}: {address.birthday -> f:format.date(format:'%d.%m.%Y')}
+                {f:translate(key:'label.birthday')} {address.birthday -> f:format.date(format:'%d.%m.%Y')}
             </li>
         </f:if>
     </ul>
@@ -78,7 +78,7 @@
             <f:if condition="{address.skype}">
                 <li class="list-inline-item">
                     <i class="fab fa-skype" aria-hidden title="{f:translate(key:'label.skype')}"></i>
-                    <span class="sr-only">{f:translate(key:'label.skype')}:</span>
+                    <span class="sr-only">{f:translate(key:'label.skype')}</span>
                     <a href="skype:{address.skype}?call">{address.skype}</a>
                     <meta itemprop="sameAs" content="skype:{address.skype}?call"/>
                 </li>
@@ -86,7 +86,7 @@
             <f:if condition="{address.twitter}">
                 <li class="list-inline-item">
                     <i class="fab fa-twitter" aria-hidden title="{f:translate(key:'label.twitter')}"></i>
-                    <span class="sr-only">{f:translate(key:'label.twitter')}:</span>
+                    <span class="sr-only">{f:translate(key:'label.twitter')}</span>
                     <a href="https://twitter.com/{address.twitter}" target="_blank">{address.twitter}</a>
                     <meta itemprop="sameAs" content="https://twitter.com/{address.twitter}"/>
                 </li>
@@ -94,7 +94,7 @@
             <f:if condition="{address.facebook}">
                 <li class="list-inline-item">
                     <i class="fab fa-facebook" aria-hidden title="{f:translate(key:'label.facebook')}"></i>
-                    <span class="sr-only">{f:translate(key:'label.facebook')}:</span>
+                    <span class="sr-only">{f:translate(key:'label.facebook')}</span>
                     <a href="https://www.facebook.com/{address.facebook}" target="_blank">{address.facebook}</a>
                     <meta itemprop="sameAs" content="https://www.facebook.com/{address.facebook}"/>
                 </li>
@@ -102,7 +102,7 @@
             <f:if condition="{address.linkedin}">
                 <li class="list-inline-item">
                     <i class="fab fa-linkedin" aria-hidden title="{f:translate(key:'label.linkedin')}"></i>
-                    <span class="sr-only">{f:translate(key:'label.linkedin')}:</span>
+                    <span class="sr-only">{f:translate(key:'label.linkedin')}</span>
                     <a href="https://www.linkedin.com/in/{address.linkedin}" target="_blank">{address.linkedin}</a>
                     <meta itemprop="sameAs" content="https://www.linkedin.com/in/{address.linkedin}"/>
                 </li>
