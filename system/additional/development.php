@@ -37,12 +37,25 @@ $customDevelopmentChanges = [
                     'disabled' => false,
                 ],
             ],
-
             LogLevel::ERROR => [
                 FileWriter::class => [
                     'disabled' => false,
                 ],
             ]
+        ],
+
+        'TYPO3' => [
+            'CMS' => [
+                'deprecations' => [
+                    'writerConfiguration' => [
+                        'notice' => [
+                            'TYPO3\CMS\Core\Log\Writer\FileWriter' => [
+                                'disabled' => false,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ],
     ],
     'SYS' => [
