@@ -15,6 +15,7 @@ $customChanges = [
         'versionNumberInFilename' => 0,
         'RTE_imageStorageDir' => 'fileadmin/uploads_rte/',
         'lockIP' => 4, // DSGVO / GDPR,
+        'lockIPv6' => 8,
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2idPasswordHash', // BcryptPasswordHash
             'options' => [],
