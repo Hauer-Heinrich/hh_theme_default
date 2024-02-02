@@ -1,7 +1,7 @@
 ################################################################
 ### Fluid Styled Content ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript">
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
 lib.contentElement {
     templateRootPaths {
         20 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
@@ -16,12 +16,12 @@ lib.contentElement {
         30 = {$styles.templates.layoutRootPath}
     }
 }
-<INCLUDE_TYPOSCRIPT: source="DIR: ./CustomFluid/" extensions="typoscript"">
+@import 'EXT:{{EXTENSION_KEY}}/Configuration/TypoScript/TypoScript/CustomFluid/*.typoscript'
 
 ################################################################
 ### News - news ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:news/Configuration/TypoScript/setup.typoscript">
+@import 'EXT:news/Configuration/TypoScript/setup.typoscript'
 plugin.tx_news {
     view {
         templateRootPaths {
@@ -75,7 +75,7 @@ plugin.tx_news {
 ################################################################
 ### Address - tt_address ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:tt_address/Configuration/TypoScript/setup.typoscript">
+@import 'EXT:tt_address/Configuration/TypoScript/setup.typoscript'
 plugin.tx_ttaddress {
     view {
         templateRootPaths {
@@ -119,7 +119,7 @@ plugin.tx_ttaddress {
 ################################################################
 ### Form - powermail ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:powermail/Configuration/TypoScript/Main/setup.typoscript">
+@import 'EXT:powermail/Configuration/TypoScript/Main/setup.typoscript'
 plugin.tx_powermail {
     view {
         templateRootPaths {
@@ -175,7 +175,7 @@ plugin.tx_powermail {
 ################################################################
 ### Form powermail - hh_powermail_checkboxlink ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_powermail_checkboxlink/Configuration/TypoScript/setup.typoscript">
+@import 'EXT:hh_powermail_checkboxlink/Configuration/TypoScript/setup.typoscript'
 
 ################################################################
 ### felogin - frontend login - fe_users ###
@@ -197,7 +197,7 @@ plugin.tx_felogin_login {
 ################################################################
 ### indexed_search - Suche ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/setup.typoscript">
+@import 'EXT:indexed_search/Configuration/TypoScript/setup.typoscript'
 plugin.tx_indexedsearch {
     view {
         templateRootPaths {
@@ -345,7 +345,7 @@ tt_content.grid-row-1--col-4 {
 ################################################################
 ### Hauer-Heinrich Slider - hh_slider ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_slider/Configuration/TypoScript/setup.typoscript">
+@import 'EXT:hh_slider/Configuration/TypoScript/setup.typoscript'
 tt_content.hhslider_hh_slider {
     layoutRootPaths {
         110 = {$themeDefault.urls.themeResources}Private/Extensions/hh_slider/Layouts/
@@ -369,7 +369,7 @@ tt_content.hhslider_hh_slider {
 ################################################################
 ### Hauer-Heinrich Accordion - hh_accordion ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_accordion/Configuration/TypoScript/setup.typoscript">
+@import 'EXT:hh_accordion/Configuration/TypoScript/setup.typoscript'
 tt_content.hhaccordion_hh_accordion {
     templateRootPaths {
         20 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
@@ -394,12 +394,12 @@ tt_content.hhaccordion_hh_accordion {
 ################################################################
 ### Hauer-Heinrich Jobs - hh_simple_job_posts ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_simple_job_posts/Configuration/TypoScript/setup.typoscript">
+@import 'EXT:hh_simple_job_posts/Configuration/TypoScript/setup.typoscript'
 
 ################################################################
 ### Hauer-Heinrich SEO - hh_seo ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_seo/Configuration/TypoScript/setup.typoscript">
+@import 'EXT:hh_seo/Configuration/TypoScript/setup.typoscript'
 
 plugin.tx_seo.config {
     xmlSitemap {
@@ -439,4 +439,4 @@ plugin.tx_seo.config {
 ################################################################
 ### Hauer-Heinrich Cookie Consent - hh_ext_cookie_consent ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_ext_cookie_consent/Configuration/TypoScript/setup.typoscript">
+@import 'EXT:hh_ext_cookie_consent/Configuration/TypoScript/setup.typoscript'

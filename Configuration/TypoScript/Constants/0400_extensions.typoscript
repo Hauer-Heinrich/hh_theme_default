@@ -1,7 +1,7 @@
 ################################################################
 ### fluid_styled_content ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript">
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript'
 styles {
     content {
         defaultHeaderType = 1
@@ -30,17 +30,17 @@ styles {
 ################################################################
 ### News - news ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:news/Configuration/TypoScript/constants.typoscript">
+@import 'EXT:news/Configuration/TypoScript/constants.typoscript'
 
 ################################################################
 ### Address - tt_address ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:tt_address/Configuration/TypoScript/constants.typoscript">
+@import 'EXT:tt_address/Configuration/TypoScript/constants.typoscript'
 
 ################################################################
 ### Form - powermail ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:powermail/Configuration/TypoScript/Main/constants.typoscript">
+@import 'EXT:powermail/Configuration/TypoScript/constants.typoscript'
 plugin.tx_powermail {
     settings {
         javascript {
@@ -53,34 +53,34 @@ plugin.tx_powermail {
 ################################################################
 ### Form powermail - hh_powermail_checkboxlink ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_powermail_checkboxlink/Configuration/TypoScript/constants.typoscript">
+@import 'EXT:hh_powermail_checkboxlink/Configuration/TypoScript/constants.typoscript'
 
 ################################################################
 ### indexed_search - Suche ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/constants.typoscript">
+@import 'EXT:indexed_search/Configuration/TypoScript/constants.typoscript'
 
 ################################################################
 ### Hauer-Heinrich Slider - hh_slider ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_slider/Configuration/TypoScript/constants.typoscript">
+@import 'EXT:hh_slider/Configuration/TypoScript/constants.typoscript'
 
 ################################################################
 ### Hauer-Heinrich Accordion - hh_accordion ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_accordion/Configuration/TypoScript/constants.typoscript">
+@import 'EXT:hh_accordion/Configuration/TypoScript/constants.typoscript'
 
 ################################################################
 ### Hauer-Heinrich Jobs - hh_simple_job_posts ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_simple_job_posts/Configuration/TypoScript/constants.typoscript">
+@import 'EXT:hh_simple_job_posts/Configuration/TypoScript/constants.typoscript'
 
 ################################################################
 ### Hauer-Heinrich SEO - hh_seo ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_seo/Configuration/TypoScript/constants.typoscript">
+@import 'EXT:hh_seo/Configuration/TypoScript/constants.typoscript'
 
 ################################################################
 ### Hauer-Heinrich Cookie Consent - hh_ext_cookie_consent ###
 ################################################################
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:hh_ext_cookie_consent/Configuration/TypoScript/constants.typoscript">
+@import 'EXT:hh_ext_cookie_consent/Configuration/TypoScript/constants.typoscript'

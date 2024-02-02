@@ -24,12 +24,6 @@ config {
     typolinkEnableLinksAcrossDomains = 1
 
     ################################################################
-    ### E-Mail verschlüsseln ###
-    ################################################################
-    # spamProtectEmailAddresses = -2
-    # spamProtectEmailAddresses_atSubst = @~@
-
-    ################################################################
     ### CSS & JS Komprimieren ###
     ################################################################
     compressCss = {$plugin.{{EXTENSION_NAME}}.compressFiles}
