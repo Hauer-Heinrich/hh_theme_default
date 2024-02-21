@@ -12,7 +12,7 @@ imports:
 ### For complete documentation see https://ckeditor.com/docs/ckeditor5/latest/features/index.html
 editor:
   config:
-    contentsCss: 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/main-rte.css'
+    contentsCss: 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/main-rte.bundle.css'
 
     style:
       definitions:
@@ -64,3 +64,18 @@ editor:
         - { name: 'center', className: 'text-center' }
         - { name: 'right', className: 'text-right' }
         - { name: 'justify', className: 'text-justify' }
+
+### example linkhandler css classes
+### Button config and defaults
+buttons:
+  link:
+    relAttribute:
+      enabled: false
+    properties:
+      class:
+        allowedClasses: '
+          btn btn-default btn-brand,
+        '
+classes:
+  'btn btn-default btn-brand':
+    name: "Button Brand"
