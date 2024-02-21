@@ -16,16 +16,29 @@ editor:
 
     style:
       definitions:
-        ### block level styles
-        - { name: 'Orange title p', element: 'p', classes: ["color-orange"] }
-        - { name: 'blue title p', element: 'p', classes: ["color-blue"] }
-        ### Inline styles
-        - { name: "btn-default", element: "span", classes: ["btn", "btn-default"] }
-        - { name: "btn-fullwidth", element: "span", classes: ["btn", "btn-fullwidth"] }
+        # - { name: 'Orange title p', element: 'p', classes: ["color-orange"] }
+        # - { name: 'blue title p', element: 'p', classes: ["color-blue"] }
 
     heading:
       options:
         - { model: 'paragraph', title: 'Paragraph' }
+
+    fontColor:
+      colorPicker: false
+      colors:
+        - { label: 'Orange', color: '#ff8700' }
+        - { label: 'Green', color: '#209d44' }
+
+    fontBackgroundColor:
+      colorPicker: false
+      colors:
+        - { label: 'Stage orange light', color: '#fab85c' }
+
+    fontSize:
+      options:
+        - 'default'
+        - 18
+        - 21
 
     toolbar:
       items:
@@ -50,6 +63,9 @@ editor:
         - subscript
         - superscript
         - softhyphen
+        - fontSize
+        - fontColor
+        - fontBackgroundColor
         - '|'
         - bulletedList
         - numberedList
