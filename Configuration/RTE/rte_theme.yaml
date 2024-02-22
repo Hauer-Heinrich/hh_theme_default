@@ -12,33 +12,37 @@ imports:
 ### For complete documentation see https://ckeditor.com/docs/ckeditor5/latest/features/index.html
 editor:
   config:
-    contentsCss: 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/main-rte.bundle.css'
+    contentsCss:
+      - 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/main-rte.bundle.css'
 
     style:
       definitions:
         # - { name: 'Orange title p', element: 'p', classes: ["color-orange"] }
         # - { name: 'blue title p', element: 'p', classes: ["color-blue"] }
 
-    heading:
-      options:
-        - { model: 'paragraph', title: 'Paragraph' }
+    ### IMPORTANT: fontColor and fontBackgroundColor uses inline-style
+    ### - we don't like inline-style, so as workaround we use a slightly modified plugin "highlight"
+    ### the highlight plugin generates original a "mark"-tag element, but we changed this to use a "span"-tag
+    # fontColor:
+    #   colorPicker: false
+    #   colors:
+    #     - { label: 'Orange', color: '#ff8700', classes: 'test' }
+    #     - { label: 'Green', color: '#209d44' }
 
-    fontColor:
-      colorPicker: false
-      colors:
-        - { label: 'Orange', color: '#ff8700' }
-        - { label: 'Green', color: '#209d44' }
-
-    fontBackgroundColor:
-      colorPicker: false
-      colors:
-        - { label: 'Stage orange light', color: '#fab85c' }
+    # fontBackgroundColor:
+    #   colorPicker: false
+    #   colors:
+    #     - { label: 'Stage orange light', color: '#fab85c' }
 
     fontSize:
       options:
         - 'default'
         - 18
         - 21
+
+    highlight:
+      options:
+        - { model: 'brandPen', class: 'color-brand', title: 'Color Brand', color: '#4DAF2E', type: 'pen' }
 
     toolbar:
       items:
@@ -62,13 +66,17 @@ editor:
         - strikethrough
         - subscript
         - superscript
+        - '|'
         - softhyphen
+        - '|'
         - fontSize
-        - fontColor
-        - fontBackgroundColor
+        # - fontColor
+        # - fontBackgroundColor
+        - highlight
         - '|'
         - bulletedList
         - numberedList
+        - '|'
         - alignment
         - style
         - '|'
@@ -80,6 +88,13 @@ editor:
         - { name: 'center', className: 'text-center' }
         - { name: 'right', className: 'text-right' }
         - { name: 'justify', className: 'text-justify' }
+
+    plugins:
+      - Highlight
+
+    importModules:
+      - { module: '@ckeditor/ckeditor5-font', exports: ['Font'] }
+      - { module: '@{{EXTENSION_VENDOR}}/ckeditor5-highlight', exports: ['Highlight'] }
 
 ### example linkhandler css classes
 ### Button config and defaults
