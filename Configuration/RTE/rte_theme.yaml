@@ -37,8 +37,8 @@ editor:
     fontSize:
       options:
         - 'default'
-        - 18
-        - 21
+        - 'small'
+        - 'big'
 
     highlight:
       options:
