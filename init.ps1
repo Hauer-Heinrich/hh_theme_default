@@ -2,6 +2,7 @@
 ### Simple search and Replace strings
 ### Replaces folloing strings:
 ### {{EXTENSION_KEY}}            with e. g. your input like: hh_theme_default
+### {{EXTENSION_VENDOR}}         with e. g. HauerHeinrich
 ### {{EXTENSION_NAMESPACE}}      with e. g. HhThemeDefault
 ### {{EXTENSION_NAMESPACE_ES6}}  with e. g. hh-theme-default
 ### {{EXTENSION_DOMAIN_NAME}}    with e. g. your input like: my-domain
@@ -31,6 +32,11 @@ function str_search_replace
 $extensionKey = Read-Host -Prompt 'Input your TYPO3 extension key (e. g. hh_theme_default)'
 str_search_replace -searchString "{{EXTENSION_KEY}}" -replaceString $extensionKey
 Write-Host "Extension key replacement: done." -ForegroundColor DarkGreen
+
+### Replace Vendor
+$extensionVendor = Read-Host -Prompt 'Input your TYPO3 extension vendor (e. g. HauerHeinrich)'
+str_search_replace -searchString "{{EXTENSION_VENDOR}}" -replaceString $extensionVendor
+Write-Host "Extension vendor replacement: done." -ForegroundColor DarkGreen
 
 ### Replace NameSpace
 $extensionNameSpace = (Get-Culture).TextInfo.ToTitleCase($extensionKey).replace('_', '')

@@ -29,6 +29,10 @@ if [[ "$EXTENSION_KEY" == "hh_theme_default" ]]; then
         exit 1
     fi
 fi
+
+printf "%s" "Enter a vendor name (e.g. HauerHeinrich): "
+read EXTENSION_VENDOR
+
 printf "%s" "Enter a fully qualified domain name (e.g. example.com): "
 read EXTENSION_DOMAIN
 
@@ -37,6 +41,7 @@ EXTENSION_DOMAIN_TLD="$(echo "$EXTENSION_DOMAIN" | sed -E 's/(.+)\.(.+)/\2/g')"
 
 printf "\n"
 echo "EXTENSION_KEY: $EXTENSION_KEY"
+echo "EXTENSION_VENDOR: $EXTENSION_VENDOR"
 echo "EXTENSION_NAME: $EXTENSION_NAME"
 echo "EXTENSION_NAMESPACE: $EXTENSION_NAMESPACE"
 echo "EXTENSION_NAMESPACE_ES6: $EXTENSION_NAMESPACE_ES6"
@@ -50,9 +55,10 @@ if [[ ! $CONFIRMATION =~ ^[Yy]$ ]]; then
     exit 1
 fi
 
-if [[ -n "$EXTENSION_KEY" && -n "$EXTENSION_NAME" && -n "$EXTENSION_NAMESPACE" && -n "$EXTENSION_NAMESPACE_ES6" && -n "$EXTENSION_DOMAIN_NAME" && -n "$EXTENSION_DOMAIN_TLD" ]]; then
+if [[ -n "$EXTENSION_KEY" && -n "$EXTENSION_VENDOR" && -n "$EXTENSION_NAME" && -n "$EXTENSION_NAMESPACE" && -n "$EXTENSION_NAMESPACE_ES6" && -n "$EXTENSION_DOMAIN_NAME" && -n "$EXTENSION_DOMAIN_TLD" ]]; then
     while read file; do
         perl -pi -w -e 's/\{\{EXTENSION_KEY\}\}/'"$EXTENSION_KEY"'/g;' "$file"
+        perl -pi -w -e 's/\{\{EXTENSION_VENDOR\}\}/'"$EXTENSION_VENDOR"'/g;' "$file"
         perl -pi -w -e 's/\{\{EXTENSION_NAME\}\}/'"$EXTENSION_NAME"'/g;' "$file"
         perl -pi -w -e 's/\{\{EXTENSION_NAMESPACE\}\}/'"$EXTENSION_NAMESPACE"'/g;' "$file"
         perl -pi -w -e 's/\{\{EXTENSION_NAMESPACE_ES6\}\}/'"$EXTENSION_NAMESPACE_ES6"'/g;' "$file"

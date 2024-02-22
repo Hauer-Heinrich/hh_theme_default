@@ -1,6 +1,6 @@
 {
     "type": "typo3-cms-extension",
-    "name": "hauerheinrich/{{EXTENSION_NAMESPACE_ES6}}",
+    "name": "{{EXTENSION_VENDOR}}/{{EXTENSION_NAMESPACE_ES6}}",
     "description": "Distribution theme: Anpassbar im Backend im Konstanten Editor.",
     "keywords": [ "TYPO3 CMS", "TYPO3", "theme", "distribution", "extension" ],
     "homepage": "https://www.hauer-heinrich.de",
@@ -27,7 +27,7 @@
         }
     ],
     "replace": {
-        "hauerheinrich/{{EXTENSION_KEY}}": "self.version",
+        "{{EXTENSION_VENDOR}}/{{EXTENSION_KEY}}": "self.version",
         "typo3-ter/{{EXTENSION_NAMESPACE_ES6}}": "self.version"
     },
     "require": {
@@ -44,17 +44,17 @@
         "georgringer/news": ">=11.0.0",
         "friendsoftypo3/tt-address": ">=7.1.0",
         "in2code/powermail": ">=12.0.0",
-        "hauerheinrich/hh-powermail-checkboxlink": ">=0.1.2",
-        "hauerheinrich/hh-slider": ">=4.0.0",
-        "hauerheinrich/hh-seo": ">=7.0.0"
+        "{{EXTENSION_VENDOR}}/hh-powermail-checkboxlink": ">=0.1.2",
+        "{{EXTENSION_VENDOR}}/hh-slider": ">=4.0.0",
+        "{{EXTENSION_VENDOR}}/hh-seo": ">=7.0.0"
     },
     "suggest": {
-        "hauerheinrich/hh-accordion": ">=4.0.0",
-        "hauerheinrich/hh-simple-job-posts": ">=4.0.0"
+        "{{EXTENSION_VENDOR}}/hh-accordion": ">=4.0.0",
+        "{{EXTENSION_VENDOR}}/hh-simple-job-posts": ">=4.0.0"
     },
     "autoload": {
         "psr-4": {
-            "HauerHeinrich\\{{EXTENSION_NAMESPACE}}\\": "Classes"
+            "{{EXTENSION_VENDOR}}\\{{EXTENSION_NAMESPACE}}\\": "Classes"
         }
     },
     "extra": {

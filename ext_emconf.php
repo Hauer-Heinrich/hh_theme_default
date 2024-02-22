@@ -51,7 +51,7 @@ $EM_CONF['{{EXTENSION_KEY}}'] = [
     ],
     'autoload' => [
         'psr-4' => [
-            'HauerHeinrich\\{{EXTENSION_NAMESPACE}}\\' => 'Classes'
+            '{{EXTENSION_VENDOR}}\\{{EXTENSION_NAMESPACE}}\\' => 'Classes'
         ],
     ],
 ];

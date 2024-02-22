@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace HauerHeinrich\{{EXTENSION_NAMESPACE}}\EventListener;
+namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\EventListener;
 
 use \TYPO3\CMS\Core\Page\PageRenderer;
 
@@ -14,7 +14,7 @@ final class AfterBackendPageRenderEventListener {
     public function __invoke(): void {
         // $this->pageRenderer->addCssFile('EXT:dashboard/Resources/Public/Css/Modal/style.css');
         // $this->pageRenderer->addJsFooterFile('EXT:{{EXTENSION_KEY}}/Resources/Public/JavaScript/Backend/author-info.js');
-        // $this->pageRenderer->loadJavaScriptModule('@HauerHeinrich/{{EXTENSION_NAMESPACE_ES6}}/author-info.js');
-        $this->pageRenderer->loadJavaScriptModule('@HauerHeinrich/{{EXTENSION_NAMESPACE_ES6}}/index.js');
+        // $this->pageRenderer->loadJavaScriptModule('@{{EXTENSION_VENDOR}}/{{EXTENSION_NAMESPACE_ES6}}/author-info.js');
+        $this->pageRenderer->loadJavaScriptModule('@{{EXTENSION_VENDOR}}/{{EXTENSION_NAMESPACE_ES6}}/index.js');
     }
 }
