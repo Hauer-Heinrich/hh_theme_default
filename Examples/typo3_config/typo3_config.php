@@ -42,7 +42,10 @@ $customChanges = [
         // 'processor_path' => '/Applications/MAMP/Library/bin/'
     ],
     'MAIL' => [
+        'defaultMailFromName' => '',
         'defaultMailFromAddress' => '',
+        'defaultMailReplyToName' => '',
+        'defaultMailReplyToAddress' => '',
         'transport' => 'smtp',
         'transport_sendmail_command' => '/usr/sbin/sendmail -t -i ',
         'transport_smtp_encrypt' => true, // false = STARTTLS // true = SSL https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/10.4.x/Important-91070-SMTPTransportOptionTransport_smtp_encryptChangedToBoolean.html
