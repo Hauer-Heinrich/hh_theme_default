@@ -141,11 +141,8 @@ plugin.tx_powermail {
             ### Settings needed especially for SMTP and SPF
             receiver {
                 overwrite {
-                    // senderName = TEXT
-                    // senderName.value = Your_Company - Website
-
-                    // senderEmail = TEXT
-                    // senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
+                    senderEmail = TEXT
+                    senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
 
                     replyToName = TEXT
                     replyToName.value >
@@ -158,14 +155,20 @@ plugin.tx_powermail {
             }
 
             sender {
+                default {
+                    senderEmail = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
+                }
                 overwrite {
-                    // senderName = TEXT
-                    // senderName.value >
-                    // senderName.value = Your_Company
+                     senderEmail = TEXT
+                     senderEmail.value >
+                     senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
+                }
+            }
 
-                    // senderEmail = TEXT
-                    // senderEmail.value >
-                    // senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
+            optin {
+                overwrite {
+                    senderEmail = TEXT
+                    senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
                 }
             }
         }
