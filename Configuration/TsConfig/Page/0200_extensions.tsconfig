@@ -106,7 +106,7 @@ TCEFORM {
 ################################################################
 ### Hauer-Heinrich Jobs - hh_simple_job_posts ###
 ################################################################
-@import 'EXT:hh_simple_job_posts/Configuration/PageTsConfig/AllPage.typoscript'
+@import 'EXT:hh_simple_job_posts/Configuration/TsConfig/AllPage.typoscript'
 
 ################################################################
 ### Form powermail - hh_powermail_checkboxlink ###

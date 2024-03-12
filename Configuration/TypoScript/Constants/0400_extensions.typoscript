@@ -40,7 +40,7 @@ styles {
 ################################################################
 ### Form - powermail ###
 ################################################################
-@import 'EXT:powermail/Configuration/TypoScript/constants.typoscript'
+@import 'EXT:powermail/Configuration/TypoScript/Main/constants.typoscript'
 plugin.tx_powermail {
     settings {
         javascript {
