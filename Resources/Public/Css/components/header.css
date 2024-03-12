@@ -15,11 +15,6 @@
         justify-self: start;
     }
 
-    #logo img {
-        max-height: 82px;
-        width: auto;
-    }
-
     .header-container {
         padding: var(--header-padding);
         color: var(--header-color-text);
