@@ -410,6 +410,13 @@ page {
 #     page.10.variables.MainContent =< lib.news
 [global]
 
+### Disable all other content if detail view of tt_address
+[request && traverse(request.getQueryParams(), 'tx_ttaddress_listview/address') > 0]
+    page.10.variables.MainContent >
+    page.10.variables.MainContent =< styles.content.get
+    page.10.variables.MainContent.select.where = colPos = 100
+[global]
+
 ### Disable all other content if detail view of job-posts
 [request && traverse(request.getQueryParams(), 'tx_hhsimplejobposts_jobslist/jobpost') > 0]
     page.10.variables.MainContent >
