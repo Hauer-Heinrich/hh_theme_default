@@ -54,5 +54,5 @@ $customChanges = [
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customChanges);
 
 
-$databaseCredentialsFile = Environment::getPublicPath() . '/../typo3_config/typo3_{{EXTENSION_DOMAIN_NAME}}_preview.php';
+$databaseCredentialsFile = Environment::getPublicPath() . '/../env/typo3_config.php';
 if (file_exists($databaseCredentialsFile)) { require_once ($databaseCredentialsFile); }

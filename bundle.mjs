@@ -32,14 +32,29 @@ export const _esOptions =
         // target: ['node10.4'], // Specify target (node version) if needed
     }
 
-export const _esBuilder = async function(_esOptions){
-    await esbuild.build(_esOptions)
+export const _esBuilder = async function(_esOptions) {
+    if(_esOptions.length > 0) {
+        _esOptions.forEach(async options => {
+            await esbuild.build(options)
+        });
+    } else {
+        await esbuild.build(_esOptions)
+    }
+
     console.log('Build seems complete.')
 }
 
-export const _esWatcher = async function(_esOptions){
-    const ctx = await esbuild.context(_esOptions)
-    await ctx.watch()
+export const _esWatcher = async function(_esOptions) {
+    if(_esOptions.length > 0) {
+        _esOptions.forEach(async options => {
+            const ctx = await esbuild.context(options)
+            await ctx.watch()
+        });
+    } else {
+        const ctx = await esbuild.context(_esOptions)
+        await ctx.watch()
+    }
+
     console.log('Watching...')
 }
 

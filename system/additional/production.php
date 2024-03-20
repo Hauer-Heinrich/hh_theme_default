@@ -105,5 +105,5 @@ $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'
 
 // typo3_config directory contains configuration for e.g. database access,
 // install tool password and configuration for system dependent settings.
-$databaseCredentialsFile = Environment::getPublicPath() . '/../typo3_config/typo3_{{EXTENSION_DOMAIN_NAME}}.php';
+$databaseCredentialsFile = Environment::getPublicPath() . '/../env/typo3_config.php';
 if (file_exists($databaseCredentialsFile)) { require_once ($databaseCredentialsFile); }

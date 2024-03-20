@@ -1,3 +1,3 @@
 ### Import theme default site config
 imports:
-    - { resource: "EXT:{{EXTENSION_KEY}}/Configuration/Typo3/sites/dummy_site/config.yaml" }
+    - { resource: "EXT:{{EXTENSION_KEY}}/sites/dummy_site/config.yaml" }
