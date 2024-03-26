@@ -2,7 +2,7 @@
 
 <f:if condition="{menu}">
     <nav class="menu-aside">
-        <ul class="menu menu-sub {orientation}">
+        <ul class="menu menu-sub {orientation} {cssClasses}">
             <f:for each="{menu}" as="mainItem">
                 <f:render partial="Menu/Elements/Item" arguments="{item: '{mainItem}'}" />
                 <f:if condition="{mainItem.children}">
