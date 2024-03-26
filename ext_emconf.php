@@ -47,6 +47,7 @@ $EM_CONF['{{EXTENSION_KEY}}'] = [
             'hh_openstreetmap' => '',
             'hh_ext_cookie_consent' => '',
             'typo3_monitor_api' => '',
+            'hh_ckeditor_highlight' => '',
         ],
     ],
     'autoload' => [

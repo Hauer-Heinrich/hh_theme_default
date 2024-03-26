@@ -51,6 +51,7 @@
     "suggest": {
         "hauerheinrich/hh-accordion": ">=4.0.0",
         "hauerheinrich/hh-simple-job-posts": ">=4.0.0",
+        "hauerheinrich/hh-ckeditor-highlight": ">=1.0.0"
     },
     "autoload": {
         "psr-4": {

@@ -15,18 +15,30 @@ editor:
     contentsCss:
       - 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/main-rte.bundle.css'
 
-    style:
-      definitions:
-        # - { name: 'Orange title p', element: 'p', classes: ["color-orange"] }
-        # - { name: 'blue title p', element: 'p', classes: ["color-blue"] }
+    importModules:
+      - { module: '@ckeditor/ckeditor5-font', exports: [ 'Font' ] }
+      # - { module: '@HauerHeinrich/ckeditor5-highlight', exports: [ 'Highlight' ] }
+
+    fontSize:
+      options:
+        - default
+        - { title: "size-small", model: "size-small", view: { name: "span", classes: "font-size-small" } }
+        - { title: "size-medium", model: "size-medium", view: { name: "span", classes: "font-size-medium" } }
+        - { title: "size-xmedium", model: "size-xmedium", view: { name: "span", classes: "font-size-xmedium" } }
+        - { title: "size-large", model: "size-large", view: { name: "span", classes: "font-size-large" } }
+        - { title: "size-xlarge", model: "size-xlarge", view: { name: "span", classes: "font-size-xlarge" } }
+
+    # style:
+      # definitions:
+        # - { name: "size-small", element: "span", classes: ["font-size-small"] }
 
     ### IMPORTANT: fontColor and fontBackgroundColor uses inline-style
-    ### - we don't like inline-style, so as workaround we use a slightly modified plugin "highlight"
+    ### - we don't like inline-style, so as workaround we use a slightly modified plugin "highlight" (@HauerHeinrich/ckeditor5-highlight -- EXT:hh_ckeditor_highlight)
     ### the highlight plugin generates original a "mark"-tag element, but we changed this to use a "span"-tag
     # fontColor:
     #   colorPicker: false
     #   colors:
-    #     - { label: 'Orange', color: '#ff8700', classes: 'test' }
+    #     - { label: 'Orange', color: '#ff8700' }
     #     - { label: 'Green', color: '#209d44' }
 
     # fontBackgroundColor:
@@ -34,15 +46,9 @@ editor:
     #   colors:
     #     - { label: 'Stage orange light', color: '#fab85c' }
 
-    fontSize:
-      options:
-        - 'default'
-        - 'small'
-        - 'big'
-
-    highlight:
-      options:
-        - { model: 'brandPen', class: 'color-brand', title: 'Color Brand', color: '#4DAF2E', type: 'pen' }
+    # highlight:
+      # options:
+        # - { model: 'brandPen', class: 'color-brand', title: 'Color Brand', color: '#E30613', type: 'pen' }
 
     toolbar:
       items:
@@ -69,15 +75,12 @@ editor:
         - '|'
         - softhyphen
         - '|'
-        - fontSize
-        # - fontColor
-        # - fontBackgroundColor
-        - highlight
-        - '|'
         - bulletedList
         - numberedList
         - '|'
         - alignment
+        - fontSize
+        - highlight
         - style
         - '|'
         - sourceEditing
@@ -88,13 +91,6 @@ editor:
         - { name: 'center', className: 'text-center' }
         - { name: 'right', className: 'text-right' }
         - { name: 'justify', className: 'text-justify' }
-
-    plugins:
-      - Highlight
-
-    importModules:
-      - { module: '@ckeditor/ckeditor5-font', exports: ['Font'] }
-      - { module: '@{{EXTENSION_VENDOR}}/ckeditor5-highlight', exports: ['Highlight'] }
 
 ### example linkhandler css classes
 ### Button config and defaults
