@@ -84,6 +84,7 @@ $customChanges = [
         'belogErrorReporting' => 6485,
         'mediafile_ext' => 'gif,jpg,jpeg,png,webp,pdf,svg,mp3,mp4,webm,youtube,vimeo',
         'defaultScheme' => 'https',
+        'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}\.{{EXTENSION_DOMAIN_TLD}}',
     ],
     'EXTENSIONS' => [
         'backend' => [

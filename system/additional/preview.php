@@ -49,6 +49,7 @@ $customChanges = [
         'displayErrors' => 1,
         'errorHandlerErrors' => 28672,
         'belogErrorReporting' => 28672,
+        'trustedHostsPattern' => 'preview\.{{EXTENSION_DOMAIN_NAME}}\.{{EXTENSION_DOMAIN_TLD}}',
     ],
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customChanges);

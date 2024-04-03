@@ -65,6 +65,7 @@ $customDevelopmentChanges = [
         'sqlDebug' => 1,
         'enableDeprecationLog' => 'file',
         'belogErrorReporting' => 32767,
+        'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}\.localhost',
     ],
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customDevelopmentChanges);
