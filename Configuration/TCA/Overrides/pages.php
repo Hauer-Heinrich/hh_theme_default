@@ -95,42 +95,11 @@ $fields = [
                 'showPossibleLocalizationRecords' => true,
                 'expandSingle' => true,
                 'collapseAll' => true,
+                'fileUploadAllowed' => false,
+                'fileByUrlAllowed' => false,
             ],
-            // custom configuration for displaying fields in the overlay/reference table
-            // to use the imageoverlayPalette instead of the basicoverlayPalette
-            'overrideChildTca' => [
-                'types' => [
-                    '0' => [
-                        'showitem' => '
-                            --palette--;;imageoverlayPalette,
-                            --palette--;;filePalette',
-                    ],
-                    \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
-                        'showitem' => '
-                            --palette--;;imageoverlayPalette,
-                            --palette--;;filePalette',
-                    ],
-                    \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                        'showitem' => '
-                            --palette--;;imageoverlayPalette,
-                            --palette--;;filePalette',
-                    ],
-                    \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
-                        'showitem' => '
-                            --palette--;;audioOverlayPalette,
-                            --palette--;;filePalette',
-                    ],
-                    \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
-                        'showitem' => '
-                            --palette--;;videoOverlayPalette,
-                            --palette--;;filePalette',
-                    ],
-                    \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
-                        'showitem' => '
-                            --palette--;;imageoverlayPalette,
-                            --palette--;;filePalette',
-                    ],
-                ],
+            'behaviour' => [
+                'allowLanguageSynchronization' => true,
             ],
         ],
     ],
