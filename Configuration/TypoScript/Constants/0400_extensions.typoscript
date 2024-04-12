@@ -69,6 +69,13 @@ plugin.tx_powermail {
 ### Hauer-Heinrich Accordion - hh_accordion ###
 ################################################################
 @import 'EXT:hh_accordion/Configuration/TypoScript/constants.typoscript'
+plugin.tx_hhaccordion {
+    view {
+        layoutRootPath = EXT:{{EXTENSION_KEY}}/Resources/Private/Extensions/hh_accordion/Layouts/
+        partialRootPath = EXT:{{EXTENSION_KEY}}/Resources/Private/Extensions/hh_accordion/Partials/
+        templateRootPath = EXT:{{EXTENSION_KEY}}/Resources/Private/Extensions/hh_accordion/Templates/
+    }
+}
 
 ################################################################
 ### Hauer-Heinrich Jobs - hh_simple_job_posts ###
