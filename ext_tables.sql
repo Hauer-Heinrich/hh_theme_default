@@ -10,6 +10,7 @@ CREATE TABLE tt_content (
 # Modifying pages table
 #
 CREATE TABLE pages (
+    header_logo int(11) unsigned DEFAULT '0' NOT NULL,
     footer_col1 mediumtext,
     footer_col2 mediumtext,
     footer_col3 mediumtext,

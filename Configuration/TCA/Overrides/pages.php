@@ -34,6 +34,20 @@ call_user_func(function() {
 
 // Configure new fields:
 $fields = [
+    'header_logo' => [
+        'label' => 'Logo',
+        'config' => [
+            'type' => 'file',
+            'maxitems' => 1,
+            'allowed' => 'common-image-types',
+            'appearance' => [
+                'expandSingle' => true,
+                'collapseAll' => true,
+                'fileUploadAllowed' => false,
+                'fileByUrlAllowed' => false,
+            ],
+        ],
+    ],
     'footer_col1' => [
         'exclude' => true,
         'label' => 'Footer col 1',
@@ -131,6 +145,8 @@ $fields = [
 // Add the new palette:
 $GLOBALS['TCA']['pages']['palettes']['footer_content'] = [
     'showitem' => '
+        header_logo,
+        --linebreak--,
         footer_col1,
         footer_col2,
         footer_col3,

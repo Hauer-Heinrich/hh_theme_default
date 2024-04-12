@@ -37,6 +37,7 @@ TCEFORM {
         notes.disabled = 1
 
         fal_related_files.config.appearance.fileUploadAllowed = 0
+        fal_media.config.appearance.fileUploadAllowed = 0
     }
 }
 
