@@ -215,6 +215,7 @@ page {
                 includeSpacer = 0
                 titleField = nav_title // title
                 as = FooterLinks
+                if.isTrue.data = levelfield:-1, footer_links, slide
             }
 
             # 96 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
