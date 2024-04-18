@@ -21,6 +21,7 @@ switch (Environment::getContext()->__toString()) {
         $additionalConfig = Environment::getPublicPath() . '/typo3conf/ext/'.$extensionKey.'/system/additional/development.php';
         break;
     default:
+        $additionalConfig = '';
         break;
 }
 
