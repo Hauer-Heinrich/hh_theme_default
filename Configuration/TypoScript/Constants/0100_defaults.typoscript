@@ -20,4 +20,6 @@ plugin.{{EXTENSION_NAME}} {
         multiLanguage = 0
     # cat=plugin.{{EXTENSION_NAME}}_mainconfig/basic/0110; type=int+; label= Trenner UID für die QuickLinks
         quickLinks =
+    # cat=plugin.{{EXTENSION_NAME}}_mainconfig/basic/0120; type=int+; label= Page UID of indexed_search plugin
+        indexedSearchId =
 }

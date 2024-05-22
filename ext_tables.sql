@@ -3,7 +3,11 @@
 #
 CREATE TABLE tt_content (
     layout varchar(255) DEFAULT '' NOT NULL,
-    header_size varchar(255) DEFAULT 'default' NOT NULL,
+    layout varchar(255) DEFAULT '' NOT NULL,
+    background varchar(255) DEFAULT '' NOT NULL,
+    row_gap int(11) unsigned DEFAULT '0' NOT NULL,
+    column_gap int(11) unsigned DEFAULT '0' NOT NULL,
+    filelink_download int(11) unsigned DEFAULT '0' NOT NULL,
 );
 
 #

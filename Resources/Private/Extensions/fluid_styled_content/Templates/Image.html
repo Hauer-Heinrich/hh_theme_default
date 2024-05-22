@@ -5,7 +5,9 @@
 
 <f:section name="Main">
     <div id="c{data.uid}" class="frame frame-group-text frame-{data.frame_class} frame-type-{data.CType} frame-layout-{data.layout}{f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}">
-        <div class="ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}">
+        <div class="ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}"
+            data-row-gap="{data.row_gap}" data-column-gap="{data.column_gap}"
+        >
             <f:if condition="{gallery.position.vertical} != 'below'">
                 <f:render partial="Media/Gallery" arguments="{_all}" />
             </f:if>

@@ -206,17 +206,17 @@ plugin.tx_indexedsearch {
         templateRootPaths {
             10 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
             20 = {$themeDefault.urls.themeResources}Private/Extensions/indexed_search/Templates/
-            30 = {$plugin.tx_indexedsearch.view.templateRootPath}
+            # 30 = {$plugin.tx_indexedsearch.view.templateRootPath}
         }
         partialRootPaths {
             10 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
             20 = {$themeDefault.urls.themeResources}Private/Extensions/indexed_search/Partials/
-            30 = {$plugin.tx_indexedsearch.view.partialRootPath}
+            # 30 = {$plugin.tx_indexedsearch.view.partialRootPath}
         }
         layoutRootPaths {
             10 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Layouts/
             20 = {$themeDefault.urls.themeResources}Private/Extensions/indexed_search/Layouts/
-            30 = {$plugin.tx_indexedsearch.view.layoutRootPath}
+            # 30 = {$plugin.tx_indexedsearch.view.layoutRootPath}
         }
     }
 
@@ -251,6 +251,38 @@ search {
         disablePrefixComment = 1
     }
     10 < plugin.tx_indexedsearch
+}
+
+lib.searchfield = USER
+lib.searchfield {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    vendorName = TYPO3\CMS
+    extensionName = IndexedSearch
+    pluginName = Pi2
+    switchableControllerActions {
+        Search {
+            1 = form
+            2 = search
+        }
+    }
+
+    features.requireCHashArgumentForActionArguments = 0
+    view =< plugin.tx_indexedsearch.view
+    view {
+        templateRootPaths {
+            100 = {$themeDefault.urls.themeResources}Private/Extensions/indexed_search/EverySite/Templates/
+        }
+        partialRootPaths {
+            100 = {$themeDefault.urls.themeResources}Private/Extensions/indexed_search/EverySite/Partials/
+        }
+    }
+    settings =< plugin.tx_indexedsearch.settings
+    settings {
+        targetPid = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
+        displayAdvancedSearchLink = 0
+        displayRules = 0
+        displayResults = 0
+    }
 }
 
 ################################################################

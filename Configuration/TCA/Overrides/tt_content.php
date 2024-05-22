@@ -9,41 +9,6 @@ use \B13\Container\Tca\ContainerConfiguration;
 call_user_func(function() {
     $extensionKey = '{{EXTENSION_KEY}}';
 
-    // START: Add custom header_size field
-    ExtensionManagementUtility::addTCAcolumns('tt_content',
-        [
-            'header_size' => [
-                'exclude' => 1,
-                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.header_size',
-                'description' => '',
-                'config' => [
-                    'type' => 'select',
-                    'renderType' => 'selectSingle',
-                    'items' => [
-                        ['Default', 'default',],
-                        ['Medium', 'medium',],
-                        ['Large', 'large',],
-                    ],
-                    'size' => 1,
-                    'maxitems' => 1,
-                ],
-            ],
-        ]
-    );
-    ExtensionManagementUtility::addFieldsToPalette(
-        'tt_content',
-        'header',
-        'header_size',
-        'after: header_layout'
-    );
-    ExtensionManagementUtility::addFieldsToPalette(
-        'tt_content',
-        'headers',
-        'header_size',
-        'after: header_layout'
-    );
-    // END: Add custom header_size field
-
     // Change header field to RTE
     $GLOBALS['TCA']['tt_content']['columns']['header']['config'] = [
         'type' => 'text',
@@ -60,6 +25,111 @@ call_user_func(function() {
 
     $GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['*,news_pi1']
         = 'FILE:EXT:{{EXTENSION_KEY}}/Configuration/Flexforms/news/flexform_news_list.xml';
+
+
+    // Add custom fields
+    ExtensionManagementUtility::addTCAcolumns('tt_content',
+        [
+            'background' => [
+                'exclude' => 1,
+                'label' => 'Background',
+                'description' => '',
+                'config' => [
+                    'type' => 'select',
+                    'renderType' => 'selectSingle',
+                    'items' => [
+                        [
+                            'label' => 'none',
+                            'value' => 0,
+                        ],
+                    ],
+                ]
+            ],
+            'row_gap' => [
+                'exclude' => 1,
+                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.row_gap',
+                'description' => '',
+                'config' => [
+                    'type' => 'number',
+                    'format' => 'integer',
+                    'range' => [
+                        'lower' => 0,
+                        'upper' => 10
+                    ],
+                    'slider' => [
+                        'step' => 1
+                    ],
+                ],
+            ],
+            'column_gap' => [
+                'exclude' => 1,
+                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.column_gap',
+                'description' => '',
+                'config' => [
+                    'type' => 'number',
+                    'format' => 'integer',
+                    'range' => [
+                        'lower' => 0,
+                        'upper' => 10
+                    ],
+                    'slider' => [
+                        'step' => 1
+                    ],
+                ],
+            ],
+            'filelink_download' => [
+                'exclude' => 1,
+                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.filelink_download',
+                'description' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.filelink_download.description',
+                'config' => [
+                    'type' => 'check',
+                    'renderType' => 'checkboxLabeledToggle',
+                    'items' => [
+                        [
+                            'label' => 'Download',
+                            'labelChecked' => 'Enabled',
+                            'labelUnchecked' => 'Disabled',
+                        ],
+                    ],
+                ],
+            ]
+        ]
+    );
+    ExtensionManagementUtility::addFieldsToPalette(
+        'tt_content',
+        'gap',
+        'row_gap, column_gap'
+    );
+
+    ExtensionManagementUtility::addFieldsToPalette(
+        'tt_content',
+        'uploads',
+        'filelink_download',
+        'after:target'
+    );
+
+    ExtensionManagementUtility::addToAllTCAtypes(
+        'tt_content',
+        'background',
+        '',
+        'after:layout'
+    );
+
+    // ce-textmedia
+    ExtensionManagementUtility::addToAllTCAtypes(
+        'tt_content',
+        '--palette--;;gap',
+        'textmedia',
+        'after:layout'
+    );
+    // ce-image
+    ExtensionManagementUtility::addToAllTCAtypes(
+        'tt_content',
+        '--palette--;;gap',
+        'image',
+        'after:layout'
+    );
+
 
     // EXT: container
     $containerRegistry = GeneralUtility::makeInstance(Registry::class);

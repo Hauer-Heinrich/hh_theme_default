@@ -4,8 +4,20 @@
         <header/>
         <body>
 
-            <trans-unit id="tt_content.header_size" xml:space="preserve">
-                <source>Header size</source>
+            <trans-unit id="tt_content.row_gap" xml:space="preserve">
+                <source>Row gap</source>
+            </trans-unit>
+
+            <trans-unit id="tt_content.column_gap" xml:space="preserve">
+                <source>Column gap</source>
+            </trans-unit>
+
+            <trans-unit id="tt_content.filelink_download" xml:space="preserve">
+                <source>Download</source>
+            </trans-unit>
+
+            <trans-unit id="tt_content.filelink_download.description" xml:space="preserve">
+                <source>Download the file without showing it in the browser.</source>
             </trans-unit>
 
         </body>

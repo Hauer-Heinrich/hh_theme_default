@@ -3,7 +3,7 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-    <div class="grid-container" data-columns="2">
+    <div class="grid-container" data-columns="2" data-row-gap="{data.row_gap}" data-column-gap="{data.column_gap}">
         <div class="grid-item grid-item-1">
             <f:if condition="{childrenLeft}">
                 <f:for each="{childrenLeft}" as="child">
