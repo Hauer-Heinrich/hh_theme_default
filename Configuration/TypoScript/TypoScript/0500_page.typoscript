@@ -189,7 +189,7 @@ page {
             90 {
                 references.data = levelfield:-1, header_logo, slide
                 references.table = pages
-                as = headerLogo
+                as = HeaderLogo
             }
 
             ################################################################
