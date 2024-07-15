@@ -1,0 +1,71 @@
+editor:
+  config:
+    contentsCss:
+      - 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/main-rte.bundle.css'
+
+    importModules:
+      - { module: '@ckeditor/ckeditor5-font', exports: [ 'Font' ] }
+      - { module: '@HauerHeinrich/ckeditor5-highlight', exports: [ 'Highlight' ] }
+
+    fontSize:
+      options:
+        - default
+        - { title: "size-small (16px)", model: "size-small", view: { name: "span", classes: "font-size-small" } }
+        - { title: "size-smedium (20px)", model: "size-smedium", view: { name: "span", classes: "font-size-smedium" } }
+        - { title: "size-medium (24px)", model: "size-medium", view: { name: "span", classes: "font-size-medium" } }
+        - { title: "size-xmedium (26px)", model: "size-xmedium", view: { name: "span", classes: "font-size-xmedium" } }
+        - { title: "size-slarge (35px)", model: "size-slarge", view: { name: "span", classes: "font-size-slarge" } }
+        - { title: "size-large (40px)", model: "size-large", view: { name: "span", classes: "font-size-large" } }
+        - { title: "size-xlarge (50px)", model: "size-xlarge", view: { name: "span", classes: "font-size-xlarge" } }
+
+    # style:
+    #   definitions:
+    #     - { name: "letter-spacing-2", element: "span", classes: ["letter-spacing-2"] }
+    #     - { name: "letter-spacing-4", element: "span", classes: ["letter-spacing-4"] }
+
+
+    ### IMPORTANT: fontColor and fontBackgroundColor uses inline-style
+    ### - we don't like inline-style, so as workaround we use a slightly modified plugin "highlight"
+    ### the highlight plugin generates original a "mark"-tag element, but we changed this to use a "span"-tag
+    # fontColor:
+    #   colorPicker: false
+    #   colors:
+    #     - { label: 'Orange', color: '#ff8700', classes: 'test' }
+    #     - { label: 'Green', color: '#209d44' }
+
+    # fontBackgroundColor:
+    #   colorPicker: false
+    #   colors:
+    #     - { label: 'Stage orange light', color: '#fab85c' }
+    highlight:
+      options:
+        - { model: 'brandPen', class: 'color-brand', title: 'Color Brand', color: '#3E3E3E', type: 'pen' }
+        - { model: 'secondaryPen', class: 'color-secondary', title: 'Color Secondary', color: '#AE0F0A', type: 'pen' }
+
+    alignment:
+      options:
+        - { name: 'left', className: 'text-left' }
+        - { name: 'center', className: 'text-center' }
+        - { name: 'right', className: 'text-right' }
+        - { name: 'justify', className: 'text-justify' }
+
+    plugins:
+      - Highlight
+
+### example linkhandler css classes
+### Button config and defaults
+buttons:
+  link:
+    relAttribute:
+      enabled: false
+    properties:
+      class:
+        allowedClasses: '
+          btn btn-default btn-brand,
+          btn btn-default btn-secondary,
+        '
+classes:
+  'btn btn-default btn-brand':
+    name: "Button Brand"
+  'btn btn-default btn-secondary':
+    name: "Button Brand 2"

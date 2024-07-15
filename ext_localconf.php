@@ -9,7 +9,7 @@ call_user_func(function() {
     // Add addRootLineFields for example slide in TypoScript
     $rootLineFields = &$GLOBALS['TYPO3_CONF_VARS']['FE']['addRootLineFields'];
     if (trim($rootLineFields) != "") $rootLineFields .= ',';
-    $rootLineFields .= 'backend_layout,footer_col1,footer_col2,footer_col3,footer_logo,footer_links,';
+    $rootLineFields .= 'backend_layout,header_logo,footer_col1,footer_col2,footer_col3,footer_logo,footer_links,';
 
     // Typo3 extension manager gearwheel icon (ext_conf_template.txt)
     $extensionConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][$extensionKey];

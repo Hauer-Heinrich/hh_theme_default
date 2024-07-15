@@ -1,4 +1,36 @@
 /* HELPERS */
+.font-size-xlarge {
+    font-size: var(--font-size-xlarge);
+}
+
+.font-size-large {
+    font-size: var(--font-size-large);
+}
+
+.font-size-slarge {
+    font-size: var(--font-size-slarge);
+}
+
+.font-size-xmedium {
+    font-size: var(--font-size-xmedium);
+}
+
+.font-size-medium {
+    font-size: var(--font-size-medium);
+}
+
+.font-size-smedium {
+    font-size: var(--font-size-smedium);
+}
+
+.font-size-default {
+    font-size: var(--font-size-default);
+}
+
+.font-size-small {
+    font-size: var(--font-size-small);
+}
+
 .full-width {
     width: 100vw;
     position: relative;
