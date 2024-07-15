@@ -1,47 +1,75 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-    xmlns:hhseo="http://typo3.org/ns/{{EXTENSION_VENDOR}}/HhSeo/ViewHelpers"
+    xmlns:seo="http://typo3.org/ns/HauerHeinrich/HhSeo/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
-<hhseo:metaTag order="0">
-viewport = initial-scale=1.0,maximum-scale=2.0,minimum-scale=1.0,user-scalable=yes,width=device-width
+<hhseo:metaTag order="0" dataType="yaml">
+title: "<f:if condition="{data.seo_title}"><f:then><hhseo:formatIni data="{data.seo_title}" /></f:then><f:else><hhseo:formatIni data="{data.title}" /></f:else></f:if>"
+titleBefore: "{hhSeo.titleBefore}"
+titleAfter: "{hhSeo.titleAfter}"
+titleSeparate: "{hhSeo.titleSeparate}"
+titleSeparateBefore: "{hhSeo.titleSeparateBefore}"
+titleSeparateAfter: "{hhSeo.titleSeparateAfter}"
 
-title = {f:if(condition: '{data.seo_title}', then: '{data.seo_title}', else: '{data.title}')}
-titleBefore = {settings.titleBefore}
-titleAfter = {settings.titleAfter}
-titleSeparate = "{settings.titleSeparate}"
-titleSeparateBefore = "{settings.titleSeparateBefore}"
-titleSeparateAfter = "{settings.titleSeparateAfter}"
+description: "<hhseo:formatYaml data="{data.description}" strip-tags="true" urlencode="false" />"
 
-description = <hhseo:formatIni data="{data.description}" />
-author = {f:if(condition: '{data.author}', then: '{data.author}', else: '{hhSeo.author}')}
-designer = {f:if(condition: '{hhSeo.designer}', then: '{hhSeo.designer}')}
-link:designer = /humans.txt
+author: "{f:if(condition: '{data.author}', then: '{data.author}', else: '{hhSeo.author}')}"
+designer: "{f:if(condition: '{hhSeo.designer}', then: '{hhSeo.designer}')}"
+link:
+    designer: "/humans.txt"
 
-theme-color = {hhSeo.themeColor}
-shortcutIcon = {hhSeo.shortcutIcon}
-touchIcon = {hhSeo.touchIcon}
-format-detection = false
-last-modified = {data.SYS_LASTCHANGED}
+theme-color: "{hhSeo.themeColor}"
+shortcutIcon: "{hhSeo.shortcutIcon}"
+touchIcon: "{hhSeo.touchIcon}"
+format-detection: "{hhSeo.formatDetection}"
+last-modified: {data.SYS_LASTCHANGED}
 
-robots:index = {f:if(condition: '{data.no_index}', then: 'noindex')}
-robots:follow = {f:if(condition: '{data.no_follow}', then: 'nofollow')}
+robots:
+    index: "<f:if condition="{data.no_index}"><f:then>noindex</f:then><f:else>index</f:else></f:if>"
+    follow: "<f:if condition="{data.no_follow}"><f:then>nofollow</f:then><f:else>follow</f:else></f:if>"
+    noimageindex: "{f:if(condition: '{data.noimageindex}', then: 'noimageindex')}"
+    noarchive: "{f:if(condition: '{data.noarchive}', then: 'noarchive')}"
+    nosnippet: "{f:if(condition: '{data.nosnippet}', then: 'nosnippet')}"
 
-og:title = {data.og_title}
-og:description = <hhseo:formatIni data="{data.og_description}" />
-<f:if condition="{og_image->f:count()} > 0">
-    <f:for each="{og_image}" as="image" iteration="i">
-        og:image[] = {f:uri.image(src: '{image.uid}', treatIdAsReference: 1)}
-    </f:for>
+
+<f:if condition="{hhSeo_slide_geoRegion} || {hhSeo_slide_geoPlacename} || ({hhSeo_slide_geoPositionLong} && {hhSeo_slide_geoPositionLat}) ">
+geo:
+    region: "{hhSeo_slide_geoRegion}"
+    placename: "{hhSeo_slide_geoPlacename}"
+    <f:if condition="{hhSeo_slide_geoPositionLong} && {hhSeo_slide_geoPositionLat}">
+    position:
+        long: "{hhSeo_slide_geoPositionLong}"
+        lat: "{hhSeo_slide_geoPositionLat}"
+    </f:if>
 </f:if>
 
-twitter:title = {data.twitter_title}
-twitter:description = <hhseo:formatIni data="{data.twitter_description}" />
-twitter:image[] = <f:if condition="{twitter_image.0}">{f:uri.image(src: '{twitter_image.0.uid}', treatIdAsReference: 1)}</f:if>
+<f:if condition="{data.og_title} || {ogDescription} || {ogImage}">
+og:
+    type: "website"
+    title: "<hhseo:formatIni data="{data.og_title}" />"
+    description: "<hhseo:formatIni data="{data.og_description}" />"
+    <f:if condition="{og_image->f:count()} > 0">
+    images:
+    <f:for each="{og_image}" as="image" iteration="i">
+        - image: "{image.publicUrl}"
+          width: "{image.properties.width}"
+          height: "{image.properties.height}"
+    </f:for>
+    </f:if>
+</f:if>
 
-geo:region = {geoRegion}
-geo:placename = {geoPlacename}
-geo:position:long = {geoPositionLong}
-geo:position:lat = {geoPositionLat}
+<f:if condition="{data.twitter_title} || {data.twitter_description} || {twitter_image.0.uid}">
+twitter:
+    card: "summary"
+    title: "<hhseo:formatIni data="{data.twitter_title}" />"
+    description: "<hhseo:formatIni data="{data.twitter_description}" />"
+    <f:if condition="{twitter_image.0.uid}">
+    images:
+        - image: {f:uri.image(src: '{twitter_image.0.uid}', treatIdAsReference: 1)}
+          alt: {twitter_image.0.alternative}
+    </f:if>
+</f:if>
+
+canonical: {data.canonical_link}
 </hhseo:metaTag>
 
 </html>
