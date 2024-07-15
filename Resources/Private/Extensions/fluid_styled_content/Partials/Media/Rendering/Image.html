@@ -25,14 +25,6 @@
             <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'smartphone', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '400', fileExtension: 'webp')}" type="image/webp" media="(min-width: 321px)">
             <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'smartphone', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '320', fileExtension: 'webp')}" type="image/webp" media="(min-width: 200px)">
 
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '1920')}" media="(min-width: 1601px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '1600')}" media="(min-width: 1334px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '1333')}" media="(min-width: 1001px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '1000')}" media="(min-width: 801px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'smartphone', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '800')}" media="(min-width: 601px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'smartphone', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '600')}" media="(min-width: 401px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'smartphone', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '400')}" media="(min-width: 321px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'smartphone', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '320')}" media="(min-width: 200px)">
             <f:if condition="{file.extension} == 'pdf'">
                 <f:then>
                     <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" loading="lazy" />
