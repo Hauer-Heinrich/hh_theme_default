@@ -18,6 +18,7 @@
     --color-button-bg: #4DAF2E;
     --color-button-bg-hover: #ffffff;
     --color-bg-default: #EEEEEE;
+    --color-radio-check: #000000;
 
     /* TYPO */
     /* (responsive fonts: https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/) */
@@ -52,7 +53,7 @@
     --padding-button: 0.75rem 1.25rem;
     --border: 1px solid #1a1a1a;
     --border-radius: 5px;
-    --border-input: 1px solid #ccc;
+    --border-input: 1px solid #000;
     --border-button: 0;
     --box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
     --box-shadow-button: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);

@@ -1,0 +1,90 @@
+/* COMPONENT - VARIABLES */
+.powermail_form {
+    --pow-max-width-col1: 200px;
+    --pow-max-width-col2: 200px;
+    --pow-max-width: 950px;
+    --pow-lable-fsize: 1rem;
+    --pow-label-select: 1.25rem;
+    --pow-padding: 0;
+    --pow-margin: 10px;
+    --pow-option-fsize: 1.25rem;
+}
+
+/* COMPONENT - STYLING */
+.powermail_fieldwrap {
+    display: flex;
+    justify-content: flex-end;
+    max-width: var(--pow-max-width);
+    flex-direction: column;
+    margin-bottom: calc(var(--pow-margin) * 2);
+
+    & input[type=checkbox] {
+        align-self: flex-start;
+    }
+}
+
+.powermail_fieldwrap_type_radio .powermail_field,
+.powermail_fieldwrap_type_checkbox .powermail_field {
+    flex-wrap: wrap;
+}
+
+.powermail_label {
+    padding-left: var(--pow-padding);
+}
+
+.powermail_label .mandatory {
+    display: contents;
+}
+
+.powermail_field label {
+    width: inherit;
+}
+
+.powermail_captchaimage {
+    margin-left: var(--pow-margin);
+    width: inherit;
+}
+
+.powermail_fieldwrap .checkbox-description {
+    font-size: 1rem;
+
+    & p {
+        font-size: inherit;
+    }
+}
+
+.frame-type-powermail_pi1 {
+    & .btn-default {
+      border-radius: 0;
+    }
+
+    & label {
+        font-size: var(--pow-lable-fsize);
+        padding-top: var(--pow-padding);
+        padding-bottom: var(--pow-padding);
+    }
+
+    & select {
+        border-right: 20px solid #fff;
+    }
+}
+
+fieldset .powermail_field {
+    flex-direction: column;
+
+    & .checkbox label,
+    & .radio label {
+        font-size: var(--pow-option-fsize);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .powermail_fieldwrap {
+        flex-wrap: wrap;
+    }
+
+    .powermail_label,
+    .powermail_captchaimage {
+        width: 100%;
+    }
+}

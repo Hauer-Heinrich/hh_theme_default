@@ -95,7 +95,30 @@ fieldset input[type="radio"] {
     display: inline-flex;
     inline-size: 1.25rem;
     padding: 0;
-    margin: 0 calc(var(--gap-input) / 2);
+    margin: 0 15px;
+    accent-color: var(--color-radio-check);
+    height: 20px;
+    font-size: 1.25rem;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    border: 1px solid var(--color-radio-check);
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--color-radio-check);
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: translate(3px, 3px);
 }
 
 fieldset select,
@@ -120,12 +143,25 @@ fieldset input[data-datepicker-format] {
     background: var(--color-input-bg);
     border: var(--border-input);
     border-radius: var(--border-radius);
+    box-shadow: 0px 0px 0px transparent;
 }
 
 fieldset .powermail_field {
     display: inline-flex;
     flex: 1 1 auto;
     width: 69.5%;
+}
+
+fieldset select {
+    display: inline-flex;
+    flex: 1 1 auto;
+    width: 100%;
+    background: var(--color-input-bg);
+    border: var(--border-input);
+    border-radius: 0;
+    box-shadow: 0px 0px 0px transparent;
+    appearance: none;
+    background: url(../Icons/chevron-down-solid.svg) no-repeat 97%;
 }
 
 /* BUTTONS */
@@ -161,6 +197,9 @@ input[type=reset]:hover {
     background: var(--color-button-bg-hover);
     color: var(--color-button-text-hover);
 }
+
+
+
 
 /* CUSTOM HTML - HEADINGS */
 h1,
