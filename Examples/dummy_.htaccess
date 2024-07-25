@@ -7,6 +7,8 @@ ServerSignature Off
 </ifmodule>
 
 RewriteEngine On
+# Allow e.g. Basic Auth
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 
 # Store the current location in an environment variable CWD to use
 # mod_rewrite in .htaccess files without knowing the RewriteBase
@@ -445,26 +447,23 @@ FileETag None
 # | Add your own rules here.
 # ----------------------------------------------------------------------
 
-#Alternative caching using Apache's "mod_headers", if it's installed.
-#Caching of common files - ENABLED
+# Alternative caching using Apache's "mod_headers", if it's installed.
+# Caching of common files - ENABLED
 <IfModule mod_headers.c>
     <filesmatch "\\.(ico|jpe?g|png|svg|gif|swf)$">
-        # Header set Cache-Control "max-age=2592000, public"
+        Header set Cache-Control "max-age=2592000, public"
         ### ONLY DEVELOPMENT
-        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
-        Header set Pragma "no-cache"
+        # Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
     </filesmatch>
     <filesmatch "\\.(css)$">
-        # Header set Cache-Control "max-age=604800, public"
+        Header set Cache-Control "max-age=604800, public"
         ### ONLY DEVELOPMENT
-        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
-        Header set Pragma "no-cache"
+        # Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
     </filesmatch>
     <filesmatch "\\.(js)$">
-        # Header set Cache-Control "max-age=216000, private"
+        Header set Cache-Control "max-age=216000, private"
         ### ONLY DEVELOPMENT
-        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
-        Header set Pragma "no-cache"
+        # Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
     </filesmatch>
 </IfModule>
 
