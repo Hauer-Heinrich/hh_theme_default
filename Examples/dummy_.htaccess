@@ -7,9 +7,6 @@ ServerSignature Off
 </ifmodule>
 
 RewriteEngine On
-# Allow e.g. Basic Auth
-SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
-
 # Store the current location in an environment variable CWD to use
 # mod_rewrite in .htaccess files without knowing the RewriteBase
 RewriteCond $0#%{REQUEST_URI} ([^#]*)#(.*)\1$
@@ -38,6 +35,7 @@ RewriteRule .? - [E=TYPO3_CONTEXT:Development/Server]
 RewriteCond %{HTTP_HOST} ^(www\.)?domain\.localhost$ [NC]
 RewriteRule (.*) $1 [E=TYPO3_CONTEXT:Development]
 
+# Allow e.g. Basic Auth
 SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 
 ### Example for directorys cache and log outside of document root for better security
