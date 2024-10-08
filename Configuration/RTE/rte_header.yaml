@@ -1,35 +1,41 @@
-####
-# Example of what CKEditor can all bring
-###
-
 ### Load default processing options
 imports:
     - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Processing.yaml' }
     - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml' }
     - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml' }
+    - { resource: 'EXT:{{EXTENSION_KEY}}/Configuration/RTE/rte_all.yaml' }
 
 ### Add configuration for the editor
 ### For complete documentation see https://ckeditor.com/docs/ckeditor5/latest/features/index.html
 editor:
   config:
-    contentsCss: 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/main-rte.bundle.css'
     height: 60
 
-    # style:
-      # definitions:
-        ### Inline styles
-        # - { name: "btn-default", element: "span", classes: ["btn-default"] }
-        # - { name: "btn-fullwidth", element: "span", classes: ["btn-fullwidth"] }
+    heading:
+      options:
+        - { model: 'heading1', view: 'h1', title: 'Heading 1' }
+        - { model: 'heading2', view: 'h2', title: 'Heading 2' }
+        - { model: 'heading3', view: 'h3', title: 'Heading 3' }
+        - { model: 'heading4', view: 'h4', title: 'Heading 4' }
+        - { model: 'heading5', view: 'h5', title: 'Heading 5' }
 
     toolbar:
       items:
         - removeFormat
         - undo
         - redo
+        - heading
+        - '|'
+        - link
+        - '|'
         - bold
-        - italic
         - softhyphen
+        - alignment
+        - fontSize
+        - highlight
         - style
+        - '|'
+        - sourceEditing
 
     wordCount:
       displayWords: false

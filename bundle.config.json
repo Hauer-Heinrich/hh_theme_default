@@ -20,7 +20,8 @@
             "./static/*", "../static/*"
         ],
         "supported": {
-            "nesting": false
+            "nesting": false,
+            "is-pseudo-class": false
         }
     }
 ]

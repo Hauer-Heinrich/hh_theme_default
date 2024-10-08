@@ -1,16 +1,16 @@
 /* COMPONENT - VARIABLES */
 .frame-group-text {
     --frame-item-margin: 1rem;
-    --frame-item-gap: 2rem;
+    --frame-item-gap: 0rem;
 }
 
 /* COMPONENT - STYLING */
 .frame-group-text {
-    & .ce-gallery+.ce-bodytext {
+    & .ce-gallery + .ce-bodytext {
         margin-top: var(--frame-item-margin);
     }
 
-    & .ce-bodytext+.ce-gallery {
+    & .ce-bodytext + .ce-gallery {
         margin-top: var(--frame-item-margin);
     }
 
@@ -24,29 +24,19 @@
     & .ce-gallery {
         text-align: left;
     }
-
-    & .ce-bodytext {}
 }
 
 .frame-group-text .ce-center {
     & .ce-gallery {
         text-align: center;
     }
-
-    & .ce-bodytext {}
 }
 
 .frame-group-text .ce-right {
     & .ce-gallery {
         text-align: right;
     }
-
-    & .ce-bodytext {}
 }
-
-.frame-group-text .ce-above {}
-
-.frame-group-text .ce-below {}
 
 .frame-group-text .ce-intext {
     display: flex;
@@ -72,189 +62,23 @@
     }
 
     /* CE-RIGHT (Image right, text left) */
-    &.ce-right .ce-gallery {
-        order: 1;
+    &.ce-right {
+        & .ce-gallery {
+            order: 1;
+        }
+
+        & .ce-bodytext {
+            padding-right: 2rem;
+        }
     }
 
-    &.ce-right .ce-bodytext {}
-
-
+    &.ce-left {
+        & .ce-bodytext {
+            padding-left: 2rem;
+        }
+    }
 }
-
-.frame-group-text .ce-nowrap {}
-
 
 /* START: custom layouts */
-.frame-layout-grey-bg--offset-image {
-    background-color: var(--color-bg-default);
-    font-size: 1.38rem;
-
-    & .ce-bodytext {
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
-
-    & h1,
-    & h2,
-    & h3,
-    & h4,
-    & h5,
-    & h6 {
-        margin-bottom: 14px;
-    }
-}
-
-@media screen and (min-width: 800px) {
-    .frame-layout-grey-bg--offset-image {
-        & .ce-gallery {
-            margin-top: -70px;
-        }
-    }
-}
-
-@media screen and (min-width: 1000px) {
-    .frame-layout-grey-bg--offset-image {
-        & .ce-bodytext {
-            padding-top: 6.25vh;
-            padding-bottom: 20px;
-        }
-
-        & .ce-intext {
-            & .ce-bodytext {
-                flex: 1 1 max(60% - var(--frame-item-gap), 320px);
-            }
-
-            & .ce-gallery {
-                flex: 1 1 max(40% - var(--frame-item-gap), 320px);
-            }
-        }
-    }
-
-    & .ce-textpic.ce-right {
-        & .ce-bodytext {
-            padding-left: 3.65vw;
-        }
-    }
-
-    & .ce-textpic.ce-left {
-        & .ce-bodytext {
-            padding-right: 3.65vw;
-        }
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .frame-layout-grey-bg--offset-image {
-        & .ce-bodytext {
-            padding-top: 3.5vw;
-        }
-    }
-}
-
-@media screen and (min-width: 1921px) {
-    .frame-layout-grey-bg--offset-image {
-        & .ce-bodytext {
-            padding-top: 70px;
-            padding-bottom: 70px;
-        }
-
-        & .ce-textpic.ce-right {
-            & .ce-bodytext {
-                padding-left: 70px;
-            }
-        }
-
-        & .ce-textpic.ce-left {
-            & .ce-bodytext {
-                padding-right: 70px;
-            }
-        }
-    }
-}
-
-.frame-layout-text-overlay {
-    & .ce-textpic {
-        display: grid;
-        grid-template-columns: 100%;
-        align-items: center;
-    }
-
-    & .ce-gallery {
-        grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row-start: 1;
-        grid-row-end: 2;
-        z-index: 10;
-    }
-
-    & .ce-bodytext {
-        color: #fff;
-        grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row-start: 1;
-        grid-row-end: 2;
-        padding-left: 50px;
-        padding-top: 50px;
-        padding-right: 50px;
-        padding-bottom: 50px;
-        z-index: 20;
-    }
-
-    & .ce-bodytext .ce-headline-left:first-of-type {
-        margin-bottom: 7px;
-    }
-
-    & .ce-right {
-        & .ce-bodytext {
-            padding-left: 10.5vw;
-        }
-    }
-
-    & .ce-left {
-        & .ce-bodytext {
-            padding-right: 10.5vw;
-        }
-    }
-
-    &.frame-none {
-        padding: 0;
-    }
-
-    &.frame-full-width {
-        padding: 0;
-    }
-
-    &.frame-max-width {
-        padding: 0;
-    }
-}
-
-@media screen and (min-width: 800px) {
-    .frame-layout-text-overlay {
-
-        & .ce-right,
-        & .ce-left {
-            & .ce-bodytext {
-                max-width: 50%;
-            }
-        }
-    }
-}
-
-@media screen and (min-width: 1921px) {
-    .frame-layout-text-overlay {
-        & .ce-right {
-            & .ce-bodytext {
-                padding-left: 200px;
-            }
-        }
-
-        & .ce-left {
-            & .ce-bodytext {
-                padding-right: 200px;
-            }
-        }
-    }
-}
 
 /* END: custom layouts */

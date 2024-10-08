@@ -18,6 +18,7 @@ The hh_theme_default is a TYPO3 extension/theme (starter kit) that includes a JS
 6. Include the theme to your TYPO3 PageTS Configuration (PageTS->backend->rootPage->site configuration->resources)
 
 *INFO (for Windows Users): The script "npm run init" is not supported on Windows (please use Linux Windows WSL instead) or replace all the placeholders manually with the help of the search regex: `\{\{.*\}\}`*
+Or use BETA PowerShell within the hh_theme_default directory, command: `.\init.ps1`.
 
 ### Usage of Build Tools
 - `npm run init` (only needed on first setup)

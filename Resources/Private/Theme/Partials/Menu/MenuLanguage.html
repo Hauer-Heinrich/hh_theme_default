@@ -13,7 +13,7 @@
             <f:for each="{menu}" as="item">
                 <f:if condition="{item.available}">
                     <li class="{f:if(condition: '{item.active}', then: 'active')}{f:if(condition: '{item.available}', else: ' text-muted')}">
-                        <f:link.page class="{f:if(condition: item.active, then: 'act')}" addQueryString="1" title="{item.navigationTitle}" additionalParams="{L:item.languageUid}" additionalAttributes="{hreflang: '{item.hreflang}', data-langUid: '{item.languageUid}'}">
+                        <f:link.page class="{f:if(condition: item.active, then: 'act')}" addQueryString="1" title="{item.navigationTitle}" additionalParams="{L:item.languageId}" additionalAttributes="{hreflang: '{item.hreflang}', data-langUid: '{item.languageId}'}">
                             <span>{item.navigationTitle}</span>
                         </f:link.page>
                     </li>

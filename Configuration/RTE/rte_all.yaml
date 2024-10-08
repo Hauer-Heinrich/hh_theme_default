@@ -10,13 +10,13 @@ editor:
     fontSize:
       options:
         - default
-        - { title: "size-small (16px)", model: "size-small", view: { name: "span", classes: "font-size-small" } }
-        - { title: "size-smedium (20px)", model: "size-smedium", view: { name: "span", classes: "font-size-smedium" } }
-        - { title: "size-medium (24px)", model: "size-medium", view: { name: "span", classes: "font-size-medium" } }
-        - { title: "size-xmedium (26px)", model: "size-xmedium", view: { name: "span", classes: "font-size-xmedium" } }
-        - { title: "size-slarge (35px)", model: "size-slarge", view: { name: "span", classes: "font-size-slarge" } }
+        - { title: "size-xlarge (45px)", model: "size-xlarge", view: { name: "span", classes: "font-size-xlarge" } }
         - { title: "size-large (40px)", model: "size-large", view: { name: "span", classes: "font-size-large" } }
-        - { title: "size-xlarge (50px)", model: "size-xlarge", view: { name: "span", classes: "font-size-xlarge" } }
+        - { title: "size-slarge (32px)", model: "size-slarge", view: { name: "span", classes: "font-size-slarge" } }
+        - { title: "size-xmedium (30px)", model: "size-xmedium", view: { name: "span", classes: "font-size-xmedium" } }
+        - { title: "size-medium (25px)", model: "size-medium", view: { name: "span", classes: "font-size-medium" } }
+        - { title: "size-smedium (20px)", model: "size-smedium", view: { name: "span", classes: "font-size-smedium" } }
+        - { title: "size-small (16px)", model: "size-small", view: { name: "span", classes: "font-size-small" } }
 
     # style:
     #   definitions:

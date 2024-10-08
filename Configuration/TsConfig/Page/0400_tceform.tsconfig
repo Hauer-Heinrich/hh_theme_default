@@ -98,8 +98,6 @@ TCEFORM {
             types {
                 textmedia {
                     addItems {
-                        grey-bg--offset-image = Gauer Hintergrund mit versetztem Bild
-                        text-overlay = Text over image
                     }
                 }
             }
