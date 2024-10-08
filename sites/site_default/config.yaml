@@ -7,14 +7,15 @@ baseVariants:
   -
     base: 'http://www.{{EXTENSION_DOMAIN_NAME}}.localhost'
     condition: 'applicationContext == "Development"'
+
 languages:
   -
     title: Deutsch
     enabled: true
-    languageId: '0'
+    languageId: 0
     base: /
     typo3Language: de
-    locale: de_DE.utf8
+    locale: de_DE.UTF-8
     iso-639-1: de # https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
     navigationTitle: DE
     hreflang: de
@@ -22,6 +23,7 @@ languages:
     fallbackType: strict
     fallbacks: ''
     flag: de
+
 errorHandling:
   -
     errorCode: '404'
@@ -31,12 +33,14 @@ errorHandling:
     errorCode: '503'
     errorHandler: Page
     errorContentSource: 't3://page?uid=10' # uid = page UID from the BE page tree
+
 ### Import default Robots.txt
 imports:
   - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/robots.yaml" }
   - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/humans.yaml" }
   - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/extensions/news.yaml" }
   - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/extensions/tt_address.yaml" }
+
 routeEnhancers:
   PageTypeSuffix:
     type: PageType

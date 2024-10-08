@@ -43,7 +43,7 @@
         opacity: 1;
     }
 
-    & figure a+figcaption {
+    & figure a + figcaption {
         pointer-events: none;
     }
 

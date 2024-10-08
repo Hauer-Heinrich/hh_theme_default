@@ -6,9 +6,7 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use \B13\Container\Tca\Registry;
 use \B13\Container\Tca\ContainerConfiguration;
 
-call_user_func(function() {
-    $extensionKey = '{{EXTENSION_KEY}}';
-
+call_user_func(function(string $extensionKey) {
     // Change header field to RTE
     $GLOBALS['TCA']['tt_content']['columns']['header']['config'] = [
         'type' => 'text',
@@ -283,4 +281,4 @@ call_user_func(function() {
     );
     $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2--25-75']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2']['showitem'];
     // EXT: container end
-});
+}, '{{EXTENSION_KEY}}');

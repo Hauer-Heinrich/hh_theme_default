@@ -3,9 +3,7 @@ defined('TYPO3') or die();
 
 use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
-call_user_func(function() {
-    $extensionKey = '{{EXTENSION_KEY}}';
-
+call_user_func(function(string $extensionKey) {
     // Add addRootLineFields for example slide in TypoScript
     $rootLineFields = &$GLOBALS['TYPO3_CONF_VARS']['FE']['addRootLineFields'];
     if (trim($rootLineFields) != "") $rootLineFields .= ',';
@@ -33,4 +31,4 @@ call_user_func(function() {
     if(!in_array('utm_id', $cacheFeExcludedParameters)) {
         array_push($cacheFeExcludedParameters, 'utm_id');
     }
-});
+}, '{{EXTENSION_KEY}}');

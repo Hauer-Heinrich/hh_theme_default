@@ -3,9 +3,7 @@ defined('TYPO3') or die();
 
 use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
-call_user_func(function() {
-    $extensionKey = '{{EXTENSION_KEY}}';
-
+call_user_func(function(string $extensionKey) {
     // make PageTsConfig selectable
     ExtensionManagementUtility::registerPageTSConfigFile(
         $extensionKey,
@@ -26,7 +24,7 @@ call_user_func(function() {
         'Configuration/TsConfig/tt_address-only.tsconfig',
         'Additional / extra config for: address'
     );
-});
+}, '{{EXTENSION_KEY}}');
 
 
 
