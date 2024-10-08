@@ -3,7 +3,6 @@ if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
-use \TYPO3\CMS\Core\Core\Environment;
 use \TYPO3\CMS\Core\Log\LogLevel;
 use \TYPO3\CMS\Core\Log\Writer\FileWriter;
 
@@ -53,7 +52,3 @@ $customChanges = [
     ],
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customChanges);
-
-
-$databaseCredentialsFile = Environment::getPublicPath() . '/../env/typo3_config.php';
-if (file_exists($databaseCredentialsFile)) { require_once ($databaseCredentialsFile); }

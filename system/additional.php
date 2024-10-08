@@ -28,3 +28,8 @@ switch (Environment::getContext()->__toString()) {
 if (file_exists($additionalConfig)) {
     require_once ($additionalConfig);
 }
+
+// typo3_config directory contains configuration for e.g. database access,
+// install tool password and configuration for system dependent settings.
+$databaseCredentialsFile = Environment::getPublicPath() . '/../config/typo3_env_config.php';
+if (file_exists($databaseCredentialsFile)) { require_once ($databaseCredentialsFile); }

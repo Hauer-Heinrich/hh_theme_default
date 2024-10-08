@@ -3,7 +3,6 @@ if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
-use \TYPO3\CMS\Core\Core\Environment;
 use \TYPO3\CMS\Core\Log\LogLevel;
 use \TYPO3\CMS\Core\Log\Writer\FileWriter;
 
@@ -78,8 +77,3 @@ $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'
 //         $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$cacheName]['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;
 //     }
 // }
-
-// typo3_config directory contains configuration for e.g. database access,
-// install tool password and configuration for system dependent settings.
-$databaseCredentialsFile = Environment::getPublicPath() . '/../env/typo3_config.php';
-if (file_exists($databaseCredentialsFile)) { require_once ($databaseCredentialsFile); }
