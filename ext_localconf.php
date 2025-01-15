@@ -18,9 +18,6 @@ call_user_func(function(string $extensionKey) {
     $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['rte_theme'] = $rtePresets;
     $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['rte_header'] = $rtePresetHeader;
 
-    // Add UserTS config as default for all BE users
-    ExtensionManagementUtility::addUserTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:{{EXTENSION_KEY}}/Configuration/TsConfig/User/user.tsconfig">');
-
     // Register "hhdefault" as global fluid namespace
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['hhdefault'] = ['{{EXTENSION_VENDOR}}\\{{EXTENSION_NAMESPACE}}\\ViewHelpers'];
 
