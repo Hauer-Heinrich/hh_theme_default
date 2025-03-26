@@ -6,1421 +6,1414 @@
 
 ### Version Information #
 ###################################################
-### Version: V3.2019.10.1184
-### Updated: Sat Oct 19 11:31:10 SAST 2019
-### Bad Bot Count: 562
+### Version: V3.2025.03.2218
+### Updated: Wed Mar 26 10:13:34 UTC 2025
+### Bad Bot Count: 666
 ###################################################
 ### Version Information ##
 routes:
   -
     route: robots.txt
     type: staticText # content: end of line change the URL to the sitemap!
-    content: "
-      User-agent: *\r\n
-      Disallow: /wp-admin/\r\n
-      Allow: /wp-admin/admin-ajax.php\r\n
-      User-agent: 01h4x.com\r\n
-      Disallow:/\r\n
-      User-agent: 360Spider\r\n
-      Disallow:/\r\n
-      User-agent: 404checker\r\n
-      Disallow:/\r\n
-      User-agent: 404enemy\r\n
-      Disallow:/\r\n
-      User-agent: 80legs\r\n
-      Disallow:/\r\n
-      User-agent: ADmantX\r\n
-      Disallow:/\r\n
-      User-agent: AIBOT\r\n
-      Disallow:/\r\n
-      User-agent: ALittle Client\r\n
-      Disallow:/\r\n
-      User-agent: ASPSeek\r\n
-      Disallow:/\r\n
-      User-agent: Abonti\r\n
-      Disallow:/\r\n
-      User-agent: Aboundex\r\n
-      Disallow:/\r\n
-      User-agent: Aboundexbot\r\n
-      Disallow:/\r\n
-      User-agent: Acunetix\r\n
-      Disallow:/\r\n
-      User-agent: AdsTxtCrawlerTP\r\n
-      Disallow:/\r\n
-      User-agent: AfD-Verbotsverfahren\r\n
-      Disallow:/\r\n
-      User-agent: AhrefsBot\r\n
-      Disallow:/\r\n
-      User-agent: AiHitBot\r\n
-      Disallow:/\r\n
-      User-agent: Aipbot\r\n
-      Disallow:/\r\n
-      User-agent: Alexibot\r\n
-      Disallow:/\r\n
-      User-agent: AllSubmitter\r\n
-      Disallow:/\r\n
-      User-agent: Alligator\r\n
-      Disallow:/\r\n
-      User-agent: AlphaBot\r\n
-      Disallow:/\r\n
-      User-agent: Anarchie\r\n
-      Disallow:/\r\n
-      User-agent: Anarchy\r\n
-      Disallow:/\r\n
-      User-agent: Anarchy99\r\n
-      Disallow:/\r\n
-      User-agent: Ankit\r\n
-      Disallow:/\r\n
-      User-agent: Anthill\r\n
-      Disallow:/\r\n
-      User-agent: Apexoo\r\n
-      Disallow:/\r\n
-      User-agent: Aspiegel\r\n
-      Disallow:/\r\n
-      User-agent: Asterias\r\n
-      Disallow:/\r\n
-      User-agent: Atomseobot\r\n
-      Disallow:/\r\n
-      User-agent: Attach\r\n
-      Disallow:/\r\n
-      User-agent: AwarioBot\r\n
-      Disallow:/\r\n
-      User-agent: AwarioRssBot\r\n
-      Disallow:/\r\n
-      User-agent: AwarioSmartBot\r\n
-      Disallow:/\r\n
-      User-agent: BBBike\r\n
-      Disallow:/\r\n
-      User-agent: BDCbot\r\n
-      Disallow:/\r\n
-      User-agent: BDFetch\r\n
-      Disallow:/\r\n
-      User-agent: BLEXBot\r\n
-      Disallow:/\r\n
-      User-agent: BackDoorBot\r\n
-      Disallow:/\r\n
-      User-agent: BackStreet\r\n
-      Disallow:/\r\n
-      User-agent: BackWeb\r\n
-      Disallow:/\r\n
-      User-agent: Backlink-Ceck\r\n
-      Disallow:/\r\n
-      User-agent: BacklinkCrawler\r\n
-      Disallow:/\r\n
-      User-agent: Badass\r\n
-      Disallow:/\r\n
-      User-agent: Bandit\r\n
-      Disallow:/\r\n
-      User-agent: Barkrowler\r\n
-      Disallow:/\r\n
-      User-agent: BatchFTP\r\n
-      Disallow:/\r\n
-      User-agent: Battleztar Bazinga\r\n
-      Disallow:/\r\n
-      User-agent: BetaBot\r\n
-      Disallow:/\r\n
-      User-agent: Bigfoot\r\n
-      Disallow:/\r\n
-      User-agent: Bitacle\r\n
-      Disallow:/\r\n
-      User-agent: Black Hole\r\n
-      Disallow:/\r\n
-      User-agent: BlackWidow\r\n
-      Disallow:/\r\n
-      User-agent: Blackboard\r\n
-      Disallow:/\r\n
-      User-agent: Blow\r\n
-      Disallow:/\r\n
-      User-agent: BlowFish\r\n
-      Disallow:/\r\n
-      User-agent: Boardreader\r\n
-      Disallow:/\r\n
-      User-agent: Bolt\r\n
-      Disallow:/\r\n
-      User-agent: BotALot\r\n
-      Disallow:/\r\n
-      User-agent: Brandprotect\r\n
-      Disallow:/\r\n
-      User-agent: Brandwatch\r\n
-      Disallow:/\r\n
-      User-agent: Buck\r\n
-      Disallow:/\r\n
-      User-agent: Buddy\r\n
-      Disallow:/\r\n
-      User-agent: BuiltBotTough\r\n
-      Disallow:/\r\n
-      User-agent: BuiltWith\r\n
-      Disallow:/\r\n
-      User-agent: Bullseye\r\n
-      Disallow:/\r\n
-      User-agent: BunnySlippers\r\n
-      Disallow:/\r\n
-      User-agent: BuzzSumo\r\n
-      Disallow:/\r\n
-      User-agent: Bytespider\r\n
-      Disallow:/\r\n
-      User-agent: CATExplorador\r\n
-      Disallow:/\r\n
-      User-agent: CCBot\r\n
-      Disallow:/\r\n
-      User-agent: CODE87\r\n
-      Disallow:/\r\n
-      User-agent: CSHttp\r\n
-      Disallow:/\r\n
-      User-agent: Calculon\r\n
-      Disallow:/\r\n
-      User-agent: CazoodleBot\r\n
-      Disallow:/\r\n
-      User-agent: Cegbfeieh\r\n
-      Disallow:/\r\n
-      User-agent: CensysInspect\r\n
-      Disallow:/\r\n
-      User-agent: ChatGPT-User\r\n
-      Disallow:/\r\n
-      User-agent: CheTeam\r\n
-      Disallow:/\r\n
-      User-agent: CheeseBot\r\n
-      Disallow:/\r\n
-      User-agent: CherryPicker\r\n
-      Disallow:/\r\n
-      User-agent: ChinaClaw\r\n
-      Disallow:/\r\n
-      User-agent: Chlooe\r\n
-      Disallow:/\r\n
-      User-agent: Citoid\r\n
-      Disallow:/\r\n
-      User-agent: Claritybot\r\n
-      Disallow:/\r\n
-      User-agent: ClaudeBot\r\n
-      Disallow:/\r\n
-      User-agent: Cliqzbot\r\n
-      Disallow:/\r\n
-      User-agent: Cloud mapping\r\n
-      Disallow:/\r\n
-      User-agent: Cocolyzebot\r\n
-      Disallow:/\r\n
-      User-agent: Cogentbot\r\n
-      Disallow:/\r\n
-      User-agent: Collector\r\n
-      Disallow:/\r\n
-      User-agent: Copier\r\n
-      Disallow:/\r\n
-      User-agent: CopyRightCheck\r\n
-      Disallow:/\r\n
-      User-agent: Copyscape\r\n
-      Disallow:/\r\n
-      User-agent: Cosmos\r\n
-      Disallow:/\r\n
-      User-agent: Craftbot\r\n
-      Disallow:/\r\n
-      User-agent: Crawling at Home Project\r\n
-      Disallow:/\r\n
-      User-agent: CrazyWebCrawler\r\n
-      Disallow:/\r\n
-      User-agent: Crescent\r\n
-      Disallow:/\r\n
-      User-agent: CrunchBot\r\n
-      Disallow:/\r\n
-      User-agent: Curious\r\n
-      Disallow:/\r\n
-      User-agent: Custo\r\n
-      Disallow:/\r\n
-      User-agent: CyotekWebCopy\r\n
-      Disallow:/\r\n
-      User-agent: DBLBot\r\n
-      Disallow:/\r\n
-      User-agent: DIIbot\r\n
-      Disallow:/\r\n
-      User-agent: DSearch\r\n
-      Disallow:/\r\n
-      User-agent: DTS Agent\r\n
-      Disallow:/\r\n
-      User-agent: DataCha0s\r\n
-      Disallow:/\r\n
-      User-agent: DatabaseDriverMysqli\r\n
-      Disallow:/\r\n
-      User-agent: Demon\r\n
-      Disallow:/\r\n
-      User-agent: Deusu\r\n
-      Disallow:/\r\n
-      User-agent: Devil\r\n
-      Disallow:/\r\n
-      User-agent: Digincore\r\n
-      Disallow:/\r\n
-      User-agent: DigitalPebble\r\n
-      Disallow:/\r\n
-      User-agent: Dirbuster\r\n
-      Disallow:/\r\n
-      User-agent: Disco\r\n
-      Disallow:/\r\n
-      User-agent: Discobot\r\n
-      Disallow:/\r\n
-      User-agent: Discoverybot\r\n
-      Disallow:/\r\n
-      User-agent: Dispatch\r\n
-      Disallow:/\r\n
-      User-agent: DittoSpyder\r\n
-      Disallow:/\r\n
-      User-agent: DnBCrawler-Analytics\r\n
-      Disallow:/\r\n
-      User-agent: DnyzBot\r\n
-      Disallow:/\r\n
-      User-agent: DomCopBot\r\n
-      Disallow:/\r\n
-      User-agent: DomainAppender\r\n
-      Disallow:/\r\n
-      User-agent: DomainCrawler\r\n
-      Disallow:/\r\n
-      User-agent: DomainSigmaCrawler\r\n
-      Disallow:/\r\n
-      User-agent: DomainStatsBot\r\n
-      Disallow:/\r\n
-      User-agent: Domains Project\r\n
-      Disallow:/\r\n
-      User-agent: Dotbot\r\n
-      Disallow:/\r\n
-      User-agent: Download Wonder\r\n
-      Disallow:/\r\n
-      User-agent: Dragonfly\r\n
-      Disallow:/\r\n
-      User-agent: Drip\r\n
-      Disallow:/\r\n
-      User-agent: ECCP/1.0\r\n
-      Disallow:/\r\n
-      User-agent: EMail Siphon\r\n
-      Disallow:/\r\n
-      User-agent: EMail Wolf\r\n
-      Disallow:/\r\n
-      User-agent: EasyDL\r\n
-      Disallow:/\r\n
-      User-agent: Ebingbong\r\n
-      Disallow:/\r\n
-      User-agent: Ecxi\r\n
-      Disallow:/\r\n
-      User-agent: EirGrabber\r\n
-      Disallow:/\r\n
-      User-agent: EroCrawler\r\n
-      Disallow:/\r\n
-      User-agent: Evil\r\n
-      Disallow:/\r\n
-      User-agent: Exabot\r\n
-      Disallow:/\r\n
-      User-agent: Express WebPictures\r\n
-      Disallow:/\r\n
-      User-agent: ExtLinksBot\r\n
-      Disallow:/\r\n
-      User-agent: Extractor\r\n
-      Disallow:/\r\n
-      User-agent: ExtractorPro\r\n
-      Disallow:/\r\n
-      User-agent: Extreme Picture Finder\r\n
-      Disallow:/\r\n
-      User-agent: EyeNetIE\r\n
-      Disallow:/\r\n
-      User-agent: Ezooms\r\n
-      Disallow:/\r\n
-      User-agent: FDM\r\n
-      Disallow:/\r\n
-      User-agent: FHscan\r\n
-      Disallow:/\r\n
-      User-agent: FacebookBot\r\n
-      Disallow:/\r\n
-      User-agent: FemtosearchBot\r\n
-      Disallow:/\r\n
-      User-agent: Fimap\r\n
-      Disallow:/\r\n
-      User-agent: Firefox/7.0\r\n
-      Disallow:/\r\n
-      User-agent: FlashGet\r\n
-      Disallow:/\r\n
-      User-agent: Flunky\r\n
-      Disallow:/\r\n
-      User-agent: Foobot\r\n
-      Disallow:/\r\n
-      User-agent: Freeuploader\r\n
-      Disallow:/\r\n
-      User-agent: FrontPage\r\n
-      Disallow:/\r\n
-      User-agent: Fuzz\r\n
-      Disallow:/\r\n
-      User-agent: FyberSpider\r\n
-      Disallow:/\r\n
-      User-agent: Fyrebot\r\n
-      Disallow:/\r\n
-      User-agent: G-i-g-a-b-o-t\r\n
-      Disallow:/\r\n
-      User-agent: GPTBot\r\n
-      Disallow:/\r\n
-      User-agent: GT::WWW\r\n
-      Disallow:/\r\n
-      User-agent: GalaxyBot\r\n
-      Disallow:/\r\n
-      User-agent: Genieo\r\n
-      Disallow:/\r\n
-      User-agent: GermCrawler\r\n
-      Disallow:/\r\n
-      User-agent: GetRight\r\n
-      Disallow:/\r\n
-      User-agent: GetWeb\r\n
-      Disallow:/\r\n
-      User-agent: Getintent\r\n
-      Disallow:/\r\n
-      User-agent: Gigabot\r\n
-      Disallow:/\r\n
-      User-agent: Go!Zilla\r\n
-      Disallow:/\r\n
-      User-agent: Go-Ahead-Got-It\r\n
-      Disallow:/\r\n
-      User-agent: GoZilla\r\n
-      Disallow:/\r\n
-      User-agent: Google-Extended\r\n
-      Disallow:/\r\n
-      User-agent: Gotit\r\n
-      Disallow:/\r\n
-      User-agent: GrabNet\r\n
-      Disallow:/\r\n
-      User-agent: Grabber\r\n
-      Disallow:/\r\n
-      User-agent: Grafula\r\n
-      Disallow:/\r\n
-      User-agent: GrapeFX\r\n
-      Disallow:/\r\n
-      User-agent: GrapeshotCrawler\r\n
-      Disallow:/\r\n
-      User-agent: GridBot\r\n
-      Disallow:/\r\n
-      User-agent: HEADMasterSEO\r\n
-      Disallow:/\r\n
-      User-agent: HMView\r\n
-      Disallow:/\r\n
-      User-agent: HTMLparser\r\n
-      Disallow:/\r\n
-      User-agent: HTTP::Lite\r\n
-      Disallow:/\r\n
-      User-agent: HTTrack\r\n
-      Disallow:/\r\n
-      User-agent: Haansoft\r\n
-      Disallow:/\r\n
-      User-agent: HaosouSpider\r\n
-      Disallow:/\r\n
-      User-agent: Harvest\r\n
-      Disallow:/\r\n
-      User-agent: Havij\r\n
-      Disallow:/\r\n
-      User-agent: Heritrix\r\n
-      Disallow:/\r\n
-      User-agent: Hloader\r\n
-      Disallow:/\r\n
-      User-agent: HonoluluBot\r\n
-      Disallow:/\r\n
-      User-agent: Humanlinks\r\n
-      Disallow:/\r\n
-      User-agent: HybridBot\r\n
-      Disallow:/\r\n
-      User-agent: IDBTE4M\r\n
-      Disallow:/\r\n
-      User-agent: IDBot\r\n
-      Disallow:/\r\n
-      User-agent: IRLbot\r\n
-      Disallow:/\r\n
-      User-agent: Iblog\r\n
-      Disallow:/\r\n
-      User-agent: Id-search\r\n
-      Disallow:/\r\n
-      User-agent: IlseBot\r\n
-      Disallow:/\r\n
-      User-agent: Image Fetch\r\n
-      Disallow:/\r\n
-      User-agent: Image Sucker\r\n
-      Disallow:/\r\n
-      User-agent: ImagesiftBot\r\n
-      Disallow:/\r\n
-      User-agent: IndeedBot\r\n
-      Disallow:/\r\n
-      User-agent: Indy Library\r\n
-      Disallow:/\r\n
-      User-agent: InfoNaviRobot\r\n
-      Disallow:/\r\n
-      User-agent: InfoTekies\r\n
-      Disallow:/\r\n
-      User-agent: Information Security Team InfraSec Scanner\r\n
-      Disallow:/\r\n
-      User-agent: InfraSec Scanner\r\n
-      Disallow:/\r\n
-      User-agent: Intelliseek\r\n
-      Disallow:/\r\n
-      User-agent: InterGET\r\n
-      Disallow:/\r\n
-      User-agent: Internet Ninja\r\n
-      Disallow:/\r\n
-      User-agent: InternetMeasurement\r\n
-      Disallow:/\r\n
-      User-agent: InternetSeer\r\n
-      Disallow:/\r\n
-      User-agent: Iria\r\n
-      Disallow:/\r\n
-      User-agent: Iskanie\r\n
-      Disallow:/\r\n
-      User-agent: IstellaBot\r\n
-      Disallow:/\r\n
-      User-agent: JOC Web Spider\r\n
-      Disallow:/\r\n
-      User-agent: JamesBOT\r\n
-      Disallow:/\r\n
-      User-agent: Jbrofuzz\r\n
-      Disallow:/\r\n
-      User-agent: JennyBot\r\n
-      Disallow:/\r\n
-      User-agent: JetCar\r\n
-      Disallow:/\r\n
-      User-agent: Jetty\r\n
-      Disallow:/\r\n
-      User-agent: JikeSpider\r\n
-      Disallow:/\r\n
-      User-agent: Joomla\r\n
-      Disallow:/\r\n
-      User-agent: Jorgee\r\n
-      Disallow:/\r\n
-      User-agent: JustView\r\n
-      Disallow:/\r\n
-      User-agent: Jyxobot\r\n
-      Disallow:/\r\n
-      User-agent: Kenjin Spider\r\n
-      Disallow:/\r\n
-      User-agent: Keybot Translation-Search-Machine\r\n
-      Disallow:/\r\n
-      User-agent: Keyword Density\r\n
-      Disallow:/\r\n
-      User-agent: Kinza\r\n
-      Disallow:/\r\n
-      User-agent: Kozmosbot\r\n
-      Disallow:/\r\n
-      User-agent: LNSpiderguy\r\n
-      Disallow:/\r\n
-      User-agent: LWP::Simple\r\n
-      Disallow:/\r\n
-      User-agent: Lanshanbot\r\n
-      Disallow:/\r\n
-      User-agent: Larbin\r\n
-      Disallow:/\r\n
-      User-agent: Leap\r\n
-      Disallow:/\r\n
-      User-agent: LeechFTP\r\n
-      Disallow:/\r\n
-      User-agent: LeechGet\r\n
-      Disallow:/\r\n
-      User-agent: LexiBot\r\n
-      Disallow:/\r\n
-      User-agent: Lftp\r\n
-      Disallow:/\r\n
-      User-agent: LibWeb\r\n
-      Disallow:/\r\n
-      User-agent: Libwhisker\r\n
-      Disallow:/\r\n
-      User-agent: LieBaoFast\r\n
-      Disallow:/\r\n
-      User-agent: Lightspeedsystems\r\n
-      Disallow:/\r\n
-      User-agent: Likse\r\n
-      Disallow:/\r\n
-      User-agent: LinkScan\r\n
-      Disallow:/\r\n
-      User-agent: LinkWalker\r\n
-      Disallow:/\r\n
-      User-agent: Linkbot\r\n
-      Disallow:/\r\n
-      User-agent: LinkextractorPro\r\n
-      Disallow:/\r\n
-      User-agent: LinkpadBot\r\n
-      Disallow:/\r\n
-      User-agent: LinksManager\r\n
-      Disallow:/\r\n
-      User-agent: LinqiaMetadataDownloaderBot\r\n
-      Disallow:/\r\n
-      User-agent: LinqiaRSSBot\r\n
-      Disallow:/\r\n
-      User-agent: LinqiaScrapeBot\r\n
-      Disallow:/\r\n
-      User-agent: Lipperhey\r\n
-      Disallow:/\r\n
-      User-agent: Lipperhey Spider\r\n
-      Disallow:/\r\n
-      User-agent: Litemage_walker\r\n
-      Disallow:/\r\n
-      User-agent: Lmspider\r\n
-      Disallow:/\r\n
-      User-agent: Ltx71\r\n
-      Disallow:/\r\n
-      User-agent: MFC_Tear_Sample\r\n
-      Disallow:/\r\n
-      User-agent: MIDown tool\r\n
-      Disallow:/\r\n
-      User-agent: MIIxpc\r\n
-      Disallow:/\r\n
-      User-agent: MJ12bot\r\n
-      Disallow:/\r\n
-      User-agent: MQQBrowser\r\n
-      Disallow:/\r\n
-      User-agent: MSFrontPage\r\n
-      Disallow:/\r\n
-      User-agent: MSIECrawler\r\n
-      Disallow:/\r\n
-      User-agent: MTRobot\r\n
-      Disallow:/\r\n
-      User-agent: Mag-Net\r\n
-      Disallow:/\r\n
-      User-agent: Magnet\r\n
-      Disallow:/\r\n
-      User-agent: Mail.RU_Bot\r\n
-      Disallow:/\r\n
-      User-agent: Majestic SEO\r\n
-      Disallow:/\r\n
-      User-agent: Majestic-SEO\r\n
-      Disallow:/\r\n
-      User-agent: Majestic12\r\n
-      Disallow:/\r\n
-      User-agent: MarkMonitor\r\n
-      Disallow:/\r\n
-      User-agent: MarkWatch\r\n
-      Disallow:/\r\n
-      User-agent: Mass Downloader\r\n
-      Disallow:/\r\n
-      User-agent: Masscan\r\n
-      Disallow:/\r\n
-      User-agent: Mata Hari\r\n
-      Disallow:/\r\n
-      User-agent: MauiBot\r\n
-      Disallow:/\r\n
-      User-agent: Mb2345Browser\r\n
-      Disallow:/\r\n
-      User-agent: MeanPath Bot\r\n
-      Disallow:/\r\n
-      User-agent: Meanpathbot\r\n
-      Disallow:/\r\n
-      User-agent: Mediatoolkitbot\r\n
-      Disallow:/\r\n
-      User-agent: MegaIndex.ru\r\n
-      Disallow:/\r\n
-      User-agent: Metauri\r\n
-      Disallow:/\r\n
-      User-agent: MicroMessenger\r\n
-      Disallow:/\r\n
-      User-agent: Microsoft Data Access\r\n
-      Disallow:/\r\n
-      User-agent: Microsoft URL Control\r\n
-      Disallow:/\r\n
-      User-agent: Minefield\r\n
-      Disallow:/\r\n
-      User-agent: Mister PiX\r\n
-      Disallow:/\r\n
-      User-agent: Moblie Safari\r\n
-      Disallow:/\r\n
-      User-agent: Mojeek\r\n
-      Disallow:/\r\n
-      User-agent: Mojolicious\r\n
-      Disallow:/\r\n
-      User-agent: MolokaiBot\r\n
-      Disallow:/\r\n
-      User-agent: Morfeus Fucking Scanner\r\n
-      Disallow:/\r\n
-      User-agent: Mozlila\r\n
-      Disallow:/\r\n
-      User-agent: Mr.4x3\r\n
-      Disallow:/\r\n
-      User-agent: Msrabot\r\n
-      Disallow:/\r\n
-      User-agent: Musobot\r\n
-      Disallow:/\r\n
-      User-agent: NICErsPRO\r\n
-      Disallow:/\r\n
-      User-agent: NPbot\r\n
-      Disallow:/\r\n
-      User-agent: Name Intelligence\r\n
-      Disallow:/\r\n
-      User-agent: Nameprotect\r\n
-      Disallow:/\r\n
-      User-agent: Navroad\r\n
-      Disallow:/\r\n
-      User-agent: NearSite\r\n
-      Disallow:/\r\n
-      User-agent: Needle\r\n
-      Disallow:/\r\n
-      User-agent: Nessus\r\n
-      Disallow:/\r\n
-      User-agent: Net Vampire\r\n
-      Disallow:/\r\n
-      User-agent: NetAnts\r\n
-      Disallow:/\r\n
-      User-agent: NetLyzer\r\n
-      Disallow:/\r\n
-      User-agent: NetMechanic\r\n
-      Disallow:/\r\n
-      User-agent: NetSpider\r\n
-      Disallow:/\r\n
-      User-agent: NetZIP\r\n
-      Disallow:/\r\n
-      User-agent: Netcraft\r\n
-      Disallow:/\r\n
-      User-agent: Nettrack\r\n
-      Disallow:/\r\n
-      User-agent: Netvibes\r\n
-      Disallow:/\r\n
-      User-agent: NextGenSearchBot\r\n
-      Disallow:/\r\n
-      User-agent: Nibbler\r\n
-      Disallow:/\r\n
-      User-agent: Niki-bot\r\n
-      Disallow:/\r\n
-      User-agent: Nikto\r\n
-      Disallow:/\r\n
-      User-agent: NimbleCrawler\r\n
-      Disallow:/\r\n
-      User-agent: Nimbostratus\r\n
-      Disallow:/\r\n
-      User-agent: Ninja\r\n
-      Disallow:/\r\n
-      User-agent: Nmap\r\n
-      Disallow:/\r\n
-      User-agent: Nuclei\r\n
-      Disallow:/\r\n
-      User-agent: Nutch\r\n
-      Disallow:/\r\n
-      User-agent: Octopus\r\n
-      Disallow:/\r\n
-      User-agent: Offline Explorer\r\n
-      Disallow:/\r\n
-      User-agent: Offline Navigator\r\n
-      Disallow:/\r\n
-      User-agent: OnCrawl\r\n
-      Disallow:/\r\n
-      User-agent: OpenLinkProfiler\r\n
-      Disallow:/\r\n
-      User-agent: OpenVAS\r\n
-      Disallow:/\r\n
-      User-agent: Openfind\r\n
-      Disallow:/\r\n
-      User-agent: Openvas\r\n
-      Disallow:/\r\n
-      User-agent: OrangeBot\r\n
-      Disallow:/\r\n
-      User-agent: OrangeSpider\r\n
-      Disallow:/\r\n
-      User-agent: OutclicksBot\r\n
-      Disallow:/\r\n
-      User-agent: OutfoxBot\r\n
-      Disallow:/\r\n
-      User-agent: PECL::HTTP\r\n
-      Disallow:/\r\n
-      User-agent: PHPCrawl\r\n
-      Disallow:/\r\n
-      User-agent: POE-Component-Client-HTTP\r\n
-      Disallow:/\r\n
-      User-agent: Page Analyzer\r\n
-      Disallow:/\r\n
-      User-agent: PageAnalyzer\r\n
-      Disallow:/\r\n
-      User-agent: PageGrabber\r\n
-      Disallow:/\r\n
-      User-agent: PageScorer\r\n
-      Disallow:/\r\n
-      User-agent: PageThing.com\r\n
-      Disallow:/\r\n
-      User-agent: Pandalytics\r\n
-      Disallow:/\r\n
-      User-agent: Panscient\r\n
-      Disallow:/\r\n
-      User-agent: Papa Foto\r\n
-      Disallow:/\r\n
-      User-agent: Pavuk\r\n
-      Disallow:/\r\n
-      User-agent: PeoplePal\r\n
-      Disallow:/\r\n
-      User-agent: Petalbot\r\n
-      Disallow:/\r\n
-      User-agent: Pi-Monster\r\n
-      Disallow:/\r\n
-      User-agent: Picscout\r\n
-      Disallow:/\r\n
-      User-agent: Picsearch\r\n
-      Disallow:/\r\n
-      User-agent: PictureFinder\r\n
-      Disallow:/\r\n
-      User-agent: Piepmatz\r\n
-      Disallow:/\r\n
-      User-agent: Pimonster\r\n
-      Disallow:/\r\n
-      User-agent: Pixray\r\n
-      Disallow:/\r\n
-      User-agent: PleaseCrawl\r\n
-      Disallow:/\r\n
-      User-agent: Pockey\r\n
-      Disallow:/\r\n
-      User-agent: ProPowerBot\r\n
-      Disallow:/\r\n
-      User-agent: ProWebWalker\r\n
-      Disallow:/\r\n
-      User-agent: Probethenet\r\n
-      Disallow:/\r\n
-      User-agent: Proximic\r\n
-      Disallow:/\r\n
-      User-agent: Psbot\r\n
-      Disallow:/\r\n
-      User-agent: Pu_iN\r\n
-      Disallow:/\r\n
-      User-agent: Pump\r\n
-      Disallow:/\r\n
-      User-agent: PxBroker\r\n
-      Disallow:/\r\n
-      User-agent: PyCurl\r\n
-      Disallow:/\r\n
-      User-agent: QueryN Metasearch\r\n
-      Disallow:/\r\n
-      User-agent: Quick-Crawler\r\n
-      Disallow:/\r\n
-      User-agent: RSSingBot\r\n
-      Disallow:/\r\n
-      User-agent: Rainbot\r\n
-      Disallow:/\r\n
-      User-agent: RankActive\r\n
-      Disallow:/\r\n
-      User-agent: RankActiveLinkBot\r\n
-      Disallow:/\r\n
-      User-agent: RankFlex\r\n
-      Disallow:/\r\n
-      User-agent: RankingBot\r\n
-      Disallow:/\r\n
-      User-agent: RankingBot2\r\n
-      Disallow:/\r\n
-      User-agent: Rankivabot\r\n
-      Disallow:/\r\n
-      User-agent: RankurBot\r\n
-      Disallow:/\r\n
-      User-agent: Re-re\r\n
-      Disallow:/\r\n
-      User-agent: ReGet\r\n
-      Disallow:/\r\n
-      User-agent: RealDownload\r\n
-      Disallow:/\r\n
-      User-agent: Reaper\r\n
-      Disallow:/\r\n
-      User-agent: RebelMouse\r\n
-      Disallow:/\r\n
-      User-agent: Recorder\r\n
-      Disallow:/\r\n
-      User-agent: RedesScrapy\r\n
-      Disallow:/\r\n
-      User-agent: RepoMonkey\r\n
-      Disallow:/\r\n
-      User-agent: Ripper\r\n
-      Disallow:/\r\n
-      User-agent: RocketCrawler\r\n
-      Disallow:/\r\n
-      User-agent: Rogerbot\r\n
-      Disallow:/\r\n
-      User-agent: SBIder\r\n
-      Disallow:/\r\n
-      User-agent: SEOkicks\r\n
-      Disallow:/\r\n
-      User-agent: SEOkicks-Robot\r\n
-      Disallow:/\r\n
-      User-agent: SEOlyticsCrawler\r\n
-      Disallow:/\r\n
-      User-agent: SEOprofiler\r\n
-      Disallow:/\r\n
-      User-agent: SEOstats\r\n
-      Disallow:/\r\n
-      User-agent: SISTRIX\r\n
-      Disallow:/\r\n
-      User-agent: SMTBot\r\n
-      Disallow:/\r\n
-      User-agent: SalesIntelligent\r\n
-      Disallow:/\r\n
-      User-agent: ScanAlert\r\n
-      Disallow:/\r\n
-      User-agent: Scanbot\r\n
-      Disallow:/\r\n
-      User-agent: ScoutJet\r\n
-      Disallow:/\r\n
-      User-agent: Scrapy\r\n
-      Disallow:/\r\n
-      User-agent: Screaming\r\n
-      Disallow:/\r\n
-      User-agent: ScreenerBot\r\n
-      Disallow:/\r\n
-      User-agent: ScrepyBot\r\n
-      Disallow:/\r\n
-      User-agent: Searchestate\r\n
-      Disallow:/\r\n
-      User-agent: SearchmetricsBot\r\n
-      Disallow:/\r\n
-      User-agent: Seekport\r\n
-      Disallow:/\r\n
-      User-agent: SeekportBot\r\n
-      Disallow:/\r\n
-      User-agent: SemanticJuice\r\n
-      Disallow:/\r\n
-      User-agent: Semrush\r\n
-      Disallow:/\r\n
-      User-agent: SemrushBot\r\n
-      Disallow:/\r\n
-      User-agent: SentiBot\r\n
-      Disallow:/\r\n
-      User-agent: SenutoBot\r\n
-      Disallow:/\r\n
-      User-agent: SeoSiteCheckup\r\n
-      Disallow:/\r\n
-      User-agent: SeobilityBot\r\n
-      Disallow:/\r\n
-      User-agent: Seomoz\r\n
-      Disallow:/\r\n
-      User-agent: Shodan\r\n
-      Disallow:/\r\n
-      User-agent: Siphon\r\n
-      Disallow:/\r\n
-      User-agent: Site Sucker\r\n
-      Disallow:/\r\n
-      User-agent: SiteCheckerBotCrawler\r\n
-      Disallow:/\r\n
-      User-agent: SiteExplorer\r\n
-      Disallow:/\r\n
-      User-agent: SiteLockSpider\r\n
-      Disallow:/\r\n
-      User-agent: SiteSnagger\r\n
-      Disallow:/\r\n
-      User-agent: SiteSucker\r\n
-      Disallow:/\r\n
-      User-agent: Sitebeam\r\n
-      Disallow:/\r\n
-      User-agent: Siteimprove\r\n
-      Disallow:/\r\n
-      User-agent: Sitevigil\r\n
-      Disallow:/\r\n
-      User-agent: SlySearch\r\n
-      Disallow:/\r\n
-      User-agent: SmartDownload\r\n
-      Disallow:/\r\n
-      User-agent: Snake\r\n
-      Disallow:/\r\n
-      User-agent: Snapbot\r\n
-      Disallow:/\r\n
-      User-agent: Snoopy\r\n
-      Disallow:/\r\n
-      User-agent: SocialRankIOBot\r\n
-      Disallow:/\r\n
-      User-agent: Sociscraper\r\n
-      Disallow:/\r\n
-      User-agent: Sogou web spider\r\n
-      Disallow:/\r\n
-      User-agent: Sosospider\r\n
-      Disallow:/\r\n
-      User-agent: Sottopop\r\n
-      Disallow:/\r\n
-      User-agent: SpaceBison\r\n
-      Disallow:/\r\n
-      User-agent: Spammen\r\n
-      Disallow:/\r\n
-      User-agent: SpankBot\r\n
-      Disallow:/\r\n
-      User-agent: Spanner\r\n
-      Disallow:/\r\n
-      User-agent: Spbot\r\n
-      Disallow:/\r\n
-      User-agent: Spinn3r\r\n
-      Disallow:/\r\n
-      User-agent: SputnikBot\r\n
-      Disallow:/\r\n
-      User-agent: Sqlmap\r\n
-      Disallow:/\r\n
-      User-agent: Sqlworm\r\n
-      Disallow:/\r\n
-      User-agent: Sqworm\r\n
-      Disallow:/\r\n
-      User-agent: Steeler\r\n
-      Disallow:/\r\n
-      User-agent: Stripper\r\n
-      Disallow:/\r\n
-      User-agent: Sucker\r\n
-      Disallow:/\r\n
-      User-agent: Sucuri\r\n
-      Disallow:/\r\n
-      User-agent: SuperBot\r\n
-      Disallow:/\r\n
-      User-agent: SuperHTTP\r\n
-      Disallow:/\r\n
-      User-agent: Surfbot\r\n
-      Disallow:/\r\n
-      User-agent: SurveyBot\r\n
-      Disallow:/\r\n
-      User-agent: Suzuran\r\n
-      Disallow:/\r\n
-      User-agent: Swiftbot\r\n
-      Disallow:/\r\n
-      User-agent: Szukacz\r\n
-      Disallow:/\r\n
-      User-agent: T0PHackTeam\r\n
-      Disallow:/\r\n
-      User-agent: T8Abot\r\n
-      Disallow:/\r\n
-      User-agent: Teleport\r\n
-      Disallow:/\r\n
-      User-agent: TeleportPro\r\n
-      Disallow:/\r\n
-      User-agent: Telesoft\r\n
-      Disallow:/\r\n
-      User-agent: Telesphoreo\r\n
-      Disallow:/\r\n
-      User-agent: Telesphorep\r\n
-      Disallow:/\r\n
-      User-agent: The Intraformant\r\n
-      Disallow:/\r\n
-      User-agent: TheNomad\r\n
-      Disallow:/\r\n
-      User-agent: Thumbor\r\n
-      Disallow:/\r\n
-      User-agent: TightTwatBot\r\n
-      Disallow:/\r\n
-      User-agent: TinyTestBot\r\n
-      Disallow:/\r\n
-      User-agent: Titan\r\n
-      Disallow:/\r\n
-      User-agent: Toata\r\n
-      Disallow:/\r\n
-      User-agent: Toweyabot\r\n
-      Disallow:/\r\n
-      User-agent: Tracemyfile\r\n
-      Disallow:/\r\n
-      User-agent: Trendiction\r\n
-      Disallow:/\r\n
-      User-agent: Trendictionbot\r\n
-      Disallow:/\r\n
-      User-agent: True_Robot\r\n
-      Disallow:/\r\n
-      User-agent: Turingos\r\n
-      Disallow:/\r\n
-      User-agent: Turnitin\r\n
-      Disallow:/\r\n
-      User-agent: TurnitinBot\r\n
-      Disallow:/\r\n
-      User-agent: TwengaBot\r\n
-      Disallow:/\r\n
-      User-agent: Twice\r\n
-      Disallow:/\r\n
-      User-agent: Typhoeus\r\n
-      Disallow:/\r\n
-      User-agent: URLy Warning\r\n
-      Disallow:/\r\n
-      User-agent: URLy.Warning\r\n
-      Disallow:/\r\n
-      User-agent: UnisterBot\r\n
-      Disallow:/\r\n
-      User-agent: Upflow\r\n
-      Disallow:/\r\n
-      User-agent: V-BOT\r\n
-      Disallow:/\r\n
-      User-agent: VB Project\r\n
-      Disallow:/\r\n
-      User-agent: VCI\r\n
-      Disallow:/\r\n
-      User-agent: Vacuum\r\n
-      Disallow:/\r\n
-      User-agent: Vagabondo\r\n
-      Disallow:/\r\n
-      User-agent: VelenPublicWebCrawler\r\n
-      Disallow:/\r\n
-      User-agent: VeriCiteCrawler\r\n
-      Disallow:/\r\n
-      User-agent: VidibleScraper\r\n
-      Disallow:/\r\n
-      User-agent: Virusdie\r\n
-      Disallow:/\r\n
-      User-agent: VoidEYE\r\n
-      Disallow:/\r\n
-      User-agent: Voil\r\n
-      Disallow:/\r\n
-      User-agent: Voltron\r\n
-      Disallow:/\r\n
-      User-agent: WASALive-Bot\r\n
-      Disallow:/\r\n
-      User-agent: WBSearchBot\r\n
-      Disallow:/\r\n
-      User-agent: WEBDAV\r\n
-      Disallow:/\r\n
-      User-agent: WISENutbot\r\n
-      Disallow:/\r\n
-      User-agent: WPScan\r\n
-      Disallow:/\r\n
-      User-agent: WWW-Collector-E\r\n
-      Disallow:/\r\n
-      User-agent: WWW-Mechanize\r\n
-      Disallow:/\r\n
-      User-agent: WWW::Mechanize\r\n
-      Disallow:/\r\n
-      User-agent: WWWOFFLE\r\n
-      Disallow:/\r\n
-      User-agent: Wallpapers\r\n
-      Disallow:/\r\n
-      User-agent: Wallpapers/3.0\r\n
-      Disallow:/\r\n
-      User-agent: WallpapersHD\r\n
-      Disallow:/\r\n
-      User-agent: WeSEE\r\n
-      Disallow:/\r\n
-      User-agent: Web Auto\r\n
-      Disallow:/\r\n
-      User-agent: Web Collage\r\n
-      Disallow:/\r\n
-      User-agent: Web Enhancer\r\n
-      Disallow:/\r\n
-      User-agent: Web Fetch\r\n
-      Disallow:/\r\n
-      User-agent: Web Fuck\r\n
-      Disallow:/\r\n
-      User-agent: Web Pix\r\n
-      Disallow:/\r\n
-      User-agent: Web Sauger\r\n
-      Disallow:/\r\n
-      User-agent: Web Sucker\r\n
-      Disallow:/\r\n
-      User-agent: WebAuto\r\n
-      Disallow:/\r\n
-      User-agent: WebBandit\r\n
-      Disallow:/\r\n
-      User-agent: WebCollage\r\n
-      Disallow:/\r\n
-      User-agent: WebCopier\r\n
-      Disallow:/\r\n
-      User-agent: WebEnhancer\r\n
-      Disallow:/\r\n
-      User-agent: WebFetch\r\n
-      Disallow:/\r\n
-      User-agent: WebFuck\r\n
-      Disallow:/\r\n
-      User-agent: WebGo IS\r\n
-      Disallow:/\r\n
-      User-agent: WebImageCollector\r\n
-      Disallow:/\r\n
-      User-agent: WebLeacher\r\n
-      Disallow:/\r\n
-      User-agent: WebPix\r\n
-      Disallow:/\r\n
-      User-agent: WebReaper\r\n
-      Disallow:/\r\n
-      User-agent: WebSauger\r\n
-      Disallow:/\r\n
-      User-agent: WebStripper\r\n
-      Disallow:/\r\n
-      User-agent: WebSucker\r\n
-      Disallow:/\r\n
-      User-agent: WebWhacker\r\n
-      Disallow:/\r\n
-      User-agent: WebZIP\r\n
-      Disallow:/\r\n
-      User-agent: Webalta\r\n
-      Disallow:/\r\n
-      User-agent: WebmasterWorldForumBot\r\n
-      Disallow:/\r\n
-      User-agent: Webshag\r\n
-      Disallow:/\r\n
-      User-agent: Website Quester\r\n
-      Disallow:/\r\n
-      User-agent: WebsiteExtractor\r\n
-      Disallow:/\r\n
-      User-agent: WebsiteQuester\r\n
-      Disallow:/\r\n
-      User-agent: Webster\r\n
-      Disallow:/\r\n
-      User-agent: Whack\r\n
-      Disallow:/\r\n
-      User-agent: Whacker\r\n
-      Disallow:/\r\n
-      User-agent: Whatweb\r\n
-      Disallow:/\r\n
-      User-agent: Who.is Bot\r\n
-      Disallow:/\r\n
-      User-agent: Widow\r\n
-      Disallow:/\r\n
-      User-agent: WinHTTrack\r\n
-      Disallow:/\r\n
-      User-agent: WiseGuys Robot\r\n
-      Disallow:/\r\n
-      User-agent: Wonderbot\r\n
-      Disallow:/\r\n
-      User-agent: Woobot\r\n
-      Disallow:/\r\n
-      User-agent: Wotbox\r\n
-      Disallow:/\r\n
-      User-agent: Wprecon\r\n
-      Disallow:/\r\n
-      User-agent: Xaldon WebSpider\r\n
-      Disallow:/\r\n
-      User-agent: Xaldon_WebSpider\r\n
-      Disallow:/\r\n
-      User-agent: Xenu\r\n
-      Disallow:/\r\n
-      User-agent: YaK\r\n
-      Disallow:/\r\n
-      User-agent: YoudaoBot\r\n
-      Disallow:/\r\n
-      User-agent: Zade\r\n
-      Disallow:/\r\n
-      User-agent: Zauba\r\n
-      Disallow:/\r\n
-      User-agent: Zermelo\r\n
-      Disallow:/\r\n
-      User-agent: Zeus\r\n
-      Disallow:/\r\n
-      User-agent: Zitebot\r\n
-      Disallow:/\r\n
-      User-agent: ZmEu\r\n
-      Disallow:/\r\n
-      User-agent: ZoomBot\r\n
-      Disallow:/\r\n
-      User-agent: ZoominfoBot\r\n
-      Disallow:/\r\n
-      User-agent: ZumBot\r\n
-      Disallow:/\r\n
-      User-agent: ZyBorg\r\n
-      Disallow:/\r\n
-      User-agent: adscanner\r\n
-      Disallow:/\r\n
-      User-agent: anthropic-ai\r\n
-      Disallow:/\r\n
-      User-agent: archive.org_bot\r\n
-      Disallow:/\r\n
-      User-agent: arquivo-web-crawler\r\n
-      Disallow:/\r\n
-      User-agent: arquivo.pt\r\n
-      Disallow:/\r\n
-      User-agent: autoemailspider\r\n
-      Disallow:/\r\n
-      User-agent: awario.com\r\n
-      Disallow:/\r\n
-      User-agent: backlink-check\r\n
-      Disallow:/\r\n
-      User-agent: cah.io.community\r\n
-      Disallow:/\r\n
-      User-agent: check1.exe\r\n
-      Disallow:/\r\n
-      User-agent: clark-crawler\r\n
-      Disallow:/\r\n
-      User-agent: coccocbot\r\n
-      Disallow:/\r\n
-      User-agent: cognitiveseo\r\n
-      Disallow:/\r\n
-      User-agent: cohere-ai\r\n
-      Disallow:/\r\n
-      User-agent: com.plumanalytics\r\n
-      Disallow:/\r\n
-      User-agent: crawl.sogou.com\r\n
-      Disallow:/\r\n
-      User-agent: crawler.feedback\r\n
-      Disallow:/\r\n
-      User-agent: crawler4j\r\n
-      Disallow:/\r\n
-      User-agent: dataforseo.com\r\n
-      Disallow:/\r\n
-      User-agent: dataforseobot\r\n
-      Disallow:/\r\n
-      User-agent: demandbase-bot\r\n
-      Disallow:/\r\n
-      User-agent: domainsproject.org\r\n
-      Disallow:/\r\n
-      User-agent: eCatch\r\n
-      Disallow:/\r\n
-      User-agent: evc-batch\r\n
-      Disallow:/\r\n
-      User-agent: facebookscraper\r\n
-      Disallow:/\r\n
-      User-agent: gopher\r\n
-      Disallow:/\r\n
-      User-agent: heritrix\r\n
-      Disallow:/\r\n
-      User-agent: imagesift.com\r\n
-      Disallow:/\r\n
-      User-agent: instabid\r\n
-      Disallow:/\r\n
-      User-agent: internetVista monitor\r\n
-      Disallow:/\r\n
-      User-agent: ips-agent\r\n
-      Disallow:/\r\n
-      User-agent: isitwp.com\r\n
-      Disallow:/\r\n
-      User-agent: iubenda-radar\r\n
-      Disallow:/\r\n
-      User-agent: linkdexbot\r\n
-      Disallow:/\r\n
-      User-agent: linkfluence\r\n
-      Disallow:/\r\n
-      User-agent: lwp-request\r\n
-      Disallow:/\r\n
-      User-agent: lwp-trivial\r\n
-      Disallow:/\r\n
-      User-agent: magpie-crawler\r\n
-      Disallow:/\r\n
-      User-agent: meanpathbot\r\n
-      Disallow:/\r\n
-      User-agent: mediawords\r\n
-      Disallow:/\r\n
-      User-agent: muhstik-scan\r\n
-      Disallow:/\r\n
-      User-agent: netEstate NE Crawler\r\n
-      Disallow:/\r\n
-      User-agent: oBot\r\n
-      Disallow:/\r\n
-      User-agent: omgili\r\n
-      Disallow:/\r\n
-      User-agent: openai\r\n
-      Disallow:/\r\n
-      User-agent: openai.com\r\n
-      Disallow:/\r\n
-      User-agent: page scorer\r\n
-      Disallow:/\r\n
-      User-agent: pcBrowser\r\n
-      Disallow:/\r\n
-      User-agent: plumanalytics\r\n
-      Disallow:/\r\n
-      User-agent: polaris version\r\n
-      Disallow:/\r\n
-      User-agent: probe-image-size\r\n
-      Disallow:/\r\n
-      User-agent: ripz\r\n
-      Disallow:/\r\n
-      User-agent: s1z.ru\r\n
-      Disallow:/\r\n
-      User-agent: satoristudio.net\r\n
-      Disallow:/\r\n
-      User-agent: scalaj-http\r\n
-      Disallow:/\r\n
-      User-agent: scan.lol\r\n
-      Disallow:/\r\n
-      User-agent: seobility\r\n
-      Disallow:/\r\n
-      User-agent: seocompany.store\r\n
-      Disallow:/\r\n
-      User-agent: seoscanners\r\n
-      Disallow:/\r\n
-      User-agent: seostar\r\n
-      Disallow:/\r\n
-      User-agent: serpstatbot\r\n
-      Disallow:/\r\n
-      User-agent: sexsearcher\r\n
-      Disallow:/\r\n
-      User-agent: sitechecker.pro\r\n
-      Disallow:/\r\n
-      User-agent: siteripz\r\n
-      Disallow:/\r\n
-      User-agent: sogouspider\r\n
-      Disallow:/\r\n
-      User-agent: sp_auditbot\r\n
-      Disallow:/\r\n
-      User-agent: spyfu\r\n
-      Disallow:/\r\n
-      User-agent: sysscan\r\n
-      Disallow:/\r\n
-      User-agent: tAkeOut\r\n
-      Disallow:/\r\n
-      User-agent: trendiction.com\r\n
-      Disallow:/\r\n
-      User-agent: trendiction.de\r\n
-      Disallow:/\r\n
-      User-agent: ubermetrics-technologies.com\r\n
-      Disallow:/\r\n
-      User-agent: voyagerx.com\r\n
-      Disallow:/\r\n
-      User-agent: webgains-bot\r\n
-      Disallow:/\r\n
-      User-agent: webmeup-crawler\r\n
-      Disallow:/\r\n
-      User-agent: webpros.com\r\n
-      Disallow:/\r\n
-      User-agent: webprosbot\r\n
-      Disallow:/\r\n
-      User-agent: x09Mozilla\r\n
-      Disallow:/\r\n
-      User-agent: x22Mozilla\r\n
-      Disallow:/\r\n
-      User-agent: xpymep1.exe\r\n
-      Disallow:/\r\n
-      User-agent: zauba.io\r\n
-      Disallow:/\r\n
-      User-agent: zgrab\r\n
-      Disallow:/\r\n
-      \r\n
-      # Dark Visitors Robots.txt\r\n
-      User-agent: GPTBot\r\n
-      Disallow: /\r\n
-      User-agent: ChatGPT-User\r\n
-      Disallow: /\r\n
-      User-agent: Applebot-Extended\r\n
-      Disallow: /\r\n
-      User-agent: Bytespider\r\n
-      Disallow: /\r\n
-      User-agent: CCBot\r\n
-      Disallow: /\r\n
-      User-agent: ClaudeBot\r\n
-      Disallow: /\r\n
-      User-agent: Diffbot\r\n
-      Disallow: /\r\n
-      User-agent: FacebookBot\r\n
-      Disallow: /\r\n
-      User-agent: Google-Extended\r\n
-      Disallow: /\r\n
-      User-agent: Meta-ExternalAgent\r\n
-      Disallow: /\r\n
-      User-agent: omgili\r\n
-      Disallow: /\r\n
-      User-agent: omgilibot\r\n
-      Disallow: /\r\n
-      User-agent: Timpibot\r\n
-      Disallow: /\r\n
-      User-agent: anthropic-ai\r\n
-      Disallow: /\r\n
-      User-agent: Claude-Web\r\n
-      Disallow: /\r\n
-      User-agent: cohere-ai\r\n
-      Disallow: /\r\n
-      User-agent: DataForSeoBot\r\n
-      Disallow: /\r\n
-      User-agent: FriendlyCrawler\r\n
-      Disallow: /\r\n
-      User-agent: img2dataset\r\n
-      Disallow: /\r\n
-      User-agent: ImagesiftBot\r\n
-      Disallow: /\r\n
-      User-agent: Meltwater\r\n
-      Disallow: /\r\n
-      User-agent: peer39_crawler\r\n
-      Disallow: /\r\n
-      User-agent: peer39_crawler/1.0\r\n
-      Disallow: /\r\n
-      User-agent: PerplexityBot\r\n
-      Disallow: /\r\n
-      User-agent: PiplBot\r\n
-      Disallow: /\r\n
-      User-agent: scoop.it\r\n
-      Disallow: /\r\n
-      User-agent: Seekr\r\n
-      Disallow: /\r\n
-      User-agent: YouBot\r\n
-      Disallow: /\r\n
-      \r\n
-      ### CUSTOM:\r\n
-      User-Agent: *\r\n
-      Allow: /\r\n
-      Allow: /typo3conf/ext/*/Public/\r\n
-      Allow: /typo3temp/assets/\r\n
-      Disallow: /fileadmin/templates\r\n
-      Disallow: /typo3/\r\n
-      Disallow: /t3lib/\r\n
-      Disallow: /typo3conf/\r\n
-      Disallow: /typo3temp/\r\n
-      Disallow: /*?id=*\r\n
-      Disallow: /*?tx_indexedsearch\r\n
-      Disallow: /*?id=*\r\n
-      Disallow: /print/\r\n
-      Disallow: /login/\r\n
-      Disallow: /logout/\r\n
-      Disallow: /private/\r\n
-      Disallow: /config/\r\n
-      \r\n
-      Sitemap: https://www.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}/sitemap.xml"
+    content: |
+      User-agent: *
+      Disallow: /wp-admin/
+      Allow: /wp-admin/admin-ajax.php
+      User-agent: 01h4x.com
+      Disallow:/
+      User-agent: 360Spider
+      Disallow:/
+      User-agent: 404checker
+      Disallow:/
+      User-agent: 404enemy
+      Disallow:/
+      User-agent: 80legs
+      Disallow:/
+      User-agent: ADmantX
+      Disallow:/
+      User-agent: AIBOT
+      Disallow:/
+      User-agent: ALittle Client
+      Disallow:/
+      User-agent: ASPSeek
+      Disallow:/
+      User-agent: Abonti
+      Disallow:/
+      User-agent: Aboundex
+      Disallow:/
+      User-agent: Aboundexbot
+      Disallow:/
+      User-agent: Acunetix
+      Disallow:/
+      User-agent: AdsTxtCrawlerTP
+      Disallow:/
+      User-agent: AfD-Verbotsverfahren
+      Disallow:/
+      User-agent: AhrefsBot
+      Disallow:/
+      User-agent: AiHitBot
+      Disallow:/
+      User-agent: Aipbot
+      Disallow:/
+      User-agent: Alexibot
+      Disallow:/
+      User-agent: AllSubmitter
+      Disallow:/
+      User-agent: Alligator
+      Disallow:/
+      User-agent: AlphaBot
+      Disallow:/
+      User-agent: Anarchie
+      Disallow:/
+      User-agent: Anarchy
+      Disallow:/
+      User-agent: Anarchy99
+      Disallow:/
+      User-agent: Ankit
+      Disallow:/
+      User-agent: Anthill
+      Disallow:/
+      User-agent: Apexoo
+      Disallow:/
+      User-agent: Aspiegel
+      Disallow:/
+      User-agent: Asterias
+      Disallow:/
+      User-agent: Atomseobot
+      Disallow:/
+      User-agent: Attach
+      Disallow:/
+      User-agent: AwarioBot
+      Disallow:/
+      User-agent: AwarioRssBot
+      Disallow:/
+      User-agent: AwarioSmartBot
+      Disallow:/
+      User-agent: BBBike
+      Disallow:/
+      User-agent: BDCbot
+      Disallow:/
+      User-agent: BDFetch
+      Disallow:/
+      User-agent: BLEXBot
+      Disallow:/
+      User-agent: BackDoorBot
+      Disallow:/
+      User-agent: BackStreet
+      Disallow:/
+      User-agent: BackWeb
+      Disallow:/
+      User-agent: Backlink-Ceck
+      Disallow:/
+      User-agent: BacklinkCrawler
+      Disallow:/
+      User-agent: BacklinksExtendedBot
+      Disallow:/
+      User-agent: Badass
+      Disallow:/
+      User-agent: Bandit
+      Disallow:/
+      User-agent: Barkrowler
+      Disallow:/
+      User-agent: BatchFTP
+      Disallow:/
+      User-agent: Battleztar Bazinga
+      Disallow:/
+      User-agent: BetaBot
+      Disallow:/
+      User-agent: Bigfoot
+      Disallow:/
+      User-agent: Bitacle
+      Disallow:/
+      User-agent: Black Hole
+      Disallow:/
+      User-agent: BlackWidow
+      Disallow:/
+      User-agent: Blackboard
+      Disallow:/
+      User-agent: Blow
+      Disallow:/
+      User-agent: BlowFish
+      Disallow:/
+      User-agent: Boardreader
+      Disallow:/
+      User-agent: Bolt
+      Disallow:/
+      User-agent: BotALot
+      Disallow:/
+      User-agent: Brandprotect
+      Disallow:/
+      User-agent: Brandwatch
+      Disallow:/
+      User-agent: Buck
+      Disallow:/
+      User-agent: Buddy
+      Disallow:/
+      User-agent: BuiltBotTough
+      Disallow:/
+      User-agent: BuiltWith
+      Disallow:/
+      User-agent: Bullseye
+      Disallow:/
+      User-agent: BunnySlippers
+      Disallow:/
+      User-agent: BuzzSumo
+      Disallow:/
+      User-agent: Bytespider
+      Disallow:/
+      User-agent: CATExplorador
+      Disallow:/
+      User-agent: CCBot
+      Disallow:/
+      User-agent: CODE87
+      Disallow:/
+      User-agent: CSHttp
+      Disallow:/
+      User-agent: Calculon
+      Disallow:/
+      User-agent: CazoodleBot
+      Disallow:/
+      User-agent: Cegbfeieh
+      Disallow:/
+      User-agent: CensysInspect
+      Disallow:/
+      User-agent: ChatGPT-User
+      Disallow:/
+      User-agent: CheTeam
+      Disallow:/
+      User-agent: CheeseBot
+      Disallow:/
+      User-agent: CherryPicker
+      Disallow:/
+      User-agent: ChinaClaw
+      Disallow:/
+      User-agent: Chlooe
+      Disallow:/
+      User-agent: Citoid
+      Disallow:/
+      User-agent: Claritybot
+      Disallow:/
+      User-agent: ClaudeBot
+      Disallow:/
+      User-agent: Cliqzbot
+      Disallow:/
+      User-agent: Cloud mapping
+      Disallow:/
+      User-agent: Cocolyzebot
+      Disallow:/
+      User-agent: Cogentbot
+      Disallow:/
+      User-agent: Collector
+      Disallow:/
+      User-agent: Copier
+      Disallow:/
+      User-agent: CopyRightCheck
+      Disallow:/
+      User-agent: Copyscape
+      Disallow:/
+      User-agent: Cosmos
+      Disallow:/
+      User-agent: Craftbot
+      Disallow:/
+      User-agent: Crawling at Home Project
+      Disallow:/
+      User-agent: CrazyWebCrawler
+      Disallow:/
+      User-agent: Crescent
+      Disallow:/
+      User-agent: CrunchBot
+      Disallow:/
+      User-agent: Curious
+      Disallow:/
+      User-agent: Custo
+      Disallow:/
+      User-agent: CyotekWebCopy
+      Disallow:/
+      User-agent: DBLBot
+      Disallow:/
+      User-agent: DIIbot
+      Disallow:/
+      User-agent: DSearch
+      Disallow:/
+      User-agent: DTS Agent
+      Disallow:/
+      User-agent: DataCha0s
+      Disallow:/
+      User-agent: DatabaseDriverMysqli
+      Disallow:/
+      User-agent: Demon
+      Disallow:/
+      User-agent: Deusu
+      Disallow:/
+      User-agent: Devil
+      Disallow:/
+      User-agent: Digincore
+      Disallow:/
+      User-agent: DigitalPebble
+      Disallow:/
+      User-agent: Dirbuster
+      Disallow:/
+      User-agent: Disco
+      Disallow:/
+      User-agent: Discobot
+      Disallow:/
+      User-agent: Discoverybot
+      Disallow:/
+      User-agent: Dispatch
+      Disallow:/
+      User-agent: DittoSpyder
+      Disallow:/
+      User-agent: DnBCrawler-Analytics
+      Disallow:/
+      User-agent: DnyzBot
+      Disallow:/
+      User-agent: DomCopBot
+      Disallow:/
+      User-agent: DomainAppender
+      Disallow:/
+      User-agent: DomainCrawler
+      Disallow:/
+      User-agent: DomainSigmaCrawler
+      Disallow:/
+      User-agent: DomainStatsBot
+      Disallow:/
+      User-agent: Domains Project
+      Disallow:/
+      User-agent: Dotbot
+      Disallow:/
+      User-agent: Download Wonder
+      Disallow:/
+      User-agent: Dragonfly
+      Disallow:/
+      User-agent: Drip
+      Disallow:/
+      User-agent: ECCP/1.0
+      Disallow:/
+      User-agent: EMail Siphon
+      Disallow:/
+      User-agent: EMail Wolf
+      Disallow:/
+      User-agent: EasyDL
+      Disallow:/
+      User-agent: Ebingbong
+      Disallow:/
+      User-agent: Ecxi
+      Disallow:/
+      User-agent: EirGrabber
+      Disallow:/
+      User-agent: EroCrawler
+      Disallow:/
+      User-agent: Evil
+      Disallow:/
+      User-agent: Exabot
+      Disallow:/
+      User-agent: Express WebPictures
+      Disallow:/
+      User-agent: ExtLinksBot
+      Disallow:/
+      User-agent: Extractor
+      Disallow:/
+      User-agent: ExtractorPro
+      Disallow:/
+      User-agent: Extreme Picture Finder
+      Disallow:/
+      User-agent: EyeNetIE
+      Disallow:/
+      User-agent: Ezooms
+      Disallow:/
+      User-agent: FDM
+      Disallow:/
+      User-agent: FHscan
+      Disallow:/
+      User-agent: FacebookBot
+      Disallow:/
+      User-agent: FemtosearchBot
+      Disallow:/
+      User-agent: Fimap
+      Disallow:/
+      User-agent: Firefox/7.0
+      Disallow:/
+      User-agent: FlashGet
+      Disallow:/
+      User-agent: Flunky
+      Disallow:/
+      User-agent: Foobot
+      Disallow:/
+      User-agent: Freeuploader
+      Disallow:/
+      User-agent: FrontPage
+      Disallow:/
+      User-agent: Fuzz
+      Disallow:/
+      User-agent: FyberSpider
+      Disallow:/
+      User-agent: Fyrebot
+      Disallow:/
+      User-agent: G-i-g-a-b-o-t
+      Disallow:/
+      User-agent: GPTBot
+      Disallow:/
+      User-agent: GT::WWW
+      Disallow:/
+      User-agent: GalaxyBot
+      Disallow:/
+      User-agent: Genieo
+      Disallow:/
+      User-agent: GermCrawler
+      Disallow:/
+      User-agent: GetRight
+      Disallow:/
+      User-agent: GetWeb
+      Disallow:/
+      User-agent: Getintent
+      Disallow:/
+      User-agent: Gigabot
+      Disallow:/
+      User-agent: Go!Zilla
+      Disallow:/
+      User-agent: Go-Ahead-Got-It
+      Disallow:/
+      User-agent: GoZilla
+      Disallow:/
+      User-agent: Gotit
+      Disallow:/
+      User-agent: GrabNet
+      Disallow:/
+      User-agent: Grabber
+      Disallow:/
+      User-agent: Grafula
+      Disallow:/
+      User-agent: GrapeFX
+      Disallow:/
+      User-agent: GrapeshotCrawler
+      Disallow:/
+      User-agent: GridBot
+      Disallow:/
+      User-agent: HEADMasterSEO
+      Disallow:/
+      User-agent: HMView
+      Disallow:/
+      User-agent: HTMLparser
+      Disallow:/
+      User-agent: HTTP::Lite
+      Disallow:/
+      User-agent: HTTrack
+      Disallow:/
+      User-agent: Haansoft
+      Disallow:/
+      User-agent: HaosouSpider
+      Disallow:/
+      User-agent: Harvest
+      Disallow:/
+      User-agent: Havij
+      Disallow:/
+      User-agent: Heritrix
+      Disallow:/
+      User-agent: Hloader
+      Disallow:/
+      User-agent: HonoluluBot
+      Disallow:/
+      User-agent: Humanlinks
+      Disallow:/
+      User-agent: HybridBot
+      Disallow:/
+      User-agent: IDBTE4M
+      Disallow:/
+      User-agent: IDBot
+      Disallow:/
+      User-agent: IRLbot
+      Disallow:/
+      User-agent: Iblog
+      Disallow:/
+      User-agent: Id-search
+      Disallow:/
+      User-agent: IlseBot
+      Disallow:/
+      User-agent: Image Fetch
+      Disallow:/
+      User-agent: Image Sucker
+      Disallow:/
+      User-agent: ImagesiftBot
+      Disallow:/
+      User-agent: IndeedBot
+      Disallow:/
+      User-agent: Indy Library
+      Disallow:/
+      User-agent: InfoNaviRobot
+      Disallow:/
+      User-agent: InfoTekies
+      Disallow:/
+      User-agent: Information Security Team InfraSec Scanner
+      Disallow:/
+      User-agent: InfraSec Scanner
+      Disallow:/
+      User-agent: Intelliseek
+      Disallow:/
+      User-agent: InterGET
+      Disallow:/
+      User-agent: Internet Ninja
+      Disallow:/
+      User-agent: InternetMeasurement
+      Disallow:/
+      User-agent: InternetSeer
+      Disallow:/
+      User-agent: Iria
+      Disallow:/
+      User-agent: Iskanie
+      Disallow:/
+      User-agent: IstellaBot
+      Disallow:/
+      User-agent: JOC Web Spider
+      Disallow:/
+      User-agent: JamesBOT
+      Disallow:/
+      User-agent: Jbrofuzz
+      Disallow:/
+      User-agent: JennyBot
+      Disallow:/
+      User-agent: JetCar
+      Disallow:/
+      User-agent: Jetty
+      Disallow:/
+      User-agent: JikeSpider
+      Disallow:/
+      User-agent: Joomla
+      Disallow:/
+      User-agent: Jorgee
+      Disallow:/
+      User-agent: JustView
+      Disallow:/
+      User-agent: Jyxobot
+      Disallow:/
+      User-agent: Kenjin Spider
+      Disallow:/
+      User-agent: Keybot Translation-Search-Machine
+      Disallow:/
+      User-agent: Keyword Density
+      Disallow:/
+      User-agent: Kinza
+      Disallow:/
+      User-agent: Kozmosbot
+      Disallow:/
+      User-agent: LNSpiderguy
+      Disallow:/
+      User-agent: LWP::Simple
+      Disallow:/
+      User-agent: Lanshanbot
+      Disallow:/
+      User-agent: Larbin
+      Disallow:/
+      User-agent: Leap
+      Disallow:/
+      User-agent: LeechFTP
+      Disallow:/
+      User-agent: LeechGet
+      Disallow:/
+      User-agent: LexiBot
+      Disallow:/
+      User-agent: Lftp
+      Disallow:/
+      User-agent: LibWeb
+      Disallow:/
+      User-agent: Libwhisker
+      Disallow:/
+      User-agent: LieBaoFast
+      Disallow:/
+      User-agent: Lightspeedsystems
+      Disallow:/
+      User-agent: Likse
+      Disallow:/
+      User-agent: LinkScan
+      Disallow:/
+      User-agent: LinkWalker
+      Disallow:/
+      User-agent: Linkbot
+      Disallow:/
+      User-agent: LinkextractorPro
+      Disallow:/
+      User-agent: LinkpadBot
+      Disallow:/
+      User-agent: LinksManager
+      Disallow:/
+      User-agent: LinqiaMetadataDownloaderBot
+      Disallow:/
+      User-agent: LinqiaRSSBot
+      Disallow:/
+      User-agent: LinqiaScrapeBot
+      Disallow:/
+      User-agent: Lipperhey
+      Disallow:/
+      User-agent: Lipperhey Spider
+      Disallow:/
+      User-agent: Litemage_walker
+      Disallow:/
+      User-agent: Lmspider
+      Disallow:/
+      User-agent: Ltx71
+      Disallow:/
+      User-agent: MFC_Tear_Sample
+      Disallow:/
+      User-agent: MIDown tool
+      Disallow:/
+      User-agent: MIIxpc
+      Disallow:/
+      User-agent: MJ12bot
+      Disallow:/
+      User-agent: MQQBrowser
+      Disallow:/
+      User-agent: MSFrontPage
+      Disallow:/
+      User-agent: MSIECrawler
+      Disallow:/
+      User-agent: MTRobot
+      Disallow:/
+      User-agent: Mag-Net
+      Disallow:/
+      User-agent: Magnet
+      Disallow:/
+      User-agent: Mail.RU_Bot
+      Disallow:/
+      User-agent: Majestic SEO
+      Disallow:/
+      User-agent: Majestic-SEO
+      Disallow:/
+      User-agent: Majestic12
+      Disallow:/
+      User-agent: MarkMonitor
+      Disallow:/
+      User-agent: MarkWatch
+      Disallow:/
+      User-agent: Mass Downloader
+      Disallow:/
+      User-agent: Masscan
+      Disallow:/
+      User-agent: Mata Hari
+      Disallow:/
+      User-agent: MauiBot
+      Disallow:/
+      User-agent: Mb2345Browser
+      Disallow:/
+      User-agent: MeanPath Bot
+      Disallow:/
+      User-agent: Meanpathbot
+      Disallow:/
+      User-agent: Mediatoolkitbot
+      Disallow:/
+      User-agent: MegaIndex.ru
+      Disallow:/
+      User-agent: Metauri
+      Disallow:/
+      User-agent: MicroMessenger
+      Disallow:/
+      User-agent: Microsoft Data Access
+      Disallow:/
+      User-agent: Microsoft URL Control
+      Disallow:/
+      User-agent: Minefield
+      Disallow:/
+      User-agent: Mister PiX
+      Disallow:/
+      User-agent: Moblie Safari
+      Disallow:/
+      User-agent: Mojeek
+      Disallow:/
+      User-agent: Mojolicious
+      Disallow:/
+      User-agent: MolokaiBot
+      Disallow:/
+      User-agent: Morfeus Fucking Scanner
+      Disallow:/
+      User-agent: Mozlila
+      Disallow:/
+      User-agent: Mr.4x3
+      Disallow:/
+      User-agent: Msrabot
+      Disallow:/
+      User-agent: Musobot
+      Disallow:/
+      User-agent: NICErsPRO
+      Disallow:/
+      User-agent: NPbot
+      Disallow:/
+      User-agent: Name Intelligence
+      Disallow:/
+      User-agent: Nameprotect
+      Disallow:/
+      User-agent: Navroad
+      Disallow:/
+      User-agent: NearSite
+      Disallow:/
+      User-agent: Needle
+      Disallow:/
+      User-agent: Nessus
+      Disallow:/
+      User-agent: Net Vampire
+      Disallow:/
+      User-agent: NetAnts
+      Disallow:/
+      User-agent: NetLyzer
+      Disallow:/
+      User-agent: NetMechanic
+      Disallow:/
+      User-agent: NetSpider
+      Disallow:/
+      User-agent: NetZIP
+      Disallow:/
+      User-agent: Netcraft
+      Disallow:/
+      User-agent: Nettrack
+      Disallow:/
+      User-agent: Netvibes
+      Disallow:/
+      User-agent: NextGenSearchBot
+      Disallow:/
+      User-agent: Nibbler
+      Disallow:/
+      User-agent: Niki-bot
+      Disallow:/
+      User-agent: Nikto
+      Disallow:/
+      User-agent: NimbleCrawler
+      Disallow:/
+      User-agent: Nimbostratus
+      Disallow:/
+      User-agent: Ninja
+      Disallow:/
+      User-agent: Nmap
+      Disallow:/
+      User-agent: Nuclei
+      Disallow:/
+      User-agent: Nutch
+      Disallow:/
+      User-agent: Octopus
+      Disallow:/
+      User-agent: Offline Explorer
+      Disallow:/
+      User-agent: Offline Navigator
+      Disallow:/
+      User-agent: OnCrawl
+      Disallow:/
+      User-agent: OpenLinkProfiler
+      Disallow:/
+      User-agent: OpenVAS
+      Disallow:/
+      User-agent: Openfind
+      Disallow:/
+      User-agent: Openvas
+      Disallow:/
+      User-agent: OrangeBot
+      Disallow:/
+      User-agent: OrangeSpider
+      Disallow:/
+      User-agent: OutclicksBot
+      Disallow:/
+      User-agent: OutfoxBot
+      Disallow:/
+      User-agent: PECL::HTTP
+      Disallow:/
+      User-agent: PHPCrawl
+      Disallow:/
+      User-agent: POE-Component-Client-HTTP
+      Disallow:/
+      User-agent: Page Analyzer
+      Disallow:/
+      User-agent: PageAnalyzer
+      Disallow:/
+      User-agent: PageGrabber
+      Disallow:/
+      User-agent: PageScorer
+      Disallow:/
+      User-agent: PageThing.com
+      Disallow:/
+      User-agent: Pandalytics
+      Disallow:/
+      User-agent: Panscient
+      Disallow:/
+      User-agent: Papa Foto
+      Disallow:/
+      User-agent: Pavuk
+      Disallow:/
+      User-agent: PeoplePal
+      Disallow:/
+      User-agent: Petalbot
+      Disallow:/
+      User-agent: Pi-Monster
+      Disallow:/
+      User-agent: Picscout
+      Disallow:/
+      User-agent: Picsearch
+      Disallow:/
+      User-agent: PictureFinder
+      Disallow:/
+      User-agent: Piepmatz
+      Disallow:/
+      User-agent: Pimonster
+      Disallow:/
+      User-agent: Pixray
+      Disallow:/
+      User-agent: PleaseCrawl
+      Disallow:/
+      User-agent: Pockey
+      Disallow:/
+      User-agent: ProPowerBot
+      Disallow:/
+      User-agent: ProWebWalker
+      Disallow:/
+      User-agent: Probethenet
+      Disallow:/
+      User-agent: Proximic
+      Disallow:/
+      User-agent: Psbot
+      Disallow:/
+      User-agent: Pu_iN
+      Disallow:/
+      User-agent: Pump
+      Disallow:/
+      User-agent: PxBroker
+      Disallow:/
+      User-agent: PyCurl
+      Disallow:/
+      User-agent: QueryN Metasearch
+      Disallow:/
+      User-agent: Quick-Crawler
+      Disallow:/
+      User-agent: RSSingBot
+      Disallow:/
+      User-agent: Rainbot
+      Disallow:/
+      User-agent: RankActive
+      Disallow:/
+      User-agent: RankActiveLinkBot
+      Disallow:/
+      User-agent: RankFlex
+      Disallow:/
+      User-agent: RankingBot
+      Disallow:/
+      User-agent: RankingBot2
+      Disallow:/
+      User-agent: Rankivabot
+      Disallow:/
+      User-agent: RankurBot
+      Disallow:/
+      User-agent: Re-re
+      Disallow:/
+      User-agent: ReGet
+      Disallow:/
+      User-agent: RealDownload
+      Disallow:/
+      User-agent: Reaper
+      Disallow:/
+      User-agent: RebelMouse
+      Disallow:/
+      User-agent: Recorder
+      Disallow:/
+      User-agent: RedesScrapy
+      Disallow:/
+      User-agent: RepoMonkey
+      Disallow:/
+      User-agent: Ripper
+      Disallow:/
+      User-agent: RocketCrawler
+      Disallow:/
+      User-agent: Rogerbot
+      Disallow:/
+      User-agent: SBIder
+      Disallow:/
+      User-agent: SEOkicks
+      Disallow:/
+      User-agent: SEOkicks-Robot
+      Disallow:/
+      User-agent: SEOlyt
+      Disallow:/
+      User-agent: SEOlyticsCrawler
+      Disallow:/
+      User-agent: SEOprofiler
+      Disallow:/
+      User-agent: SEOstats
+      Disallow:/
+      User-agent: SISTRIX
+      Disallow:/
+      User-agent: SMTBot
+      Disallow:/
+      User-agent: SalesIntelligent
+      Disallow:/
+      User-agent: ScanAlert
+      Disallow:/
+      User-agent: Scanbot
+      Disallow:/
+      User-agent: ScoutJet
+      Disallow:/
+      User-agent: Scrapy
+      Disallow:/
+      User-agent: Screaming
+      Disallow:/
+      User-agent: ScreenerBot
+      Disallow:/
+      User-agent: ScrepyBot
+      Disallow:/
+      User-agent: Searchestate
+      Disallow:/
+      User-agent: SearchmetricsBot
+      Disallow:/
+      User-agent: Seekport
+      Disallow:/
+      User-agent: SeekportBot
+      Disallow:/
+      User-agent: SemanticJuice
+      Disallow:/
+      User-agent: Semrush
+      Disallow:/
+      User-agent: SemrushBot
+      Disallow:/
+      User-agent: SentiBot
+      Disallow:/
+      User-agent: SenutoBot
+      Disallow:/
+      User-agent: SeoSiteCheckup
+      Disallow:/
+      User-agent: SeobilityBot
+      Disallow:/
+      User-agent: Seomoz
+      Disallow:/
+      User-agent: Shodan
+      Disallow:/
+      User-agent: Siphon
+      Disallow:/
+      User-agent: Site Sucker
+      Disallow:/
+      User-agent: SiteCheckerBotCrawler
+      Disallow:/
+      User-agent: SiteExplorer
+      Disallow:/
+      User-agent: SiteLockSpider
+      Disallow:/
+      User-agent: SiteSnagger
+      Disallow:/
+      User-agent: SiteSucker
+      Disallow:/
+      User-agent: Sitebeam
+      Disallow:/
+      User-agent: Siteimprove
+      Disallow:/
+      User-agent: Sitevigil
+      Disallow:/
+      User-agent: SlySearch
+      Disallow:/
+      User-agent: SmartDownload
+      Disallow:/
+      User-agent: Snake
+      Disallow:/
+      User-agent: Snapbot
+      Disallow:/
+      User-agent: Snoopy
+      Disallow:/
+      User-agent: SocialRankIOBot
+      Disallow:/
+      User-agent: Sociscraper
+      Disallow:/
+      User-agent: Sogou web spider
+      Disallow:/
+      User-agent: Sosospider
+      Disallow:/
+      User-agent: Sottopop
+      Disallow:/
+      User-agent: SpaceBison
+      Disallow:/
+      User-agent: Spammen
+      Disallow:/
+      User-agent: SpankBot
+      Disallow:/
+      User-agent: Spanner
+      Disallow:/
+      User-agent: Spbot
+      Disallow:/
+      User-agent: Spider_Bot
+      Disallow:/
+      User-agent: Spider_Bot/3.0
+      Disallow:/
+      User-agent: Spinn3r
+      Disallow:/
+      User-agent: SputnikBot
+      Disallow:/
+      User-agent: Sqlmap
+      Disallow:/
+      User-agent: Sqlworm
+      Disallow:/
+      User-agent: Sqworm
+      Disallow:/
+      User-agent: Steeler
+      Disallow:/
+      User-agent: Stripper
+      Disallow:/
+      User-agent: Sucker
+      Disallow:/
+      User-agent: Sucuri
+      Disallow:/
+      User-agent: SuperBot
+      Disallow:/
+      User-agent: SuperHTTP
+      Disallow:/
+      User-agent: Surfbot
+      Disallow:/
+      User-agent: SurveyBot
+      Disallow:/
+      User-agent: Suzuran
+      Disallow:/
+      User-agent: Swiftbot
+      Disallow:/
+      User-agent: Szukacz
+      Disallow:/
+      User-agent: T0PHackTeam
+      Disallow:/
+      User-agent: T8Abot
+      Disallow:/
+      User-agent: Teleport
+      Disallow:/
+      User-agent: TeleportPro
+      Disallow:/
+      User-agent: Telesoft
+      Disallow:/
+      User-agent: Telesphoreo
+      Disallow:/
+      User-agent: Telesphorep
+      Disallow:/
+      User-agent: The Intraformant
+      Disallow:/
+      User-agent: TheNomad
+      Disallow:/
+      User-agent: Thumbor
+      Disallow:/
+      User-agent: TightTwatBot
+      Disallow:/
+      User-agent: TinyTestBot
+      Disallow:/
+      User-agent: Titan
+      Disallow:/
+      User-agent: Toata
+      Disallow:/
+      User-agent: Toweyabot
+      Disallow:/
+      User-agent: Tracemyfile
+      Disallow:/
+      User-agent: Trendiction
+      Disallow:/
+      User-agent: Trendictionbot
+      Disallow:/
+      User-agent: True_Robot
+      Disallow:/
+      User-agent: Turingos
+      Disallow:/
+      User-agent: Turnitin
+      Disallow:/
+      User-agent: TurnitinBot
+      Disallow:/
+      User-agent: TwengaBot
+      Disallow:/
+      User-agent: Twice
+      Disallow:/
+      User-agent: Typhoeus
+      Disallow:/
+      User-agent: URLy Warning
+      Disallow:/
+      User-agent: URLy.Warning
+      Disallow:/
+      User-agent: UnisterBot
+      Disallow:/
+      User-agent: Upflow
+      Disallow:/
+      User-agent: V-BOT
+      Disallow:/
+      User-agent: VB Project
+      Disallow:/
+      User-agent: VCI
+      Disallow:/
+      User-agent: Vacuum
+      Disallow:/
+      User-agent: Vagabondo
+      Disallow:/
+      User-agent: VelenPublicWebCrawler
+      Disallow:/
+      User-agent: VeriCiteCrawler
+      Disallow:/
+      User-agent: VidibleScraper
+      Disallow:/
+      User-agent: Virusdie
+      Disallow:/
+      User-agent: VoidEYE
+      Disallow:/
+      User-agent: Voil
+      Disallow:/
+      User-agent: Voltron
+      Disallow:/
+      User-agent: WASALive-Bot
+      Disallow:/
+      User-agent: WBSearchBot
+      Disallow:/
+      User-agent: WEBDAV
+      Disallow:/
+      User-agent: WISENutbot
+      Disallow:/
+      User-agent: WPScan
+      Disallow:/
+      User-agent: WWW-Collector-E
+      Disallow:/
+      User-agent: WWW-Mechanize
+      Disallow:/
+      User-agent: WWW::Mechanize
+      Disallow:/
+      User-agent: WWWOFFLE
+      Disallow:/
+      User-agent: Wallpapers
+      Disallow:/
+      User-agent: Wallpapers/3.0
+      Disallow:/
+      User-agent: WallpapersHD
+      Disallow:/
+      User-agent: WeSEE
+      Disallow:/
+      User-agent: Web Auto
+      Disallow:/
+      User-agent: Web Collage
+      Disallow:/
+      User-agent: Web Enhancer
+      Disallow:/
+      User-agent: Web Fetch
+      Disallow:/
+      User-agent: Web Fuck
+      Disallow:/
+      User-agent: Web Pix
+      Disallow:/
+      User-agent: Web Sauger
+      Disallow:/
+      User-agent: Web Sucker
+      Disallow:/
+      User-agent: WebAuto
+      Disallow:/
+      User-agent: WebBandit
+      Disallow:/
+      User-agent: WebCollage
+      Disallow:/
+      User-agent: WebCopier
+      Disallow:/
+      User-agent: WebEnhancer
+      Disallow:/
+      User-agent: WebFetch
+      Disallow:/
+      User-agent: WebFuck
+      Disallow:/
+      User-agent: WebGo IS
+      Disallow:/
+      User-agent: WebImageCollector
+      Disallow:/
+      User-agent: WebLeacher
+      Disallow:/
+      User-agent: WebPix
+      Disallow:/
+      User-agent: WebReaper
+      Disallow:/
+      User-agent: WebSauger
+      Disallow:/
+      User-agent: WebStripper
+      Disallow:/
+      User-agent: WebSucker
+      Disallow:/
+      User-agent: WebWhacker
+      Disallow:/
+      User-agent: WebZIP
+      Disallow:/
+      User-agent: Webalta
+      Disallow:/
+      User-agent: WebmasterWorldForumBot
+      Disallow:/
+      User-agent: Webshag
+      Disallow:/
+      User-agent: Website Quester
+      Disallow:/
+      User-agent: WebsiteExtractor
+      Disallow:/
+      User-agent: WebsiteQuester
+      Disallow:/
+      User-agent: Webster
+      Disallow:/
+      User-agent: Whack
+      Disallow:/
+      User-agent: Whacker
+      Disallow:/
+      User-agent: Whatweb
+      Disallow:/
+      User-agent: Who.is Bot
+      Disallow:/
+      User-agent: Widow
+      Disallow:/
+      User-agent: WinHTTrack
+      Disallow:/
+      User-agent: WiseGuys Robot
+      Disallow:/
+      User-agent: Wonderbot
+      Disallow:/
+      User-agent: Woobot
+      Disallow:/
+      User-agent: Wotbox
+      Disallow:/
+      User-agent: Wprecon
+      Disallow:/
+      User-agent: Xaldon WebSpider
+      Disallow:/
+      User-agent: Xaldon_WebSpider
+      Disallow:/
+      User-agent: Xenu
+      Disallow:/
+      User-agent: YaK
+      Disallow:/
+      User-agent: YoudaoBot
+      Disallow:/
+      User-agent: Zade
+      Disallow:/
+      User-agent: Zauba
+      Disallow:/
+      User-agent: Zermelo
+      Disallow:/
+      User-agent: Zeus
+      Disallow:/
+      User-agent: Zitebot
+      Disallow:/
+      User-agent: ZmEu
+      Disallow:/
+      User-agent: ZoomBot
+      Disallow:/
+      User-agent: ZoominfoBot
+      Disallow:/
+      User-agent: ZumBot
+      Disallow:/
+      User-agent: ZyBorg
+      Disallow:/
+      User-agent: adscanner
+      Disallow:/
+      User-agent: anthropic-ai
+      Disallow:/
+      User-agent: archive.org_bot
+      Disallow:/
+      User-agent: arquivo-web-crawler
+      Disallow:/
+      User-agent: arquivo.pt
+      Disallow:/
+      User-agent: autoemailspider
+      Disallow:/
+      User-agent: awario.com
+      Disallow:/
+      User-agent: backlink-check
+      Disallow:/
+      User-agent: cah.io.community
+      Disallow:/
+      User-agent: check1.exe
+      Disallow:/
+      User-agent: clark-crawler
+      Disallow:/
+      User-agent: coccocbot
+      Disallow:/
+      User-agent: cognitiveseo
+      Disallow:/
+      User-agent: cohere-ai
+      Disallow:/
+      User-agent: com.plumanalytics
+      Disallow:/
+      User-agent: crawl.sogou.com
+      Disallow:/
+      User-agent: crawler.feedback
+      Disallow:/
+      User-agent: crawler4j
+      Disallow:/
+      User-agent: dataforseo.com
+      Disallow:/
+      User-agent: dataforseobot
+      Disallow:/
+      User-agent: demandbase-bot
+      Disallow:/
+      User-agent: domainsproject.org
+      Disallow:/
+      User-agent: eCatch
+      Disallow:/
+      User-agent: evc-batch
+      Disallow:/
+      User-agent: facebookscraper
+      Disallow:/
+      User-agent: gopher
+      Disallow:/
+      User-agent: heritrix
+      Disallow:/
+      User-agent: imagesift.com
+      Disallow:/
+      User-agent: instabid
+      Disallow:/
+      User-agent: internetVista monitor
+      Disallow:/
+      User-agent: ips-agent
+      Disallow:/
+      User-agent: isitwp.com
+      Disallow:/
+      User-agent: iubenda-radar
+      Disallow:/
+      User-agent: linkdexbot
+      Disallow:/
+      User-agent: linkfluence
+      Disallow:/
+      User-agent: lwp-request
+      Disallow:/
+      User-agent: lwp-trivial
+      Disallow:/
+      User-agent: magpie-crawler
+      Disallow:/
+      User-agent: meanpathbot
+      Disallow:/
+      User-agent: mediawords
+      Disallow:/
+      User-agent: muhstik-scan
+      Disallow:/
+      User-agent: netEstate NE Crawler
+      Disallow:/
+      User-agent: oBot
+      Disallow:/
+      User-agent: omgili
+      Disallow:/
+      User-agent: openai
+      Disallow:/
+      User-agent: openai.com
+      Disallow:/
+      User-agent: page scorer
+      Disallow:/
+      User-agent: pcBrowser
+      Disallow:/
+      User-agent: plumanalytics
+      Disallow:/
+      User-agent: polaris version
+      Disallow:/
+      User-agent: probe-image-size
+      Disallow:/
+      User-agent: ripz
+      Disallow:/
+      User-agent: s1z.ru
+      Disallow:/
+      User-agent: satoristudio.net
+      Disallow:/
+      User-agent: scalaj-http
+      Disallow:/
+      User-agent: scan.lol
+      Disallow:/
+      User-agent: seobility
+      Disallow:/
+      User-agent: seocompany.store
+      Disallow:/
+      User-agent: seoscanners
+      Disallow:/
+      User-agent: seostar
+      Disallow:/
+      User-agent: serpstatbot
+      Disallow:/
+      User-agent: sexsearcher
+      Disallow:/
+      User-agent: sitechecker.pro
+      Disallow:/
+      User-agent: siteripz
+      Disallow:/
+      User-agent: sogouspider
+      Disallow:/
+      User-agent: sp_auditbot
+      Disallow:/
+      User-agent: spyfu
+      Disallow:/
+      User-agent: sysscan
+      Disallow:/
+      User-agent: tAkeOut
+      Disallow:/
+      User-agent: trendiction.com
+      Disallow:/
+      User-agent: trendiction.de
+      Disallow:/
+      User-agent: ubermetrics-technologies.com
+      Disallow:/
+      User-agent: voyagerx.com
+      Disallow:/
+      User-agent: webgains-bot
+      Disallow:/
+      User-agent: webmeup-crawler
+      Disallow:/
+      User-agent: webpros.com
+      Disallow:/
+      User-agent: webprosbot
+      Disallow:/
+      User-agent: x09Mozilla
+      Disallow:/
+      User-agent: x22Mozilla
+      Disallow:/
+      User-agent: xpymep1.exe
+      Disallow:/
+      User-agent: zauba.io
+      Disallow:/
+      User-agent: zgrab
+      Disallow:/
+
+      ### Dark Visitors Robots.txt
+      User-agent: Applebot-Extended
+      User-agent: Diffbot
+      User-agent: Meta-ExternalAgent
+      User-agent: omgili
+      User-agent: omgilibot
+      User-agent: Timpibot
+      User-agent: anthropic-ai
+      User-agent: Claude-Web
+      User-agent: cohere-ai
+      User-agent: DataForSeoBot
+      User-agent: FriendlyCrawler
+      User-agent: img2dataset
+      User-agent: Meltwater
+      User-agent: peer39_crawler
+      User-agent: peer39_crawler/1.0
+      User-agent: PerplexityBot
+      User-agent: PiplBot
+      User-agent: scoop.it
+      User-agent: Seekr
+      User-agent: YouBot
+      User-agent: AI2Bot
+      User-agent: Ai2Bot-Dolma
+      User-agent: Amazonbot
+      User-agent: Applebot
+      User-agent: Brightbot 1.0
+      User-agent: cohere-training-data-crawler
+      User-agent: Crawlspace
+      User-agent: DuckAssistBot
+      User-agent: GoogleOther
+      User-agent: GoogleOther-Image
+      User-agent: GoogleOther-Video
+      User-agent: iaskspider/2.0
+      User-agent: ICC-Crawler
+      User-agent: ISSCyberRiskCrawler
+      User-agent: Kangaroo Bot
+      User-agent: Meta-ExternalFetcher
+      User-agent: OAI-SearchBot
+      User-agent: PanguBot
+      User-agent: SemrushBot-OCOB
+      User-agent: SemrushBot-SWA
+      User-agent: Sidetrade indexer bot
+      User-agent: Webzio-Extended
+      Disallow: /
+
+      ### CUSTOM:
+      User-Agent: *
+      Allow: /
+      Allow: /typo3conf/ext/*/Public/
+      Allow: /typo3temp/assets/
+      Disallow: /fileadmin/templates
+      Disallow: /typo3/
+      Disallow: /t3lib/
+      Disallow: /typo3conf/
+      Disallow: /typo3temp/
+      Disallow: /*?id=*
+      Disallow: /*?tx_indexedsearch
+      Disallow: /*?id=*
+      Disallow: /print/
+      Disallow: /login/
+      Disallow: /logout/
+      Disallow: /private/
+      Disallow: /config/
+
+      Sitemap: https://www.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}/sitemap.xml
