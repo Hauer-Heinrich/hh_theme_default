@@ -9,9 +9,9 @@
     <div class="ce-textpic">
         <footer>
             <span class="news-list-date">
-                <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
-                    <span class="day"><f:format.date format="d.">{newsItem.datetime}</f:format.date></span>
-                    <span class="month"><f:format.date format="M">{newsItem.datetime}</f:format.date></span>
+                <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, pattern:'yyyy-MM-ee')}">
+                    <span class="day"><f:format.date pattern="ee.">{newsItem.datetime}</f:format.date></span>
+                    <span class="month"><f:format.date pattern="MM">{newsItem.datetime}</f:format.date></span>
                 </time>
             </span>
         </footer>

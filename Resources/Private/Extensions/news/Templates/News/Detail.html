@@ -38,8 +38,8 @@
             <div class="footer">
                 <p>
                     <span class="news-list-date">
-                        <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
-                            <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
+                        <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, pattern:'yyyy-MM-ee')}">
+                            <f:format.date pattern="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
                         </time>
                     </span>
 
@@ -98,7 +98,7 @@
                         <ul>
                             <f:for each="{newsItem.allRelatedSorted}" as="related">
                                 <li>
-                                    <span class="news-related-news-date"><f:format.date format="{f:translate(key:'dateFormat')}">{related.datetime}</f:format.date></span>
+                                    <span class="news-related-news-date"><f:format.date patter="{f:translate(key:'dateFormat')}">{related.datetime}</f:format.date></span>
                                     <n:link newsItem="{related}" settings="{settings}" title="{related.title}">
                                         {related.title}
                                     </n:link>

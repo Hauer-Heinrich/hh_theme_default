@@ -67,6 +67,7 @@ plugin.tx_news {
 
     _LOCAL_LANG {
         de {
+            dateFormat = MMMM yyyy
             more-link = Jetzt weiterlesen
         }
     }
