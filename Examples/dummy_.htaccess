@@ -13,13 +13,13 @@ RewriteCond $0#%{REQUEST_URI} ([^#]*)#(.*)\1$
 RewriteRule ^.*$ - [E=CWD:%2]
 
 ### forwarding www / none-www
-# RewriteCond %{HTTP_HOST} !^www.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}$ [NC]
-# RewriteRule ^(.*)$ https://www.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}/$1 [L,R=301]
+# RewriteCond %{HTTP_HOST} !^www.domain.tld$ [NC]
+# RewriteRule ^(.*)$ https://www.domain.tld/$1 [L,R=301]
 
 ### forwarding https/SSL
-# RewriteCond %{HTTP_HOST} ^(www\.)?hh-theme-default.hauer-heinrich\.de$ [NC]
+# RewriteCond %{HTTP_HOST} ^(www\.)?domain\.tld$ [NC]
 # RewriteCond %{HTTPS} !on [NC]
-# RewriteRule ^(.*)$ https://www.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}/$1 [R=301,L]
+# RewriteRule ^(.*)$ https://www.domain.tld/$1 [R=301,L]
 
 ## With HSTS you can tell browsers when users visit your site to only request from the HTTPS version of the site, no interactions over HTTP.
 ## Gilt dann für alle Webseiten die innerhalb einer Typo3 Installation liegen!
@@ -29,10 +29,10 @@ RewriteRule ^.*$ - [E=CWD:%2]
 
 RewriteRule .? - [E=TYPO3_CONTEXT:Production]
 
-RewriteCond %{HTTP_HOST} ^preview.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}$
+RewriteCond %{HTTP_HOST} ^preview.domain.tld$
 RewriteRule .? - [E=TYPO3_CONTEXT:Development/Server]
 
-RewriteCond %{HTTP_HOST} ^(www\.)?hh-theme-default\.localhost$ [NC]
+RewriteCond %{HTTP_HOST} ^(www\.)?domain\.localhost$ [NC]
 RewriteRule (.*) $1 [E=TYPO3_CONTEXT:Development]
 
 # Allow e.g. Basic Auth
