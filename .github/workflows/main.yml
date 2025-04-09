@@ -48,8 +48,8 @@ jobs:
             sed -i "s|{{EXTENSION_DOMAIN_NAME}}.de|{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}|g" "$file"
             sed -i "s|@hh-theme-default.hauer-heinrich.de|@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}|g" "$file"
             sed -i "s|typo3-ter/hh-theme-default|typo3-ter/{{EXTENSION_NAMESPACE_ES6}}|g" "$file"
-            sed -i "s|(hh-theme-default\.hauer-heinrich)|({{EXTENSION_DOMAIN_NAME}})|g" "$file"
-            sed -i "s|{{EXTENSION_DOMAIN_NAME}}\.hauer-heinrich|{{EXTENSION_DOMAIN_NAME}}|g" "$file"
+            sed -i "s|(hh-theme-default\\.hauer-heinrich)|({{EXTENSION_DOMAIN_NAME}})|g" "$file"
+            sed -i "s|{{EXTENSION_DOMAIN_NAME}}\\.hauer-heinrich|{{EXTENSION_DOMAIN_NAME}}|g" "$file"
           done
 
       - name: Configure Git
