@@ -84,8 +84,8 @@ $customChanges = [
         'mediafile_ext' => 'gif,jpg,jpeg,png,webp,pdf,svg,mp3,mp4,webm,youtube,vimeo',
         'defaultScheme' => 'https',
         // cookieDomain e. g. 'cookieDomain' => '/(www\.)?(domainA|domainB)\.?(TLD)$/',
-        'cookieDomain' => '/www\.(hh-theme-default\.hauer-heinrich)\.de$/',
-        'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}\.hauer-heinrich.de',
+        'cookieDomain' => '/www\.({{EXTENSION_DOMAIN_NAME}})\.de$/',
+        'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}.de',
     ],
     'EXTENSIONS' => [
         'backend' => [
