@@ -143,7 +143,7 @@ plugin.tx_powermail {
             receiver {
                 overwrite {
                     senderEmail = TEXT
-                    senderEmail.value = example@hh-theme-default.hauer-heinrich.de
+                    senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
 
                     replyToName = TEXT
                     replyToName.value >
@@ -157,19 +157,19 @@ plugin.tx_powermail {
 
             sender {
                 default {
-                    senderEmail = example@hh-theme-default.hauer-heinrich.de
+                    senderEmail = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
                 }
                 overwrite {
                     senderEmail = TEXT
                     senderEmail.value >
-                    senderEmail.value = example@hh-theme-default.hauer-heinrich.de
+                    senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
                 }
             }
 
             optin {
                 overwrite {
                     senderEmail = TEXT
-                    senderEmail.value = example@hh-theme-default.hauer-heinrich.de
+                    senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
                 }
             }
         }
