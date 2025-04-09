@@ -20,9 +20,12 @@ jobs:
           find . -type f -not -path "./.git/*" -not -path "./.github/*" -not -name "README.md" -print0 | while IFS= read -r -d $'\0' file; do
             sed -i "s|test-theme-default\.com|{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}|g" "$file"
             sed -i "s|HauerHeinrich/HhThemeDefault|{{EXTENSION_VENDOR}}/HhThemeDefault|g" "$file"
+            sed -i "s|HauerHeinrich\\HhThemeDefault|{{EXTENSION_VENDOR}}\\{{EXTENSION_NAMESPACE}}|g" "$file"
             sed -i "s|HauerHeinrich/hh-theme-default|{{EXTENSION_VENDOR}}/hh-theme-default|g" "$file"
+            sed -i "s|HauerHeinrich/hh_theme_default|{{EXTENSION_VENDOR}}/{{EXTENSION_KEY}}|g" "$file"
             sed -i "s|EXT:hh_theme_default|EXT:{{EXTENSION_KEY}}|g" "$file"
             sed -i "s|'hh_theme_default'|{{EXTENSION_KEY}}|g" "$file"
+            sed -i "s|"hh_theme_default"|{{EXTENSION_KEY}}|g" "$file"
             sed -i "s|hh-theme-default|{{EXTENSION_NAMESPACE_ES6}}|g" "$file"
             sed -i "s|test-theme-default|{{EXTENSION_DOMAIN_NAME}}|g" "$file"
             sed -i "s|{{EXTENSION_DOMAIN_NAME}}\.com|{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}|g" "$file"
