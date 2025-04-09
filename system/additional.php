@@ -3,7 +3,7 @@ defined('TYPO3') or die();
 
 use \TYPO3\CMS\Core\Core\Environment;
 
-$extensionKey = 'hh_theme_default';
+$extensionKey = '{{EXTENSION_KEY}}';
 
 // Production / Live - default settings:
 // Default, is overwritten by Stage and local development
