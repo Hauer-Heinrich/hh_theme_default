@@ -439,7 +439,7 @@ page {
     #     userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
     #     pluginName = Jobslist
     #     extensionName = HhSimpleJobPosts
-    #     vendorName = HauerHeinrich
+    #     vendorName = {{EXTENSION_VENDOR}}
     #     controller = Jobpost
     #     action = show
 
