@@ -1,4 +1,4 @@
-name: Replace Strings
+name: Replace development Strings with placeholders
 
 on:
   push:
@@ -7,23 +7,53 @@ on:
     paths-ignore:
       - 'README.md'
 
+permissions:
+  contents: write
+  pull-requests: write # Kann hilfreich sein, auch wenn der Workflow keine PRs erstellt
+  actions: write      # Erlaubt dem Workflow, andere Actions zu verwalten
+  repository-projects: write # Für Projektboards
+  security-events: write # Für Security Scanning Ergebnisse
+  statuses: write      # Für das Setzen von Commit-Status
+  deployments: write   # Für Deployment-bezogene Aktionen
+
 jobs:
   replace_strings:
-    if: github.repository == 'hh_theme_default'
+    if: github.repository == 'Hauer-Heinrich/hh_theme_default'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: get epository name
+        run: echo "value=`basename ${{ github.repository }}`" >> $GITHUB_OUTPUT
+
       - name: Replace strings
         run: |
-          find . -type f -not -name "README.md" -print0 | while IFS= read -r -d $'\0' file; do
-            sed -i "s/HauerHeinrich/{{EXTENSION_VENDOR}}/g" "$file"
+          find . -type f -not -path "./.git/*" -not -path "./.github/*" -not -name "README.md" -not -name "init.ps1" -not -name "init.sh" -not -name "package-lock.json" -print0 | while IFS= read -r -d $'\0' file; do
+            sed -i "s/hh_theme_default/{{EXTENSION_KEY}}/g" "$file"
+            sed -i "s/hhthemedefault/{{EXTENSION_NAME}}/g" "$file"
             sed -i "s/HhThemeDefault/{{EXTENSION_NAMESPACE}}/g" "$file"
+            sed -i "s|HauerHeinrich/{{EXTENSION_NAMESPACE}}|{{EXTENSION_VENDOR}}/{{EXTENSION_NAMESPACE}}|g" "$file"
+            sed -i "s|hauerheinrich/hh-theme-default|{{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}|g" "$file"
+            sed -i "s|HauerHeinrich\\\{{EXTENSION_NAMESPACE}}|{{EXTENSION_VENDOR}}\\\{{EXTENSION_NAMESPACE}}|g" "$file"
+            sed -i "s/\.hh-theme-default/\.{{EXTENSION_DOMAIN_NAME}}/g" "$file"
+            sed -i "s|https://hh-theme-default|https://{{EXTENSION_DOMAIN_NAME}}|g" "$file"
+            sed -i "s/{{EXTENSION_DOMAIN_NAME}}\.de/{{EXTENSION_DOMAIN_NAME}}\.{{EXTENSION_DOMAIN_TLD}}/g" "$file"
+            sed -i "s|{{EXTENSION_DOMAIN_NAME}}.de|{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}|g" "$file"
+            sed -i "s|(hh-theme-default)|({{EXTENSION_DOMAIN_NAME}})|g" "$file"
+            sed -i "s|{{EXTENSION_DOMAIN_NAME}}\.hauer-heinrich.|{{EXTENSION_DOMAIN_NAME}}.|g" "$file"
+            sed -i "s|{{EXTENSION_DOMAIN_NAME}}.hauer-heinrich.|{{EXTENSION_DOMAIN_NAME}}.|g" "$file"
+            sed -i "s|{{EXTENSION_DOMAIN_NAME}}\.hauer-heinrich|{{EXTENSION_DOMAIN_NAME}}.|g" "$file"
+            sed -i "s|{{EXTENSION_DOMAIN_NAME}}.de|{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}|g" "$file"
           done
 
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Replace placeholder strings"
-          push_options: '--force' # Optional: Kann nützlich sein, wenn der Branch nur für Tests ist
+      - name: Configure Git
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+
+      - name: Commit and push changes
+        run: |
+          git add .
+          git commit -m "Replace placeholder strings"
+          git push origin test
