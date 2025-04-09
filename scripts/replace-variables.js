@@ -6,7 +6,7 @@ const config = require('./project-config.json');
 // Liste aller zu scannenden Dateien
 function getAllFiles(dir, files = []) {
     const ignoredDirs = [".git", "node_modules"];
-    const ignoredFiles = ["README*.*", "LICENSE", "init.*", "package.json", "package-lock.json"];
+    const ignoredFiles = ["README*.*", "LICENSE", "init*", "package.json", "package-lock.json"];
 
     fs.readdirSync(dir).forEach((file) => {
         const fullPath = path.join(dir, file);
