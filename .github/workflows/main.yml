@@ -55,5 +55,5 @@ jobs:
       - name: Commit and push changes
         run: |
           git add .
-          git commit -m "Replace placeholder strings"
+          git commit -m "Restore placeholder strings"
           git push origin final_test
