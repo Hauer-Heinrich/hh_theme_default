@@ -1,11 +1,11 @@
 rootPageId: 1
-base: 'https://www.hh-theme-default.hauer-heinrich.de'
+base: 'https://www.{{EXTENSION_DOMAIN_NAME}}.hauer-heinrich.de'
 baseVariants:
   -
-    base: 'http://preview.hh-theme-default.hauer-heinrich.de'
+    base: 'http://preview.{{EXTENSION_DOMAIN_NAME}}.hauer-heinrich.de'
     condition: 'applicationContext == "Development/Server"'
   -
-    base: 'http://www.hh-theme-default.localhost'
+    base: 'http://www.{{EXTENSION_DOMAIN_NAME}}.localhost'
     condition: 'applicationContext == "Development"'
 languages:
   -
@@ -47,10 +47,10 @@ errorHandling:
     errorContentSource: 't3://page?uid=10' # uid = page UID from the BE page tree
 ### Import default Robots.txt
 imports:
-  - { resource: "EXT:hh_theme_default/Configuration/Typo3/dummy_files/dummy_site/robots.yaml" }
-  - { resource: "EXT:hh_theme_default/Configuration/Typo3/dummy_files/dummy_site/humans.yaml" }
-  - { resource: "EXT:hh_theme_default/Configuration/Typo3/dummy_files/dummy_site/extensions/news.yaml" }
-  - { resource: "EXT:hh_theme_default/Configuration/Typo3/dummy_files/dummy_site/extensions/tt_address.yaml" }
+  - { resource: "EXT:{{EXTENSION_KEY}}/Configuration/Typo3/dummy_files/dummy_site/robots.yaml" }
+  - { resource: "EXT:{{EXTENSION_KEY}}/Configuration/Typo3/dummy_files/dummy_site/humans.yaml" }
+  - { resource: "EXT:{{EXTENSION_KEY}}/Configuration/Typo3/dummy_files/dummy_site/extensions/news.yaml" }
+  - { resource: "EXT:{{EXTENSION_KEY}}/Configuration/Typo3/dummy_files/dummy_site/extensions/tt_address.yaml" }
 routeEnhancers:
   PageTypeSuffix:
     type: PageType

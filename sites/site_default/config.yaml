@@ -1,11 +1,11 @@
 rootPageId: 1
-base: 'https://www.hh-theme-default.hauer-heinrich.de'
+base: 'https://www.{{EXTENSION_DOMAIN_NAME}}.hauer-heinrich.de'
 baseVariants:
   -
-    base: 'https://preview.hh-theme-default.hauer-heinrich.de'
+    base: 'https://preview.{{EXTENSION_DOMAIN_NAME}}.hauer-heinrich.de'
     condition: 'applicationContext == "Development/Server"'
   -
-    base: 'http://www.hh-theme-default.localhost'
+    base: 'http://www.{{EXTENSION_DOMAIN_NAME}}.localhost'
     condition: 'applicationContext == "Development"'
 
 languages:
@@ -50,10 +50,10 @@ errorHandling:
 
 ### Import default Robots.txt
 imports:
-  - { resource: "EXT:hh_theme_default/sites/site_default/robots.yaml" }
-  - { resource: "EXT:hh_theme_default/sites/site_default/humans.yaml" }
-  - { resource: "EXT:hh_theme_default/sites/site_default/extensions/news.yaml" }
-  - { resource: "EXT:hh_theme_default/sites/site_default/extensions/tt_address.yaml" }
+  - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/robots.yaml" }
+  - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/humans.yaml" }
+  - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/extensions/news.yaml" }
+  - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/extensions/tt_address.yaml" }
 
 routeEnhancers:
   PageTypeSuffix:

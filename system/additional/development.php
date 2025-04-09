@@ -66,7 +66,7 @@ $customDevelopmentChanges = [
         'belogErrorReporting' => 32767,
         // cookieDomain e. g. 'cookieDomain' => '/(www\.)?(domainA|domainB)\.?(TLD)$/',
         'cookieDomain' => '/www\.(hh-theme-default)\.de$/',
-        'trustedHostsPattern' => 'www\.hh-theme-default\.localhost',
+        'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}\.localhost',
     ],
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customDevelopmentChanges);
