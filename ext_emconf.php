@@ -52,7 +52,7 @@ $EM_CONF['hh_theme_default'] = [
     ],
     'autoload' => [
         'psr-4' => [
-            'HauerHeinrich\\HhThemeDefault\\' => 'Classes'
+            '{{EXTENSION_VENDOR}}\\{{EXTENSION_NAMESPACE}}\\' => 'Classes'
         ],
     ],
 ];

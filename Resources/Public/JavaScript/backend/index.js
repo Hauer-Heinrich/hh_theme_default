@@ -1,5 +1,5 @@
 import modal from '@typo3/backend/modal.js';
-import { injectBranding } from '@HauerHeinrich/hh-theme-default/Backend/author-info.js'
+import { injectBranding } from '@{{EXTENSION_VENDOR}}/hh-theme-default/Backend/author-info.js'
 
 // modal.confirm('Warning', 'You may break the internet!', 0, [
 //     {

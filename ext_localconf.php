@@ -19,7 +19,7 @@ call_user_func(function(string $extensionKey) {
     $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['rte_header'] = $rtePresetHeader;
 
     // Register "hhdefault" as global fluid namespace
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['hhdefault'] = ['HauerHeinrich\\HhThemeDefault\\ViewHelpers'];
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['hhdefault'] = ['{{EXTENSION_VENDOR}}\\{{EXTENSION_NAMESPACE}}\\ViewHelpers'];
 
     // Exclude Params from cacheHash
     // for example to get rid of params for canonical generation
