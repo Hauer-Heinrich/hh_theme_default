@@ -27,13 +27,13 @@ jobs:
           exit 1
         fi
 
-    - name: Replace strings in staged files
+    - name: Replace strings in last commit files
       run: |
-        # Alle geänderten Dateien sammeln, die für den Push vorgesehen sind
-        FILES=$(git diff --name-only HEAD^..HEAD)
+        # Alle geänderten Dateien im letzten Commit sammeln
+        FILES=$(git diff --name-only HEAD~1..HEAD)
 
         if [ -z "$FILES" ]; then
-          echo "Keine gestageten Dateien gefunden, keine Änderungen notwendig."
+          echo "Keine geänderten Dateien gefunden, keine Änderungen notwendig."
           exit 0
         fi
 
@@ -43,12 +43,12 @@ jobs:
             continue
           fi
 
-          echo "Bearbeite Datei im Staging-Bereich: $FILE"
+          echo "Bearbeite Datei im Commit: $FILE"
 
-          # Ersetzen der Strings im Staging-Bereich, ohne die lokale Datei zu ändern
-          git show :$FILE | sed 's/HauerHeinrich/{{EXTENSION_VENDOR}}/g' | sed 's/HhThemeDefault/{{EXTENSION_NAMESPACE}}/g' | git apply --cached
+          # Ersetzen der Strings in den geänderten Dateien
+          git show HEAD:$FILE | sed 's/HauerHeinrich/{{EXTENSION_VENDOR}}/g' | sed 's/HhThemeDefault/{{EXTENSION_NAMESPACE}}/g' | git apply --cached
         done
-        echo "Strings wurden in den gestageten Dateien ersetzt."
+        echo "Strings wurden in den geänderten Dateien ersetzt."
 
     - name: Push changes
       run: |
