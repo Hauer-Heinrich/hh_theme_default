@@ -7,6 +7,10 @@ on:
     paths-ignore:
       - 'README.md'
 
+permissions:
+  contents: write
+  workflows: write
+
 jobs:
   replace_strings:
     if: github.repository == 'Hauer-Heinrich/hh_theme_default'
