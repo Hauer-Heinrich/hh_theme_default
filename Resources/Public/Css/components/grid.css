@@ -56,7 +56,7 @@
 .grid-container {
     /* GRID LAYOUT (+RESPONSIVE) */
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     column-gap: var(--grid-item-gap);
     row-gap: var(--grid-item-row-gap);
 

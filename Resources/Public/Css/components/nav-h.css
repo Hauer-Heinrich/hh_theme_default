@@ -22,7 +22,7 @@
         color: var(--nav-color-link-hover);
     }
 
-    &>ul {
+    & > ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: left;
@@ -35,5 +35,11 @@
 
     &.nav-right ul {
         justify-content: right;
+    }
+}
+
+.nav-h.nav-left {
+    & > ul {
+        margin-left: calc(-1 * var(--nav-padding));
     }
 }

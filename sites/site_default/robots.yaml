@@ -1395,6 +1395,9 @@ routes:
       User-agent: SemrushBot-SWA
       User-agent: Sidetrade indexer bot
       User-agent: Webzio-Extended
+      User-agent: firecrawlAgent
+      User-agent: AndiBot
+      User-agent: PhindBot
       Disallow: /
 
       ### CUSTOM:

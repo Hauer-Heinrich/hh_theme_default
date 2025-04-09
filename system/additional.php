@@ -3,7 +3,7 @@ defined('TYPO3') or die();
 
 use \TYPO3\CMS\Core\Core\Environment;
 
-$extensionKey = '{{EXTENSION_KEY}}';
+$extensionKey = 'hh_theme_default';
 
 // Production / Live - default settings:
 // Default, is overwritten by Stage and local development
@@ -31,5 +31,5 @@ if (file_exists($additionalConfig)) {
 
 // typo3_config directory contains configuration for e.g. database access,
 // install tool password and configuration for system dependent settings.
-$databaseCredentialsFile = Environment::getPublicPath() . '/../config/typo3_env_config.php';
+$databaseCredentialsFile = Environment::getPublicPath() . '/../env/typo3_config.php';
 if (file_exists($databaseCredentialsFile)) { require_once ($databaseCredentialsFile); }

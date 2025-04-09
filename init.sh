@@ -39,11 +39,14 @@ read EXTENSION_DOMAIN
 EXTENSION_DOMAIN_NAME="$(echo "$EXTENSION_DOMAIN" | sed -E 's/(.+)\.(.+)/\1/g')"
 EXTENSION_DOMAIN_TLD="$(echo "$EXTENSION_DOMAIN" | sed -E 's/(.+)\.(.+)/\2/g')"
 
+EXTENSION_VENDOR_ES6=$(echo "$EXTENSION_VENDOR" | tr '[:upper:]' '[:lower:]')
+
 printf "\n"
 echo "EXTENSION_KEY: $EXTENSION_KEY"
 echo "EXTENSION_VENDOR: $EXTENSION_VENDOR"
 echo "EXTENSION_NAME: $EXTENSION_NAME"
 echo "EXTENSION_NAMESPACE: $EXTENSION_NAMESPACE"
+echo "EXTENSION_VENDOR_ES6: $EXTENSION_VENDOR_ES6"
 echo "EXTENSION_NAMESPACE_ES6: $EXTENSION_NAMESPACE_ES6"
 echo "EXTENSION_DOMAIN_NAME: $EXTENSION_DOMAIN_NAME"
 echo "EXTENSION_DOMAIN_TLD: $EXTENSION_DOMAIN_TLD"
@@ -61,6 +64,7 @@ if [[ -n "$EXTENSION_KEY" && -n "$EXTENSION_VENDOR" && -n "$EXTENSION_NAME" && -
         perl -pi -w -e 's/\{\{EXTENSION_VENDOR\}\}/'"$EXTENSION_VENDOR"'/g;' "$file"
         perl -pi -w -e 's/\{\{EXTENSION_NAME\}\}/'"$EXTENSION_NAME"'/g;' "$file"
         perl -pi -w -e 's/\{\{EXTENSION_NAMESPACE\}\}/'"$EXTENSION_NAMESPACE"'/g;' "$file"
+        perl -pi -w -e 's/\{\{EXTENSION_VENDOR_ES6\}\}/'"$EXTENSION_VENDOR_ES6"'/g;' "$file"
         perl -pi -w -e 's/\{\{EXTENSION_NAMESPACE_ES6\}\}/'"$EXTENSION_NAMESPACE_ES6"'/g;' "$file"
         perl -pi -w -e 's/\{\{EXTENSION_DOMAIN_NAME\}\}/'"$EXTENSION_DOMAIN_NAME"'/g;' "$file"
         perl -pi -w -e 's/\{\{EXTENSION_DOMAIN_TLD\}\}/'"$EXTENSION_DOMAIN_TLD"'/g;' "$file"

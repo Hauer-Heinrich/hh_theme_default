@@ -1,11 +1,11 @@
 editor:
   config:
     contentsCss:
-      - 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/main-rte.bundle.css'
+      - 'EXT:hh_theme_default/Resources/Public/Css/main-rte.bundle.css'
 
     importModules:
       - { module: '@ckeditor/ckeditor5-font', exports: [ 'Font' ] }
-      - { module: '@HauerHeinrich/ckeditor5-highlight', exports: [ 'Highlight' ] }
+      # - { module: '@HauerHeinrich/ckeditor5-highlight', exports: [ 'Highlight' ] }
 
     fontSize:
       options:

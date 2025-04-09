@@ -1,11 +1,11 @@
 rootPageId: 1
-base: 'https://www.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}'
+base: 'https://www.hh-theme-default.hauer-heinrich.de'
 baseVariants:
   -
-    base: 'https://preview.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}'
+    base: 'https://preview.hh-theme-default.hauer-heinrich.de'
     condition: 'applicationContext == "Development/Server"'
   -
-    base: 'http://www.{{EXTENSION_DOMAIN_NAME}}.localhost'
+    base: 'http://www.hh-theme-default.localhost'
     condition: 'applicationContext == "Development"'
 
 languages:
@@ -23,6 +23,20 @@ languages:
     fallbackType: strict
     fallbacks: ''
     flag: de
+  -
+    title: English
+    enabled: true
+    languageId: '1'
+    base: /en/
+    typo3Language: en
+    locale: en_US.UTF-8
+    iso-639-1: en
+    navigationTitle: EN
+    hreflang: en
+    direction: ltr
+    fallbackType: free
+    fallbacks: '0'
+    flag: en-us-gb
 
 errorHandling:
   -
@@ -36,10 +50,10 @@ errorHandling:
 
 ### Import default Robots.txt
 imports:
-  - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/robots.yaml" }
-  - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/humans.yaml" }
-  - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/extensions/news.yaml" }
-  - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/extensions/tt_address.yaml" }
+  - { resource: "EXT:hh_theme_default/sites/site_default/robots.yaml" }
+  - { resource: "EXT:hh_theme_default/sites/site_default/humans.yaml" }
+  - { resource: "EXT:hh_theme_default/sites/site_default/extensions/news.yaml" }
+  - { resource: "EXT:hh_theme_default/sites/site_default/extensions/tt_address.yaml" }
 
 routeEnhancers:
   PageTypeSuffix:

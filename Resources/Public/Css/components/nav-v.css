@@ -1,13 +1,14 @@
 /* COMPONENT - VARIABLES */
 .nav-v {
-    --nav-padding: 10px;
+    --nav-padding-h: 10px;
+    --nav-padding-v: 2px;
 }
 
 /* COMPONENT - STYLING */
 .nav-v {
     & ul {
-        list-style: none;
         display: inline-block;
+        list-style: none;
         padding: 0;
     }
 
@@ -15,25 +16,23 @@
         position: relative;
     }
 
-    & li.active {}
-
-    & li.active>a {
+    & li.active > a {
         color: var(--color-link-hover);
     }
 
-    & li>ul {
+    & li > ul {
         background-color: var(--nav-sub-bg);
         display: none;
+        padding: var(--nav-padding-h);
         position: absolute;
-        padding: var(--nav-padding);
     }
 
-    & li:hover>ul {
+    & li:hover > ul {
         display: block;
     }
 
-    &>ul>li {
-        padding: min(1vw, var(--nav-padding)) min(1vw, var(--nav-padding) * 2);
+    & > ul > li {
+        padding: min(1vw, var(--nav-padding-v)) min(1vw, var(--nav-padding-h) * 2);
     }
 
     & a {
@@ -43,5 +42,11 @@
 
     & a:hover {
         color: var(--nav-link-color-hover);
+    }
+}
+
+.nav-v.nav-left {
+    & > ul {
+        margin-left: calc(-1 * min(1vw, var(--nav-padding-h) * 2));
     }
 }
