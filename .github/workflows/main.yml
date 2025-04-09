@@ -3,7 +3,7 @@ name: Replace development Strings with placeholders
 on:
   push:
     branches:
-      - test
+      - master
     paths-ignore:
       - 'README.md'
 
