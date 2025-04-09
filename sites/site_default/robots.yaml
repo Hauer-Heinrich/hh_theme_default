@@ -1419,4 +1419,4 @@ routes:
       Disallow: /private/
       Disallow: /config/
 
-      Sitemap: https://www.hh-theme-default.de/sitemap.xml
+      Sitemap: https://www.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}/sitemap.xml
