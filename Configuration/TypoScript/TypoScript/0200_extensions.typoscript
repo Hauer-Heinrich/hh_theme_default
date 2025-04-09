@@ -16,7 +16,7 @@ lib.contentElement {
         30 = {$styles.templates.layoutRootPath}
     }
 }
-@import 'EXT:hh_theme_default/Configuration/TypoScript/TypoScript/CustomFluid/*.typoscript'
+@import 'EXT:{{EXTENSION_KEY}}/Configuration/TypoScript/TypoScript/CustomFluid/*.typoscript'
 
 ################################################################
 ### News - news ###
@@ -222,7 +222,7 @@ plugin.tx_indexedsearch {
     }
 
     settings {
-        targetPid = {$plugin.hhthemedefault.indexedSearchId}
+        targetPid = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
         displayRules = 0
         displayAdvancedSearchLink = 0
 
@@ -279,7 +279,7 @@ lib.searchfield {
     }
     settings =< plugin.tx_indexedsearch.settings
     settings {
-        targetPid = {$plugin.hhthemedefault.indexedSearchId}
+        targetPid = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
         displayAdvancedSearchLink = 0
         displayRules = 0
         displayResults = 0
