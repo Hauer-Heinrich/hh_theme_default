@@ -28,32 +28,6 @@ jobs:
             sed -i "s/{{EXTENSION_DOMAIN_NAME}}\.com/{{EXTENSION_DOMAIN_NAME}}\.{{EXTENSION_DOMAIN_TDL}}/g" "$file"
           done
 
-
-      - name: Replace strings
-        run: |
-          find . -type f \
-            -not -path "./.git/*" \
-            -not -path "./.github/*" \
-            -not -name "README.md" \
-            -print0 |
-          while IFS= read -r -d $'\0' file; do
-            awk '
-            {
-              line = $0
-
-
-              ##### 8. test-theme-default → {{EXTENSION_DOMAIN_NAME}} (sofern noch vorhanden) #####
-              gsub(/test-theme-default/, "{{EXTENSION_DOMAIN_NAME}}", line)
-
-              ##### 9. com → {{EXTENSION_DOMAIN_TLD}}, nur wenn nach test-theme-default #####
-              if (line ~ /test-theme-default\.com/) {
-                sub(/com/, "{{EXTENSION_DOMAIN_TLD}}", line)
-              }
-
-              print line
-            }' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
-          done
-
       - name: Configure Git
         run: |
           git config --local user.email "actions@github.com"
