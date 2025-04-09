@@ -85,7 +85,7 @@ $customChanges = [
         'defaultScheme' => 'https',
         // cookieDomain e. g. 'cookieDomain' => '/(www\.)?(domainA|domainB)\.?(TLD)$/',
         'cookieDomain' => '/www\.({{EXTENSION_DOMAIN_NAME}})\.de$/',
-        'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}.de',
+        'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}',
     ],
     'EXTENSIONS' => [
         'backend' => [
