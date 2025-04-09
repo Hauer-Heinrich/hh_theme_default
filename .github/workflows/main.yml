@@ -9,7 +9,7 @@ on:
 
 jobs:
   replace_strings:
-    if: github.repository == 'hh_theme_default'
+    if: github.repository == 'Hauer-Heinrich/hh_theme_default'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
