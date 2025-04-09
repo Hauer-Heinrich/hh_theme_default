@@ -10,7 +10,7 @@
                 <f:variable name="downloadName"><f:if condition="{file.originalFile.properties.download_name}"><f:then>{file.originalFile.properties.download_name}</f:then><f:else><f:if condition="{file.title}"><f:then>{file.title}</f:then><f:else>{file.originalFile.properties.name}</f:else></f:if></f:else></f:if></f:variable>
                 <li>
                     <f:if condition="{data.uploads_type} == 1">
-                        <img class="ce-uploads-icon" src="{f:uri.resource(path: 'EXT:{{EXTENSION_KEY}}/Resources/Public/Icons/FileIcons/{file.extension}.svg')}" alt="" loading="lazy">
+                        <img class="ce-uploads-icon" src="{f:uri.resource(path: 'EXT:hh_theme_default/Resources/Public/Icons/FileIcons/{file.extension}.svg')}" alt="" loading="lazy">
                     </f:if>
                     <f:if condition="{data.uploads_type} == 2">
                         <f:if condition="{file.type} > 1">
@@ -21,7 +21,7 @@
                                     </a>
                                 </f:then>
                                 <f:else>
-                                    <img class="ce-uploads-icon" src="{f:uri.resource(path: 'EXT:{{EXTENSION_KEY}}/Resources/Public/Icons/FileIcons/{file.extension}.svg')}" alt="" loading="lazy">
+                                    <img class="ce-uploads-icon" src="{f:uri.resource(path: 'EXT:hh_theme_default/Resources/Public/Icons/FileIcons/{file.extension}.svg')}" alt="" loading="lazy">
                                 </f:else>
                             </f:if>
                         </f:if>

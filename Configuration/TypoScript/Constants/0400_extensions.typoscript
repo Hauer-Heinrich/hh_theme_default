@@ -71,9 +71,9 @@ plugin.tx_powermail {
 @import 'EXT:hh_accordion/Configuration/TypoScript/constants.typoscript'
 plugin.tx_hhaccordion {
     view {
-        layoutRootPath = EXT:{{EXTENSION_KEY}}/Resources/Private/Extensions/hh_accordion/Layouts/
-        partialRootPath = EXT:{{EXTENSION_KEY}}/Resources/Private/Extensions/hh_accordion/Partials/
-        templateRootPath = EXT:{{EXTENSION_KEY}}/Resources/Private/Extensions/hh_accordion/Templates/
+        layoutRootPath = EXT:hh_theme_default/Resources/Private/Extensions/hh_accordion/Layouts/
+        partialRootPath = EXT:hh_theme_default/Resources/Private/Extensions/hh_accordion/Partials/
+        templateRootPath = EXT:hh_theme_default/Resources/Private/Extensions/hh_accordion/Templates/
     }
 }
 
