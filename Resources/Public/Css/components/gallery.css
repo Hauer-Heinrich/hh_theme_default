@@ -50,7 +50,7 @@
     /* COLUMN LAYOUT (+RESPONSIVE) */
     & .ce-gallery-container {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
         gap: var(--gallery-item-gap);
     }
 

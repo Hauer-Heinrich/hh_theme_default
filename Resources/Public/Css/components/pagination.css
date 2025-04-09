@@ -24,8 +24,13 @@
         margin: 0 3px;
     }
 
-    & li a {
+    & li a,
+    & .current {
         padding: 6px 14px;
+    }
+
+    & .current {
+        opacity: 0.6;
     }
 
     & li a:hover,

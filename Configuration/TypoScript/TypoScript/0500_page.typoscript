@@ -130,7 +130,7 @@ page {
                 languages = auto
                 as = MenuLanguage
 
-                if.isTrue = {$plugin.{{EXTENSION_NAME}}.multiLanguage}
+                if.isTrue = {$plugin.hhthemedefault.multiLanguage}
             }
 
             ################################################################
@@ -165,7 +165,7 @@ page {
             # 90 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 90 {
             #     special = directory
-            #     special.value = {$plugin.{{EXTENSION_NAME}}.additionalTopMenu}
+            #     special.value = {$plugin.hhthemedefault.additionalTopMenu}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -179,24 +179,24 @@ page {
             #     }
             #     as = AdditionalTopMenu
 
-            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.additionalTopMenu}
+            #     if.isTrue = {$plugin.hhthemedefault.additionalTopMenu}
             # }
 
             ################################################################
             ### Header images / logos ###
             ################################################################
-            90 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-            90 {
+            200 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            200 {
                 references.data = levelfield:-1, header_logo, slide
                 references.table = pages
-                as = HeaderLogo
+                as = HeaderLogos
             }
 
             ################################################################
             ### Footer images / logos ###
             ################################################################
-            94 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-            94 {
+            300 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            300 {
                 references.data = levelfield:-1, footer_logo, slide
                 references.table = pages
                 as = FooterLogos
@@ -205,23 +205,113 @@ page {
             ################################################################
             ### Footer Menu ###
             ################################################################
-            95 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            95 {
-                special = list
-                special.value.data = levelfield:-1, footer_links, slide
+            310 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            310 {
+                special = directory
+                special.value.data = levelfield:-1, footer_links1, slide
                 entryLevel = 0
                 levels = 1
                 expandAll = 1
                 includeSpacer = 0
                 titleField = nav_title // title
-                as = FooterLinks
-                if.isTrue.data = levelfield:-1, footer_links, slide
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = media
+                    }
+                }
+                as = FooterLinks1
+
+                if.isTrue.data = levelfield:-1, footer_links1, slide
+            }
+            320 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            320 {
+                special = list
+                special.value.data = levelfield:-1, footer_links2, slide
+                entryLevel = 0
+                levels = 1
+                expandAll = 1
+                includeSpacer = 0
+                titleField = nav_title // title
+                as = FooterLinks2
+                if.isTrue.data = levelfield:-1, footer_links2, slide
+            }
+            330 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            330 {
+                special = list
+                special.value.data = levelfield:-1, footer_links3, slide
+                entryLevel = 0
+                levels = 1
+                expandAll = 1
+                includeSpacer = 0
+                titleField = nav_title // title
+                as = FooterLinks3
+                if.isTrue.data = levelfield:-1, footer_links3, slide
+            }
+            340 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            340 {
+                special = list
+                special.value.data = levelfield:-1, footer_links4, slide
+                entryLevel = 0
+                levels = 1
+                expandAll = 1
+                includeSpacer = 0
+                titleField = nav_title // title
+                as = FooterLinks4
+                if.isTrue.data = levelfield:-1, footer_links4, slide
+            }
+            350 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            350 {
+                table = tt_address
+                selectFields.dataWrap = *, FIND_IN_SET(uid, ###UIDS###) as foobar_sort
+                uidInList.data = levelfield:-1, footer_address, slide
+                pidInList = 0
+                ### pidInList = 123 und where = ... nur wenn man uidInList nicht verwenden kann
+                ### ansonsten auf 0 setzen zum deaktivieren
+                ### und in das where ein FIND_IN_SET
+                where.dataWrap = FIND_IN_SET(uid, ###UIDS###)
+                orderBy = foobar_sort
+                markers {
+                    UIDS.data = levelfield:-1, footer_address, slide
+                }
+
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = image
+                    }
+
+                    ### Working only if EXT:hh_tt_address_places is available!
+                    # 20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+                    # 20 {
+                    #     table = tx_hhttaddressplaces_domain_model_periodoftime
+                    #     pidInList.data = field:pid
+                    #     where {
+                    #         data = field:uid
+                    #         intval = 1
+                    #         wrap = place=|
+                    #     }
+
+                    #     dataProcessing {
+                    #         10 = HauerHeinrich\HhThemeKralMalerbetrieb\DataProcessing\OpeningHoursProcessor
+                    #         10 {
+                    #             as = structuredHours
+                    #         }
+                    #     }
+
+                    #     as = openingHours
+                    # }
+
+                    # 100 = TYPO3\CMS\Frontend\DataProcessing\RecordTransformationProcessor
+                }
+
+                as = FooterAddresses
             }
 
             # 96 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 96 {
             #     special = directory
-            #     special.value = {$plugin.{{EXTENSION_NAME}}.legalInformation}
+            #     special.value = {$plugin.hhthemedefault.legalInformation}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -235,13 +325,13 @@ page {
             #     }
             #     as = legalInformation
             #
-            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.legalInformation}
+            #     if.isTrue = {$plugin.hhthemedefault.legalInformation}
             # }
 
             # 97 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 97 {
             #     special = directory
-            #     special.value = {$plugin.{{EXTENSION_NAME}}.socialMedia}
+            #     special.value = {$plugin.hhthemedefault.socialMedia}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -255,7 +345,7 @@ page {
             #     }
             #     as = socialMedia
             #
-            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.socialMedia}
+            #     if.isTrue = {$plugin.hhthemedefault.socialMedia}
             # }
 
             ################################################################
@@ -264,7 +354,7 @@ page {
             # 99 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 99 {
             #     special = directory
-            #     special.value = {$plugin.{{EXTENSION_NAME}}.socialMenu}
+            #     special.value = {$plugin.hhthemedefault.socialMenu}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -278,7 +368,7 @@ page {
             #     }
             #     as = SocialMenu
             #
-            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.socialMenu}
+            #     if.isTrue = {$plugin.hhthemedefault.socialMenu}
             # }
 
             ################################################################
@@ -287,7 +377,7 @@ page {
             100 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             100 {
                 special = directory
-                special.value = {$plugin.{{EXTENSION_NAME}}.quickLinks}
+                special.value = {$plugin.hhthemedefault.quickLinks}
                 entryLevel = 0
                 levels = 7
                 expandAll = 1
@@ -301,15 +391,15 @@ page {
                 }
                 as = Quicklinks
 
-                if.isTrue = {$plugin.{{EXTENSION_NAME}}.quickLinks}
+                if.isTrue = {$plugin.hhthemedefault.quickLinks}
             }
         }
 
         settings {
-            indexedSearchId = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
-            breadcrumbSeparator = {$plugin.{{EXTENSION_NAME}}.breadcrumbSeparator}
-            compressFiles = {$plugin.{{EXTENSION_NAME}}.compressFiles}
-            concatenateFiles = {$plugin.{{EXTENSION_NAME}}.concatenateFiles}
+            indexedSearchId = {$plugin.hhthemedefault.indexedSearchId}
+            breadcrumbSeparator = {$plugin.hhthemedefault.breadcrumbSeparator}
+            compressFiles = {$plugin.hhthemedefault.compressFiles}
+            concatenateFiles = {$plugin.hhthemedefault.concatenateFiles}
         }
 
         variables {
@@ -359,16 +449,6 @@ page {
             FooterCol1 {
                 data = levelfield:-1, footer_col1, slide
             }
-
-            FooterCol2 = TEXT
-            FooterCol2 {
-                data = levelfield:-1, footer_col2, slide
-            }
-
-            FooterCol3 = TEXT
-            FooterCol3 {
-                data = levelfield:-1, footer_col3, slide
-            }
         }
     }
 }
@@ -403,6 +483,7 @@ page {
 
 ### Disable all other content if detail view of news
 [request && traverse(request.getQueryParams(), 'tx_news_pi1/news') > 0]
+    page.10.variables.Banner >
     page.10.variables.MainContent >
     page.10.variables.MainContent =< styles.content.get
     page.10.variables.MainContent.select.where = colPos = 100

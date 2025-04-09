@@ -94,3 +94,61 @@
 .text-center {
     text-align: center;
 }
+
+.badge {
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+    width: 150px;
+
+    &::before,
+    &::after {
+        border: 5px solid var(--color-primary);
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+    }
+
+    & > span {
+        background-color: var(--color-primary);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        color: #fff;
+        display: block;
+        font-size: 0.8rem;
+        padding: 3cqw 0;
+        position: absolute;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        text-transform: uppercase;
+        text-align: center;
+        width: 225px;
+    }
+}
+
+/* in alto a destra */
+.badge-top-right {
+    top: -10px;
+    right: -10px;
+
+    &::before,
+    &::after {
+        border-top-color: transparent;
+        border-right-color: transparent;
+    }
+
+    &::before {
+        top: 0;
+        left: 0;
+    }
+
+    &::after {
+        bottom: 0;
+        right: 0;
+    }
+
+    & > span {
+        left: -25px;
+        top: 30px;
+        transform: rotate(45deg);
+    }
+}
