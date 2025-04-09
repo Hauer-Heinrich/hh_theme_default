@@ -35,7 +35,8 @@ jobs:
             sed -i "s/HhThemeDefault/{{EXTENSION_NAMESPACE}}/g" "$file"
             sed -i "s|HauerHeinrich/{{EXTENSION_NAMESPACE}}|{{EXTENSION_VENDOR}}/{{EXTENSION_NAMESPACE}}|g" "$file"
             sed -i "s|hauerheinrich/hh-theme-default|{{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}|g" "$file"
-            sed -i 's|HauerHeinrich\\{{EXTENSION_NAMESPACE}}|{{EXTENSION_VENDOR}}\\{{EXTENSION_NAMESPACE}}|g' "$file"
+            sed -i "s|@HauerHeinrich/hh-theme-default|@{{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}|g" "$file"
+            sed -i 's|HauerHeinrich\\\\{{EXTENSION_NAMESPACE}}|{{EXTENSION_VENDOR}}\\\\{{EXTENSION_NAMESPACE}}|g' "$file"
             sed -i "s/\.hh-theme-default/\.{{EXTENSION_DOMAIN_NAME}}/g" "$file"
             sed -i "s|https://hh-theme-default|https://{{EXTENSION_DOMAIN_NAME}}|g" "$file"
             sed -i "s/{{EXTENSION_DOMAIN_NAME}}\.de/{{EXTENSION_DOMAIN_NAME}}\.{{EXTENSION_DOMAIN_TLD}}/g" "$file"
@@ -45,6 +46,7 @@ jobs:
             sed -i "s|{{EXTENSION_DOMAIN_NAME}}.hauer-heinrich.|{{EXTENSION_DOMAIN_NAME}}.|g" "$file"
             sed -i "s|{{EXTENSION_DOMAIN_NAME}}\.hauer-heinrich|{{EXTENSION_DOMAIN_NAME}}.|g" "$file"
             sed -i "s|{{EXTENSION_DOMAIN_NAME}}.de|{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}|g" "$file"
+            sed -i "s|@hh-theme-default.hauer-heinrich.de|@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}|g" "$file"
           done
 
       - name: Configure Git
