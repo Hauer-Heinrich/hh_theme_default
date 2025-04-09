@@ -17,6 +17,20 @@ jobs:
 
       - name: Replace strings
         run: |
+          find . -type f -not -path "./.git/*" -not -path "./.github/*" -not -name "README.md" -print0 | while IFS= read -r -d $'\0' file; do
+            sed -i "s/test-theme-default\.com/{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}/g" "$file"
+            sed -i "s/HauerHeinrich\/HhThemeDefault/{{EXTENSION_NAMESPACE}}/HhThemeDefault/g" "$file"
+            sed -i "s/HauerHeinrich\/hh-theme-default/{{EXTENSION_NAMESPACE}}/hh-theme-default/g" "$file"
+            sed -i "s/EXT:hh_theme_default/EXT:{{EXTENSION_KEY}}/g" "$file"
+            sed -i "s/'hh_theme_default'/{{EXTENSION_KEY}}/g" "$file"
+            sed -i "s/hh-theme-default/{{EXTENSION_NAMESPACE_ES6}}/g" "$file"
+            sed -i "s/test-theme-default/{{EXTENSION_DOMAIN_NAME}}/g" "$file"
+            sed -i "s/{{EXTENSION_DOMAIN_NAME}}\.com/{{EXTENSION_DOMAIN_NAME}}\.{{EXTENSION_DOMAIN_TDL}}/g" "$file"
+          done
+
+
+      - name: Replace strings
+        run: |
           find . -type f \
             -not -path "./.git/*" \
             -not -path "./.github/*" \
@@ -27,29 +41,6 @@ jobs:
             {
               line = $0
 
-              ##### 1. Domain-Zeile zuerst rückgängig #####
-              # test-theme-default.com → {{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
-              gsub(/test-theme-default\.com/, "{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}", line)
-
-              ##### 2. HauerHeinrich → nur wenn gefolgt von Namespace #####
-              if (line ~ /HauerHeinrich\/(HhThemeDefault|hh-theme-default)/) {
-                sub(/HauerHeinrich/, "{{EXTENSION_VENDOR}}", line)
-              }
-
-              ##### 3. EXT:hh_theme_default → {{EXTENSION_KEY}} #####
-              gsub(/EXT:hh_theme_default/, "EXT:{{EXTENSION_KEY}}", line)
-
-              ##### 4. standalone hh_theme_default → {{EXTENSION_KEY}} #####
-              gsub(/'hh_theme_default'/, "{{EXTENSION_KEY}}", line)
-
-              ##### 5. übrige hh_theme_default → {{EXTENSION_NAMESPACE_ES6}} #####
-              gsub(/hh_theme_default/, "{{EXTENSION_NAMESPACE_ES6}}", line)
-
-              ##### 6. HhThemeDefault → {{EXTENSION_NAMESPACE}} #####
-              gsub(/HhThemeDefault/, "{{EXTENSION_NAMESPACE}}", line)
-
-              ##### 7. hh-theme-default → {{EXTENSION_NAMESPACE_ES6}} #####
-              gsub(/hh-theme-default/, "{{EXTENSION_NAMESPACE_ES6}}", line)
 
               ##### 8. test-theme-default → {{EXTENSION_DOMAIN_NAME}} (sofern noch vorhanden) #####
               gsub(/test-theme-default/, "{{EXTENSION_DOMAIN_NAME}}", line)
