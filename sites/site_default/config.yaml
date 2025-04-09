@@ -36,10 +36,10 @@ errorHandling:
 
 ### Import default Robots.txt
 imports:
-  - { resource: "EXT:hh_theme_default/sites/site_default/robots.yaml" }
-  - { resource: "EXT:hh_theme_default/sites/site_default/humans.yaml" }
-  - { resource: "EXT:hh_theme_default/sites/site_default/extensions/news.yaml" }
-  - { resource: "EXT:hh_theme_default/sites/site_default/extensions/tt_address.yaml" }
+  - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/robots.yaml" }
+  - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/humans.yaml" }
+  - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/extensions/news.yaml" }
+  - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/extensions/tt_address.yaml" }
 
 routeEnhancers:
   PageTypeSuffix:
