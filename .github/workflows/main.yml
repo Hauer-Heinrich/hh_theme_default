@@ -40,7 +40,7 @@ jobs:
               gsub(/EXT:hh_theme_default/, "EXT:{{EXTENSION_KEY}}", line)
 
               ##### 4. standalone hh_theme_default → {{EXTENSION_KEY}} #####
-              gsub(/\bhh_theme_default\b/, "{{EXTENSION_KEY}}", line)
+              gsub(/'hh_theme_default'/, "{{EXTENSION_KEY}}", line)
 
               ##### 5. übrige hh_theme_default → {{EXTENSION_NAMESPACE_ES6}} #####
               gsub(/hh_theme_default/, "{{EXTENSION_NAMESPACE_ES6}}", line)
