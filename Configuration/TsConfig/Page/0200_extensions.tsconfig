@@ -4,7 +4,6 @@
 @import 'EXT:news/Configuration/TSconfig/Page/mod.linkvalidator.tsconfig'
 tx_news.templateLayouts {
     slider = Slider
-    appointments = Termine
 }
 
 TCEFORM {
@@ -27,8 +26,8 @@ TCEFORM {
     }
 
     tx_news_domain_model_news {
-        content_elements.disabled = 0
-        categories.disabled = 1
+        content_elements.disabled = 1
+        categories.disabled = 0
         related.disabled = 1
         related_from.disabled = 1
         related_links.disabled = 1
@@ -100,16 +99,16 @@ TCEFORM {
 @import 'EXT:hh_slider/Configuration/TsConfig/AllPage.typoscript'
 
 ################################################################
+### Form powermail - hh_powermail_checkboxlink ###
+################################################################
+@import 'EXT:hh_powermail_checkboxlink/Configuration/TsConfig/AllPage.tsconfig'
+
+################################################################
 ### Hauer-Heinrich Accordion - hh_accordion ###
 ################################################################
-@import 'EXT:hh_accordion/Configuration/PageTsConfig/All.typoscript'
+@import 'EXT:hh_accordion/Configuration/TsConfig/AllPage.tsconfig'
 
 ################################################################
 ### Hauer-Heinrich Jobs - hh_simple_job_posts ###
 ################################################################
 @import 'EXT:hh_simple_job_posts/Configuration/TsConfig/AllPage.typoscript'
-
-################################################################
-### Form powermail - hh_powermail_checkboxlink ###
-################################################################
-@import 'EXT:hh_powermail_checkboxlink/Configuration/TsConfig/AllPage.typoscript'

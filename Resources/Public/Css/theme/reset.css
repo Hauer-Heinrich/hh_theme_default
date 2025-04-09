@@ -36,11 +36,10 @@ summary {
 img,
 video,
 iframe {
-    /* New way responsive images/video (but with side effects?!?): */
-    /* block-size: auto; max-inline-size: 100%; */
-    max-width: 100%;
     height: auto;
+    max-width: 100%;
     vertical-align: top;
+    width: auto;
 }
 
 /* PICTURE TAGS */

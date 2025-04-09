@@ -14,9 +14,19 @@ CREATE TABLE tt_content (
 #
 CREATE TABLE pages (
     header_logo int(11) unsigned DEFAULT '0' NOT NULL,
-    footer_col1 mediumtext,
-    footer_col2 mediumtext,
-    footer_col3 mediumtext,
     footer_logo int(11) unsigned DEFAULT '0' NOT NULL,
-    footer_links text,
+    footer_col1 mediumtext,
+    footer_links1 text,
+    footer_links2 text,
+    footer_links3 text,
+    footer_links4 text,
+    footer_address varchar(50),
+);
+
+#
+# Modifying news table
+#
+CREATE TABLE tx_news_domain_model_news (
+    custom_media int(11) unsigned DEFAULT '0' NOT NULL,
+    custom_media_2 int(11) unsigned DEFAULT '0' NOT NULL,
 );

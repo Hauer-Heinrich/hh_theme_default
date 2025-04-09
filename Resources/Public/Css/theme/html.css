@@ -202,36 +202,35 @@ input[type=reset]:hover {
 
 
 /* CUSTOM HTML - HEADINGS */
+header {
+
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+    font-weight: 600;
     line-height: var(--line-height);
     margin: 0;
 }
 
 h1 {
     font-size: var(--font-size-h1);
-    margin-bottom: 19px;
 }
 
 h2 {
     font-size: var(--font-size-h2);
-    font-weight: 600;
-    margin-bottom: 38px;
 }
 
 h3 {
     font-size: var(--font-size-h3);
-    font-weight: 600;
-    margin-bottom: 14px;
 }
 
 h4 {
     font-size: var(--font-size-h4);
-    margin-bottom: 7px;
 }
 
 h5 {

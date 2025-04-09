@@ -83,8 +83,9 @@ $customChanges = [
         'belogErrorReporting' => 6485,
         'mediafile_ext' => 'gif,jpg,jpeg,png,webp,pdf,svg,mp3,mp4,webm,youtube,vimeo',
         'defaultScheme' => 'https',
-        'cookieDomain' => '/www\.{{EXTENSION_DOMAIN_NAME}}\.{{EXTENSION_DOMAIN_TLD}}/',
-        'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}\.{{EXTENSION_DOMAIN_TLD}}',
+        // cookieDomain e. g. 'cookieDomain' => '/(www\.)?(domainA|domainB)\.?(TLD)$/',
+        'cookieDomain' => '/www\.(hh-theme-default\.hauer-heinrich)\.de$/',
+        'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}\.hauer-heinrich.de',
     ],
     'EXTENSIONS' => [
         'backend' => [

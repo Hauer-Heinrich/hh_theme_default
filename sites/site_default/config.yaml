@@ -23,6 +23,20 @@ languages:
     fallbackType: strict
     fallbacks: ''
     flag: de
+  -
+    title: English
+    enabled: true
+    languageId: '1'
+    base: /en/
+    typo3Language: en
+    locale: en_US.UTF-8
+    iso-639-1: en
+    navigationTitle: EN
+    hreflang: en
+    direction: ltr
+    fallbackType: free
+    fallbacks: '0'
+    flag: en-us-gb
 
 errorHandling:
   -

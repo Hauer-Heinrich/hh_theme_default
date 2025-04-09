@@ -1,6 +1,7 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
+<f:spaceless>
 <f:if condition="{data.header_layout} != 100">
     <f:if condition="{data.header} || {data.subheader} || {data.date}">
         <header class="{headerClass}">
@@ -21,5 +22,6 @@
         </header>
     </f:if>
 </f:if>
+</f:spaceless>
 
 </html>
