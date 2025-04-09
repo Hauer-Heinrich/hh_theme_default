@@ -10,4 +10,4 @@ call_user_func(function(string $extensionKey) {
         'Configuration/TypoScript',
         'Theme TS'
     );
-}, '{{EXTENSION_KEY}}');
+}, 'hh_theme_default');
