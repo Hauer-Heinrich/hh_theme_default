@@ -9,8 +9,12 @@ on:
 
 permissions:
   contents: write
-  actions: write
-  workflows: write
+  pull-requests: write # Kann hilfreich sein, auch wenn der Workflow keine PRs erstellt
+  actions: write      # Erlaubt dem Workflow, andere Actions zu verwalten
+  repository-projects: write # Für Projektboards
+  security-events: write # Für Security Scanning Ergebnisse
+  statuses: write      # Für das Setzen von Commit-Status
+  deployments: write   # Für Deployment-bezogene Aktionen
 
 jobs:
   replace_strings:
