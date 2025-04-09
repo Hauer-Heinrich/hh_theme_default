@@ -3,7 +3,7 @@ name: Replace Strings
 on:
   push:
     branches:
-      - test
+      - test-post-init
     paths-ignore:
       - 'README.md'
 
@@ -66,4 +66,4 @@ jobs:
         run: |
           git add .
           git commit -m "Replace placeholder strings"
-          git push origin test
+          git push origin test-post-init
