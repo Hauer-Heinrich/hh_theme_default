@@ -1,0 +1,9 @@
+{
+    "EXTENSION_KEY": "my_extension",
+    "EXTENSION_NAME": "myextension",
+    "EXTENSION_NAMESPACE": "MyExtension",
+    "EXTENSION_NAMESPACE_ES6": "my-extension",
+    "EXTENSION_VENDOR": "HauerHeinrich",
+    "EXTENSION_DOMAIN_NAME": "example",
+    "EXTENSION_DOMAIN_TLD": "com"
+  }
