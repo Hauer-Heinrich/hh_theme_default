@@ -1,56 +1,29 @@
-name: Replace Strings Before Push
+name: Replace Strings
 
 on:
   push:
     branches:
       - test
+    paths-ignore:
+      - 'README.md'
 
 jobs:
-  replace-strings:
+  replace_strings:
+    if: github.repository == 'hh_theme_default'
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Git committer identity
-      run: |
-        git config --global user.name "GitHub Actions"
-        git config --global user.email "actions@github.com"
+      - name: Replace strings
+        run: |
+          find . -type f -not -name "README.md" -print0 | while IFS= read -r -d $'\0' file; do
+            sed -i "s/HauerHeinrich/{{EXTENSION_VENDOR}}/g" "$file"
+            sed -i "s/HhThemeDefault/{{EXTENSION_NAMESPACE}}/g" "$file"
+          done
 
-    - name: Verify repository name
-      run: |
-        REPO_NAME=$(basename $(git remote get-url origin))
-        EXPECTED_REPO_NAME="hh_theme_default"
-        if [ "$REPO_NAME" != "$EXPECTED_REPO_NAME" ]; then
-          echo "Dieser Workflow wird nur für das Repository '$EXPECTED_REPO_NAME' ausgeführt. Aktuelles Repository: $REPO_NAME"
-          exit 1
-        fi
-
-    - name: Replace strings in last commit files
-      run: |
-        # Alle geänderten Dateien im letzten Commit sammeln
-        FILES=$(git diff --name-only HEAD~1..HEAD)
-
-        if [ -z "$FILES" ]; then
-          echo "Keine geänderten Dateien gefunden, keine Änderungen notwendig."
-          exit 0
-        fi
-
-        for FILE in $FILES; do
-          # Überspringe die README.md Datei
-          if [ "$FILE" = "README.md" ]; then
-            continue
-          fi
-
-          echo "Bearbeite Datei im Commit: $FILE"
-
-          # Ersetzen der Strings in den geänderten Dateien
-          git show HEAD:$FILE | sed 's/HauerHeinrich/{{EXTENSION_VENDOR}}/g' | sed 's/HhThemeDefault/{{EXTENSION_NAMESPACE}}/g' | git apply --cached
-        done
-        echo "Strings wurden in den geänderten Dateien ersetzt."
-
-    - name: Push changes
-      run: |
-        git commit --amend --no-edit --date "$(date)" # Verhindert, dass neue Commits erstellt werden, und sorgt für eine Änderung
-        git push --force-with-lease
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Replace placeholder strings"
+          push_options: '--force' # Optional: Kann nützlich sein, wenn der Branch nur für Tests ist
