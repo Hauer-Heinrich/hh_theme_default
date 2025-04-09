@@ -1,5 +1,5 @@
 <?php
-namespace HauerHeinrich\{{EXTENSION_NAMESPACE}}\ViewHelpers;
+namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
 
 /*
     Usage:
