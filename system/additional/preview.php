@@ -48,9 +48,9 @@ $customChanges = [
         'displayErrors' => 1,
         'errorHandlerErrors' => 28672,
         'belogErrorReporting' => 28672,
-        // cookieDomain e. g. 'cookieDomain' => '/(www.)?domainA|domainB|(.localhost)/',
-        'cookieDomain' => '/preview\.{{EXTENSION_DOMAIN_NAME}}\.{{EXTENSION_DOMAIN_TLD}}/',
-        'trustedHostsPattern' => 'preview\.{{EXTENSION_DOMAIN_NAME}}\.{{EXTENSION_DOMAIN_TLD}}',
+        // cookieDomain e. g. 'cookieDomain' => '/(www\.)?(domainA|domainB)\.?(TLD)$/',
+        'cookieDomain' => '/preview\.(hh-theme-default\.hauer-heinrich)\.de$/',
+        'trustedHostsPattern' => 'preview\.{{EXTENSION_DOMAIN_NAME}}\.hauer-heinrich.de',
     ],
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customChanges);

@@ -8,38 +8,38 @@
     <f:if condition="{news}">
         <f:then>
             <f:switch expression="{settings.templateLayout}">
-                <f:case value="appointments">
-                    <f:render section="appointments" arguments="{_all}" />
-                </f:case>
                 <f:case value="slider">
                     <f:render section="slider" arguments="{_all}" />
                 </f:case>
                 <f:defaultCase>
-                    <div class="news-list-view news-container" id="news-container-{contentObjectData.uid}"
-                        data-columns="{settings.displayColumns}" data-items="{news -> f:count()}">
-                        <f:if condition="{settings.hidePagination}">
-                            <f:then>
+                    <f:if condition="{settings.hidePagination}">
+                        <f:then>
+                            <div class="news-list-view news-container" id="news-container-{contentObjectData.uid}"
+                                data-columns="{settings.displayColumns}" data-items="{news -> f:count()}">
                                 <f:for each="{news}" as="newsItem" iteration="iterator">
                                     <f:render partial="List/Item"
                                         arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
                                 </f:for>
-                            </f:then>
-                            <f:else>
-                                <f:if condition="{settings.list.paginate.insertAbove}">
-                                    <f:render partial="List/Pagination"
-                                        arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
-                                </f:if>
+                            </div>
+                        </f:then>
+                        <f:else>
+                            <f:if condition="{settings.list.paginate.insertAbove}">
+                                <f:render partial="List/Pagination"
+                                    arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+                            </f:if>
+                            <div class="news-list-view news-container" id="news-container-{contentObjectData.uid}"
+                                data-columns="{settings.displayColumns}" data-items="{news -> f:count()}">
                                 <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
                                     <f:render partial="List/Item"
                                         arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
                                 </f:for>
-                                <f:if condition="{settings.list.paginate.insertBelow}">
-                                    <f:render partial="List/Pagination"
-                                        arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
-                                </f:if>
-                            </f:else>
-                        </f:if>
-                    </div>
+                            </div>
+                            <f:if condition="{settings.list.paginate.insertBelow}">
+                                <f:render partial="List/Pagination"
+                                    arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+                            </f:if>
+                        </f:else>
+                    </f:if>
                 </f:defaultCase>
             </f:switch>
         </f:then>
@@ -126,34 +126,6 @@
             }
         </f:asset.script>
     </f:if>
-</f:section>
-
-<f:section name="appointments">
-    <div class="news-list-view news-container" id="news-container-{contentObjectData.uid}"
-        data-columns="{settings.displayColumns}" data-items="{news -> f:count()}">
-        <f:if condition="{settings.hidePagination}">
-            <f:then>
-                <f:for each="{news}" as="newsItem" iteration="iterator">
-                    <f:render partial="List/ItemAppointments"
-                        arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
-                </f:for>
-            </f:then>
-            <f:else>
-                <f:if condition="{settings.list.paginate.insertAbove}">
-                    <f:render partial="List/Pagination"
-                        arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
-                </f:if>
-                <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
-                    <f:render partial="List/ItemAppointments"
-                        arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
-                </f:for>
-                <f:if condition="{settings.list.paginate.insertBelow}">
-                    <f:render partial="List/Pagination"
-                        arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
-                </f:if>
-            </f:else>
-        </f:if>
-    </div>
 </f:section>
 
 </html>

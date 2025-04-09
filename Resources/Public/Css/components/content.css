@@ -26,3 +26,45 @@
     grid-column: span 1;
     padding: var(--sidebar-padding);
 }
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-group(root) {
+    animation-duration: 1s;
+}
+
+::view-transition-old(root) {
+    animation-name: slide-out;
+}
+
+::view-transition-new(root) {
+    animation-name: slide-in;
+}
+
+#header {
+    view-transition-name: header;
+}
+
+#footer {
+    view-transition-name: footer;
+}
+
+@keyframes slide-in {
+    from {
+        translate: 100vw 0;
+    }
+}
+
+@keyframes slide-out {
+    to {
+        translate: -100vw 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(root) {
+      animation-duration: 0;
+    }
+}

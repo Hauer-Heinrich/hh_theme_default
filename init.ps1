@@ -44,6 +44,12 @@ Write-Host $extensionNameSpace
 str_search_replace -searchString "{{EXTENSION_NAMESPACE}}" -replaceString $extensionNameSpace
 Write-Host "Extension namespace replacement: done ($extensionNameSpace)." -ForegroundColor DarkGreen
 
+### Replace Vendor ES6
+$extensionVendorEs6 = $extensionVendor.ToLower()
+Write-Host $extensionVendorEs6
+str_search_replace -searchString "{{EXTENSION_VENDOR_ES6}}" -replaceString $extensionNameSpaceEs6
+Write-Host "Extension vendor ES6 replacement: done ($extensionNameSpaceEs6)." -ForegroundColor DarkGreen
+
 ### Replace NameSpace ES6
 $extensionNameSpaceEs6 = $extensionKey.replace('_', '-')
 Write-Host $extensionNameSpaceEs6

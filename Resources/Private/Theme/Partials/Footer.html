@@ -1,36 +1,72 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
 <footer id="footer">
-    <div class="footer-colnav-spacing"></div>
-    <div class="row row-1 footer-container">
-        <f:if condition="{FooterLogos}">
-            <div class="footer-item footer-logo">
-                <f:for each="{FooterLogos}" as="reference" iteration="i">
-                    <f:image src="{reference.uid}" treatIdAsReference="1" />
-                </f:for>
+    <div class="footer-content">
+        <div class="footer-item footer-item-1">
+            <f:if condition="{FooterLogos}">
+                <div class="footer-logo">
+                    <f:for each="{FooterLogos}" as="reference" iteration="i">
+                        <f:image src="{reference.uid}" treatIdAsReference="1" />
+                    </f:for>
+                </div>
+            </f:if>
+            <f:if condition="{FooterCol1}">
+                <div class="footer-text">
+                    <f:format.html>{FooterCol1}</f:format.html>
+                </div>
+            </f:if>
+            <f:if condition="{FooterLinks1}">
+                <div class="footer-social-media">
+                    <f:render partial="Menu/TrennerImageMenu"
+                        arguments="{menu: '{FooterLinks1}', cssClasses: 'nav-h nav-left'}" />
+                </div>
+            </f:if>
+        </div>
+        <f:if condition="{FooterLinks2}">
+            <div class="footer-item footer-item-2 footer-colnav">
+                <p>Über uns</p>
+                <f:render partial="Menu/TrennerMenu"
+                    arguments="{menu: '{FooterLinks2}', cssClasses: 'nav-v nav-left'}" />
             </div>
         </f:if>
-
-        <div class="footer-item footer-col-1 footer-address">
-            <f:format.html>{FooterCol1}</f:format.html>
-        </div>
-
-        <div class="footer-item footer-col-2 footer-address">
-            <f:format.html>{FooterCol2}</f:format.html>
-        </div>
-
-        <div class="footer-item footer-col-3 footer-contact">
-            <f:format.html>{FooterCol3}</f:format.html>
-        </div>
-
-        <f:if condition="{FooterLinks}">
-            <div class="footer-item footer-col-4 footer-colnav">
-                <div class="footer-colnav-container">
-                    <div class="footer-colnav-info-text">Das wichtigste auf einen Klick:</div>
-                    <f:render partial="Menu/TrennerMenu"
-                        arguments="{menu: '{FooterLinks}', cssClasses: 'nav-h nav-center'}" />
-                </div>
+        <f:if condition="{FooterLinks3}">
+            <div class="footer-item footer-item-3 footer-colnav">
+                <p>Unsere Leistungen</p>
+                <f:render partial="Menu/TrennerMenu"
+                    arguments="{menu: '{FooterLinks3}', cssClasses: 'nav-v nav-left'}" />
             </div>
+        </f:if>
+        <f:if condition="{FooterLinks4}">
+            <div class="footer-item footer-item-4 footer-colnav">
+                <p>Links</p>
+                <f:render partial="Menu/TrennerMenu"
+                    arguments="{menu: '{FooterLinks4}', cssClasses: 'nav-v nav-left'}" />
+            </div>
+        </f:if>
+        <f:if condition="{FooterAddresses.0.data}">
+            <f:variable name="faddress">{FooterAddresses.0.data}</f:variable>
+            <div class="footer-item footer-item-5 footer-address">
+                <span class="name">{faddress.company}</span>
+                <span class="email"><f:link.email email="{faddress.email}"></f:link.email></span>
+                <span class="phone"><a href="tel:{address.cleanedPhone}">{faddress.phone}</a></span>
+            </div>
+
+            <f:asset.script identifier="footer-address-json" additionalAttributes="{type: 'application/ld+json'}">
+                {<f:comment></f:comment>
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "address": {<f:comment></f:comment>
+                        "@type": "PostalAddress",
+                        "addressLocality": "{faddress.city}, {faddress.country}",
+                        "postalCode": "{faddress.zip}",
+                        "streetAddress": "{faddress.address}"
+                    },
+                    "email": "{faddress.email}",
+                    "telephone": "{faddress.phone}",
+                    "sameAs": "{faddress.www}",
+                    "name": "{faddress.company}"
+                }
+            </f:asset.script>
         </f:if>
     </div>
 </footer>

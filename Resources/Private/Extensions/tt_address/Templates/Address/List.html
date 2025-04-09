@@ -74,18 +74,9 @@
 </f:section>
 
 <f:section name="displayMode_slider">
-    <f:switch expression="{settings.cardLayout}">
-        <f:case value="default-without-image">
-            <f:variable name="listPartial">ListItemWithoutImage</f:variable>
-        </f:case>
-        <f:defaultCase>
-            <f:variable name="listPartial">ListItem</f:variable>
-        </f:defaultCase>
-    </f:switch>
-
     <div class="tt_address_list-container">
         <f:for each="{addresses}" as="address" iteration="iterator">
-            <f:render partial="{listPartial}" arguments="{_all}" />
+            <f:render partial="ListItem" arguments="{_all}" />
         </f:for>
     </div>
 

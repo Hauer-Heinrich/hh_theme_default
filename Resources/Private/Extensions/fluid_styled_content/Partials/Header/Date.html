@@ -2,7 +2,7 @@
 <f:if condition="{date}">
     <p class="{positionClass}">
         <time datetime="{date -> f:format.date(pattern: 'yyyy-MM-ee')}">
-            <f:format.date pattern="ee MM, yyyy">{date}</f:format.date>
+            <f:format.date pattern="ee.MM.yyyy">{date}</f:format.date>
         </time>
     </p>
 </f:if>

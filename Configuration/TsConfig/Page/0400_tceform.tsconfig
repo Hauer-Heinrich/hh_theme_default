@@ -149,9 +149,17 @@ TCEFORM {
         content_from_pid.disabled = 1
     }
 
+    sys_category {
+        images.config.appearance.fileUploadAllowed = 0
+    }
+
     sys_file_collection {
         files.config.appearance.fileUploadAllowed = 0
 
         description.disabled = 1
+    }
+
+    sys_file_reference {
+        showinpreview.disabled = 1
     }
 }
