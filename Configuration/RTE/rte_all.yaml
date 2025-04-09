@@ -1,7 +1,7 @@
 editor:
   config:
     contentsCss:
-      - 'EXT:hh_theme_default/Resources/Public/Css/main-rte.bundle.css'
+      - 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/main-rte.bundle.css'
 
     importModules:
       - { module: '@ckeditor/ckeditor5-font', exports: [ 'Font' ] }
