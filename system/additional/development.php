@@ -65,8 +65,8 @@ $customDevelopmentChanges = [
         'enableDeprecationLog' => 'file',
         'belogErrorReporting' => 32767,
         // cookieDomain e. g. 'cookieDomain' => '/(www.)?domainA|domainB|(.localhost)/',
-        'cookieDomain' => '/(www.)?hh_theme_default?(.localhost)/',
-        'trustedHostsPattern' => 'www\.hh_theme_default\.localhost',
+        'cookieDomain' => '/(www.)?{{EXTENSION_NAMESPACE_ES6}}?(.localhost)/',
+        'trustedHostsPattern' => 'www\.{{EXTENSION_NAMESPACE_ES6}}\.localhost',
     ],
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customDevelopmentChanges);

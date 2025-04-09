@@ -1,1 +1,1 @@
-@import 'EXT:hh_theme_default/Configuration/TypoScript/Constants/*.typoscript'
+@import 'EXT:{{EXTENSION_KEY}}/Configuration/TypoScript/Constants/*.typoscript'

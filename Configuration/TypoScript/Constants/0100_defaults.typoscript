@@ -1,8 +1,8 @@
 themeDefault {
-    name = hh_theme_default
+    name = {{EXTENSION_NAMESPACE_ES6}}
     urls {
-        themeResources = typo3conf/ext/hh_theme_default/Resources/
-        themeFileadmin = fileadmin/hh_theme_default/
+        themeResources = typo3conf/ext/{{EXTENSION_NAMESPACE_ES6}}/Resources/
+        themeFileadmin = fileadmin/{{EXTENSION_NAMESPACE_ES6}}/
     }
 }
 

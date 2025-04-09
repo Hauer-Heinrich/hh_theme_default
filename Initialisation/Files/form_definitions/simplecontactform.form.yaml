@@ -32,7 +32,7 @@ renderables:
         label: E-Mail
         properties:
           fluidAdditionalAttributes:
-            placeholder: example@hh_theme_default.com
+            placeholder: example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
             required: required
         validators:
           -

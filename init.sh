@@ -22,7 +22,7 @@ EXTENSION_NAME="$(echo "$EXTENSION_KEY" | sed -E 's/_//g')"
 EXTENSION_NAMESPACE="$(echo "$EXTENSION_KEY" | sed -E 's/(^|\\<|_)([[:alnum:]])/\U\2/g')"
 EXTENSION_NAMESPACE_ES6="$(echo "$EXTENSION_KEY" | sed -E 's/_/-/g')"
 
-if [[ "$EXTENSION_KEY" == "hh_theme_default" ]]; then
+if [[ "$EXTENSION_KEY" == "{{EXTENSION_NAMESPACE_ES6}}" ]]; then
     printf "%s" "$(yellow "Consider renaming the folder \"$EXTENSION_KEY\" if you want a custom namespace. Are you sure to proceed anyway (y/n)? ")"
     read CONFIRMATION
     if [[ ! $CONFIRMATION =~ ^[Yy]$ ]]; then

@@ -12,6 +12,6 @@
     ],
     "settings": {
         "editor.tabSize": 4,
-        "todo-tree.general.rootFolder": "hh_theme_default"
+        "todo-tree.general.rootFolder": "{{EXTENSION_NAMESPACE_ES6}}"
     }
 }
