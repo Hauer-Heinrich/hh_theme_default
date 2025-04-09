@@ -8,7 +8,7 @@ on:
 jobs:
   replace-strings:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -16,7 +16,7 @@ jobs:
     - name: Verify repository name
       run: |
         REPO_NAME=$(basename $(git remote get-url origin))
-        EXPECTED_REPO_NAME="git@github.com:Hauer-Heinrich/hh_theme_default.git"
+        EXPECTED_REPO_NAME="hh_theme_default"
         if [ "$REPO_NAME" != "$EXPECTED_REPO_NAME" ]; then
           echo "Dieser Workflow wird nur für das Repository '$EXPECTED_REPO_NAME' ausgeführt. Aktuelles Repository: $REPO_NAME"
           exit 1
