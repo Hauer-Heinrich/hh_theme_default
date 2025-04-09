@@ -50,7 +50,7 @@ $customChanges = [
         'belogErrorReporting' => 28672,
         // cookieDomain e. g. 'cookieDomain' => '/(www.)?domainA|domainB|(.localhost)/',
         'cookieDomain' => '/preview\.test_theme_default\.com/',
-        'trustedHostsPattern' => 'preview\.test_theme_default\.com',
+        'trustedHostsPattern' => "preview\.test_theme_default\.com",
     ],
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customChanges);
