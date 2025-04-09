@@ -1,12 +1,12 @@
-plugin.tx_{{EXTENSION_NAME}} {
+plugin.tx_hhthemedefault {
     view {
-        # cat={{EXTENSION_KEY}}/file; type=string; label=Path to template root (FE)
+        # cat=hh_theme_default/file; type=string; label=Path to template root (FE)
         templateRootPath =
 
-        # cat={{EXTENSION_KEY}}/file; type=string; label=Path to template partials (FE)
+        # cat=hh_theme_default/file; type=string; label=Path to template partials (FE)
         partialRootPath =
 
-        # cat={{EXTENSION_KEY}}/file; type=string; label=Path to template layouts (FE)
+        # cat=hh_theme_default/file; type=string; label=Path to template layouts (FE)
         layoutRootPath =
     }
 }
