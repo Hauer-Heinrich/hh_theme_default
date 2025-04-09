@@ -1,9 +1,9 @@
 {
     "EXTENSION_KEY": "hh_theme_default",
     "EXTENSION_NAME": "hh_theme_default",
-    "EXTENSION_NAMESPACE": "HhThemeDefault",
+    "EXTENSION_NAMESPACE": "{{EXTENSION_NAMESPACE}}",
     "EXTENSION_NAMESPACE_ES6": "hh-theme-default",
-    "EXTENSION_VENDOR": "HauerHeinrich",
+    "EXTENSION_VENDOR": "{{EXTENSION_VENDOR}}",
     "EXTENSION_DOMAIN_NAME": "test-theme-default",
     "EXTENSION_DOMAIN_TLD": "com"
   }

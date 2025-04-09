@@ -2,8 +2,8 @@
 ### Simple search and Replace strings
 ### Replaces folloing strings:
 ### {{EXTENSION_KEY}}            with e. g. your input like: hh_theme_default
-### {{EXTENSION_VENDOR}}         with e. g. HauerHeinrich
-### {{EXTENSION_NAMESPACE}}      with e. g. HhThemeDefault
+### {{EXTENSION_VENDOR}}         with e. g. {{EXTENSION_VENDOR}}
+### {{EXTENSION_NAMESPACE}}      with e. g. {{EXTENSION_NAMESPACE}}
 ### {{EXTENSION_NAMESPACE_ES6}}  with e. g. hh-theme-default
 ### {{EXTENSION_DOMAIN_NAME}}    with e. g. your input like: my-domain
 ### {{EXTENSION_DOMAIN_TLD}}     with e. g. your input like: com
@@ -34,7 +34,7 @@ str_search_replace -searchString "{{EXTENSION_KEY}}" -replaceString $extensionKe
 Write-Host "Extension key replacement: done." -ForegroundColor DarkGreen
 
 ### Replace Vendor
-$extensionVendor = Read-Host -Prompt 'Input your TYPO3 extension vendor (e. g. HauerHeinrich)'
+$extensionVendor = Read-Host -Prompt 'Input your TYPO3 extension vendor (e. g. {{EXTENSION_VENDOR}})'
 str_search_replace -searchString "{{EXTENSION_VENDOR}}" -replaceString $extensionVendor
 Write-Host "Extension vendor replacement: done." -ForegroundColor DarkGreen
 

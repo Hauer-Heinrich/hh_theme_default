@@ -30,7 +30,7 @@ if [[ "$EXTENSION_KEY" == "hh_theme_default" ]]; then
     fi
 fi
 
-printf "%s" "Enter a vendor name (e.g. HauerHeinrich): "
+printf "%s" "Enter a vendor name (e.g. {{EXTENSION_VENDOR}}): "
 read EXTENSION_VENDOR
 
 printf "%s" "Enter a fully qualified domain name (e.g. example.com): "
