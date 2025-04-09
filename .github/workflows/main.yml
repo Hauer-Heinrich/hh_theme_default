@@ -30,7 +30,7 @@ jobs:
     - name: Replace strings in staged files
       run: |
         # Alle geänderten Dateien sammeln, die für den Push vorgesehen sind
-        FILES=$(git diff --cached --name-only --diff-filter=AM)
+        FILES=$(git diff --name-only HEAD^..HEAD)
 
         if [ -z "$FILES" ]; then
           echo "Keine gestageten Dateien gefunden, keine Änderungen notwendig."
