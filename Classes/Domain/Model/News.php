@@ -1,6 +1,6 @@
 <?php
 
-namespace HauerHeinrich\HhThemeDefault\Domain\Model;
+namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\Domain\Model;
 
 use \TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
