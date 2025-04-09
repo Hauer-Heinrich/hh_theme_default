@@ -27,22 +27,35 @@ jobs:
       - name: get epository name
         run: echo "value=`basename ${{ github.repository }}`" >> $GITHUB_OUTPUT
 
-      - name: Replace strings
+      - name: Replace placeholders with context
         run: |
           find . -type f -not -path "./.git/*" -not -path "./.github/*" -not -name "README.md" -print0 |
           while IFS= read -r -d $'\0' file; do
             awk '
             {
-              # nur ersetzen, wenn NICHT "HauerHeinrich/HhThemeDefault" vorkommt
-              # bzw. nicht "HauerHeinrich/" direkt gefolgt von "HhThemeDefault"
-              if ($0 ~ /HauerHeinrich\/HhThemeDefault/) {
-                print
-              } else {
-                gsub(/HauerHeinrich/, "{{EXTENSION_VENDOR}}")
-                gsub(/HhThemeDefault/, "{{EXTENSION_NAMESPACE}}")
-                print
+              line = $0
+
+              # Bedingte Ersetzungen
+              # EXTENSION_VENDOR nur ersetzen, wenn direkt danach HhThemeDefault kommt
+              if (line ~ /HauerHeinrich[\\\/]HhThemeDefault/) {
+                gsub(/HauerHeinrich/, "{{EXTENSION_VENDOR}}", line)
               }
-            }' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+
+              # EXTENSION_DOMAIN_TLD nur ersetzen, wenn davor test-theme-default.
+              if (line ~ /test-theme-default\.com/) {
+                gsub(/com/, "{{EXTENSION_DOMAIN_TLD}}", line)
+              }
+
+              # Unkonditionelle Ersetzungen
+              gsub(/hh_theme_default/, "{{EXTENSION_KEY}}", line)
+              gsub(/hh_theme_default/, "{{EXTENSION_NAME}}", line)
+              gsub(/HhThemeDefault/, "{{EXTENSION_NAMESPACE}}", line)
+              gsub(/hh-theme-default/, "{{EXTENSION_NAMESPACE_ES6}}", line)
+              gsub(/test-theme-default/, "{{EXTENSION_DOMAIN_NAME}}", line)
+
+              print line
+            }
+            ' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
           done
       - name: Configure Git
         run: |
