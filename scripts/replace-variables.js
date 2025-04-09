@@ -1,8 +1,7 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
-// Variablen laden
-const config = require("./project-config.json");
+const config = require('./project-config.json');
 
 // Liste aller zu scannenden Dateien
 function getAllFiles(dir, files = []) {
@@ -28,30 +27,30 @@ function getAllFiles(dir, files = []) {
     return files;
 }
 
-// Ersetzungen durchführen
-function replaceVariables(filePath, replacements) {
-    let content = fs.readFileSync(filePath, "utf8");
-
-    let modified = false;
-    for (const [key, value] of Object.entries(replacements)) {
-        const regex = new RegExp(escapeRegExp(value), "g");
-        const placeholder = `{{${key}}}`;
-        if (regex.test(content)) {
-            content = content.replace(regex, placeholder);
-            modified = true;
-        }
-    }
-
-    if (modified) {
-        fs.writeFileSync(filePath, content, "utf8");
-        console.log(`✔ Ersetzt in: ${filePath}`);
-    }
-}
 
 function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-// Hauptlogik
-const allFiles = getAllFiles(".", []);
-allFiles.forEach((file) => replaceVariables(file, config));
+function replaceVariables(filePath, variables) {
+  let content = fs.readFileSync(filePath, 'utf8');
+  let modified = false;
+
+  for (const [key, value] of Object.entries(variables)) {
+    const placeholder = `{{${key}}}`;
+    const regex = new RegExp(escapeRegExp(placeholder), 'g');
+
+    if (regex.test(content)) {
+      content = content.replace(regex, value);
+      modified = true;
+    }
+  }
+
+  if (modified) {
+    fs.writeFileSync(filePath, content, 'utf8');
+    console.log(`✅ Ersetzt in: ${filePath}`);
+  }
+}
+
+const files = getAllFiles(path.resolve('.'));
+files.forEach(file => replaceVariables(file, config));

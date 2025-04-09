@@ -1,0 +1,35 @@
+name: Replace Placeholders on Push
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - test-2
+
+jobs:
+  replace-vars:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 📦 Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: 🔧 Run Replace Script
+        run: |
+          npm install
+          node scripts/replace-variables.js
+
+      - name: 🤖 Commit and Push changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "action@github.com"
+          git add .
+          git commit -m "🤖 Auto-replaced template variables"
+          git push
+        continue-on-error: true
