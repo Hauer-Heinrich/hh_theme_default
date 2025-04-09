@@ -1,11 +1,11 @@
 rootPageId: 1
-base: 'https://www.hh_theme_default[1;5D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dtest[2~_theme_default.com'
+base: 'https://www.test_theme_default.com'
 baseVariants:
   -
-    base: 'http://preview.hh_theme_default[1;5D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dtest[2~_theme_default.com'
+    base: 'http://preview.test_theme_default.com'
     condition: 'applicationContext == "Development/Server"'
   -
-    base: 'http://www.hh_theme_default[1;5D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dtest[2~_theme_default.localhost'
+    base: 'http://www.test_theme_default.localhost'
     condition: 'applicationContext == "Development"'
 languages:
   -

@@ -3,7 +3,7 @@
     /*** Register plugin in window object */
     this.feLogin = function() {
         let defaults = {
-            "requestUrl": '//www.hh_theme_default[1;5D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dtest[2~_theme_default.com/frontend-login',
+            "requestUrl": '//www.test_theme_default.com/frontend-login',
             "loginHtmlContainer": '.frame-type-felogin_login',
             "destinationContainer": 'main'
         };
@@ -46,7 +46,7 @@
     }
 
     function checkSettings(element) {
-        if(this.settings.requestUrl.startsWith('//www.hh_theme_default[1;5D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dtest[2~_theme_default.com')) {
+        if(this.settings.requestUrl.startsWith('//www.test_theme_default.com')) {
             console.group("frontend login");
             console.info("%c %s", "background-color:yellow; color: black", "SET proper request URL! ");
             console.groupEnd();

@@ -1416,4 +1416,4 @@ routes:
       Disallow: /private/
       Disallow: /config/
 
-      Sitemap: https://www.hh_theme_default[1;5D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dtest[2~_theme_default.com/sitemap.xml
+      Sitemap: https://www.test_theme_default.com/sitemap.xml
