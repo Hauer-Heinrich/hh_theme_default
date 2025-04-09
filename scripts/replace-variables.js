@@ -44,5 +44,5 @@ function escapeRegExp(string) {
 }
 
 // Hauptlogik
-const allFiles = getAllFiles('.', []);
+const allFiles = getAllFiles(".", []);
 allFiles.forEach(file => replaceVariables(file, config));
