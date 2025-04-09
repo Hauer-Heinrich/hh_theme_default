@@ -3,27 +3,54 @@ name: Replace Strings
 on:
   push:
     branches:
-      - test
+      - test-tim-2
     paths-ignore:
       - 'README.md'
 
+permissions:
+  contents: write
+  pull-requests: write # Kann hilfreich sein, auch wenn der Workflow keine PRs erstellt
+  actions: write      # Erlaubt dem Workflow, andere Actions zu verwalten
+  repository-projects: write # Für Projektboards
+  security-events: write # Für Security Scanning Ergebnisse
+  statuses: write      # Für das Setzen von Commit-Status
+  deployments: write   # Für Deployment-bezogene Aktionen
+
 jobs:
   replace_strings:
-    if: github.repository == 'hh_theme_default'
+    if: github.repository == 'Hauer-Heinrich/hh_theme_default'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: get epository name
+        run: echo "value=`basename ${{ github.repository }}`" >> $GITHUB_OUTPUT
+
       - name: Replace strings
         run: |
-          find . -type f -not -name "README.md" -print0 | while IFS= read -r -d $'\0' file; do
-            sed -i "s/HauerHeinrich/{{EXTENSION_VENDOR}}/g" "$file"
-            sed -i "s/HhThemeDefault/{{EXTENSION_NAMESPACE}}/g" "$file"
+          find . -type f -not -path "./.git/*" -not -path "./.github/*" -not -name "README.md" -print0 |
+          while IFS= read -r -d $'\0' file; do
+            awk '
+            {
+              # nur ersetzen, wenn NICHT "HauerHeinrich/HhThemeDefault" vorkommt
+              # bzw. nicht "HauerHeinrich/" direkt gefolgt von "HhThemeDefault"
+              if ($0 ~ /HauerHeinrich\/HhThemeDefault/) {
+                print
+              } else {
+                gsub(/HauerHeinrich/, "{{EXTENSION_VENDOR}}")
+                gsub(/HhThemeDefault/, "{{EXTENSION_NAMESPACE}}")
+                print
+              }
+            }' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
           done
+      - name: Configure Git
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
 
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Replace placeholder strings"
-          push_options: '--force' # Optional: Kann nützlich sein, wenn der Branch nur für Tests ist
+      - name: Commit and push changes
+        run: |
+          git add .
+          git commit -m "Replace placeholder strings"
+          git push origin test-tim-2
