@@ -1,7 +1,7 @@
 ### PowerShell Script
 ### Simple search and Replace strings
 ### Replaces folloing strings:
-### {{EXTENSION_KEY}}            with e. g. your input like: hh_theme_default
+### {{EXTENSION_KEY}}            with e. g. your input like: {{EXTENSION_KEY}}
 ### {{EXTENSION_VENDOR}}         with e. g. HauerHeinrich
 ### {{EXTENSION_NAMESPACE}}      with e. g. HhThemeDefault
 ### {{EXTENSION_NAMESPACE_ES6}}  with e. g. {{EXTENSION_NAMESPACE_ES6}}
@@ -29,7 +29,7 @@ function str_search_replace
 }
 
 ### Replace Extension Key
-$extensionKey = Read-Host -Prompt 'Input your TYPO3 extension key (e. g. hh_theme_default)'
+$extensionKey = Read-Host -Prompt 'Input your TYPO3 extension key (e. g. {{EXTENSION_KEY}})'
 str_search_replace -searchString "{{EXTENSION_KEY}}" -replaceString $extensionKey
 Write-Host "Extension key replacement: done." -ForegroundColor DarkGreen
 
