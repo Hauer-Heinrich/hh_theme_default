@@ -27,7 +27,7 @@
         }
     ],
     "replace": {
-        "typo3-ter/hh-theme-default": "self.version"
+        "typo3-ter/{{EXTENSION_NAMESPACE_ES6}}": "self.version"
     },
     "require": {
         "typo3/cms-core": "^13.4.0",
