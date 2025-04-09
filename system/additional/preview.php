@@ -49,8 +49,8 @@ $customChanges = [
         'errorHandlerErrors' => 28672,
         'belogErrorReporting' => 28672,
         // cookieDomain e. g. 'cookieDomain' => '/(www.)?domainA|domainB|(.localhost)/',
-        'cookieDomain' => '/preview\.{{EXTENSION_DOMAIN_NAME}}\.{{EXTENSION_DOMAIN_TLD}}/',
-        'trustedHostsPattern' => 'preview\.{{EXTENSION_DOMAIN_NAME}}\.{{EXTENSION_DOMAIN_TLD}}',
+        'cookieDomain' => '/preview\.test-theme-default\.com/',
+        'trustedHostsPattern' => 'preview\.test-theme-default\.com',
     ],
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customChanges);
