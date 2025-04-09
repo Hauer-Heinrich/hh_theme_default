@@ -32,17 +32,47 @@ jobs:
           find . -type f -not -path "./.git/*" -not -path "./.github/*" -not -name "README.md" -print0 |
           while IFS= read -r -d $'\0' file; do
             awk '
-            {
-              # nur ersetzen, wenn NICHT "HauerHeinrich/HhThemeDefault" vorkommt
-              # bzw. nicht "HauerHeinrich/" direkt gefolgt von "HhThemeDefault"
-              if ($0 ~ /HauerHeinrich\/(HhThemeDefault|hh-theme-default)/) {
-                print
-              } else {
-                gsub(/HauerHeinrich/, "{{EXTENSION_VENDOR}}")
-                gsub(/HhThemeDefault/, "{{EXTENSION_NAMESPACE}}")
-                print
-              }
-            }' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+              {
+                line = $0
+
+                ##### 1. Kontextabhängiger Austausch von "HauerHeinrich" #####
+                # Nur ersetzen, wenn danach definierter Namespace kommt
+                if (line ~ /HauerHeinrich\/(HhThemeDefault|hh-theme-default)/) {
+                  sub(/HauerHeinrich/, "{{EXTENSION_VENDOR}}", line)
+                }
+
+                ##### 2. Domain-TLD ersetzen nur im Kontext der Domain #####
+                if (line ~ /test-theme-default\.com/) {
+                  sub(/com/, "{{EXTENSION_DOMAIN_TLD}}", line)
+                }
+
+                ##### 3. hh_theme_default kontextabhängig ersetzen #####
+
+                # a) Domain-Name zuerst ersetzen (damit .com weiterverarbeitet werden kann)
+                gsub(/hh_theme_default\.com/, "{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}", line)
+
+                # b) EXT:hh_theme_default → EXTENSION_KEY
+                gsub(/EXT:hh_theme_default/, "EXT:{{EXTENSION_KEY}}", line)
+
+                # c) Standalone "hh_theme_default" → EXTENSION_KEY
+                gsub(/\bhh_theme_default\b/, "{{EXTENSION_KEY}}", line)
+
+                # d) Alle anderen hh_theme_default (nicht in obigen Fällen) → EXTENSION_NAMESPACE_ES6
+                gsub(/hh_theme_default/, "{{EXTENSION_NAMESPACE_ES6}}", line)
+
+                ##### 4. Weitere Platzhalter #####
+
+                # Namespace (wird fast überall ersetzt)
+                gsub(/HhThemeDefault/, "{{EXTENSION_NAMESPACE}}", line)
+
+                # Namespace-ES6 – Pfade oder URLs
+                gsub(/hh-theme-default/, "{{EXTENSION_NAMESPACE_ES6}}", line)
+
+                # Domain-Name (wurde vorher schon verarbeitet in Kombination mit TLD)
+                gsub(/test-theme-default/, "{{EXTENSION_DOMAIN_NAME}}", line)
+
+                print line
+              }' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
           done
       - name: Configure Git
         run: |
