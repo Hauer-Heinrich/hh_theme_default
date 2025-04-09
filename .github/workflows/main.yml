@@ -35,7 +35,7 @@ jobs:
             {
               # nur ersetzen, wenn NICHT "HauerHeinrich/HhThemeDefault" vorkommt
               # bzw. nicht "HauerHeinrich/" direkt gefolgt von "HhThemeDefault"
-              if ($0 ~ /HauerHeinrich\/HhThemeDefault/) {
+              if ($0 ~ /HauerHeinrich\/(HhThemeDefault|hh-theme-default)/) {
                 print
               } else {
                 gsub(/HauerHeinrich/, "{{EXTENSION_VENDOR}}")
