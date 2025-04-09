@@ -42,6 +42,8 @@ jobs:
             sed -i "s|{{EXTENSION_DOMAIN_NAME}}.de|{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}|g" "$file"
             sed -i "s|{{EXTENSION_DOMAIN_NAME}}\.hauer-heinrich.|{{EXTENSION_DOMAIN_NAME}}.|g" "$file"
             sed -i "s|{{EXTENSION_DOMAIN_NAME}}.hauer-heinrich.|{{EXTENSION_DOMAIN_NAME}}.|g" "$file"
+            sed -i "s|{{EXTENSION_DOMAIN_NAME}}\.hauer-heinrich|{{EXTENSION_DOMAIN_NAME}}.|g" "$file"
+            sed -i "s|{{EXTENSION_DOMAIN_NAME}}.de|{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}|g" "$file"
           done
 
       - name: Configure Git
