@@ -1165,4 +1165,4 @@ routes:
       Disallow: /login/\r\n
       Disallow: /logout/\r\n
       \r\n
-      Sitemap: https://www.test-theme-default.com/sitemap.xml"
+      Sitemap: https://www.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}/sitemap.xml"

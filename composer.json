@@ -1,6 +1,6 @@
 {
     "type": "typo3-cms-extension",
-    "name": "HauerHeinrich/hh-theme-default",
+    "name": "{{EXTENSION_VENDOR}}/{{EXTENSION_NAMESPACE_ES6}}",
     "description": "Distribution theme: Anpassbar im Backend im Konstanten Editor.",
     "keywords": [ "TYPO3 CMS", "TYPO3", "theme", "distribution", "extension" ],
     "homepage": "https://www.hauer-heinrich.de",
@@ -28,7 +28,7 @@
     ],
     "replace": {
         "HauerHeinrich/hh_theme_default": "self.version",
-        "typo3-ter/hh-theme-default": "self.version"
+        "typo3-ter/{{EXTENSION_NAMESPACE_ES6}}": "self.version"
     },
     "require": {
         "typo3/cms-core": "^13.4.0",

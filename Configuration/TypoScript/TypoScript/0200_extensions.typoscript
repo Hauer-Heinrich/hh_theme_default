@@ -16,7 +16,7 @@ lib.contentElement {
         30 = {$styles.templates.layoutRootPath}
     }
 }
-@import 'EXT:hh_theme_default/Configuration/TypoScript/TypoScript/CustomFluid/*.typoscript'
+@import 'EXT:{{EXTENSION_KEY}}/Configuration/TypoScript/TypoScript/CustomFluid/*.typoscript'
 
 ################################################################
 ### News - news ###
@@ -143,7 +143,7 @@ plugin.tx_powermail {
             receiver {
                 overwrite {
                     senderEmail = TEXT
-                    senderEmail.value = example@test-theme-default.com
+                    senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
 
                     replyToName = TEXT
                     replyToName.value >
@@ -157,19 +157,19 @@ plugin.tx_powermail {
 
             sender {
                 default {
-                    senderEmail = example@test-theme-default.com
+                    senderEmail = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
                 }
                 overwrite {
                     senderEmail = TEXT
                     senderEmail.value >
-                    senderEmail.value = example@test-theme-default.com
+                    senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
                 }
             }
 
             optin {
                 overwrite {
                     senderEmail = TEXT
-                    senderEmail.value = example@test-theme-default.com
+                    senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
                 }
             }
         }

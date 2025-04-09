@@ -4,7 +4,7 @@
 ### {{EXTENSION_KEY}}            with e. g. your input like: hh_theme_default
 ### {{EXTENSION_VENDOR}}         with e. g. HauerHeinrich
 ### {{EXTENSION_NAMESPACE}}      with e. g. HhThemeDefault
-### {{EXTENSION_NAMESPACE_ES6}}  with e. g. hh-theme-default
+### {{EXTENSION_NAMESPACE_ES6}}  with e. g. {{EXTENSION_NAMESPACE_ES6}}
 ### {{EXTENSION_DOMAIN_NAME}}    with e. g. your input like: my-domain
 ### {{EXTENSION_DOMAIN_TLD}}     with e. g. your input like: com
 ###
