@@ -24,7 +24,7 @@ call_user_func(function(string $extensionKey) {
         'Configuration/TsConfig/tt_address-only.tsconfig',
         'Additional / extra config for: address'
     );
-}, '{{EXTENSION_KEY}}');
+}, 'hh_theme_default');
 
 
 

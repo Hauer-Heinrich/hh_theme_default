@@ -1416,4 +1416,4 @@ routes:
       Disallow: /private/
       Disallow: /config/
 
-      Sitemap: https://www.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}/sitemap.xml
+      Sitemap: https://www.hh_theme_default.com/sitemap.xml
