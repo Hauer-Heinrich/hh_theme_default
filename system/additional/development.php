@@ -65,7 +65,7 @@ $customDevelopmentChanges = [
         'enableDeprecationLog' => 'file',
         'belogErrorReporting' => 32767,
         // cookieDomain e. g. 'cookieDomain' => '/(www\.)?(domainA|domainB)\.?(TLD)$/',
-        'cookieDomain' => '/www\.({{EXTENSION_DOMAIN_NAME}})\.de$/',
+        'cookieDomain' => '/www\.({{EXTENSION_DOMAIN_NAME}})\.localhost$/',
         'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}\.localhost',
     ],
 ];
