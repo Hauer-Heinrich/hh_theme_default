@@ -1,0 +1,51 @@
+name: Replace Strings Before Push
+
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+  replace-strings:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Verify repository name
+      run: |
+        REPO_NAME=$(basename $(git remote get-url origin))
+        EXPECTED_REPO_NAME="git@github.com:Hauer-Heinrich/hh_theme_default.git"
+        if [ "$REPO_NAME" != "$EXPECTED_REPO_NAME" ]; then
+          echo "Dieser Workflow wird nur für das Repository '$EXPECTED_REPO_NAME' ausgeführt. Aktuelles Repository: $REPO_NAME"
+          exit 1
+        fi
+
+    - name: Replace strings in staged files
+      run: |
+        # Alle geänderten Dateien sammeln, die für den Push vorgesehen sind
+        FILES=$(git diff --cached --name-only --diff-filter=AM)
+
+        if [ -z "$FILES" ]; then
+          echo "Keine gestageten Dateien gefunden, keine Änderungen notwendig."
+          exit 0
+        fi
+
+        for FILE in $FILES; do
+          # Überspringe die README.md Datei
+          if [ "$FILE" = "README.md" ]; then
+            continue
+          fi
+
+          echo "Bearbeite Datei im Staging-Bereich: $FILE"
+
+          # Ersetzen der Strings im Staging-Bereich, ohne die lokale Datei zu ändern
+          git show :$FILE | sed 's/HauerHeinrich/{{EXTENSION_VENDOR}}/g' | sed 's/HhThemeDefault/{{EXTENSION_NAMESPACE}}/g' | git apply --cached
+        done
+        echo "Strings wurden in den gestageten Dateien ersetzt."
+
+    - name: Push changes
+      run: |
+        git commit --amend --no-edit --date "$(date)" # Verhindert, dass neue Commits erstellt werden, und sorgt für eine Änderung
+        git push --force-with-lease
