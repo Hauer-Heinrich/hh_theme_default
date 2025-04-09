@@ -1,4 +1,4 @@
-name: Replace Strings
+name: Replace development Strings with placeholders
 
 on:
   push:
@@ -40,6 +40,7 @@ jobs:
             sed -i "s|https://hh-theme-default|https://{{EXTENSION_DOMAIN_NAME}}|g" "$file"
             sed -i "s/{{EXTENSION_DOMAIN_NAME}}\.de/{{EXTENSION_DOMAIN_NAME}}\.{{EXTENSION_DOMAIN_TLD}}/g" "$file"
             sed -i "s|{{EXTENSION_DOMAIN_NAME}}.de|{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}|g" "$file"
+            sed -i "s|(hh-theme-default)|({{EXTENSION_DOMAIN_NAME}})|g" "$file"
             sed -i "s|{{EXTENSION_DOMAIN_NAME}}\.hauer-heinrich.|{{EXTENSION_DOMAIN_NAME}}.|g" "$file"
             sed -i "s|{{EXTENSION_DOMAIN_NAME}}.hauer-heinrich.|{{EXTENSION_DOMAIN_NAME}}.|g" "$file"
             sed -i "s|{{EXTENSION_DOMAIN_NAME}}\.hauer-heinrich|{{EXTENSION_DOMAIN_NAME}}.|g" "$file"
