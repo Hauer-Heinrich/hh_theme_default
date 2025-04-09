@@ -84,7 +84,7 @@ $customChanges = [
         'mediafile_ext' => 'gif,jpg,jpeg,png,webp,pdf,svg,mp3,mp4,webm,youtube,vimeo',
         'defaultScheme' => 'https',
         'cookieDomain' => '/www\.test_theme_default\.com/',
-        'trustedHostsPattern' => 'www\.test_theme_default\.com',
+        'trustedHostsPattern' => "www\.test_theme_default\.com",
     ],
     'EXTENSIONS' => [
         'backend' => [
