@@ -9,11 +9,14 @@ on:
 
 jobs:
   replace_strings:
-    if: github.repository == 'hh_theme_default'
+    if: github.repository == 'Hauer-Heinrich/hh_theme_default'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: get epository name
+        run: echo "value=`basename ${{ github.repository }}`" >> $GITHUB_OUTPUT
 
       - name: Replace strings
         run: |
