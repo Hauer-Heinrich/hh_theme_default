@@ -3,7 +3,7 @@ imports:
     - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Processing.yaml' }
     - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml' }
     - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml' }
-    - { resource: 'EXT:{{EXTENSION_KEY}}/Configuration/RTE/rte_all.yaml' }
+    - { resource: 'EXT:hh_theme_default/Configuration/RTE/rte_all.yaml' }
 
 ### Add configuration for the editor
 ### For complete documentation see https://ckeditor.com/docs/ckeditor5/latest/features/index.html

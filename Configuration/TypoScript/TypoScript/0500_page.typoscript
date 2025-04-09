@@ -130,7 +130,7 @@ page {
                 languages = auto
                 as = MenuLanguage
 
-                if.isTrue = {$plugin.{{EXTENSION_NAME}}.multiLanguage}
+                if.isTrue = {$plugin.hhthemedefault.multiLanguage}
             }
 
             ################################################################
@@ -165,7 +165,7 @@ page {
             # 90 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 90 {
             #     special = directory
-            #     special.value = {$plugin.{{EXTENSION_NAME}}.additionalTopMenu}
+            #     special.value = {$plugin.hhthemedefault.additionalTopMenu}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -179,7 +179,7 @@ page {
             #     }
             #     as = AdditionalTopMenu
 
-            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.additionalTopMenu}
+            #     if.isTrue = {$plugin.hhthemedefault.additionalTopMenu}
             # }
 
             ################################################################
@@ -311,7 +311,7 @@ page {
             # 96 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 96 {
             #     special = directory
-            #     special.value = {$plugin.{{EXTENSION_NAME}}.legalInformation}
+            #     special.value = {$plugin.hhthemedefault.legalInformation}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -325,13 +325,13 @@ page {
             #     }
             #     as = legalInformation
             #
-            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.legalInformation}
+            #     if.isTrue = {$plugin.hhthemedefault.legalInformation}
             # }
 
             # 97 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 97 {
             #     special = directory
-            #     special.value = {$plugin.{{EXTENSION_NAME}}.socialMedia}
+            #     special.value = {$plugin.hhthemedefault.socialMedia}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -345,7 +345,7 @@ page {
             #     }
             #     as = socialMedia
             #
-            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.socialMedia}
+            #     if.isTrue = {$plugin.hhthemedefault.socialMedia}
             # }
 
             ################################################################
@@ -354,7 +354,7 @@ page {
             # 99 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 99 {
             #     special = directory
-            #     special.value = {$plugin.{{EXTENSION_NAME}}.socialMenu}
+            #     special.value = {$plugin.hhthemedefault.socialMenu}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -368,7 +368,7 @@ page {
             #     }
             #     as = SocialMenu
             #
-            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.socialMenu}
+            #     if.isTrue = {$plugin.hhthemedefault.socialMenu}
             # }
 
             ################################################################
@@ -377,7 +377,7 @@ page {
             100 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             100 {
                 special = directory
-                special.value = {$plugin.{{EXTENSION_NAME}}.quickLinks}
+                special.value = {$plugin.hhthemedefault.quickLinks}
                 entryLevel = 0
                 levels = 7
                 expandAll = 1
@@ -391,15 +391,15 @@ page {
                 }
                 as = Quicklinks
 
-                if.isTrue = {$plugin.{{EXTENSION_NAME}}.quickLinks}
+                if.isTrue = {$plugin.hhthemedefault.quickLinks}
             }
         }
 
         settings {
-            indexedSearchId = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
-            breadcrumbSeparator = {$plugin.{{EXTENSION_NAME}}.breadcrumbSeparator}
-            compressFiles = {$plugin.{{EXTENSION_NAME}}.compressFiles}
-            concatenateFiles = {$plugin.{{EXTENSION_NAME}}.concatenateFiles}
+            indexedSearchId = {$plugin.hhthemedefault.indexedSearchId}
+            breadcrumbSeparator = {$plugin.hhthemedefault.breadcrumbSeparator}
+            compressFiles = {$plugin.hhthemedefault.compressFiles}
+            concatenateFiles = {$plugin.hhthemedefault.concatenateFiles}
         }
 
         variables {
@@ -520,7 +520,7 @@ page {
     #     userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
     #     pluginName = Jobslist
     #     extensionName = HhSimpleJobPosts
-    #     vendorName = {{EXTENSION_VENDOR}}
+    #     vendorName = HauerHeinrich
     #     controller = Jobpost
     #     action = show
 
