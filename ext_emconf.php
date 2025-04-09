@@ -10,7 +10,7 @@
  * "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF['hh_theme_default'] = [
+$EM_CONF[{{EXTENSION_KEY}}] = [
     'title' => 'Hauer-Heinrich - Theme hhthemedefault',
     'description' => 'Distribution theme: Anpassbar im Backend im Konstanten Editor.',
     'category' => 'distribution',

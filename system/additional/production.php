@@ -83,8 +83,8 @@ $customChanges = [
         'belogErrorReporting' => 6485,
         'mediafile_ext' => 'gif,jpg,jpeg,png,webp,pdf,svg,mp3,mp4,webm,youtube,vimeo',
         'defaultScheme' => 'https',
-        'cookieDomain' => '/www\.test-theme-default\.com/',
-        'trustedHostsPattern' => 'www\.test-theme-default\.com',
+        'cookieDomain' => '/www\.{{EXTENSION_DOMAIN_NAME}}\.com/',
+        'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}\.com',
     ],
     'EXTENSIONS' => [
         'backend' => [

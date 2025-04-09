@@ -28,4 +28,4 @@ call_user_func(function(string $extensionKey) {
     if(!in_array('utm_id', $cacheFeExcludedParameters)) {
         array_push($cacheFeExcludedParameters, 'utm_id');
     }
-}, 'hh_theme_default');
+}, {{EXTENSION_KEY}});
