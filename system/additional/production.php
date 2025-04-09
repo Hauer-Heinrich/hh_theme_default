@@ -85,7 +85,7 @@ $customChanges = [
         'defaultScheme' => 'https',
         // cookieDomain e. g. 'cookieDomain' => '/(www\.)?(domainA|domainB)\.?(TLD)$/',
         'cookieDomain' => '/www\.(hh-theme-default\.hauer-heinrich)\.de$/',
-        'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}\.hauer-heinrich.de',
+        'trustedHostsPattern' => 'www\.hh-theme-default\.hauer-heinrich.de',
     ],
     'EXTENSIONS' => [
         'backend' => [

@@ -1,5 +1,5 @@
 <?php
-namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
+namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
 
 /***************************************************************
  * Copyright notice
