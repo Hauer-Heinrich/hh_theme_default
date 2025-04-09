@@ -16,9 +16,9 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/Hauer-Heinrich/hh_theme_default/issues",
-        "source": "https://github.com/Hauer-Heinrich/hh_theme_default",
-        "docs": "https://github.com/Hauer-Heinrich/hh_theme_default/blob/master/README.md"
+        "issues": "https://github.com/Hauer-Heinrich/{{EXTENSION_KEY}}/issues",
+        "source": "https://github.com/Hauer-Heinrich/{{EXTENSION_KEY}}",
+        "docs": "https://github.com/Hauer-Heinrich/{{EXTENSION_KEY}}/blob/master/README.md"
     },
     "funding": [
         {
@@ -27,7 +27,7 @@
         }
     ],
     "replace": {
-        "HauerHeinrich/hh_theme_default": "self.version",
+        "{{EXTENSION_VENDOR}}/{{EXTENSION_KEY}}": "self.version",
         "typo3-ter/{{EXTENSION_NAMESPACE_ES6}}": "self.version"
     },
     "require": {
@@ -62,7 +62,7 @@
         "typo3/cms": {
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
             "web-dir": ".Build/Web",
-            "extension-key": "hh_theme_default"
+            "extension-key": "{{EXTENSION_KEY}}"
         }
     }
 }
