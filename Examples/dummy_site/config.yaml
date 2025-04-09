@@ -1,8 +1,8 @@
 rootPageId: 1
-base: 'https://www.{{EXTENSION_DOMAIN_NAME}}.de'
+base: 'https://www.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}'
 baseVariants:
   -
-    base: 'http://preview.{{EXTENSION_DOMAIN_NAME}}.de'
+    base: 'http://preview.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}'
     condition: 'applicationContext == "Development/Server"'
   -
     base: 'http://www.{{EXTENSION_DOMAIN_NAME}}.localhost'
