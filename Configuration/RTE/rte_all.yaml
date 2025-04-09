@@ -5,7 +5,7 @@ editor:
 
     importModules:
       - { module: '@ckeditor/ckeditor5-font', exports: [ 'Font' ] }
-      - { module: '@HauerHeinrich/ckeditor5-highlight', exports: [ 'Highlight' ] }
+      - { module: '@{{EXTENSION_VENDOR}}/ckeditor5-highlight', exports: [ 'Highlight' ] }
 
     fontSize:
       options:

@@ -4,10 +4,10 @@ services:
     autoconfigure: true
     public: false
 
-  HauerHeinrich\HhThemeDefault\:
+  {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\:
     resource: '../Classes/*'
 
-  HauerHeinrich\HhThemeDefault\EventListener\AfterBackendPageRenderEventListener:
+  {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\EventListener\AfterBackendPageRenderEventListener:
     tags:
       - name: event.listener
         event: TYPO3\CMS\Backend\Controller\Event\AfterBackendPageRenderEvent
