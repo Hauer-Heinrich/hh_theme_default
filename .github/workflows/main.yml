@@ -34,6 +34,7 @@ jobs:
             sed -i "s/hhthemedefault/{{EXTENSION_NAME}}/g" "$file"
             sed -i "s/HhThemeDefault/{{EXTENSION_NAMESPACE}}/g" "$file"
             sed -i "s|HauerHeinrich/{{EXTENSION_NAMESPACE}}|{{EXTENSION_VENDOR}}/{{EXTENSION_NAMESPACE}}|g" "$file"
+            sed -i 's|HauerHeinrich\\{{EXTENSION_NAMESPACE}}|{{EXTENSION_VENDOR}}\\{{EXTENSION_NAMESPACE}}|g' "$file"
             sed -i "s|hauerheinrich/hh-theme-default|{{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}|g" "$file"
             sed -i "s|@HauerHeinrich/hh-theme-default|@{{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}|g" "$file"
             sed -i 's|HauerHeinrich\\\\{{EXTENSION_NAMESPACE}}|{{EXTENSION_VENDOR}}\\\\{{EXTENSION_NAMESPACE}}|g' "$file"
