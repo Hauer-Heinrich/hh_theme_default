@@ -17,7 +17,7 @@ jobs:
 
       - name: Replace strings
         run: |
-          find . -type f -not -path "./.git/*" -not -path "./.github/*" -not -name "README.md" -print0 | while IFS= read -r -d $'\0' file; do
+          find . -type f - not -path "*/inti.*" -not -path "./.git/*" -not -path "./.github/*" -not -name "README.md" -print0 | while IFS= read -r -d $'\0' file; do
             sed -i "s|test-theme-default\.com|{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}|g" "$file"
             sed -i "s|HauerHeinrich/HhThemeDefault|{{EXTENSION_VENDOR}}/HhThemeDefault|g" "$file"
             sed -i "s|HauerHeinrich\\HhThemeDefault|{{EXTENSION_VENDOR}}\\{{EXTENSION_NAMESPACE}}|g" "$file"
