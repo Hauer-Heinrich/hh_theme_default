@@ -3,7 +3,7 @@ name: Replace Strings
 on:
   push:
     branches:
-      - test
+      - test-3
     paths-ignore:
       - 'README.md'
 
