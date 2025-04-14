@@ -3,7 +3,7 @@
 
 <header id="header" class="frame frame-max-width">
     <div class="header-container">
-        <f:render partial="Logo" arguments="{logos: '{HeaderLogo}'}" />
+        <f:render partial="Logo" arguments="{logos: '{HeaderLogos}'}" />
 
         <nav class="nav-main">
             <f:render partial="Menu/MainMenu" arguments="{menu: '{MenuMain}'}" />
@@ -13,6 +13,22 @@
     <f:if condition="{settings.indexedSearchId} && {data.uid} != {settings.indexedSearchId}">
         <f:cObject typoscriptObjectPath="lib.searchfield" />
     </f:if>
+
+    <f:security.ifAuthenticated>
+        <f:then>
+            <f:variable name="feUser" value="{hhdefault:getFeUser()}" />
+            <f:if condition="{feUser}">
+                <div class="fe-user fe-user--loggedin">
+                    <f:if condition="{feUser.image.0.uid}">
+                        <div class="image fe-user--image">
+                            <f:image src="{feUser.image.0.uid}" treatIdAsReference="1" width="100c" />
+                        </div>
+                    </f:if>
+                    <span class="name fe-user--name">{feUser.name}</span>
+                </div>
+            </f:if>
+        </f:then>
+    </f:security.ifAuthenticated>
 </header>
 
 </html>

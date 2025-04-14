@@ -1,0 +1,8 @@
+routeEnhancers:
+  FeloginPlugin:
+    type: Extbase
+    extension: felogin
+    plugin: login
+    routes:
+      - routePath: '/user-login'
+        _controller: 'Login::login'

@@ -61,6 +61,14 @@ plugin.tx_powermail {
 @import 'EXT:indexed_search/Configuration/TypoScript/constants.typoscript'
 
 ################################################################
+### felogin - FE Users ###
+################################################################
+plugin.hhthemedefault {
+    # cat=plugin.hhthemedefault_felogin/basic/0100; type=int+; label= Page UID of the login-page
+        feLoginPageUid =
+}
+
+################################################################
 ### Hauer-Heinrich Slider - hh_slider ###
 ################################################################
 @import 'EXT:hh_slider/Configuration/TypoScript/constants.typoscript'

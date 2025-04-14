@@ -1,8 +1,19 @@
-/* COMPONENT - VARIABLES */
+/*
+    Used for styling of logged-in user or every-site login-/logout-button-links.
+    For login- logout-form please use Css/components-custom/felogin.css!
+ */
 
-/* COMPONENT - STYLING */
-.frame-type-felogin_login {
-    padding: var(--padding, 1rem);
-    background: rgba(20, 20, 20, 0.2);
-    border-radius: var(--border-radius, 5px);
+.feuser-logout-form {
+    & [type="submit"] {
+        display: none;
+        background: none;
+        border: 0;
+        box-shadow: none;
+        color: inherit;
+        padding: 0;
+
+        &:hover {
+            color: var(--color-link-hover);
+        }
+    }
 }

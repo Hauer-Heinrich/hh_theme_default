@@ -400,6 +400,7 @@ page {
             breadcrumbSeparator = {$plugin.hhthemedefault.breadcrumbSeparator}
             compressFiles = {$plugin.hhthemedefault.compressFiles}
             concatenateFiles = {$plugin.hhthemedefault.concatenateFiles}
+            feLoginPageUid = {$plugin.hhthemedefault.feLoginPageUid}
         }
 
         variables {

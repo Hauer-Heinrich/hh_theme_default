@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["felogin.css"],
+  "sourcesContent": [".frame-type-felogin_login {\n    background: rgba(20, 20, 20, 0.2);\n    border-radius: var(--border-radius, 5px);\n    padding: var(--padding, 1rem);\n}\n"],
+  "mappings": "AAAA,CAAC,yBACG,WAAY,UACZ,cAAe,IAAI,eAAe,EAAE,KACpC,QAAS,IAAI,SAAS,EAAE,KAC5B",
+  "names": []
+}

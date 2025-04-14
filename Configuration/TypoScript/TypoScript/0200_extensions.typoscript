@@ -260,12 +260,6 @@ lib.searchfield {
     vendorName = TYPO3\CMS
     extensionName = IndexedSearch
     pluginName = Pi2
-    switchableControllerActions {
-        Search {
-            1 = form
-            2 = search
-        }
-    }
 
     features.requireCHashArgumentForActionArguments = 0
     view =< plugin.tx_indexedsearch.view

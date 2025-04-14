@@ -1,5 +1,7 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
 
+<f:spaceless>
 <f:if condition="{menu}">
     <nav class="menu menu-trenner {cssClasses}">
         <ul>
@@ -10,9 +12,32 @@
                 </f:if>
                 </li>
             </f:for>
+
+            <f:if condition="{showLoginPage}">
+                <f:security.ifAuthenticated>
+                    <f:then>
+                        <li>
+                            <f:if condition="{settings.feLoginPageUid}">
+                                <form class="feuser-logout-form" action="{f:uri.typolink(parameter: '{settings.feLoginPageUid}')}" method="POST">
+                                    <input type="hidden" name="logintype" value="logout" />
+                                    <f:form.button type="submit">loggin out</f:form.button>
+                                </form>
+                            </f:if>
+                        </li>
+                    </f:then>
+                    <f:else>
+                        <li>
+                            <f:if condition="{settings.feLoginPageUid}">
+                                <f:link.typolink parameter="{settings.feLoginPageUid}">Login</f:link.typolink>
+                            </f:if>
+                        </li>
+                    </f:else>
+                </f:security.ifAuthenticated>
+            </f:if>
         </ul>
     </nav>
 </f:if>
+</f:spaceless>
 
 <f:section name="submenu">
     <ul>

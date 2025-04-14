@@ -4,7 +4,10 @@
         "entryPoints": [
             { "in": "./Resources/Public/Css/main.css", "out": "./Resources/Public/Css/main.bundle" },
             { "in": "./Resources/Public/Css/main-rte.css", "out": "./Resources/Public/Css/main-rte.bundle" },
-            { "in": "./Resources/Public/JavaScript/main.js", "out": "./Resources/Public/JavaScript/main.bundle" }
+            { "in": "./Resources/Public/JavaScript/main.js", "out": "./Resources/Public/JavaScript/main.bundle" },
+
+            { "in": "./Resources/Public/Css/components-custom/felogin.css", "out": "./Resources/Public/Css/components-custom/felogin.bundle" },
+            { "in": "./Resources/Public/JavaScript/components-custom/felogin.js", "out": "./Resources/Public/JavaScript/components-custom/felogin.bundle" }
         ],
         "bundle": true,
         "write": true,

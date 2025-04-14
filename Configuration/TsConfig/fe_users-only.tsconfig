@@ -1,0 +1,20 @@
+mod {
+    web_list {
+        listOnlyInSingleTableView = 0
+        allowedNewTables = fe_users,fe_groups
+        hideTables = tt_content
+    }
+}
+
+### set default values
+TCAdefaults.fe_users {
+    tx_extbase_type = Tx_Extbase_Domain_Model_FrontendUser
+}
+
+TCEFORM.fe_users {
+//     tx_extbase_type.disabled = 1
+//     tx_extbase_type {
+//         removeItems = 0
+//     }
+    name.disabled = 1
+}

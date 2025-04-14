@@ -1,0 +1,7 @@
+lib.loggedInUser = COA
+lib.loggedInUser {
+    if.isTrue = {$TSFE:fe_user|user|uid}
+
+    10 = TEXT
+    10.data = TSFE:fe_user|user|username
+}

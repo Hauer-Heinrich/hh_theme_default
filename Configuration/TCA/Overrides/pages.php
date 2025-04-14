@@ -18,11 +18,18 @@ call_user_func(function(string $extensionKey) {
         'Additional / extra config for: news'
     );
 
-    // additional / extra config for: address
+    // additional / extra config for: tt_address
     ExtensionManagementUtility::registerPageTSConfigFile(
         $extensionKey,
         'Configuration/TsConfig/tt_address-only.tsconfig',
         'Additional / extra config for: address'
+    );
+
+    // additional / extra config for: fe_users / felogin
+    ExtensionManagementUtility::registerPageTSConfigFile(
+        $extensionKey,
+        'Configuration/TsConfig/fe_users-only.tsconfig',
+        'Additional / extra config for: FE users'
     );
 }, 'hh_theme_default');
 
