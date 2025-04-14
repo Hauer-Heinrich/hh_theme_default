@@ -5,7 +5,6 @@
 
 .feuser-logout-form {
     & [type="submit"] {
-        display: none;
         background: none;
         border: 0;
         box-shadow: none;
