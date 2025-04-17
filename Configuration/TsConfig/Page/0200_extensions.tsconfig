@@ -1,1 +1,1 @@
-@import 'EXT:hh_theme_default/Configuration/TSconfig/Page/Extensions/*.tsconfig'
+@import 'EXT:hh_theme_default/Configuration/TsConfig/Page/Extensions/*.tsconfig'
