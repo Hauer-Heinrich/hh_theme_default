@@ -1,0 +1,4 @@
+################################################################
+### Hauer-Heinrich Google Maps - hh_gmaps_simplest ###
+################################################################
+@import 'EXT:hh_gmaps_simplest/Configuration/TypoScript/constants.typoscript'

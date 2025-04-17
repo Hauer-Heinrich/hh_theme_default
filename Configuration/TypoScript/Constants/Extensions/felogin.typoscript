@@ -1,0 +1,7 @@
+################################################################
+### felogin - FE Users ###
+################################################################
+plugin.hhthemedefault {
+    # cat=plugin.hhthemedefault_felogin/basic/0100; type=int+; label= Page UID of the login-page
+        feLoginPageUid =
+}

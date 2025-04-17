@@ -1,0 +1,4 @@
+################################################################
+### Hauer-Heinrich Slider - hh_slider ###
+################################################################
+@import 'EXT:hh_slider/Configuration/TypoScript/constants.typoscript'

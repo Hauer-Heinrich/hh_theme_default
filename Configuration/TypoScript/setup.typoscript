@@ -1,1 +1,1 @@
-@import 'EXT:hh_theme_default/Configuration/TypoScript/TypoScript/*.typoscript'
+@import 'EXT:hh_theme_default/Configuration/TypoScript/Setup/*.typoscript'

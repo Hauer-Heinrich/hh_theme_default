@@ -1,0 +1,15 @@
+################################################################
+### Hauer-Heinrich Accordion - hh_accordion ###
+################################################################
+@import 'EXT:hh_accordion/Configuration/TypoScript/setup.typoscript'
+tt_content.hhaccordion_hh_accordion {
+    templateRootPaths {
+        5 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
+    }
+    partialRootPaths {
+        5 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
+    }
+    layoutRootPaths {
+        5 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Layouts/
+    }
+}

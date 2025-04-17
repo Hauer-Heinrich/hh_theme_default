@@ -9,26 +9,25 @@
 /* HEADER */
 #header {
     background: var(--header-bg);
+    position: relative;
+    z-index: 1111;
 
-    #logo {
+    & #logo {
         padding: 0.5rem 1rem 0.5rem 2rem;
         justify-self: start;
     }
 
-    .header-container {
+    & .header-container {
         padding: var(--header-padding);
         color: var(--header-color-text);
-        z-index: 1111;
-        position: relative;
         display: grid;
         grid-template-columns: auto 1fr auto;
-        /*grid-auto-flow: column;*/
         justify-content: stretch;
         justify-items: end;
         align-items: start;
     }
 
-    .header-container nav {
+    & .header-container nav {
         align-self: flex-end;
     }
 }

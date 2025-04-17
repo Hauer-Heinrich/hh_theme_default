@@ -1,0 +1,12 @@
+################################################################
+### Form - powermail ###
+################################################################
+@import 'EXT:powermail/Configuration/TypoScript/Main/constants.typoscript'
+plugin.tx_powermail {
+    settings {
+        javascript {
+            addJQueryFromGoogle = 0
+            addAdditionalJavaScript = 0
+        }
+    }
+}

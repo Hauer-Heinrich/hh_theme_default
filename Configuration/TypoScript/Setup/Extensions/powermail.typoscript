@@ -1,0 +1,58 @@
+################################################################
+### Form - powermail ###
+################################################################
+@import 'EXT:powermail/Configuration/TypoScript/Main/setup.typoscript'
+plugin.tx_powermail {
+    view {
+        templateRootPaths {
+            100 = {$themeDefault.urls.themeResources}Private/Extensions/powermail/Templates/
+        }
+        partialRootPaths {
+            100 = {$themeDefault.urls.themeResources}Private/Extensions/powermail/Partials/
+        }
+        layoutRootPaths {
+            100 = {$themeDefault.urls.themeResources}Private/Extensions/powermail/Layouts/
+        }
+    }
+
+    settings {
+        sender.attachment = 1
+        setup {
+            misc.ajaxSubmit = 1
+            ### To set a sender email address for the main email (to receiver)
+            ### Settings needed especially for SMTP and SPF
+            receiver {
+                overwrite {
+                    senderEmail = TEXT
+                    senderEmail.value = example@hh-theme-default.hauer-heinrich.de
+
+                    replyToName = TEXT
+                    replyToName.value >
+                    replyToName.data = GP:tx_powermail_pi1|field|name
+
+                    replyToEmail = TEXT
+                    replyToEmail.value >
+                    replyToEmail.data = GP:tx_powermail_pi1|field|email
+                }
+            }
+
+            sender {
+                default {
+                    senderEmail = example@hh-theme-default.hauer-heinrich.de
+                }
+                overwrite {
+                    senderEmail = TEXT
+                    senderEmail.value >
+                    senderEmail.value = example@hh-theme-default.hauer-heinrich.de
+                }
+            }
+
+            optin {
+                overwrite {
+                    senderEmail = TEXT
+                    senderEmail.value = example@hh-theme-default.hauer-heinrich.de
+                }
+            }
+        }
+    }
+}

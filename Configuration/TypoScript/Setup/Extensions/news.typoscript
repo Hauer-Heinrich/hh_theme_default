@@ -1,0 +1,54 @@
+################################################################
+### News - news ###
+################################################################
+@import 'EXT:news/Configuration/TypoScript/setup.typoscript'
+plugin.tx_news {
+    view {
+        templateRootPaths {
+            5 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/news/Templates/
+        }
+        partialRootPaths {
+            5 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/news/Partials/
+        }
+        layoutRootPaths {
+            5 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Layouts/
+            10 = {$themeDefault.urls.themeResources}Private/Extensions/news/Layouts/
+        }
+    }
+    settings {
+        cssFile >
+        link {
+            skipControllerAndAction = 0
+        }
+
+        displayDummyIfNoMedia = 0
+
+        list {
+            media {
+                image {
+                    maxWidth = 1920
+                    maxHeight = 1920
+                }
+            }
+        }
+
+        detail {
+            showSocialShareButtons = 1
+
+            media {
+                image {
+                    maxWidth = 1920
+                }
+            }
+        }
+    }
+
+    _LOCAL_LANG {
+        de {
+            dateFormat = MMMM yyyy
+            more-link = Jetzt weiterlesen
+        }
+    }
+}

@@ -1,0 +1,4 @@
+################################################################
+### indexed_search - Suche ###
+################################################################
+@import 'EXT:indexed_search/Configuration/TypoScript/constants.typoscript'

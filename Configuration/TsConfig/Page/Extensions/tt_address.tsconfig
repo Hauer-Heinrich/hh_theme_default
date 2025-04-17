@@ -1,0 +1,31 @@
+################################################################
+### Addresses - tt_address ###
+################################################################
+TCEFORM {
+    ### hide fields
+    tt_address {
+        image.config.appearance.fileUploadAllowed = 0
+
+        name.disabled = 1
+        fe_group.disabled = 1
+        categories.disabled = 1
+    }
+
+    ### add new displayMode
+    tt_content {
+        pi_flexform {
+            ttaddress_listview {
+                sDISPLAY {
+                    settings\.displayMode.addItems {
+                        slider = Slider
+                    }
+
+                    settings\.cardLayout.addItems {
+                        default-without-image = Default ohne image
+                        card = Card
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,4 @@
+################################################################
+### Hauer-Heinrich OpenStreetMap - hh_openstreetmap ###
+################################################################
+@import 'EXT:hh_openstreetmap/Configuration/TypoScript/constants.typoscript'

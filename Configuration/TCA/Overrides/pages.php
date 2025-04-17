@@ -11,13 +11,6 @@ call_user_func(function(string $extensionKey) {
         'Theme Page TS'
     );
 
-    // additional / extra config for: news
-    ExtensionManagementUtility::registerPageTSConfigFile(
-        $extensionKey,
-        'Configuration/TsConfig/news-only.tsconfig',
-        'Additional / extra config for: news'
-    );
-
     // additional / extra config for: tt_address
     ExtensionManagementUtility::registerPageTSConfigFile(
         $extensionKey,

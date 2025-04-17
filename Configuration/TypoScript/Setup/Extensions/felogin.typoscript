@@ -1,0 +1,16 @@
+################################################################
+### felogin - frontend login - fe_users ###
+################################################################
+plugin.tx_felogin_login {
+    view {
+        templateRootPaths {
+            20 = {$themeDefault.urls.themeResources}Private/Extensions/felogin/Templates/
+        }
+        partialRootPaths {
+            20 = {$themeDefault.urls.themeResources}Private/Extensions/felogin/Partials/
+        }
+        layoutRootPaths {
+            20 = {$themeDefault.urls.themeResources}Private/Extensions/felogin/Layouts/
+        }
+    }
+}

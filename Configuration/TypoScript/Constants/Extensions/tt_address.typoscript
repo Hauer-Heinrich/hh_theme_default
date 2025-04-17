@@ -1,0 +1,4 @@
+################################################################
+### Address - tt_address ###
+################################################################
+@import 'EXT:tt_address/Configuration/TypoScript/constants.typoscript'

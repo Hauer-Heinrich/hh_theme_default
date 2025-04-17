@@ -22,7 +22,9 @@ call_user_func(function(string $extensionKey) {
         array_push($cacheFeExcludedParameters, 'utm_id');
     }
 
-    // Extend News
-    $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['classes']['Domain/Model/News']['hh_theme_default'] = 'hh_theme_default';
-
+    // Include ExtensionsCustomConfigs
+    $configFiles = glob(__DIR__ . '/ExtensionLocalconf/*.php');
+    foreach ($configFiles as $file) {
+        require_once $file;
+    }
 }, 'hh_theme_default');

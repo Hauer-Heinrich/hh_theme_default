@@ -1,0 +1,11 @@
+################################################################
+### Frontend Login - felogin ###
+################################################################
+TCEFORM {
+    fe_users {
+        ### disable "select and upload"-button
+        image.config.appearance.fileUploadAllowed = 0
+        image.config.maxitems = 1
+        image.description = Should be within 300x300px.
+    }
+}

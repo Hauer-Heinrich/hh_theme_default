@@ -1,0 +1,4 @@
+################################################################
+### Hauer-Heinrich Accordion - hh_accordion ###
+################################################################
+@import 'EXT:hh_accordion/Configuration/TsConfig/AllPage.tsconfig'

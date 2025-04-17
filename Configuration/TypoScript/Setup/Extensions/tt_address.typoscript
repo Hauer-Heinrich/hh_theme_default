@@ -1,0 +1,41 @@
+################################################################
+### Address - tt_address ###
+################################################################
+@import 'EXT:tt_address/Configuration/TypoScript/setup.typoscript'
+plugin.tx_ttaddress.view.layoutRootPaths < lib.contentElement.layoutRootPaths
+plugin.tx_ttaddress.view.partialRootPaths < lib.contentElement.partialRootPaths
+plugin.tx_ttaddress {
+    view {
+        templateRootPaths {
+            50 = EXT:tt_address/Resources/Private/Templates/
+            100 = {$themeDefault.urls.themeResources}Private/Extensions/tt_address/Templates/
+        }
+        partialRootPaths {
+            50 = EXT:tt_address/Resources/Private/Partials/
+            100 = {$themeDefault.urls.themeResources}Private/Extensions/tt_address/Partials/
+        }
+        layoutRootPaths {
+            50 = EXT:tt_address/Resources/Private/Layouts/
+            100 = {$themeDefault.urls.themeResources}Private/Extensions/tt_address/Layouts/
+        }
+    }
+
+    settings {
+        defaultHeaderType = {$styles.content.defaultHeaderType}
+    }
+
+    _LOCAL_LANG {
+        default {
+            label.telephone = Phone
+            label.email = Mail
+        }
+        de {
+            label.telephone = Tel.
+            label.email = E-Mail
+        }
+
+        de-de {
+            label.telephone = Tel.
+        }
+    }
+}

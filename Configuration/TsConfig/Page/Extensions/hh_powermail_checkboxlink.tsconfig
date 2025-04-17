@@ -1,0 +1,4 @@
+################################################################
+### Form powermail - hh_powermail_checkboxlink ###
+################################################################
+@import 'EXT:hh_powermail_checkboxlink/Configuration/TsConfig/AllPage.tsconfig'

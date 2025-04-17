@@ -1,0 +1,23 @@
+################################################################
+### Hauer-Heinrich Slider - hh_slider ###
+################################################################
+@import 'EXT:hh_slider/Configuration/TypoScript/setup.typoscript'
+tt_content.hhslider_hh_slider {
+    layoutRootPaths {
+        110 = {$themeDefault.urls.themeResources}Private/Extensions/hh_slider/Layouts/
+        120 = {$plugin.tx_hhslider.view.layoutRootPath}
+    }
+    partialRootPaths {
+        110 = {$themeDefault.urls.themeResources}Private/Extensions/hh_slider/Partials/
+        120 = {$plugin.tx_hhslider.view.partialRootPath}
+    }
+    templateRootPaths {
+        110 = {$themeDefault.urls.themeResources}Private/Extensions/hh_slider/Templates/
+        120 = {$plugin.tx_hhslider.view.templateRootPath}
+    }
+
+    # settings {
+    #     cssFile >
+    #     jsFile >
+    # }
+}

@@ -27,68 +27,7 @@ styles {
     }
 }
 
-################################################################
-### News - news ###
-################################################################
-@import 'EXT:news/Configuration/TypoScript/constants.typoscript'
-
-################################################################
-### Address - tt_address ###
-################################################################
-@import 'EXT:tt_address/Configuration/TypoScript/constants.typoscript'
-
-################################################################
-### Form - powermail ###
-################################################################
-@import 'EXT:powermail/Configuration/TypoScript/Main/constants.typoscript'
-plugin.tx_powermail {
-    settings {
-        javascript {
-            addJQueryFromGoogle = 0
-            addAdditionalJavaScript = 0
-        }
-    }
-}
-
-################################################################
-### Form powermail - hh_powermail_checkboxlink ###
-################################################################
-@import 'EXT:hh_powermail_checkboxlink/Configuration/TypoScript/constants.typoscript'
-
-################################################################
-### indexed_search - Suche ###
-################################################################
-@import 'EXT:indexed_search/Configuration/TypoScript/constants.typoscript'
-
-################################################################
-### felogin - FE Users ###
-################################################################
-plugin.hhthemedefault {
-    # cat=plugin.hhthemedefault_felogin/basic/0100; type=int+; label= Page UID of the login-page
-        feLoginPageUid =
-}
-
-################################################################
-### Hauer-Heinrich Slider - hh_slider ###
-################################################################
-@import 'EXT:hh_slider/Configuration/TypoScript/constants.typoscript'
-
-################################################################
-### Hauer-Heinrich Accordion - hh_accordion ###
-################################################################
-@import 'EXT:hh_accordion/Configuration/TypoScript/constants.typoscript'
-plugin.tx_hhaccordion {
-    view {
-        layoutRootPath = EXT:hh_theme_default/Resources/Private/Extensions/hh_accordion/Layouts/
-        partialRootPath = EXT:hh_theme_default/Resources/Private/Extensions/hh_accordion/Partials/
-        templateRootPath = EXT:hh_theme_default/Resources/Private/Extensions/hh_accordion/Templates/
-    }
-}
-
-################################################################
-### Hauer-Heinrich Jobs - hh_simple_job_posts ###
-################################################################
-@import 'EXT:hh_simple_job_posts/Configuration/TypoScript/constants.typoscript'
+@import 'EXT:hh_theme_default/Configuration/TypoScript/Constants/Extensions/*.typoscript'
 
 ################################################################
 ### Hauer-Heinrich SEO - hh_seo ###

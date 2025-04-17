@@ -1,0 +1,91 @@
+################################################################
+### b13 container - container ###
+################################################################
+### default container / grid settings
+lib.container < lib.contentElement
+lib.container {
+    templateRootPaths {
+        1000 = {$themeDefault.urls.themeResources}Private/Extensions/container/Templates
+    }
+    partialRootPaths {
+        1000 = {$themeDefault.urls.themeResources}Private/Extensions/container/Partials/
+    }
+    layoutRootPaths {
+        1000 = {$themeDefault.urls.themeResources}Private/Extensions/container/Layouts
+    }
+}
+
+// explicitly set colPos/variable values
+tt_content.grid-row-1--col-2 < lib.container
+tt_content.grid-row-1--col-2 {
+    templateName = Grid-row-1--col-2
+
+    dataProcessing {
+        201 = B13\Container\DataProcessing\ContainerProcessor
+        201 {
+            colPos = 201
+            as = childrenLeft
+        }
+        202 = B13\Container\DataProcessing\ContainerProcessor
+        202 {
+            colPos = 202
+            as = childrenRight
+        }
+    }
+}
+
+tt_content.grid-row-1--col-3 < lib.container
+tt_content.grid-row-1--col-3 {
+    templateName = Grid-row-1--col-3
+
+    dataProcessing {
+        201 = B13\Container\DataProcessing\ContainerProcessor
+        201 {
+            colPos = 201
+            as = childrenLeft
+        }
+        202 = B13\Container\DataProcessing\ContainerProcessor
+        202 {
+            colPos = 202
+            as = childrenMiddle
+        }
+        203 = B13\Container\DataProcessing\ContainerProcessor
+        203 {
+            colPos = 203
+            as = childrenRight
+        }
+    }
+}
+
+tt_content.grid-row-1--col-2--66-33 < tt_content.grid-row-1--col-2
+tt_content.grid-row-1--col-2--33-66 < tt_content.grid-row-1--col-2
+tt_content.grid-row-1--col-2--75-25 < tt_content.grid-row-1--col-2
+tt_content.grid-row-1--col-2--25-75 < tt_content.grid-row-1--col-2
+
+tt_content.grid-row-1--col-4 < lib.container
+tt_content.grid-row-1--col-4 {
+    templateName = Grid-row-1--col-4
+
+    dataProcessing {
+        201 = B13\Container\DataProcessing\ContainerProcessor
+        201 {
+            colPos = 201
+            as = childrenLeft
+        }
+        202 = B13\Container\DataProcessing\ContainerProcessor
+        202 {
+            colPos = 202
+            as = childrenMiddleLeft
+        }
+        203 = B13\Container\DataProcessing\ContainerProcessor
+        203 {
+            colPos = 203
+            as = childrenMiddleRight
+        }
+        204 = B13\Container\DataProcessing\ContainerProcessor
+        204 {
+            colPos = 204
+            as = childrenRight
+        }
+    }
+}
