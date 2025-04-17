@@ -30,4 +30,12 @@
     & .header-container nav {
         align-self: flex-end;
     }
+
+    & .tx-indexedsearch-searchbox {
+        align-self: flex-end;
+
+        & .tx-indexedsearch-search-submit {
+            display: none;
+        }
+    }
 }

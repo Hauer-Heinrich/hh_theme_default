@@ -1,18 +1,18 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
-<header id="header" class="frame frame-max-width">
-    <div class="header-container">
+<header id="header" class="frame">
+    <div class="header-container frame-large">
         <f:render partial="Logo" arguments="{logos: '{HeaderLogos}'}" />
 
         <nav class="nav-main">
             <f:render partial="Menu/MainMenu" arguments="{menu: '{MenuMain}'}" />
         </nav>
-    </div>
 
-    <f:if condition="{settings.indexedSearchId} && {data.uid} != {settings.indexedSearchId}">
-        <f:cObject typoscriptObjectPath="lib.searchfield" />
-    </f:if>
+        <f:if condition="{settings.indexedSearchId} && {data.uid} != {settings.indexedSearchId}">
+            <f:cObject typoscriptObjectPath="lib.searchfield" />
+        </f:if>
+    </div>
 
     <f:security.ifAuthenticated>
         <f:then>
