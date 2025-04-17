@@ -21,9 +21,8 @@
         padding: var(--header-padding);
         color: var(--header-color-text);
         display: grid;
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: min(300px, 24%) 1fr 140px;
         justify-content: stretch;
-        justify-items: end;
         align-items: start;
     }
 
@@ -33,6 +32,14 @@
 
     & .tx-indexedsearch-searchbox {
         align-self: flex-end;
+
+        & fieldset {
+            min-width: 100%;
+
+            & input {
+                width: 100%;
+            }
+        }
 
         & .tx-indexedsearch-search-submit {
             display: none;
