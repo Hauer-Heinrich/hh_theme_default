@@ -19,7 +19,7 @@ call_user_func(function(string $extensionKey) {
 
     // Overwrite Flexform
     $GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['ttaddress_listview,list']
-        = 'FILE:EXT:hh_theme_default/Configuration/Flexforms/ttAddress/List.xml';
+        = 'FILE:EXT:{{EXTENSION_KEY}}/Configuration/Flexforms/ttAddress/List.xml';
 
     // Add custom fields
     ExtensionManagementUtility::addTCAcolumns('tt_content',
@@ -277,4 +277,4 @@ call_user_func(function(string $extensionKey) {
     );
     $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2--25-75']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2']['showitem'];
     // EXT: container end
-}, 'hh_theme_default');
+}, '{{EXTENSION_KEY}}');

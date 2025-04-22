@@ -1,3 +1,3 @@
 ### Import theme default site config
 imports:
-    - { resource: "EXT:hh_theme_default/sites/site_default/config.yaml" }
+    - { resource: "EXT:{{EXTENSION_KEY}}/sites/site_default/config.yaml" }

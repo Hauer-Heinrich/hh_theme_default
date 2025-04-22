@@ -24,7 +24,7 @@ call_user_func(function(string $extensionKey) {
         'Configuration/TsConfig/fe_users-only.tsconfig',
         'Additional / extra config for: FE users'
     );
-}, 'hh_theme_default');
+}, '{{EXTENSION_KEY}}');
 
 
 

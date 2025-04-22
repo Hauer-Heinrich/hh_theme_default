@@ -4,7 +4,7 @@
 <f:variable name="minified"><f:if condition="{settings.compressFiles}">.min</f:if></f:variable>
 
 <f:comment><!-- HTML Body --></f:comment>
-<f:asset.css identifier="theme.main.bundle" href="EXT:hh_theme_default/Resources/Public/Css/main.bundle.css" />
+<f:asset.css identifier="theme.main.bundle" href="EXT:{{EXTENSION_KEY}}/Resources/Public/Css/main.bundle.css" />
 <f:asset.css identifier="hh-slider-styles" href="EXT:hh_slider/Resources/Public/Css/slider{minified}.css" />
 
 </html>

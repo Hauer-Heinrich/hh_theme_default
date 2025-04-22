@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
+namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
 
 // use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use \TYPO3\CMS\Core\Context\Context;
