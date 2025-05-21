@@ -13,7 +13,7 @@
 
     function openLink(link, target) {
         if(target === "_blank") {
-            window.open = link;
+            window.open(link);
         } else {
             window.location.href = link;
         }
