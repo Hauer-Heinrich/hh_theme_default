@@ -11,7 +11,8 @@
         color: inherit;
         padding: 0;
 
-        &:hover {
+        &:hover,
+        &:focus {
             color: var(--color-link-hover);
         }
     }

@@ -38,12 +38,36 @@
     transform: translateX(-50%);
 }
 
+.text-center {
+    text-align: center;
+}
+
 .cursor-pointer {
     cursor: pointer;
 }
 
-.color-brand {
+.color-primary {
     color: var(--color-primary);
+}
+
+.color-secondary {
+    color: var(--color-secondary);
+}
+
+.skip-navigation {
+    height: 1px;
+    left: 2vw;
+    overflow: hidden;
+    padding: 5px 10px;
+    position: absolute;
+    top: -120%;
+    width: 1px;
+
+    &:focus {
+        height: auto;
+        top: 2vw;
+        width: auto;
+    }
 }
 
 .icon {}
@@ -63,26 +87,11 @@
     display: inline-block;
     position: relative;
     margin-right: var(--margin);
+    text-decoration: none;
 }
 
 .btn:last-of-type {
     margin-right: 0;
-}
-
-.btn-default {
-    background-color: var(--color-button-bg);
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--color-button-bg);
-    border-radius: 36px;
-    color: var(--color-button-text);
-    padding: 10px 20px;
-    transition: all 400ms;
-
-    &:hover {
-        background-color: var(--color-button-bg-hover);
-        color: var(--color-button-text-hover);
-    }
 }
 
 .btn-center {
@@ -90,9 +99,36 @@
     transform: translateX(-50%);
 }
 
-.ce-headline-center,
-.text-center {
-    text-align: center;
+.btn-default {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 7px;
+    padding: 10px 20px;
+    transition: all 400ms;
+}
+
+.btn-default.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+        color: var(--color-text, #000);
+    }
+}
+
+.btn-default.btn-secondary {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+        color: var(--color-text, #000);
+    }
 }
 
 .badge {

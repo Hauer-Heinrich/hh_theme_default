@@ -3,7 +3,7 @@
 
 <f:spaceless>
 <f:if condition="{menu}">
-    <nav class="menu menu-trenner {cssClasses}">
+    <nav class="menu menu-trenner {cssClasses}" {f:if(condition: '{ariaLabel}', then: 'aria-label="{ariaLabel}"')}>
         <ul>
             <f:for each="{menu}" as="mainItem">
                 <f:render partial="Menu/Elements/Item" arguments="{item: '{mainItem}'}" />

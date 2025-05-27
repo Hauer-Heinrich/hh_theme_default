@@ -22,4 +22,6 @@ plugin.hhthemedefault {
         quickLinks =
     # cat=plugin.hhthemedefault_mainconfig/basic/0120; type=int+; label= Page UID of indexed_search plugin
         indexedSearchId =
+    # cat=plugin.hhthemedefault_mainconfig/basic/0200; type=string; label= Path to the theme language translation xlf files
+        pathToThemeXlfFiles = EXT:hh_theme_default/Resources/Private/Language/
 }

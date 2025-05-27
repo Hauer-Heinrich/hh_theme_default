@@ -35,6 +35,19 @@ $customChanges = [
         'verify' => 1,
     ],
     'LOG' => [
+        'TYPO3' => [
+            'CMS' => [
+                'deprecations' => [
+                    'writerConfiguration' => [
+                        'notice' => [
+                            'TYPO3\CMS\Core\Log\Writer\FileWriter' => [
+                                'disabled' => true,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
         'writerConfiguration' => [
             LogLevel::NOTICE => [
                 FileWriter::class => [
@@ -99,7 +112,12 @@ $customChanges = [
         'news' => [
             'manualSorting' => '1',
             'showAdministrationModule' => '0',
-        ]
-    ]
+        ],
+        'hh_video_extender' => [
+            'config' => [
+                'typoScript' => 0
+            ],
+        ],
+    ],
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customChanges);

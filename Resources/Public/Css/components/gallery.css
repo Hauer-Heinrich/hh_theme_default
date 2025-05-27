@@ -39,7 +39,9 @@
         opacity: 0;
     }
 
-    & figure:hover figcaption {
+    & figure:hover figcaption,
+    & figure:focus figcaption,
+    & figure:focus-within figcaption {
         opacity: 1;
     }
 

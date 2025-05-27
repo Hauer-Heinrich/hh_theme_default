@@ -35,6 +35,8 @@ editor:
         - highlight
         - style
         - '|'
+        - specialCharacters
+        - '|'
         - sourceEditing
 
     wordCount:

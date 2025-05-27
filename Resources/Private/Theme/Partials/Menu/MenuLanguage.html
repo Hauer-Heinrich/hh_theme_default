@@ -2,7 +2,7 @@
     data-namespace-typo3-fluid="true">
 
 <f:if condition="{menu}">
-    <ul id="menu-language" class="menu-language {cssClasses}">
+    <ul id="menu-language" class="menu-language {cssClasses}" {f:if(condition: '{ariaLabel}', then: 'aria-label="{ariaLabel}"')}>
         <f:variable name="moreThenOne">0</f:variable>
         <f:for each="{menu}" as="item">
             <f:if condition="{item.available}">

@@ -39,7 +39,7 @@ editor:
     #     - { label: 'Stage orange light', color: '#fab85c' }
     highlight:
       options:
-        - { model: 'brandPen', class: 'color-brand', title: 'Color Brand', color: '#3E3E3E', type: 'pen' }
+        - { model: 'primaryPen', class: 'color-primary', title: 'Color primary', color: '#3E3E3E', type: 'pen' }
         - { model: 'secondaryPen', class: 'color-secondary', title: 'Color Secondary', color: '#AE0F0A', type: 'pen' }
 
     alignment:
@@ -61,11 +61,11 @@ buttons:
     properties:
       class:
         allowedClasses: '
-          btn btn-default btn-brand,
+          btn btn-default btn-primary,
           btn btn-default btn-secondary,
         '
 classes:
-  'btn btn-default btn-brand':
-    name: "Button Brand"
+  'btn btn-default btn-primary':
+    name: "Button default - color-primary"
   'btn btn-default btn-secondary':
-    name: "Button Brand 2"
+    name: "Button default - color-secondary"

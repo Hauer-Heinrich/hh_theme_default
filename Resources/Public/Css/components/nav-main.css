@@ -1,4 +1,6 @@
 /* COMPONENT - VARIABLES */
+*:focus{min-width: 10px !important;min-height: 10px !important;display: block !important;background-color: red !important;display: block !important;}
+
 .nav-main {
     --nav-item-bg: transparent;
     --nav-item-bg-hover: transparent;
@@ -41,7 +43,8 @@
 
     & li:hover > ul,
     & li:active > ul,
-    & li:focus >ul,
+    & li:focus > ul,
+    & li:focus-within > ul,
     & li > a:focus + ul {
         display: block;
     }
@@ -55,7 +58,9 @@
         border-bottom-color: transparent;
     }
 
-    & > ul > li > a:hover {
+    & > ul > li:focus-within > a,
+    & > ul > li > a:hover,
+    & > ul > li > a:focus {
         background: var(--nav-item-bg-hover);
         color: var(--nav-item-color-text-hover);
         border-bottom-color: transparent;
@@ -79,7 +84,8 @@
         padding: var(--nav-subitem-padding);
     }
 
-    & > ul > li li a:hover {
+    & > ul > li li a:hover,
+    & > ul > li li a:focus {
         background: var(--nav-subitem-bg-hover);
         color: var(--nav-subitem-color-text-hover);
     }
@@ -91,7 +97,6 @@
 
 /* NAV - DESKTOP SPECIFIC */
 @media only screen and (min-width: 1024px) {
-
     .nav-main {
 
         /* NAV - GLOBALS */
@@ -100,9 +105,6 @@
         & a {
             width: auto;
         }
-
-        /* NAV - 1. LEVEL */
-        & > ul {}
 
         /* NAV - 2. and 3. LEVEL */
         & > ul ul {

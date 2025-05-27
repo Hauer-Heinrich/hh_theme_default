@@ -1,3 +1,18 @@
+.ce-bodytext ul,
+.ce-bodytext ol {
+    list-style-position: outside;
+    margin-bottom: 20px;
+    padding-left: 1em;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.ce-bodytext ul {
+    list-style-type: disc;
+}
+
 /* COMPONENT - VARIABLES */
 .frame-group-text {
     --frame-item-margin: 1rem;
@@ -6,17 +21,16 @@
 
 /* COMPONENT - STYLING */
 .frame-group-text {
+    & > header {
+        margin-bottom: 1em;
+    }
+
     & .ce-gallery + .ce-bodytext {
         margin-top: var(--frame-item-margin);
     }
 
     & .ce-bodytext + .ce-gallery {
         margin-top: var(--frame-item-margin);
-    }
-
-    & .ce-bodytext ul {
-        padding-left: 1rem;
-        list-style-type: disc;
     }
 }
 

@@ -1,0 +1,4 @@
+################################################################
+### Hauer-Heinrich Video - hh_video_extender ###
+################################################################
+@import 'EXT:hh_video_extender/Configuration/TypoScript/constants.typoscript'

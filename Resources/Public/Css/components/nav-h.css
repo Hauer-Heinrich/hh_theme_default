@@ -17,7 +17,8 @@
         padding: var(--nav-padding);
     }
 
-    & a:hover {
+    & a:hover,
+    & a:focus {
         background: var(--nav-bg-hover);
         color: var(--nav-color-link-hover);
     }

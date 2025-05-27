@@ -1,7 +1,7 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
 <f:if condition="{menu}">
-    <nav class="menu-aside">
+    <nav class="menu-aside" {f:if(condition: '{ariaLabel}', then: 'aria-label="{ariaLabel}"')}>
         <ul class="menu menu-sub {orientation} {cssClasses}">
             <f:for each="{menu}" as="mainItem">
                 <f:render partial="Menu/Elements/Item" arguments="{item: '{mainItem}'}" />

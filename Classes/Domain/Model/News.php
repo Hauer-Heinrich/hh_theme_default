@@ -5,9 +5,9 @@ namespace HauerHeinrich\HhThemeDefault\Domain\Model;
 use \TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use \TYPO3\CMS\Extbase\Domain\Model\FileReference;
-use \GeorgRinger\News\Domain\Model\News AS originalNews;
+use \GeorgRinger\News\Domain\Model\News AS OriginalNews;
 
-class News extends originalNews {
+class News extends OriginalNews {
 
     /**
      * @var ObjectStorage<FileReference>

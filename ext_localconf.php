@@ -1,6 +1,9 @@
 <?php
 defined('TYPO3') or die();
 
+use \HauerHeinrich\HhThemeDefault\Domain\Model\Address AS CustomAddress;
+use \FriendsOfTYPO3\TtAddress\Domain\Model\Address AS OriginalAddress;
+
 call_user_func(function(string $extensionKey) {
     // Typo3 extension manager gearwheel icon (ext_conf_template.txt)
     $extensionConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][$extensionKey];
@@ -22,9 +25,12 @@ call_user_func(function(string $extensionKey) {
         array_push($cacheFeExcludedParameters, 'utm_id');
     }
 
-    // Include ExtensionsCustomConfigs
-    $configFiles = glob(__DIR__ . '/ExtensionLocalconf/*.php');
-    foreach ($configFiles as $file) {
-        require_once $file;
-    }
+    // Extend News
+    $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['classes']['Domain/Model/News'][$extensionKey] = $extensionKey;
+
+    // Extend EXT:tt_address
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][OriginalAddress::class] = [
+        'className' => CustomAddress::class,
+    ];
+
 }, 'hh_theme_default');

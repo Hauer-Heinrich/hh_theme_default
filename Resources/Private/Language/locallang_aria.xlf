@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2017-02-08T00:01:00Z" product-name="hh_theme_default">
+        <header/>
+        <body>
+
+            <trans-unit id="aria.label.mainNav" xml:space="preserve">
+                <source>Main navigation</source>
+            </trans-unit>
+
+            <trans-unit id="aria.text.link.skipNavigation" xml:space="preserve">
+                <source>Skip navigation</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

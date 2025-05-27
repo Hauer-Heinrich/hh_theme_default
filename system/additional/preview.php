@@ -12,6 +12,19 @@ use \TYPO3\CMS\Core\Log\Writer\FileWriter;
 // install tool password and configuration for system dependent settings.
 $customChanges = [
     'LOG' => [
+        'TYPO3' => [
+            'CMS' => [
+                'deprecations' => [
+                    'writerConfiguration' => [
+                        'notice' => [
+                            'TYPO3\CMS\Core\Log\Writer\FileWriter' => [
+                                'disabled' => false,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
         'writerConfiguration' => [
             LogLevel::NOTICE => [
                 FileWriter::class => [

@@ -14,19 +14,76 @@ body {
 }
 
 /* CUSTOM HTML - ELEMENTS */
-a {
+a:not(.btn) {
     color: var(--color-link);
     display: inline-block;
+    position: relative;
     text-decoration: none;
-}
-
-a:hover {
-    color: var(--color-link-hover);
     transition: all 400ms;
+
+    &::before,
+    &::after {
+        background-color: #000;
+        bottom: 0;
+        content: " ";
+        display: block;
+        height: 1px;
+        left: 0;
+        opacity: 0.6;
+        position: absolute;
+        width: 100%;
+    }
+
+    &::after {
+        background-color: var(--color-link-hover);
+        opacity: 1;
+        width: 0;
+        transition: all 600ms;
+    }
+
+    &:hover,
+    &:focus {
+        color: var(--color-link-hover);
+
+        &::after {
+            width: 100%;
+        }
+    }
 }
 
 p:not(:last-child) {
     margin-bottom: 15px;
+}
+
+blockquote {
+    font-weight: 100;
+    font-size: 2rem;
+    margin: 0 0 0 5vw;
+    max-width: calc(100% - 10vw);
+    padding: .5rem;
+    position: relative;
+    width: 600px;
+
+    &::before,
+    &::after {
+        color: #f1efe6;
+        font-size: clamp(3.125rem, 2.15rem + 4.875vw, 8rem);
+        height: 4rem;
+        position: absolute;
+        width: 4rem;
+    }
+
+    &::before {
+        content: '“';
+        left: -3vw;
+        top: -2rem;
+    }
+
+    &::after {
+        bottom: 1rem;
+        content: '”';
+        right: -3vw;
+    }
 }
 
 hr {

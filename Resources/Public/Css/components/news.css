@@ -121,7 +121,8 @@
                 }
             }
 
-            &:hover {
+            &:hover,
+            &:focus {
                 --news-list-img-scale: 1.1;
                 --news-list-link-color: var(--color-primary);
             }

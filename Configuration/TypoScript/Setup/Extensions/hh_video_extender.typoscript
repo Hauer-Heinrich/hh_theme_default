@@ -1,0 +1,10 @@
+################################################################
+### Hauer-Heinrich Video - hh_video_extender ###
+################################################################
+@import 'EXT:hh_video_extender/Configuration/TypoScript/setup.typoscript'
+@import 'EXT:hh_video_extender/Configuration/TypoScript/addFluid.typoscript'
+
+plugin.tx_hhvideoextender {
+    settings {
+    }
+}

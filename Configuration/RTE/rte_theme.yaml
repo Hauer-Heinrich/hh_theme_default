@@ -9,6 +9,11 @@ imports:
 ### For complete documentation see https://ckeditor.com/docs/ckeditor5/latest/features/index.html
 editor:
   config:
+    style:
+      definitions:
+        - { name: "letter-spacing-2", element: "span", classes: ["letter-spacing-2"] }
+        - { name: "Zitat", element: "blockquote", classes: ["asdf"] }
+
     toolbar:
       items:
         - clipboard
@@ -41,5 +46,8 @@ editor:
         - fontSize
         - highlight
         - style
+        - blockQuote
+        - '|'
+        - specialCharacters
         - '|'
         - sourceEditing

@@ -2,7 +2,7 @@
 
 <f:if condition="{menu}">
     <f:variable name="label"><f:if condition="{label}"><f:then>true</f:then><f:else>false</f:else></f:if></f:variable>
-    <nav class="menu menu-trenner-image {cssClasses}">
+    <nav class="menu menu-trenner-image {cssClasses}" {f:if(condition: '{ariaLabel}', then: 'aria-label="{ariaLabel}"')}>
         <ul>
             <f:for each="{menu}" as="mainItem">
                 <f:render partial="Menu/Elements/ImageItem" arguments="{item: '{mainItem}', label: '{label}'}" />

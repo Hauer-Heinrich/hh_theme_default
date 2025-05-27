@@ -5,13 +5,13 @@
     <f:then>
         <f:if condition="{item.data.target}">
             <f:then>
-                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" target="{item.data.target}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')}>
+                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" target="{item.data.target}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')} {f:if(condition:'{item.hasSubpages}', then:'aria-expanded="false"')}>
             </f:then>
             <f:else if="{item.target}">
-                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" target="{item.target}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')}>
+                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" target="{item.target}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')} {f:if(condition:'{item.hasSubpages}', then:'aria-expanded="false"')}>
             </f:else>
             <f:else>
-                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')}>
+                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')} {f:if(condition:'{item.hasSubpages}', then:'aria-expanded="false"')}>
             </f:else>
         </f:if>
             <f:if condition="{files}">
@@ -29,13 +29,13 @@
     <f:else>
         <f:if condition="{item.data.target}">
             <f:then>
-                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" target="{item.data.target}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')}>
+                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" target="{item.data.target}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')} {f:if(condition:'{item.hasSubpages}', then:'aria-expanded="false"')}>
             </f:then>
             <f:else if="{item.target}">
-                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" target="{item.target}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')}>
+                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" target="{item.target}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')} {f:if(condition:'{item.hasSubpages}', then:'aria-expanded="false"')}>
             </f:else>
             <f:else>
-                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')}>
+                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')} {f:if(condition:'{item.hasSubpages}', then:'aria-expanded="false"')}>
             </f:else>
         </f:if>
             <f:if condition="{label} != 'false'">

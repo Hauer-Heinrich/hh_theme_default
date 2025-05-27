@@ -401,6 +401,7 @@ page {
             compressFiles = {$plugin.hhthemedefault.compressFiles}
             concatenateFiles = {$plugin.hhthemedefault.concatenateFiles}
             feLoginPageUid = {$plugin.hhthemedefault.feLoginPageUid}
+            pathToThemeXlfFiles = {$plugin.hhthemedefault.pathToThemeXlfFiles}
         }
 
         variables {

@@ -30,7 +30,9 @@
 
         }
 
-        &:hover {
+        &:hover,
+        &:focus,
+        &:focus-within {
             left: 0;
         }
 

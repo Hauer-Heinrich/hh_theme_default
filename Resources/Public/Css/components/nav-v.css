@@ -27,7 +27,9 @@
         position: absolute;
     }
 
-    & li:hover > ul {
+    & li:hover > ul,
+    & li:focus-within > ul,
+    & a:focus ~ ul {
         display: block;
     }
 
@@ -38,10 +40,11 @@
     & a {
         color: var(--nav-link-color);
         text-decoration: none;
-    }
 
-    & a:hover {
-        color: var(--nav-link-color-hover);
+        &:hover,
+        &:focus {
+            color: var(--nav-link-color-hover);
+        }
     }
 }
 
