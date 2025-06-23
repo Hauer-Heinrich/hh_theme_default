@@ -63,4 +63,4 @@ If you really need to have multiple bundler files (e.g. for css/js) or need to e
  - Check if your server supports the generation of webp format, else comment out or delete the corresponding positions at /Resources/Private/Extensions/fluid_styled_content/Partials/Media/Rendering/Image.html
  - ckeditor original plugins: fontColor and fontBackgroundColor uses inline-styles, which is bad! So we use a slightly modified plugin "highlight" (@HauerHeinrich/ckeditor5-highlight -- EXT:hh_ckeditor_highlight), the only difference to the original is that it ouputs span-tag instead of mark-tag.
 
-te
+Further Documentation can be found [here](./Documentation/extension_and_server_setup_guide.md).
