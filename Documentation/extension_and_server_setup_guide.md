@@ -20,10 +20,10 @@ Since Typo3 12 Typo3 projects typically have two main folders, *public* and *con
 ## Getting the Default Theme
 
 As the default theme is just an extension it needs to be cloned / pasted into the *ext* folder.
-The default-theme can be cloned from the [git repository](https://github.com/Hauer-Heinrich/hh_theme_default.git)
-- git clone https://github.com/Hauer-Heinrich/hh_theme_default.git MY_EXTENSION_NAME
+The default-theme can be cloned from the [git repository](https://github.com/Hauer-Heinrich/{{EXTENSION_KEY}}.git)
+- git clone https://github.com/Hauer-Heinrich/{{EXTENSION_KEY}}.git MY_EXTENSION_NAME
 
-After downloading and pasting/ cloning the theme npm needs to be initialized and npm the node modules need to be installed within the default themes folder (root-folder/public/typo3conf/ext/hh_theme_default).
+After downloading and pasting/ cloning the theme npm needs to be initialized and npm the node modules need to be installed within the default themes folder (root-folder/public/typo3conf/ext/{{EXTENSION_KEY}}).
 - `npm init`
 - `npm install`
 
