@@ -82,7 +82,7 @@ Many customers have ngnix server, which need, similar to IIS's web.config file, 
 
 ## Site & System Configuration
 
-While you are welcome to write your onw site and system configurations, they are already provided. The include those, copy the file *additional.php* from the themes Example folder into your *config/system* folder, as well as the *dummy_site_config.yaml* from the same folder into the *config/sites/site_default* folder.
+While you are welcome to write your onw site and system configurations, they are already provided. To include these, copy the file *additional.php* from the themes Example folder into your *config/system* folder, as well as the *dummy_site_config.yaml* from the same folder into the *config/sites/site_default* folder.
 
 ## First Install
 
