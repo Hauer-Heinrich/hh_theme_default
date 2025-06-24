@@ -107,7 +107,7 @@ First, you need to install the default-theme extension and all extensions which 
 Afterwards it might be neceassary to run the Upgrade Wizard.
 ![run upgrade wizard](./readme-files/ug_wizard.png)
 
-Now you need to create a new starting page. This page must be marked as root page and afterwards it the under Resources it need to be assigned the Theme TS.
+Now you need to create a new starting page and edit it's page properties. This page must be marked as root page in the tab Behaviour and afterwards, in the tab Resources, it needs to be assigned the Theme TS.
 
 ![create new root page](./readme-files/new_rootpage.png)
 
