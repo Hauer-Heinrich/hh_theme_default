@@ -122,5 +122,5 @@ Select TypoScript in the leftmost site tree, select your root page in the adjace
 ![navigate to TypoScript Record](./readme-files/nav_to_typoscript.png)
 
 Navigate to *Advanced Options* and select the Theme TS from the options and your setup is done.  
-![select Theme TS from options](./documentation/readme-files/select_typoscript.png)
+![select Theme TS from options](./readme-files/select_typoscript.png)
 
