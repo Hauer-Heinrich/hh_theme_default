@@ -121,6 +121,6 @@ Now, only the TypoScript need to be activated and the setup is done.
 Select TypoScript in the leftmost site tree, select your root page in the adjacent site tree, change the dropdown to *Edit TypoScript* and create a new Root TypoScript Record.
 ![navigate to TypoScript Record](./readme-files/nav_to_typoscript.png)
 
-Navigate to *Advanced Options* and select the Theme TS from the options and your setup is done.
+Navigate to *Advanced Options* and select the Theme TS from the options and your setup is done.  
 ![select Theme TS from options](./documentation/readme-files/select_typoscript.png)
 
