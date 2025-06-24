@@ -101,7 +101,7 @@ After loggin in to the backend, can begin finalizing your installaton.
 > [!NOTE]  \
 > Its best to always keep a maintainance tab open, if you need to flush caches to fully reload you page.
 
-First, you need to install the default-theme extension and all extensions which are mandatory for this project.
+First, you need to install the default-theme extension and all extensions which are mandatory for this project. \
 ![install default theme extension](./readme-files/install_ext.png)
 
 Afterwards it might be neceassary to run the Upgrade Wizard.
