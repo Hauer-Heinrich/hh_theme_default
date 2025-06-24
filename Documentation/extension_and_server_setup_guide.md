@@ -109,7 +109,7 @@ Afterwards it might be neceassary to run the Upgrade Wizard.
 
 Now you need to create a new starting page and edit it's page properties. This page must be marked as root page in the tab Behaviour and afterwards, in the tab Resources, it needs to be assigned the Theme TS.
 
-![create new root page](./readme-files/new_rootpage.png)
+![create new root page](./readme-files/new_rootpage.png) ![edit page properties](./readme-files/edit_page_properties.png)
 
 Mark as root page: \
 ![mark as root page](./readme-files/mark_root.png)
@@ -121,6 +121,6 @@ Now, only the TypoScript need to be activated and the setup is done.
 Select TypoScript in the leftmost site tree, select your root page in the adjacent site tree, change the dropdown to *Edit TypoScript* and create a new Root TypoScript Record.
 ![navigate to TypoScript Record](./readme-files/nav_to_typoscript.png)
 
-Navigate to *Advanced Options* and select the Theme TS from the options and your setup is done.  
+Navigate to *Advanced Options* and select the Theme TS from the options and your setup is done.
 ![select Theme TS from options](./readme-files/select_typoscript.png)
 
