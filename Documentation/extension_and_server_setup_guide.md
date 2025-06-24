@@ -20,10 +20,10 @@ Since Typo3 12 Typo3 projects typically have two main folders, *public* and *con
 ## Getting the Default Theme
 
 As the default theme is just an extension it needs to be cloned / pasted into the *ext* folder.
-The default-theme can be cloned from the [git repository](https://github.com/Hauer-Heinrich/hh_theme_default.git)
-- git clone https://github.com/Hauer-Heinrich/hh_theme_default.git MY_EXTENSION_NAME
+The default-theme can be cloned from the [git repository](https://github.com/Hauer-Heinrich/{{EXTENSION_KEY}}.git)
+- git clone https://github.com/Hauer-Heinrich/{{EXTENSION_KEY}}.git MY_EXTENSION_NAME
 
-After downloading and pasting/ cloning the theme npm needs to be initialized and npm the node modules need to be installed within the default themes folder (root-folder/public/typo3conf/ext/hh_theme_default).
+After downloading and pasting/ cloning the theme npm needs to be initialized and npm the node modules need to be installed within the default themes folder (root-folder/public/typo3conf/ext/{{EXTENSION_KEY}}).
 - `npm init`
 - `npm install`
 
@@ -107,7 +107,7 @@ First, you need to install the default-theme extension and all extensions which 
 Afterwards it might be neceassary to run the Upgrade Wizard.
 ![run upgrade wizard](./readme-files/ug_wizard.png)
 
-Now you need to create a new starting page. This page must be marked as root page and afterwards it the under Resources it need to be assigned the Theme TS.
+Now you need to create a new starting page and edit it's page properties. This page must be marked as root page in the tab Behaviour and afterwards, in the tab Resources, it needs to be assigned the Theme TS.
 
 ![create new root page](./readme-files/new_rootpage.png)
 
@@ -121,6 +121,6 @@ Now, only the TypoScript need to be activated and the setup is done.
 Select TypoScript in the leftmost site tree, select your root page in the adjacent site tree, change the dropdown to *Edit TypoScript* and create a new Root TypoScript Record.
 ![navigate to TypoScript Record](./readme-files/nav_to_typoscript.png)
 
-Navigate to *Advanced Options* and select the Theme TS from the options and your setup is done.
-![select Theme TS from options](./documentation/readme-files/select_typoscript.png)
+Navigate to *Advanced Options* and select the Theme TS from the options and your setup is done.  
+![select Theme TS from options](./readme-files/select_typoscript.png)
 
