@@ -34,6 +34,7 @@ For this one of the following commands need to be executed:
 
 
 ## Create Symlinks
+
 For creating symlinks first of all you need to download a [Typo3 Distribution](https://get.typo3.org/version/13).
 This distributions need to be unpacked and is best placed in a folder called *typo3_sources*, which should be located on the same level as your project root.
 Symlinks to the respective Typo3 Distribution, its Typo3 folder and it's index.php need to be created within the *public* folder. The benefit of symlinks is creating easy maintainability when it comes to updateing minor and major Typo3 versions. Run following commands in your bash or cmd:
@@ -79,7 +80,11 @@ Caddy
 
 Many customers have ngnix server, which need, similar to IIS's web.config file, a .htaccess file. An example file can be found in examples in within the default theme. It needs to be renamed as well as provided the correct paths for **TYPO3_ROOT_PATH** and **TYPO3_ROOT_ROOT**.
 
-## FIRST INSTALL
+## Site & System Configuration
+
+While you are welcome to write your onw site and system configurations, they are already provided. The include those, copy the file *additional.php* from the themes Example folder into your *config/system* folder, as well as the *dummy_site_config.yaml* from the same folder into the *config/sites/site_default* folder.
+
+## First Install
 
 To complete the initialization of the Typo3 project, only a few more steps are necessary. Except for on, all of those can be completed via the Typo3 Install Tool.
 To access the Install Tool, first a file named **FIRST_INSTALL** need to be created within your *public* folder.
