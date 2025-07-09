@@ -4,11 +4,8 @@
             "path": "./"
         },
         {
-            "path": "./../../../"
+            "path": "./../"
         },
-        {
-            "path": "./../../../../typo3_config/"
-        }
     ],
     "settings": {
         "editor.tabSize": 4,
