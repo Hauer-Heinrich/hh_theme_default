@@ -203,12 +203,6 @@ fieldset input[data-datepicker-format] {
     box-shadow: 0px 0px 0px transparent;
 }
 
-fieldset .powermail_field {
-    display: inline-flex;
-    flex: 1 1 auto;
-    width: 69.5%;
-}
-
 fieldset select {
     display: inline-flex;
     flex: 1 1 auto;

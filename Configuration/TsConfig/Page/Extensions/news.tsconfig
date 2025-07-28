@@ -2,8 +2,20 @@
 ### News - news ###
 ################################################################
 @import 'EXT:news/Configuration/TSconfig/Page/mod.linkvalidator.tsconfig'
-tx_news.templateLayouts {
-    slider = Slider
+# tx_news.templateLayouts {
+#     slider = Slider
+# }
+TCEFORM.tt_content.pi_flexform {
+    news_pi1.template.settings\.templateLayout {
+        addItems {
+            slider = Slider
+        }
+    }
+    news_categorylist.template.settings\.templateLayout {
+        addItems {
+            news-category-select = News Categories select
+        }
+    }
 }
 
 TCEFORM {

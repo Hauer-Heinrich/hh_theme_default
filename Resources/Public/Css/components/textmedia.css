@@ -21,36 +21,25 @@
 
 /* COMPONENT - STYLING */
 .frame-group-text {
-    & > header {
-        margin-bottom: 1em;
+    & .ce-left {
+        & .ce-gallery {
+            text-align: left;
+        }
     }
 
-    & .ce-gallery + .ce-bodytext {
-        margin-top: var(--frame-item-margin);
+    & .ce-center {
+        & .ce-gallery {
+            text-align: center;
+        }
     }
 
-    & .ce-bodytext + .ce-gallery {
-        margin-top: var(--frame-item-margin);
+    & .ce-right {
+        & .ce-gallery {
+            text-align: right;
+        }
     }
 }
 
-.frame-group-text .ce-left {
-    & .ce-gallery {
-        text-align: left;
-    }
-}
-
-.frame-group-text .ce-center {
-    & .ce-gallery {
-        text-align: center;
-    }
-}
-
-.frame-group-text .ce-right {
-    & .ce-gallery {
-        text-align: right;
-    }
-}
 
 .frame-group-text .ce-intext {
     display: flex;
@@ -80,16 +69,9 @@
         & .ce-gallery {
             order: 1;
         }
-
-        & .ce-bodytext {
-            padding-right: 2rem;
-        }
     }
 
     &.ce-left {
-        & .ce-bodytext {
-            padding-left: 2rem;
-        }
     }
 }
 

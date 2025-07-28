@@ -15,9 +15,9 @@
         "sourcemap": true,
         "logLevel": "info",
         "external": [
-            "./Images/*", "../Images/*",
+            "./Images/*", "../Images/*", "../../Images/*",
             "./Fonts/*", "../Fonts/*",
-            "./Icons/*", "../Icons/*",
+            "./Icons/*", "../Icons/*", "../../Icons/*",
             "./Static/*", "../Static/*",
             "./public/*", "../public/*",
             "./static/*", "../static/*"

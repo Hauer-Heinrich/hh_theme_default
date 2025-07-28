@@ -12,7 +12,7 @@ TCEFORM {
                 menu_related_pages, menu_abstract,
                 html,
                 ### EXT: news
-                news_newsdetail, news_taglist, news_categorylist, news_newsliststicky,
+                news_newsdetail, news_taglist, news_newsliststicky,
                 news_newsselectedlist, news_newsdatemenu, news_newssearchform, news_newssearchresult,
             )
         }
@@ -32,7 +32,7 @@ TCEFORM {
                 menu_categorized_content, menu_categorized_pages, menu_recently_updated,
                 menu_related_pages, menu_abstract,
                 ### EXT: news
-                news_newsdetail, news_taglist, news_categorylist, news_newsliststicky,
+                news_newsdetail, news_taglist, news_newsliststicky,
                 news_newsselectedlist, news_newsdatemenu, news_newssearchform, news_newssearchresult,
             )
         }

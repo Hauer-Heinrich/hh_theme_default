@@ -2,25 +2,38 @@
     data-namespace-typo3-fluid="true">
 
 <f:if condition="{menu}">
-    <ul id="menu-language" class="menu-language {cssClasses}" {f:if(condition: '{ariaLabel}', then: 'aria-label="{ariaLabel}"')}>
-        <f:variable name="moreThenOne">0</f:variable>
-        <f:for each="{menu}" as="item">
-            <f:if condition="{item.available}">
-                <f:variable name="moreThenOne">{moreThenOne + 1}</f:variable>
-            </f:if>
-        </f:for>
-        <f:if condition="{moreThenOne} > 1">
-            <f:for each="{menu}" as="item">
-                <f:if condition="{item.available}">
-                    <li class="{f:if(condition: '{item.active}', then: 'active')}{f:if(condition: '{item.available}', else: ' text-muted')}">
-                        <f:link.page class="{f:if(condition: item.active, then: 'act')}" addQueryString="1" title="{item.navigationTitle}" additionalParams="{L:item.languageId}" additionalAttributes="{hreflang: '{item.hreflang}', data-langUid: '{item.languageId}'}">
-                            <span>{item.navigationTitle}</span>
-                        </f:link.page>
-                    </li>
-                </f:if>
-            </f:for>
+    <f:variable name="moreThenOne">0</f:variable>
+    <f:for each="{menu}" as="item">
+        <f:if condition="{item.available}">
+            <f:variable name="moreThenOne">{moreThenOne + 1}</f:variable>
         </f:if>
-    </ul>
+    </f:for>
+    <f:if condition="{moreThenOne} > 1">
+        <nav id="menu-language" class="menu-language {cssClasses}" {f:if(condition: '{ariaLabel}', then: 'aria-label="{ariaLabel}"', else: '{f:translate(key: "LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_aria.xlf:aria.manu.language.label")}')}>
+            <ul>
+                <f:for each="{menu}" as="item">
+                    <f:if condition="{item.available}">
+                        <li class="{f:if(condition: '{item.active}', then: 'active')}{f:if(condition: '{item.available}', else: ' text-muted')}">
+                            <f:link.page
+                                class="{f:if(condition: '{item.active}', then: 'act')}"
+                                addQueryString="1"
+                                title="{item.navigationTitle}"
+                                additionalParams="{L:item.languageId}"
+                                additionalAttributes="{
+                                    lang: '{item.hreflang}',
+                                    hreflang: '{item.hreflang}',
+                                    data-langUid: '{item.languageId}'
+                                    aria-current: '{f:if(condition: '{item.active}', then: 'true', else: 'false')}'
+                                }"
+                            >
+                                <span>{item.navigationTitle}</span>
+                            </f:link.page>
+                        </li>
+                    </f:if>
+                </f:for>
+            </ul>
+        </nav>
+    </f:if>
 </f:if>
 
 </html>

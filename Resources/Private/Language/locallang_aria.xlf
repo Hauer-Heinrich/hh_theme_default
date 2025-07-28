@@ -11,6 +11,10 @@
             <trans-unit id="aria.text.link.skipNavigation" xml:space="preserve">
                 <source>Skip navigation</source>
             </trans-unit>
+
+            <trans-unit id="aria.manu.language.label" xml:space="preserve">
+                <source>Language selection</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

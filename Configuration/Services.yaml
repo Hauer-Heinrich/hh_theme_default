@@ -12,3 +12,9 @@ services:
     tags:
       - name: event.listener
         event: TYPO3\CMS\Backend\Controller\Event\AfterBackendPageRenderEvent
+
+  HauerHeinrich\HhThemeDefault\DataProcessing\OpeningHoursProcessor:
+    public: true
+    tags:
+        - name: 'data.processor'
+          identifier: 'opening-hours'

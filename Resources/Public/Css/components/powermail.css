@@ -1,54 +1,6 @@
 /* COMPONENT - VARIABLES */
 .powermail_form {
-    --pow-max-width-col1: 200px;
+
 }
 
 /* COMPONENT - STYLING */
-.powermail_fieldwrap {
-    display: flex;
-    justify-content: flex-end;
-    max-width: var(--form-max-width, 680px);
-}
-
-.powermail_fieldwrap_type_radio .powermail_field,
-.powermail_fieldwrap_type_checkbox .powermail_field {
-    flex-wrap: wrap;
-}
-
-.powermail_label {
-    width: var(--pow-max-width-col1);
-    padding-left: 0;
-}
-
-
-.powermail_label .mandatory {
-    display: contents;
-}
-
-.powermail_field label {
-    width: inherit;
-}
-
-.powermail_fieldwrap_type_submit {
-    /*margin-left: var(--pow-max-width-col1);*/
-}
-
-.powermail_fieldwrap_type_submit .powermail_field {
-    justify-content: flex-end;
-}
-
-.powermail_captchaimage {
-    margin-left: 10px;
-    width: inherit;
-}
-
-@media screen and (max-width: 480px) {
-    .powermail_fieldwrap {
-        flex-wrap: wrap;
-    }
-
-    .powermail_label,
-    .powermail_captchaimage {
-        width: 100%;
-    }
-}

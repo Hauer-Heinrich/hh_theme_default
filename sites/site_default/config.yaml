@@ -6,7 +6,7 @@ baseVariants:
     base: 'https://preview.hh-theme-default.hauer-heinrich.de'
     condition: 'applicationContext == "Development/Server"'
   -
-    base: 'http://www.hh-theme-default.localhost'
+    base: 'https://www.hh-theme-default.localhost'
     condition: 'applicationContext == "Development"'
 
 languages:

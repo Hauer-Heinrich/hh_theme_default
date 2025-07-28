@@ -289,11 +289,11 @@ page {
                     #     where {
                     #         data = field:uid
                     #         intval = 1
-                    #         wrap = place=|
+                    #         wrap = parentid=|
                     #     }
 
                     #     dataProcessing {
-                    #         10 = HauerHeinrich\HhThemeKralMalerbetrieb\DataProcessing\OpeningHoursProcessor
+                    #         10 = HauerHeinrich\HhThemeDefault\DataProcessing\OpeningHoursProcessor
                     #         10 {
                     #             as = structuredHours
                     #         }
@@ -301,8 +301,6 @@ page {
 
                     #     as = openingHours
                     # }
-
-                    # 100 = TYPO3\CMS\Frontend\DataProcessing\RecordTransformationProcessor
                 }
 
                 as = FooterAddresses

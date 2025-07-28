@@ -1,4 +1,4 @@
 ################################################################
 ### Hauer-Heinrich Slider - hh_slider ###
 ################################################################
-@import 'EXT:hh_slider/Configuration/TsConfig/AllPage.typoscript'
+@import 'EXT:hh_slider/Configuration/TsConfig/AllPage.tsconfig'
