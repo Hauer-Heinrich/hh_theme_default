@@ -44,8 +44,8 @@
         "friendsoftypo3/tt-address": ">=7.1.0",
         "in2code/powermail": ">=12.0.0",
         "hauerheinrich/hh-powermail-checkboxlink": ">=0.1.2",
-        "hauerheinrich/hh-slider": ">=4.0.0",
-        "hauerheinrich/hh-seo": ">=7.0.0"
+        "hauerheinrich/hh-slider": ">=0.8.2",
+        "hauerheinrich/hh-seo": ">=0.9.3"
     },
     "suggest": {
         "hauerheinrich/hh-accordion": ">=4.0.0",

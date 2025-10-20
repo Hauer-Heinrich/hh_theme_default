@@ -4,7 +4,7 @@
 
 <f:comment>
     Original:
-    <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" loading="lazy" />
+    <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" loading="{loading}" />
 </f:comment>
 
 <f:switch expression="{file.extension}">
@@ -27,10 +27,10 @@
 
             <f:if condition="{file.extension} == 'pdf'">
                 <f:then>
-                    <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" loading="lazy" />
+                    <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" loading="{loading}" />
                 </f:then>
                 <f:else>
-                    <f:image class="image-embed-item" image="{file}" width="{dimensions.width}" height="{dimensions.height}" cropVariant="default" maxWidth="1920" loading="lazy" />
+                    <f:image class="image-embed-item" image="{file}" width="{dimensions.width}" height="{dimensions.height}" cropVariant="default" maxWidth="1920" loading="{loading}" />
                 </f:else>
             </f:if>
         </picture>
@@ -45,7 +45,7 @@
         {f:if(condition: '{data.imageheight}', then: 'height="{data.imageheight}"', else: 'height="{height}"')}
         {f:if(condition: '{file.title}', then: 'title="{file.title}"')}
         {f:if(condition: '{file.alternative}', then: 'alt="{file.alternative}"', else: 'alt=""')}
-        loading="lazy"
+        loading="{loading}"
     />
 </f:section>
 

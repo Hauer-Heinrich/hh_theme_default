@@ -9,6 +9,7 @@ config {
     removeDefaultCss = 1
     moveJsFromHeaderToFooter = 0
     disableImgBorderAttr = 1
+    sendCacheHeaders = 1
     no_cache = {$plugin.hhthemedefault.cache}
     cache_period = {$plugin.hhthemedefault.cacheperiod}
     extTarget = _blank

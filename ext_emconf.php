@@ -34,8 +34,8 @@ $EM_CONF['hh_theme_default'] = [
             'tt_address' => '',
             'powermail' => '',
             'hh_powermail_checkboxlink' => '',
-            'hh_slider' => '',
-            'hh_seo' => ''
+            'hh_slider' => '>=0.8.2',
+            'hh_seo' => '>=0.9.3'
         ],
         'conflicts' => [
         ],

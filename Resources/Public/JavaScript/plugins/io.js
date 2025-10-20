@@ -343,6 +343,8 @@ var IoUtilities = /*#__PURE__*/function () {
         elementTarget.prepend(elementNode);
       } else if (position === "append" || position === "bottom") {
         elementTarget.append(elementNode);
+      } else if (position === "beforebegin" || position === "afterbegin" || position === "beforeend" || position === "afterend") {
+        elementTarget.insertAdjacentElement(position, elementNode)
       } else {// TODO: Implementing a addChild position default??
       }
 
@@ -989,8 +991,10 @@ var IoNav = /*#__PURE__*/function (_Io2) {
       elementsNavCollapsable: true,
       // TODO: elementsNavCollapsable still needs to be integrated!!
       buttonTarget: document.body,
+      overlayTarget: document.body,
       // HTML Element | NodeElement
       buttonElement: "div",
+      buttonAriaLabel: "Toggle mobile menu overlay.",
       // HTML Tag Name | NodeElement
       linkSubmenuClickable: false,
       // Generates a additional submenu item on submenu's to click
@@ -1025,10 +1029,14 @@ var IoNav = /*#__PURE__*/function (_Io2) {
       var _this7 = this;
 
       // UI Elements
-      this.ui.btn = this.prependTo(typeof buttonElement === "string" ? "div" : this.config.buttonElement, this.config.buttonTarget);
-      this.ui.overlay = this.prependTo("div", this.body, {
-        "class": this.config.prefix + "overlay"
+      this.ui.btn = this.prependTo(typeof buttonElement === "string" ? "button" : this.config.buttonElement, this.config.buttonTarget, {
+        "aria-haspopup": "true",
+        "aria-expanded": "false",
+        "aria-label": this.config.buttonAriaLabel
       });
+      this.ui.overlay = this.addChild("div", this.config.overlayTarget, {
+        "class": this.config.prefix + "overlay"
+      }, "afterend");
       this.ui.canvas = this.prependTo("div", this.ui.overlay, {
         "class": this.config.prefix + "canvas"
       });
@@ -1108,8 +1116,10 @@ var IoNav = /*#__PURE__*/function (_Io2) {
 
       if (this.hasClass(this.html, "-open")) {
         this.pub("/closeOverlay/");
+        this.ui.btn.ariaExpanded = "false";
       } else {
         this.pub("/openOverlay/");
+        this.ui.btn.ariaExpanded = "true";
       }
     }
   }, {
@@ -1133,9 +1143,9 @@ var IoNav = /*#__PURE__*/function (_Io2) {
 
       var activeClassName = this.config.prefix + "-active";
       document.querySelectorAll(selector).forEach(function (el) {
-        el.querySelectorAll("ul li").forEach(function (li, index) {
+        el.querySelectorAll(".list .listelemnt").forEach(function (li, index) {
           var link = li.querySelector(":scope > a");
-          var subnav = li.querySelector(":scope > .hasCustomSubnav") ? li.querySelector(":scope > .hasCustomSubnav") : li.querySelector(":scope > ul");
+          var subnav = li.querySelector(":scope > .hasCustomSubnav") ? li.querySelector(":scope > .hasCustomSubnav") : li.querySelector(":scope > .list");
 
           if (link) {
             _this8.addClass(link, "-hasSubnav");
@@ -1178,7 +1188,7 @@ var IoNav = /*#__PURE__*/function (_Io2) {
 
 
             if (_this8.config.linkSubmenuClickable && subnav) {
-              var linkSubmenuClickable = _this8.prependTo("li", subnav);
+              var linkSubmenuClickable = _this8.prependTo("listelement", subnav);
 
               _this8.addClass(linkSubmenuClickable, "-linkSubmenuClickable");
 
@@ -1265,7 +1275,7 @@ var IoNavTouch = /*#__PURE__*/function (_Io3) {
       var _this10 = this;
 
       document.querySelectorAll(selector).forEach(function (el) {
-        el.querySelectorAll("ul li").forEach(function (li) {
+        el.querySelectorAll(".list .listelement").forEach(function (li) {
           var link = false;
           var subnav = false;
           li.childNodes.forEach(function (node) {
@@ -1273,11 +1283,11 @@ var IoNavTouch = /*#__PURE__*/function (_Io3) {
               link = node;
             }
 
-            if (node.tagName == "A" || node.tagName == "UL") {
+            if (node.tagName == "A" || node.tagName == "LIST") {
               _this10.addClass(node, "-hasSubnav");
             }
 
-            if (node.tagName == "UL") {
+            if (node.tagName == "LIST") {
               subnav = node;
             }
           });
@@ -1298,7 +1308,7 @@ var IoNavTouch = /*#__PURE__*/function (_Io3) {
 
 
             if (_this10.config.linkSubmenuClickable && subnav) {
-              var linkSubmenuClickable = _this10.prependTo("li", subnav);
+              var linkSubmenuClickable = _this10.prependTo("listelement", subnav);
 
               _this10.addClass(linkSubmenuClickable, "-linkSubmenuClickable");
 
