@@ -1,195 +1,177 @@
 "use strict";
 
-function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) { ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } } return n; }, _extends.apply(null, arguments); }
+function _inherits(t, e) { if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function"); t.prototype = Object.create(e && e.prototype, { constructor: { value: t, writable: !0, configurable: !0 } }), Object.defineProperty(t, "prototype", { writable: !1 }), e && _setPrototypeOf(t, e); }
+function _setPrototypeOf(t, e) { return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) { return t.__proto__ = e, t; }, _setPrototypeOf(t, e); }
+function _createSuper(t) { var r = _isNativeReflectConstruct(); return function () { var e, o = _getPrototypeOf(t); if (r) { var s = _getPrototypeOf(this).constructor; e = Reflect.construct(o, arguments, s); } else e = o.apply(this, arguments); return _possibleConstructorReturn(this, e); }; }
+function _possibleConstructorReturn(t, e) { if (e && ("object" == _typeof(e) || "function" == typeof e)) return e; if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined"); return _assertThisInitialized(t); }
+function _assertThisInitialized(e) { if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); return e; }
+function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
+function _getPrototypeOf(t) { return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) { return t.__proto__ || Object.getPrototypeOf(t); }, _getPrototypeOf(t); }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 // Production steps of ECMA-262, Edition 5, 15.4.4.18
 // Reference: http://es5.github.io/#x15.4.4.18
 if (!Array.prototype.forEach) {
   Array.prototype.forEach = function (callback, thisArg) {
     var T, k;
-
     if (this === null) {
       throw new TypeError(' this is null or not defined');
-    } // 1. Let O be the result of calling ToObject passing the |this| value as the argument.
+    }
 
+    // 1. Let O be the result of calling ToObject passing the |this| value as the argument.
+    var O = Object(this);
 
-    var O = Object(this); // 2. Let lenValue be the result of calling the Get internal method of O with the argument "length".
+    // 2. Let lenValue be the result of calling the Get internal method of O with the argument "length".
     // 3. Let len be ToUint32(lenValue).
+    var len = O.length >>> 0;
 
-    var len = O.length >>> 0; // 4. If IsCallable(callback) is false, throw a TypeError exception.
+    // 4. If IsCallable(callback) is false, throw a TypeError exception.
     // See: http://es5.github.com/#x9.11
-
     if (typeof callback !== "function") {
       throw new TypeError(callback + ' is not a function');
-    } // 5. If thisArg was supplied, let T be thisArg; else let T be undefined.
+    }
 
-
+    // 5. If thisArg was supplied, let T be thisArg; else let T be undefined.
     if (arguments.length > 1) {
       T = thisArg;
-    } // 6. Let k be 0
+    }
 
+    // 6. Let k be 0
+    k = 0;
 
-    k = 0; // 7. Repeat, while k < len
-
+    // 7. Repeat, while k < len
     while (k < len) {
-      var kValue; // a. Let Pk be ToString(k).
+      var kValue;
+
+      // a. Let Pk be ToString(k).
       //   This is implicit for LHS operands of the in operator
       // b. Let kPresent be the result of calling the HasProperty internal method of O with argument Pk.
       //   This step can be combined with c
       // c. If kPresent is true, then
-
       if (k in O) {
         // i. Let kValue be the result of calling the Get internal method of O with argument Pk.
-        kValue = O[k]; // ii. Call the Call internal method of callback with T as the this value and
+        kValue = O[k];
+
+        // ii. Call the Call internal method of callback with T as the this value and
         // argument list containing kValue, k, and O.
-
         callback.call(T, kValue, k, O);
-      } // d. Increase k by 1.
-
-
+      }
+      // d. Increase k by 1.
       k++;
-    } // 8. return undefined
-
+    }
+    // 8. return undefined
   };
-} // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+}
+
+// https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 // Production steps of ECMA-262, Edition 6, 22.1.2.1
-
-
 if (!Array.from) {
   Array.from = function () {
     var toStr = Object.prototype.toString;
-
     var isCallable = function isCallable(fn) {
       return typeof fn === 'function' || toStr.call(fn) === '[object Function]';
     };
-
     var toInteger = function toInteger(value) {
       var number = Number(value);
-
       if (isNaN(number)) {
         return 0;
       }
-
       if (number === 0 || !isFinite(number)) {
         return number;
       }
-
       return (number > 0 ? 1 : -1) * Math.floor(Math.abs(number));
     };
-
     var maxSafeInteger = Math.pow(2, 53) - 1;
-
     var toLength = function toLength(value) {
       var len = toInteger(value);
       return Math.min(Math.max(len, 0), maxSafeInteger);
-    }; // The length property of the from method is 1.
+    };
 
-
-    return function from(arrayLike
-    /*, mapFn, thisArg */
-    ) {
+    // The length property of the from method is 1.
+    return function from(arrayLike /*, mapFn, thisArg */) {
       // 1. Let C be the this value.
-      var C = this; // 2. Let items be ToObject(arrayLike).
+      var C = this;
 
-      var items = Object(arrayLike); // 3. ReturnIfAbrupt(items).
+      // 2. Let items be ToObject(arrayLike).
+      var items = Object(arrayLike);
 
+      // 3. ReturnIfAbrupt(items).
       if (arrayLike == null) {
         throw new TypeError('Array.from requires an array-like object - not null or undefined');
-      } // 4. If mapfn is undefined, then let mapping be false.
+      }
 
-
+      // 4. If mapfn is undefined, then let mapping be false.
       var mapFn = arguments.length > 1 ? arguments[1] : void undefined;
       var T;
-
       if (typeof mapFn !== 'undefined') {
         // 5. else
         // 5. a If IsCallable(mapfn) is false, throw a TypeError exception.
         if (!isCallable(mapFn)) {
           throw new TypeError('Array.from: when provided, the second argument must be a function');
-        } // 5. b. If thisArg was supplied, let T be thisArg; else let T be undefined.
+        }
 
-
+        // 5. b. If thisArg was supplied, let T be thisArg; else let T be undefined.
         if (arguments.length > 2) {
           T = arguments[2];
         }
-      } // 10. Let lenValue be Get(items, "length").
+      }
+
+      // 10. Let lenValue be Get(items, "length").
       // 11. Let len be ToLength(lenValue).
+      var len = toLength(items.length);
 
-
-      var len = toLength(items.length); // 13. If IsConstructor(C) is true, then
+      // 13. If IsConstructor(C) is true, then
       // 13. a. Let A be the result of calling the [[Construct]] internal method
       // of C with an argument list containing the single item len.
       // 14. a. Else, Let A be ArrayCreate(len).
+      var A = isCallable(C) ? Object(new C(len)) : new Array(len);
 
-      var A = isCallable(C) ? Object(new C(len)) : new Array(len); // 16. Let k be 0.
-
-      var k = 0; // 17. Repeat, while k < len (also steps a - h)
-
+      // 16. Let k be 0.
+      var k = 0;
+      // 17. Repeat, while k < len (also steps a - h)
       var kValue;
-
       while (k < len) {
         kValue = items[k];
-
         if (mapFn) {
           A[k] = typeof T === 'undefined' ? mapFn(kValue, k) : mapFn.call(T, kValue, k);
         } else {
           A[k] = kValue;
         }
-
         k += 1;
-      } // 18. Let putStatus be Put(A, "length", len, true).
-
-
-      A.length = len; // 20. Return A.
-
+      }
+      // 18. Let putStatus be Put(A, "length", len, true).
+      A.length = len;
+      // 20. Return A.
       return A;
     };
   }();
-} // https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach
+}
 
-
+// https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach
 if (window.NodeList && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = Array.prototype.forEach;
-} // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append
 // Source: https://github.com/jserz/js_piece/blob/master/DOM/ParentNode/append()/append().md
-
-
 (function (arr) {
   arr.forEach(function (item) {
     if (item.hasOwnProperty('append')) {
       return;
     }
-
     Object.defineProperty(item, 'append', {
       configurable: true,
       enumerable: true,
       writable: true,
       value: function append() {
         var argArr = Array.prototype.slice.call(arguments),
-            docFrag = document.createDocumentFragment();
+          docFrag = document.createDocumentFragment();
         argArr.forEach(function (argItem) {
           var isNode = argItem instanceof Node;
           docFrag.appendChild(isNode ? argItem : document.createTextNode(String(argItem)));
@@ -198,23 +180,22 @@ if (window.NodeList && !NodeList.prototype.forEach) {
       }
     });
   });
-})([Element.prototype, Document.prototype, DocumentFragment.prototype]); // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/prepend
+})([Element.prototype, Document.prototype, DocumentFragment.prototype]);
+
+// https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/prepend
 // Source: https://github.com/jserz/js_piece/blob/master/DOM/ParentNode/prepend()/prepend().md
-
-
 (function (arr) {
   arr.forEach(function (item) {
     if (item.hasOwnProperty('prepend')) {
       return;
     }
-
     Object.defineProperty(item, 'prepend', {
       configurable: true,
       enumerable: true,
       writable: true,
       value: function prepend() {
         var argArr = Array.prototype.slice.call(arguments),
-            docFrag = document.createDocumentFragment();
+          docFrag = document.createDocumentFragment();
         argArr.forEach(function (argItem) {
           var isNode = argItem instanceof Node;
           docFrag.appendChild(isNode ? argItem : document.createTextNode(String(argItem)));
@@ -223,17 +204,17 @@ if (window.NodeList && !NodeList.prototype.forEach) {
       }
     });
   });
-})([Element.prototype, Document.prototype, DocumentFragment.prototype]); // ToDo: Expand all methods functionality by using "this" element, instead of the function parameter "element" for "easier" use
+})([Element.prototype, Document.prototype, DocumentFragment.prototype]);
 
-
+// ToDo: Expand all methods functionality by using "this" element, instead of the function parameter "element" for "easier" use
 var IoUtilities = /*#__PURE__*/function () {
   function IoUtilities() {
     _classCallCheck(this, IoUtilities);
   }
-
   _createClass(IoUtilities, [{
     key: "position",
-    value: // https://stackoverflow.com/questions/1350581/how-to-get-an-elements-top-position-relative-to-the-browsers-viewport
+    value:
+    // https://stackoverflow.com/questions/1350581/how-to-get-an-elements-top-position-relative-to-the-browsers-viewport
     function position(element) {
       var rect = element.getBoundingClientRect();
       var win = element.ownerDocument.defaultView;
@@ -274,7 +255,6 @@ var IoUtilities = /*#__PURE__*/function () {
     key: "heightContent",
     value: function heightContent(element) {
       var elStyle = window.getComputedStyle(element);
-
       if (elStyle.display == "none" || elStyle.height == "0px" || elStyle.maxHeight == "0px") {
         var elStyleInline = {
           display: element.style.display,
@@ -285,15 +265,12 @@ var IoUtilities = /*#__PURE__*/function () {
         element.style.height = "auto";
         element.style.maxHeight = "none";
       }
-
       var elementHeight = element.clientHeight || 0;
-
       if (typeof elStyleInline != "undefined") {
         element.style.display = elStyleInline.display || "";
         element.style.height = elStyleInline.height || "";
         element.style.maxHeight = elStyleInline.maxHeight || "";
       }
-
       return elementHeight;
     }
   }, {
@@ -330,24 +307,19 @@ var IoUtilities = /*#__PURE__*/function () {
     key: "addChild",
     value: function addChild(elementSrc, elementTarget, attributes, position) {
       var elementNode = typeof elementSrc === "string" ? document.createElement(elementSrc) : elementSrc;
-
       if (attributes) {
         for (var attr in attributes) {
           elementNode.setAttribute(attr, attributes[attr]);
         }
       }
-
       this.attr(elementNode, attributes);
-
       if (position === "prepend" || position === "top") {
         elementTarget.prepend(elementNode);
       } else if (position === "append" || position === "bottom") {
         elementTarget.append(elementNode);
-      } else if (position === "beforebegin" || position === "afterbegin" || position === "beforeend" || position === "afterend") {
-        elementTarget.insertAdjacentElement(position, elementNode)
-      } else {// TODO: Implementing a addChild position default??
+      } else {
+        // TODO: Implementing a addChild position default??
       }
-
       return elementNode;
     }
   }, {
@@ -398,16 +370,13 @@ var IoUtilities = /*#__PURE__*/function () {
     key: "next",
     value: function next(element, selector) {
       var sibling = element.nextElementSibling;
-
       if (!selector) {
         return sibling;
       }
-
       while (sibling) {
         if (sibling.matches(selector)) {
           return sibling;
         }
-
         sibling = sibling.nextElementSibling;
       }
     }
@@ -415,30 +384,47 @@ var IoUtilities = /*#__PURE__*/function () {
     key: "prev",
     value: function prev(element, selector) {
       var sibling = element.previousElementSibling;
-
       if (!selector) {
         return sibling;
       }
-
       while (sibling) {
         if (sibling.matches(selector)) {
           return sibling;
         }
-
         sibling = sibling.previousElementSibling;
       }
     }
   }, {
     key: "elements",
     value: function elements(selector) {
-      return typeof selector === "string" ? Array.from(document.querySelectorAll(selector)) : selector.constructor.name == "NodeList" ? Array.from(selector) : [selector];
+      if (typeof selector === "string") {
+        var selectors = selector.split(",").map(function (s) {
+          return s.trim();
+        });
+        var seen = new Set();
+        var elementsOrdered = [];
+        selectors.forEach(function (sel) {
+          var nodeList = Array.from(document.querySelectorAll(sel));
+          nodeList.forEach(function (el) {
+            if (!seen.has(el)) {
+              seen.add(el);
+              elementsOrdered.push(el);
+            }
+          });
+        });
+        return elementsOrdered;
+      } else if (selector.constructor.name === "NodeList") {
+        return Array.from(selector);
+      } else {
+        return [selector];
+      }
     }
   }, {
     key: "elementsEach",
     value: function elementsEach(selector, func) {
-      var elements = this.elements(selector); // TODO: There seems to be a scoping bug if there is a elementsEach in a elementsEach loop (check for alternatives)
+      var elements = this.elements(selector);
+      // TODO: There seems to be a scoping bug if there is a elementsEach in a elementsEach loop (check for alternatives)
       // TODO: Alternative??: elements.forEach((fn) => func.call(this, fn));
-
       elements.forEach(func);
       return elements;
     }
@@ -446,27 +432,21 @@ var IoUtilities = /*#__PURE__*/function () {
     key: "elementsClone",
     value: function elementsClone(elementSrc, elementTarget) {
       var _this = this;
-
       var saveCopy = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       return this.elementsEach(elementSrc ? elementSrc : this.config.elements, function (el) {
         var elClone = el.cloneNode(true),
-            elClasslist = Array.from(elClone.classList);
-
+          elClasslist = Array.from(elClone.classList);
         if (saveCopy) {
           elClasslist.forEach(function (cssClass) {
             elClone.classList.remove(cssClass);
             elClone.classList.add(_this.config.prefix + cssClass);
           });
-
           if (elClone.id) {
             elClone.id = _this.config.prefix + elClone.id;
           }
         }
-
         _this.addClass(el, "source");
-
         _this.addClass(elClone, _this.config.prefix + "target");
-
         elementTarget.append(elClone);
       });
     }
@@ -480,10 +460,12 @@ var IoUtilities = /*#__PURE__*/function () {
     }
   }, {
     key: "elementBreakpoint",
-    value: function elementBreakpoint(element) {// TODO: Return a breakpoint on which the element will definitely break / not fit into the available space
+    value: function elementBreakpoint(element) {
+      // TODO: Return a breakpoint on which the element will definitely break / not fit into the available space
       // (needs to check multiple breakpoints dynamically, how?!?!)
-    } // Add Event to a Element
+    }
 
+    // Add Event to a Element
   }, {
     key: "on",
     value: function on(selector, eventName, func) {
@@ -492,16 +474,15 @@ var IoUtilities = /*#__PURE__*/function () {
         this.elementsEach(selector, function (el) {
           el._events = _typeof(el._events) === "object" ? el._events : {};
           el._events[eventName] = Array.isArray(el._events[eventName]) ? el._events[eventName] : [];
-
           el._events[eventName].push(func);
-
           el.addEventListener(eventName, func);
         });
       } else {
         this.error("on()", selector + " - 2nth argument (eventName) is missing.");
       }
-    } // Remove Event of a Element
+    }
 
+    // Remove Event of a Element
   }, {
     key: "off",
     value: function off(selector, eventName, func) {
@@ -516,7 +497,6 @@ var IoUtilities = /*#__PURE__*/function () {
             el._events[eventName].forEach(function (fn) {
               return el.removeEventListener(eventName, fn);
             });
-
             el._events[eventName] = [];
           }
         });
@@ -529,11 +509,9 @@ var IoUtilities = /*#__PURE__*/function () {
     value: function log(title) {
       if (this.config.debug) {
         var _console;
-
         for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
           args[_key - 1] = arguments[_key];
         }
-
         (_console = console).log.apply(_console, [typeof title === "string" && args.length ? this.name + "." + title + ":" : title].concat(args));
       }
     }
@@ -543,11 +521,9 @@ var IoUtilities = /*#__PURE__*/function () {
       if (this.config.debug) {
         console.groupCollapsed(this.name + " (settings)");
         this.log("config", this.config);
-
         if (typeof this._eventListObject != "undefined") {
           this.log("events", this._eventListObject("/" + this.name + "/"));
         }
-
         this.log("ui", this.ui);
         console.groupEnd();
       }
@@ -557,34 +533,26 @@ var IoUtilities = /*#__PURE__*/function () {
     value: function error(title) {
       if (this.config.debug) {
         var _console2;
-
         for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
           args[_key2 - 1] = arguments[_key2];
         }
-
         (_console2 = console).error.apply(_console2, [typeof title === "string" && args.length ? this.name + "." + title + ":" : title].concat(args));
       }
     }
   }]);
-
   return IoUtilities;
 }();
-
 var Io = /*#__PURE__*/function (_IoUtilities) {
   _inherits(Io, _IoUtilities);
-
   var _super = _createSuper(Io);
-
   function Io() {
     var _this2;
-
     var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
     _classCallCheck(this, Io);
-
     // Super Class Constructor (needed if you use inheritance)
-    _this2 = _super.call(this); // Set Defaults, Options & Config
+    _this2 = _super.call(this);
 
+    // Set Defaults, Options & Config
     _this2.options = options;
     _this2.config = {};
     _this2.ui = {};
@@ -598,34 +566,31 @@ var Io = /*#__PURE__*/function (_IoUtilities) {
       elements: [],
       // Array (HTML Elements) | NodeList | String
       debug: false // true | false (default) - Debug Messages
+    };
 
-    }; // Merge Plugin Defaults and User Options to one Config
+    // Merge Plugin Defaults and User Options to one Config
     // (everything is accessible through this.config then)
-
     _extends(_this2.config, _this2.defaults, _this2.options);
-
     if (!window.io_events) {
       window.io_events = {};
-    } // Logging
+    }
+
+    // Logging
     // ToDo: if(use logAll only if the class is directly instantiated){...
     // this.logAll();
-
-
     return _this2;
-  } // MQL - Public Methods
+  }
 
-
+  // MQL - Public Methods
   _createClass(Io, [{
     key: "mqlManager",
     value: function mqlManager(path, mql, fn) {
       var mqlQuery = mql ? mql : this.config.mqlQuery,
-          mQuery = this._mqlQuery(mqlQuery),
-          mMatch = this._mqlMatch(mQuery);
-
+        mQuery = this._mqlQuery(mqlQuery),
+        mMatch = this._mqlMatch(mQuery);
       mMatch._fn = fn;
       mMatch._path = this._eventPath(path);
       mMatch.addEventListener("change", this._mqlHandler); // Deprecated "addListener" replaced (see: https://stackoverflow.com/questions/68309889/addlistener-is-deprecated-whats-the-alternative#answer-68309940)
-
       fn.call(this, mMatch);
       this.sub(path, fn, {
         _mql: mMatch
@@ -638,13 +603,13 @@ var Io = /*#__PURE__*/function (_IoUtilities) {
         io._eventListValuesData(path).forEach(function (mql) {
           mql.removeListener(mql._fn);
         });
-
         this.unsub(path);
       } else {
         this.error("mqlManagerRemove", "No path argument specified or empty");
       }
-    } // MQL - Private Methods
+    }
 
+    // MQL - Private Methods
   }, {
     key: "_mqlMatch",
     value: function _mqlMatch(mqlQuery) {
@@ -654,17 +619,14 @@ var Io = /*#__PURE__*/function (_IoUtilities) {
     key: "_mqlQuery",
     value: function _mqlQuery(mqlObj) {
       var mqlQuery = "";
-
       for (var m in mqlObj) {
         if (mqlObj[m]) {
           if (mqlQuery.length != 0) {
             mqlQuery += " and ";
           }
-
           mqlQuery += "(" + m.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase() + ": " + mqlObj[m] + ")";
         }
       }
-
       return mqlQuery;
     }
   }, {
@@ -681,22 +643,20 @@ var Io = /*#__PURE__*/function (_IoUtilities) {
       } else {
         io.log("_mqlHandler()", "mql argument is undefined");
       }
-    } // Pub/Sub Events - Public Methods
+    }
 
+    // Pub/Sub Events - Public Methods
   }, {
     key: "pub",
     value: function pub(eventPath) {
       var _this3 = this;
-
       for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
         args[_key3 - 1] = arguments[_key3];
       }
-
       /* TODO: Implementing Async Promises (e.g. async pub(...))?!? */
       // TODO: Optimaly _eventListValues(), etc. should use _eventPath() internally instead of const path!
       setTimeout(function () {
         var path = _this3._eventPath(eventPath);
-
         if (typeof window.io_events[path] !== "undefined") {
           _this3._eventListValuesFunctions(path).forEach(function (fn) {
             if (typeof fn == "function") {
@@ -717,14 +677,11 @@ var Io = /*#__PURE__*/function (_IoUtilities) {
     key: "sub",
     value: function sub(eventPath, fn, data) {
       var path = this._eventPath(eventPath);
-
       if (typeof fn === "function") {
         window.io_events[path] = typeof window.io_events[path] === "undefined" ? {} : window.io_events[path];
-
         if (!Array.isArray(window.io_events[path]["_fn"])) {
           window.io_events[path]["_fn"] = [];
         }
-
         if (data) {
           if (_typeof(data) === "object") {
             if (_typeof(window.io_events[path]["_data"]) === "object") {
@@ -736,7 +693,6 @@ var Io = /*#__PURE__*/function (_IoUtilities) {
             this.error("sub()", path + " - the data argument has to be of the type object {}");
           }
         }
-
         window.io_events[path]["_fn"].push(fn);
       } else {
         this.error("sub()", path + " - 2nth argument needs to be a function.");
@@ -746,9 +702,7 @@ var Io = /*#__PURE__*/function (_IoUtilities) {
     key: "unsub",
     value: function unsub(eventPath) {
       var fn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
       var path = this._eventPath(eventPath);
-
       if (typeof window.io_events[path] !== "undefined") {
         if (fn && typeof window.io_events[path]["_fn"] !== "undefined") {
           window.io_events[path]["_fn"] = window.io_events[path]["_fn"].filter(function (f) {
@@ -762,19 +716,18 @@ var Io = /*#__PURE__*/function (_IoUtilities) {
       } else {
         this.log("unsub()", path + " does not exist.");
       }
-    } // Pub/Sub Events - Private Methods
+    }
 
+    // Pub/Sub Events - Private Methods
   }, {
     key: "_eventListKeys",
     value: function _eventListKeys(eventPath) {
       var result = [];
-
       for (var prop in window.io_events) {
         if (!eventPath || prop.lastIndexOf(eventPath, 0) === 0) {
           result.push(prop);
         }
       }
-
       return result;
     }
   }, {
@@ -782,21 +735,17 @@ var Io = /*#__PURE__*/function (_IoUtilities) {
     value: function _eventListObject(eventPath) {
       if (eventPath) {
         var result = {};
-
         this._eventListKeys(eventPath).forEach(function (prop) {
           result[prop] = window.io_events[prop];
         });
-
         return result;
       }
-
       return window.io_events;
     }
   }, {
     key: "_eventListValues",
     value: function _eventListValues(eventPath, eventProp) {
       var result = [];
-
       this._eventListKeys(eventPath).forEach(function (prop) {
         // ToDo: Maybe needs a rewrite (because of "..Values" in general),
         // _fn doesn't have to be used here (maybe another method _eventListFunctions?! Or a filter arg instead?!)
@@ -814,7 +763,6 @@ var Io = /*#__PURE__*/function (_IoUtilities) {
           }
         }
       });
-
       return result;
     }
   }, {
@@ -834,29 +782,21 @@ var Io = /*#__PURE__*/function (_IoUtilities) {
       return (this.name != "io" && eventPath.lastIndexOf("/" + this.name + "/", 0) === -1 ? "/" + this.name : "") + (eventPath.charAt(0) == "/" ? "" : "/") + eventPath + (eventPath.charAt(eventPath.length - 1) == "/" ? "" : "/");
     }
   }]);
-
   return Io;
 }(IoUtilities);
-
 var io = new Io();
-
 var IoAccordion = /*#__PURE__*/function (_Io) {
   _inherits(IoAccordion, _Io);
-
   var _super2 = _createSuper(IoAccordion);
-
   function IoAccordion() {
     var _this4;
-
     var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
     _classCallCheck(this, IoAccordion);
-
     // Super Class Constructor (needed if you use inheritance)
-    _this4 = _super2.call(this, options); // Set Defaults, Options & Config
+    _this4 = _super2.call(this, options);
 
+    // Set Defaults, Options & Config
     _this4.name = "ioaccordion"; // Change this to your needs
-
     _this4.defaults = {
       // All default params are optional, except "prefix"
       prefix: _this4.name + "-",
@@ -864,30 +804,25 @@ var IoAccordion = /*#__PURE__*/function (_Io) {
       accToggle: ".ioaccordion-toggle",
       accContent: ".ioaccordion-content",
       accContainer: false // Selector (e.g. .ioaccordion-group)
+    };
 
-    }; // Merge Plugin Defaults and User Options to one Config
+    // Merge Plugin Defaults and User Options to one Config
     // (everything is accessible through this.config then)
+    _extends(_this4.config, _this4.defaults, _this4.options);
 
-    _extends(_this4.config, _this4.defaults, _this4.options); // Subscribers
-
-
+    // Subscribers
     _this4.sub("/init/", _this4.init);
-
     _this4.sub("/open/", _this4.openAccordion);
+    _this4.sub("/close/", _this4.closeAccordion);
 
-    _this4.sub("/close/", _this4.closeAccordion); // Publishers
-
-
+    // Publishers
     _this4.pub("/init/");
-
     return _this4;
   }
-
   _createClass(IoAccordion, [{
     key: "init",
     value: function init() {
       var _this5 = this;
-
       this.ui.accContainer = this.config.accContainer ? this.elements(this.config.accContainer) : [this.body];
       this.ui.accContent = [];
       this.ui.accToggle = [];
@@ -895,32 +830,24 @@ var IoAccordion = /*#__PURE__*/function (_Io) {
         var accToggle = accContainer.querySelectorAll(_this5.config.accToggle);
         var accContent = accContainer.querySelectorAll(_this5.config.accContent);
         var accContentWrapper = [];
-
         if (_this5.config.debug) {
           _this5.ui.accContent.push(accContent);
-
           _this5.ui.accToggle.push(accToggle);
         }
-
         if (accToggle.length != accContent.length) {
           _this5.log("init()[WARNING]", "Different amounts of Accordion Togglers Vs. Contents.", "\naccToggles: ", accToggle, "\naccContents: ", accContent);
         }
-
         accContent.forEach(function (el) {
           var accW = _this5.wrap(el);
-
           accW.style.maxHeight = 0;
-
           _this5.addClass(accW, "content-wrapper");
-
           accContentWrapper.push(accW);
-        }); // TODO: Needs some refactoring.. (all in pub/sub needed, +more dynamic, accContentWrapper refactoring..)
+        });
 
+        // TODO: Needs some refactoring.. (all in pub/sub needed, +more dynamic, accContentWrapper refactoring..)
         accToggle.forEach(function (el, cnt) {
           var accContentNext = accContent[cnt].parentNode;
-
           var accContentNextHeight = _this5.heightContent(accContentNext);
-
           _this5.on(el, "click", function (e) {
             accToggle.forEach(function (accT) {
               if (el != accT) {
@@ -933,18 +860,17 @@ var IoAccordion = /*#__PURE__*/function (_Io) {
               // TODO: Replace/Make compatible to pub/sub
               if (cnt == accIndex) {
                 _this5.toggleClass(accCW, "-active");
-
                 accCW.style.maxHeight = _this5.height(accCW) == 0 ? accContentNextHeight + "px" : 0;
               } else {
                 _this5.removeClass(accCW, "-active");
-
                 accCW.style.maxHeight = 0;
               }
             });
           });
         });
-      }); // Logging
+      });
 
+      // Logging
       this.logAll();
     }
   }, {
@@ -958,25 +884,19 @@ var IoAccordion = /*#__PURE__*/function (_Io) {
       this.removeClass(element, "-active");
     }
   }]);
-
   return IoAccordion;
 }(Io);
-
 var IoNav = /*#__PURE__*/function (_Io2) {
   _inherits(IoNav, _Io2);
-
   var _super3 = _createSuper(IoNav);
-
   function IoNav() {
     var _this6;
-
     var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
     _classCallCheck(this, IoNav);
-
     // Super Class Constructor (needed if you use inheritance)
-    _this6 = _super3.call(this, options); // Set Defaults, Options & Config
+    _this6 = _super3.call(this, options);
 
+    // Set Defaults, Options & Config
     _this6.name = "ionav";
     _this6.defaults = {
       prefix: _this6.name + "-",
@@ -991,10 +911,8 @@ var IoNav = /*#__PURE__*/function (_Io2) {
       elementsNavCollapsable: true,
       // TODO: elementsNavCollapsable still needs to be integrated!!
       buttonTarget: document.body,
-      overlayTarget: document.body,
       // HTML Element | NodeElement
       buttonElement: "div",
-      buttonAriaLabel: "Toggle mobile menu overlay.",
       // HTML Tag Name | NodeElement
       linkSubmenuClickable: false,
       // Generates a additional submenu item on submenu's to click
@@ -1007,42 +925,36 @@ var IoNav = /*#__PURE__*/function (_Io2) {
         "de": "Zur Kategorie ",
         "en": "To category ",
         "it": "Alla categoria ",
-        "es": "A la categoría ",
-        "fr": "À la catégorie "
+        "es": "A la categorÃ­a ",
+        "fr": "Ã€ la catÃ©gorie "
       }
-    }; // Merge Plugin Defaults and User Options to one Config
+    };
+
+    // Merge Plugin Defaults and User Options to one Config
     // (everything is accessible through this.config then)
+    _extends(_this6.config, _this6.defaults, _this6.options);
 
-    _extends(_this6.config, _this6.defaults, _this6.options); // Initialize Mobi Main-Logic
-
-
+    // Initialize Mobi Main-Logic
     _this6.sub("/init/", _this6.init);
-
     _this6.pub("/init/");
-
     return _this6;
   }
-
   _createClass(IoNav, [{
     key: "init",
     value: function init() {
       var _this7 = this;
-
       // UI Elements
-      this.ui.btn = this.prependTo(typeof buttonElement === "string" ? "button" : this.config.buttonElement, this.config.buttonTarget, {
-        "aria-haspopup": "true",
-        "aria-expanded": "false",
-        "aria-label": this.config.buttonAriaLabel
-      });
-      this.ui.overlay = this.addChild("div", this.config.overlayTarget, {
+      this.ui.btn = this.prependTo(typeof buttonElement === "string" ? "div" : this.config.buttonElement, this.config.buttonTarget);
+      this.ui.overlay = this.prependTo("div", this.body, {
         "class": this.config.prefix + "overlay"
-      }, "afterend");
+      });
       this.ui.canvas = this.prependTo("div", this.ui.overlay, {
         "class": this.config.prefix + "canvas"
       });
       this.addClass(this.ui.btn, "btn");
-      this.addClass(this.html, "-closed"); // Subscribers
+      this.addClass(this.html, "-closed");
 
+      // Subscribers
       this.sub("/initComplete/", this.initComplete);
       this.sub("/initOverlay/", this.initOverlay);
       this.sub("/initElementsNav/", this.elementsNav);
@@ -1058,11 +970,11 @@ var IoNav = /*#__PURE__*/function (_Io2) {
         } else {
           // console.log("IS NOT MATCHING");
           _this7.closeOverlay();
-
           _this7.removeClass(_this7.html, "-active");
         }
-      }); // Publishers & Events
+      });
 
+      // Publishers & Events
       this.pub("/initOverlay/", this.config.elements);
       this.pub("/initElementsNav/", this.config.elementsNav);
       this.on(this.ui.btn, "click", function () {
@@ -1073,23 +985,23 @@ var IoNav = /*#__PURE__*/function (_Io2) {
           _this7.pub("/closeOverlay/");
         }
       });
-      this.pub("/initComplete/"); // Logging
+      this.pub("/initComplete/");
 
+      // Logging
       this.logAll();
     }
   }, {
     key: "initComplete",
-    value: function initComplete() {// Once the Initialization completes...
+    value: function initComplete() {
+      // Once the Initialization completes...
     }
   }, {
     key: "destroyAll",
     value: function destroyAll() {
       this.log("destroyAll()", "Destroying all events and elements");
-
       for (var prop in this.ui) {
         this.ui[prop].remove();
       }
-
       this.ui = {};
       this.unsub(this.name);
     }
@@ -1113,13 +1025,10 @@ var IoNav = /*#__PURE__*/function (_Io2) {
     key: "toggleOverlay",
     value: function toggleOverlay() {
       this.log("toggleOverlay()", "Toggling Overlay");
-
       if (this.hasClass(this.html, "-open")) {
         this.pub("/closeOverlay/");
-        this.ui.btn.ariaExpanded = "false";
       } else {
         this.pub("/openOverlay/");
-        this.ui.btn.ariaExpanded = "true";
       }
     }
   }, {
@@ -1140,33 +1049,28 @@ var IoNav = /*#__PURE__*/function (_Io2) {
     key: "elementsNav",
     value: function elementsNav(selector) {
       var _this8 = this;
-
       var activeClassName = this.config.prefix + "-active";
       document.querySelectorAll(selector).forEach(function (el) {
-        el.querySelectorAll(".list .listelemnt").forEach(function (li, index) {
+        el.querySelectorAll("ul li").forEach(function (li, index) {
           var link = li.querySelector(":scope > a");
-          var subnav = li.querySelector(":scope > .hasCustomSubnav") ? li.querySelector(":scope > .hasCustomSubnav") : li.querySelector(":scope > .list");
-
+          var subnav = li.querySelector(":scope > .hasCustomSubnav") ? li.querySelector(":scope > .hasCustomSubnav") : li.querySelector(":scope > ul");
           if (link) {
             _this8.addClass(link, "-hasSubnav");
           }
-
           if (subnav) {
             _this8.addClass(subnav, "-hasSubnav");
-
             if (!link) {
               // Show Subnavigation if no Toggler / Link is set (otherwise the subnav is not accessible at all)
               _this8.addClass(subnav, "-active");
             }
           }
-
           if (link && subnav) {
             _this8.addClass(li, "-hasSubnav");
-
             _this8.on(link, "click", function (e) {
-              e.preventDefault(); // If activeClassToggleOthers flag is set, then only one
-              // active element (on the same level) is possible at the same time
+              e.preventDefault();
 
+              // If activeClassToggleOthers flag is set, then only one
+              // active element (on the same level) is possible at the same time
               if (_this8.config.activeClassToggleOthers) {
                 li.parentNode.querySelectorAll(":scope > *").forEach(function (eli) {
                   if (!eli.isEqualNode(li) && !eli.isEqualNode(link) && !eli.isEqualNode(subnav)) {
@@ -1175,23 +1079,19 @@ var IoNav = /*#__PURE__*/function (_Io2) {
                     });
                   }
                 });
-              } // Toggle active classes
+              }
 
-
+              // Toggle active classes
               _this8.toggleClass(li, "-active");
-
               _this8.toggleClass(link, "-active");
-
               _this8.toggleClass(subnav, "-active");
-            }); // Add a additional link button (optional, see linkSubmenuClickable), so the user is able to click on the main category,
+            });
+
+            // Add a additional link button (optional, see linkSubmenuClickable), so the user is able to click on the main category,
             // otherwise the user is only able to open the accordion/submenu, not the main category link itself
-
-
             if (_this8.config.linkSubmenuClickable && subnav) {
-              var linkSubmenuClickable = _this8.prependTo("listelement", subnav);
-
+              var linkSubmenuClickable = _this8.prependTo("li", subnav);
               _this8.addClass(linkSubmenuClickable, "-linkSubmenuClickable");
-
               linkSubmenuClickable.innerHTML = link.outerHTML;
               linkSubmenuClickable.querySelector("a").textContent = _this8.config.langDict[_this8.config.lang] + linkSubmenuClickable.querySelector("a").textContent;
             }
@@ -1200,25 +1100,19 @@ var IoNav = /*#__PURE__*/function (_Io2) {
       });
     }
   }]);
-
   return IoNav;
 }(Io);
-
 var IoNavTouch = /*#__PURE__*/function (_Io3) {
   _inherits(IoNavTouch, _Io3);
-
   var _super4 = _createSuper(IoNavTouch);
-
   function IoNavTouch() {
     var _this9;
-
     var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
     _classCallCheck(this, IoNavTouch);
-
     // Super Class Constructor (needed if you use inheritance)
-    _this9 = _super4.call(this, options); // Set Defaults, Options & Config
+    _this9 = _super4.call(this, options);
 
+    // Set Defaults, Options & Config
     _this9.name = "ionavTouch";
     _this9.defaults = {
       prefix: _this9.name + "-",
@@ -1236,22 +1130,20 @@ var IoNavTouch = /*#__PURE__*/function (_Io3) {
         "de": "Zur Kategorie ",
         "en": "To category ",
         "it": "Alla categoria ",
-        "es": "A la categoría ",
-        "fr": "À la catégorie "
+        "es": "A la categorÃ­a ",
+        "fr": "Ã€ la catÃ©gorie "
       }
-    }; // Merge Plugin Defaults and User Options to one Config
+    };
+
+    // Merge Plugin Defaults and User Options to one Config
     // (everything is accessible through this.config then)
+    _extends(_this9.config, _this9.defaults, _this9.options);
 
-    _extends(_this9.config, _this9.defaults, _this9.options); // Initialize Mobi Main-Logic
-
-
+    // Initialize Mobi Main-Logic
     _this9.sub("/init/", _this9.init);
-
     _this9.pub("/init/");
-
     return _this9;
   }
-
   _createClass(IoNavTouch, [{
     key: "init",
     value: function init() {
@@ -1261,65 +1153,57 @@ var IoNavTouch = /*#__PURE__*/function (_Io3) {
         } else {
           console.log("IS NOT MATCHING");
         }
-      }); // Subscribers
+      });
 
-      this.sub("/initElementsNav/", this.elementsNav); // Publishers & Events
+      // Subscribers
+      this.sub("/initElementsNav/", this.elementsNav);
 
-      this.pub("/initElementsNav/", this.config.elementsNav); // Logging
+      // Publishers & Events
+      this.pub("/initElementsNav/", this.config.elementsNav);
 
+      // Logging
       this.logAll();
     }
   }, {
     key: "elementsNav",
     value: function elementsNav(selector) {
-      var _this10 = this;
-
+      var _this0 = this;
       document.querySelectorAll(selector).forEach(function (el) {
-        el.querySelectorAll(".list .listelement").forEach(function (li) {
+        el.querySelectorAll("ul li").forEach(function (li) {
           var link = false;
           var subnav = false;
           li.childNodes.forEach(function (node) {
             if (node.tagName == "A") {
               link = node;
             }
-
-            if (node.tagName == "A" || node.tagName == "LIST") {
-              _this10.addClass(node, "-hasSubnav");
+            if (node.tagName == "A" || node.tagName == "UL") {
+              _this0.addClass(node, "-hasSubnav");
             }
-
-            if (node.tagName == "LIST") {
+            if (node.tagName == "UL") {
               subnav = node;
             }
           });
-
           if (link && subnav) {
-            _this10.addClass(li, "-hasSubnav");
-
-            _this10.on(link, "click", function (e) {
+            _this0.addClass(li, "-hasSubnav");
+            _this0.on(link, "click", function (e) {
               e.preventDefault();
+              _this0.toggleClass(li, "-active");
+              _this0.toggleClass(link, "-active");
+              _this0.toggleClass(subnav, "-active");
+            });
 
-              _this10.toggleClass(li, "-active");
-
-              _this10.toggleClass(link, "-active");
-
-              _this10.toggleClass(subnav, "-active");
-            }); // Add a additional link button (optional, see linkSubmenuClickable), so the user is able to click on the main category,
+            // Add a additional link button (optional, see linkSubmenuClickable), so the user is able to click on the main category,
             // otherwise the user is only able to open the accordion/submenu, not the main category link itself
-
-
-            if (_this10.config.linkSubmenuClickable && subnav) {
-              var linkSubmenuClickable = _this10.prependTo("listelement", subnav);
-
-              _this10.addClass(linkSubmenuClickable, "-linkSubmenuClickable");
-
+            if (_this0.config.linkSubmenuClickable && subnav) {
+              var linkSubmenuClickable = _this0.prependTo("li", subnav);
+              _this0.addClass(linkSubmenuClickable, "-linkSubmenuClickable");
               linkSubmenuClickable.innerHTML = link.outerHTML;
-              linkSubmenuClickable.querySelector("a").textContent = _this10.config.langDict[_this10.config.lang] + linkSubmenuClickable.querySelector("a").textContent;
+              linkSubmenuClickable.querySelector("a").textContent = _this0.config.langDict[_this0.config.lang] + linkSubmenuClickable.querySelector("a").textContent;
             }
           }
         });
       });
     }
   }]);
-
   return IoNavTouch;
 }(Io);
