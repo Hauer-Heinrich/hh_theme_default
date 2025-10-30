@@ -22,7 +22,7 @@ plugin.tx_indexedsearch {
     }
 
     settings {
-        targetPid = {$plugin.hhthemedefault.indexedSearchId}
+        targetPid = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
         displayRules = 0
         displayAdvancedSearchLink = 0
 
@@ -73,7 +73,7 @@ lib.searchfield {
     }
     settings =< plugin.tx_indexedsearch.settings
     settings {
-        targetPid = {$plugin.hhthemedefault.indexedSearchId}
+        targetPid = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
         displayAdvancedSearchLink = 0
         displayRules = 0
         displayResults = 0

@@ -29,7 +29,7 @@ jobs:
 
       - name: Replace strings
         run: |
-          find . -type f -not -path "./.git/*" -not -path "./.github/*" -not -name "README.md" -not -name "init.ps1" -not -name "init.sh" -not -name "package-lock.json" -print0 | while IFS= read -r -d $'\0' file; do
+          find . -type f -not -path "./.git/*" -not -path "./.github/*" -not -path "./Documentation/*" -not -name "README.md" -not -name "init.ps1" -not -name "init.sh" -not -name "package-lock.json" -print0 | while IFS= read -r -d $'\0' file; do
             sed -i "s/hh_theme_default/{{EXTENSION_KEY}}/g" "$file"
             sed -i "s/hhthemedefault/{{EXTENSION_NAME}}/g" "$file"
             sed -i "s/HhThemeDefault/{{EXTENSION_NAMESPACE}}/g" "$file"
