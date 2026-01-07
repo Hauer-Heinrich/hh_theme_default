@@ -1,5 +1,5 @@
 <?php
-namespace HauerHeinrich\HhThemeDefault\Domain\Model;
+namespace \{{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\Domain\Model;
 
 // use \FriendsOfTYPO3\TtAddress\Domain\Model\Address;
 use \HauerHeinrich\HhTtAddressPlaces\Domain\Model\Place;

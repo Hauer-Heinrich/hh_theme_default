@@ -5,7 +5,7 @@ declare(strict_types=1);
  * This file is part of the TYPO3 CMS project. [...]
  */
 
-namespace HauerHeinrich\HhThemeDefault\DataProcessing;
+namespace \{{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\DataProcessing;
 
 // use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use \TYPO3\CMS\Core\Utility\GeneralUtility;

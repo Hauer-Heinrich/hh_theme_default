@@ -2,7 +2,7 @@
     data-namespace-typo3-fluid="true">
 
 <div class="tx-indexedsearch-searchbox every-site">
-    <f:form action="search" method="post" id="tx_indexedsearch" pageUid="{settings.targetPid}" role="search" aria-label="{f:translate(key: 'LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_search.xlf:search.form.aria.label')}">
+    <f:form action="search" method="post" id="tx_indexedsearch" pageUid="{settings.targetPid}" role="search" aria-label="{f:translate(key: 'LLL:EXT:{{EXTENSION_KEY}}/Resources/Private/Language/locallang_search.xlf:search.form.aria.label')}">
         <div class="tx-indexedsearch-hidden-fields">
             <f:form.hidden name="search[_sections]" value="0" />
             <f:form.hidden name="search[_freeIndexUid]" id="tx_indexedsearch_freeIndexUid" value="_" />
@@ -19,12 +19,12 @@
         </div>
         <fieldset>
             <div class="tx-indexedsearch-form">
-                <label for="tx-indexedsearch-searchbox-sword" class="visually-hidden">{f:translate(key: 'LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_search.xlf:search.input.label')}</label>
-                <f:form.textfield name="search[sword]" value="{sword}" id="tx-indexedsearch-searchbox-sword" class="tx-indexedsearch-searchbox-sword" placeholder="{f:translate(key: 'LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_search.xlf:search.input.placeholder')}" />
+                <label for="tx-indexedsearch-searchbox-sword" class="visually-hidden">{f:translate(key: 'LLL:EXT:{{EXTENSION_KEY}}/Resources/Private/Language/locallang_search.xlf:search.input.label')}</label>
+                <f:form.textfield name="search[sword]" value="{sword}" id="tx-indexedsearch-searchbox-sword" class="tx-indexedsearch-searchbox-sword" placeholder="{f:translate(key: 'LLL:EXT:{{EXTENSION_KEY}}/Resources/Private/Language/locallang_search.xlf:search.input.placeholder')}" />
             </div>
 
             <div class="tx-indexedsearch-search-submit">
-                <button type="submit" aria-label="{f:translate(key: 'LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_search.xlf:search.submit.aria.label')}" id="tx-indexedsearch-searchbox-button-submit" class="tx-indexedsearch-searchbox-button" value="{f:translate(key: 'form.submit')}" name="search[submitButton]">
+                <button type="submit" aria-label="{f:translate(key: 'LLL:EXT:{{EXTENSION_KEY}}/Resources/Private/Language/locallang_search.xlf:search.submit.aria.label')}" id="tx-indexedsearch-searchbox-button-submit" class="tx-indexedsearch-searchbox-button" value="{f:translate(key: 'form.submit')}" name="search[submitButton]">
                     <svg version="1.1" aria-hidden="true" class="search-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18.899px" height="19.542px" viewBox="0 0 18.899 19.542" enable-background="new 0 0 18.899 19.542" xml:space="preserve"><g><defs><rect id="SVGID_1_" width="18.899" height="19.542"></rect></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" overflow="visible"></use></clipPath><circle clip-path="url(#SVGID_2_)" fill="none" stroke="#C6C6C6" stroke-width="1.545" cx="11.407" cy="7.492" r="6.72"></circle><line clip-path="url(#SVGID_2_)" fill="none" stroke="#C6C6C6" stroke-width="2.317" x1="6.033" y1="13.509" x2="0.819" y2="18.723"></line></g></svg>
                 </button>
             </div>

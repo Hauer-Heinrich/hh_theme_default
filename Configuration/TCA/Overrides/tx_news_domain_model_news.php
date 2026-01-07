@@ -39,4 +39,4 @@ call_user_func(function(string $extensionKey) {
 
     ExtensionManagementUtility::addTCAcolumns('tx_news_domain_model_news', $fields);
     ExtensionManagementUtility::addToAllTCAtypes('tx_news_domain_model_news', 'custom_media, custom_media_2', '', 'before:fal_media');
-}, 'hh_theme_default');
+}, '{{EXTENSION_KEY}}');
