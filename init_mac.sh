@@ -38,7 +38,7 @@ done
 # hh_theme_birkl → hh-theme-birkl
 EXTENSION_NAMESPACE_ES6="$(echo "$EXTENSION_KEY" | tr '_' '-')"
 
-if [[ "$EXTENSION_KEY" == "hh_theme_default" ]]; then
+if [[ "$EXTENSION_KEY" == "{{EXTENSION_KEY}}" ]]; then
     yellow "Consider renaming the folder \"$EXTENSION_KEY\" if you want a custom namespace."
     read -p "Are you sure to proceed anyway (y/n)? " CONFIRMATION
     [[ "$CONFIRMATION" =~ ^[Yy]$ ]] || exit 1
