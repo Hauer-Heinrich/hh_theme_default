@@ -74,21 +74,6 @@ SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 
 ### Begin: Compression ###
 
-# Compressing resource files will save bandwidth and so improve loading speed especially for users
-# with slower internet connections. TYPO3 can compress the .js and .css files for you.
-# *) Uncomment the following lines and
-# *) Set $GLOBALS['TYPO3_CONF_VARS']['BE']['compressionLevel'] = 9 for the Backend
-# *) Set $GLOBALS['TYPO3_CONF_VARS']['FE']['compressionLevel'] = 9 together with the TypoScript properties
-#    config.compressJs and config.compressCss for GZIP compression of Frontend JS and CSS files.
-
-#<FilesMatch "\.js\.gzip$">
-#	AddType "text/javascript" .gzip
-#</FilesMatch>
-#<FilesMatch "\.css\.gzip$">
-#	AddType "text/css" .gzip
-#</FilesMatch>
-#AddEncoding gzip .gzip
-
 <IfModule mod_deflate.c>
     # Force compression for mangled `Accept-Encoding` request headers
     <IfModule mod_setenvif.c>
@@ -250,7 +235,7 @@ SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
     AddType application/xml                             rdf xml
 
     # JavaScript
-    AddType application/javascript                      js
+    AddType application/javascript                      js mjs
 
     # Manifest files
     AddType application/manifest+json                   webmanifest
@@ -327,9 +312,8 @@ AddDefaultCharset utf-8
 
 ### Begin: Rewriting and Access ###
 
-# You need rewriting, if you use a URL-Rewriting extension (RealURL, CoolUri).
-
 <IfModule mod_rewrite.c>
+
     # Enable URL rewriting
     RewriteEngine On
 
@@ -352,13 +336,13 @@ AddDefaultCharset utf-8
     # IMPORTANT: This rule has to be the very first RewriteCond in order to work!
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.+)\.(\d+)\.(php|js|css|png|jpg|gif|gzip)$ %{ENV:CWD}$1.$3 [L]
+    RewriteRule ^(.+)\.(\d+)\.(php|js|mjs|css|png|jpg|gif|svg|avif|webp|gz)$ %{ENV:CWD}$1.$3 [L]
 
     # Access block for folders
     RewriteRule _(?:recycler|temp)_/ - [F]
     RewriteRule fileadmin/templates/.*\.(?:txt|ts)$ - [F]
     RewriteRule ^(?:vendor|typo3_src|typo3temp/var) - [F]
-    RewriteRule (?:typo3conf/ext|typo3/sysext|typo3/ext)/[^/]+/(?:Configuration|ContentBlocks|Resources/Private|Tests?|Documentation|docs?)/ - [F]
+    RewriteRule (?:typo3conf/ext|typo3/sysext|typo3/ext)/[^/]+/(?:Configuration|Resources/Private|Tests?|Documentation|docs?)/ - [F]
 
     # Block access to all hidden files and directories with the exception of
     # the visible content from within the `/.well-known/` hidden directory (RFC 5785).
@@ -367,15 +351,13 @@ AddDefaultCharset utf-8
     RewriteCond %{SCRIPT_FILENAME} -f
     RewriteRule (?:^|/)\. - [F]
 
-    # Stop rewrite processing, if we are in any other known directory
+    # Stop rewrite processing, if we are in any known directory
     # NOTE: Add your additional local storages here
-    RewriteRule ^(?:fileadmin/|typo3conf/|typo3temp/|uploads/) - [L]
+    RewriteRule ^(?:fileadmin/|typo3conf/|typo3temp/|_assets/) - [L]
 
-    # If the file/symlink/directory does not exist but is below /typo3/, redirect to the TYPO3 Backend entry point.
+    # If the file/symlink/directory does not exist but is below /typo3/, redirect to the main TYPO3 entry point.
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-l
-    RewriteRule ^typo3/(.*)$ %{ENV:CWD}typo3/index.php [QSA,L]
+    RewriteRule ^typo3/(.*)$ %{ENV:CWD}index.php [QSA,L]
 
     # If the file/symlink/directory does not exist => Redirect to index.php.
     # For httpd.conf, you need to prefix each '%{REQUEST_FILENAME}' with '%{DOCUMENT_ROOT}'.
@@ -383,12 +365,13 @@ AddDefaultCharset utf-8
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-l
     RewriteRule ^.*$ %{ENV:CWD}index.php [QSA,L]
+
 </IfModule>
 
 # Access block for files
 # Apache < 2.3
 <IfModule !mod_authz_core.c>
-    <FilesMatch "(?i:^\.|^#.*#|^(?:ChangeLog|ToDo|Readme|License)(?:\.md|\.txt)?|^composer\.(?:json|lock)|^ext_conf_template\.txt|^ext_typoscript_constants\.txt|^ext_typoscript_setup\.txt|flexform[^.]*\.xml|locallang[^.]*\.(?:xml|xlf)|\.(?:bak|co?nf|cfg|ya?ml|ts|typoscript|tsconfig|dist|fla|in[ci]|log|sh|sql(?:\..*)?|sqlite(?:\..*)?|sw[op]|git.*|rc)|.*~)$">
+    <FilesMatch "(?i:^\.|^#.*#|^(?:ChangeLog|ToDo|Readme|License)(?:\.md|\.txt)?|^composer\.(?:json|lock)|^ext_conf_template\.txt|^ext_typoscript_constants\.txt|^ext_typoscript_setup\.txt|flexform[^.]*\.xml|locallang[^.]*\.(?:xml|xlf)|\.(?:bak|co?nf|cfg|neon|ya?ml|ts|typoscript|tsconfig|dist|fla|in[ci]|log|sh|sql(?:\..*)?|sqlite(?:\..*)?|sw[op]|git.*|rc)|.*~)$">
         Order allow,deny
         Deny from all
         Satisfy All
@@ -396,7 +379,7 @@ AddDefaultCharset utf-8
 </IfModule>
 # Apache ≥ 2.3
 <IfModule mod_authz_core.c>
-    <If "%{REQUEST_URI} =~ m#(?i:/\.|/\x23.*\x23|/(?:ChangeLog|ToDo|Readme|License)(?:\.md|\.txt)?|/composer\.(?:json|lock)|/ext_conf_template\.txt|/ext_typoscript_constants\.txt|/ext_typoscript_setup\.txt|flexform[^.]*\.xml|locallang[^.]*\.(?:xml|xlf)|\.(?:bak|co?nf|cfg|ya?ml|ts|typoscript|tsconfig|dist|fla|in[ci]|log|sh|sql(?:\..*)?|sqlite(?:\..*)?|sw[op]|git.*|rc)|.*~)$#">
+    <If "%{REQUEST_URI} =~ m#(?i:/\.|/\x23.*\x23|/(?:ChangeLog|ToDo|Readme|License)(?:\.md|\.txt)?|/composer\.(?:json|lock)|/ext_conf_template\.txt|/ext_typoscript_constants\.txt|/ext_typoscript_setup\.txt|flexform[^.]*\.xml|locallang[^.]*\.(?:xml|xlf)|\.(?:bak|co?nf|cfg|neon|ya?ml|ts|typoscript|tsconfig|dist|fla|in[ci]|log|sh|sql(?:\..*)?|sqlite(?:\..*)?|sw[op]|git.*|rc)|.*~)$#">
         Require all denied
     </If>
 </IfModule>
@@ -438,7 +421,6 @@ Options -MultiViews
 FileETag None
 
 ### End: Miscellaneous ###
-
 
 
 # ----------------------------------------------------------------------
