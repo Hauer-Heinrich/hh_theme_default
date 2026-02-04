@@ -11,6 +11,18 @@ page {
     includeJSFooterlibs >
     includeJSFooter >
 
+    cssInline.10 = COA
+    cssInline.10 {
+        ### Add inline CSS above-the-fold
+        5 = USER
+        5 {
+            userFunc = {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\Helper\GetTextFromFileHelper->setInlineCss
+            settings {
+                file = EXT:{{EXTENSION_KEY}}/Resources/Public/Css/inline.bundle.css
+            }
+        }
+    }
+
     config {
         additionalHeaders {
             ### https://securityheaders.com/

@@ -1,16 +1,22 @@
 /* THEME */
+/* moved to inline.css above-the-fold see typoscript
 @import url('theme/variables.css');
 @import url('theme/reset.css');
 @import url('theme/fonts.css');
 @import url('theme/html.css');
 @import url('theme/helpers.css');
+*/
 
 /* PLUGINS */
+/* moved to inline.css above-the-fold see typoscript
 @import url('plugins/io.nav.css');
+*/
 
 /* COMPONENTS */
+/* moved to inline.css above-the-fold see typoscript
 @import url('components/header.css');
 @import url('components/banner.css');
+*/
 @import url('components/content.css');
 @import url('components/footer-default.css');
 
