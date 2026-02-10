@@ -129,8 +129,6 @@ page {
             40 {
                 languages = auto
                 as = MenuLanguage
-
-                if.isTrue = {$plugin.{{EXTENSION_NAME}}.multiLanguage}
             }
 
             ################################################################
