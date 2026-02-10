@@ -18,8 +18,11 @@ call_user_func(function(string $extensionKey) {
     ];
 
     // Overwrite Flexform
-    $GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['ttaddress_listview,list']
-        = 'FILE:EXT:{{EXTENSION_KEY}}/Configuration/Flexforms/ttAddress/List.xml';
+    ExtensionManagementUtility::addPiFlexFormValue(
+        '',
+        'FILE:EXT:'.$extensionKey.'/Configuration/Flexforms/ttAddress/List.xml',
+        'ttaddress_listview',
+    );
 
     // Add custom fields
     ExtensionManagementUtility::addTCAcolumns('tt_content',
