@@ -14,6 +14,7 @@
                 <f:for each="{menu}" as="item">
                     <f:if condition="{item.available}">
                         <li class="{f:if(condition: '{item.active}', then: 'active')}{f:if(condition: '{item.available}', else: ' text-muted')}">
+                            <f:variable name="itemActive">{f:if(condition: '{item.active}', then: 'true', else: 'false')}</f:variable>
                             <f:link.page
                                 class="{f:if(condition: '{item.active}', then: 'act')}"
                                 addQueryString="1"
@@ -22,8 +23,8 @@
                                 additionalAttributes="{
                                     lang: '{item.hreflang}',
                                     hreflang: '{item.hreflang}',
-                                    data-langUid: '{item.languageId}'
-                                    aria-current: '{f:if(condition: '{item.active}', then: 'true', else: 'false')}'
+                                    data-langUid: '{item.languageId}',
+                                    aria-current: '{itemActive}'
                                 }"
                             >
                                 <span>{item.navigationTitle}</span>

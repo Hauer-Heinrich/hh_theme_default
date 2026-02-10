@@ -17,9 +17,12 @@ call_user_func(function(string $extensionKey) {
         'richtextConfiguration' => 'rte_header',
     ];
 
-    // Overwrite Flexform
-    $GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['ttaddress_listview,list']
-        = 'FILE:EXT:{{EXTENSION_KEY}}/Configuration/Flexforms/ttAddress/List.xml';
+    // Overwrite Flexform tt_address plugin
+    ExtensionManagementUtility::addPiFlexFormValue(
+        '',
+        'FILE:EXT:{{EXTENSION_KEY}}/Configuration/Flexforms/ttAddress/List.xml',
+        'ttaddress_listview',
+    );
 
     // Add custom fields
     ExtensionManagementUtility::addTCAcolumns('tt_content',
