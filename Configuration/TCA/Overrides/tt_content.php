@@ -17,10 +17,10 @@ call_user_func(function(string $extensionKey) {
         'richtextConfiguration' => 'rte_header',
     ];
 
-    // Overwrite Flexform tt_address plugin
+    // Overwrite Flexform
     ExtensionManagementUtility::addPiFlexFormValue(
         '',
-        'FILE:EXT:{{EXTENSION_KEY}}/Configuration/Flexforms/ttAddress/List.xml',
+        'FILE:EXT:'.$extensionKey.'/Configuration/Flexforms/ttAddress/List.xml',
         'ttaddress_listview',
     );
 
