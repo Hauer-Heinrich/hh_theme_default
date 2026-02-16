@@ -16,15 +16,41 @@
     </f:case>
     <f:defaultCase>
         <picture>
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '1920', fileExtension: 'webp')}" type="image/webp" media="(min-width: 1601px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '1600', fileExtension: 'webp')}" type="image/webp" media="(min-width: 1334px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '1333', fileExtension: 'webp')}" type="image/webp" media="(min-width: 1001px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'default', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '1000', fileExtension: 'webp')}" type="image/webp" media="(min-width: 801px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'smartphone', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '800', fileExtension: 'webp')}" type="image/webp" media="(min-width: 601px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'smartphone', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '600', fileExtension: 'webp')}" type="image/webp" media="(min-width: 401px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'smartphone', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '400', fileExtension: 'webp')}" type="image/webp" media="(min-width: 321px)">
-            <source srcset="{f:uri.image(src:'{file.uid}', treatIdAsReference:'1', cropVariant: 'smartphone', maxHeight: '{data.imageheight}', width: '{dimensions.width}', maxWidth: '320', fileExtension: 'webp')}" type="image/webp" media="(min-width: 200px)">
-
+            <f:variable name="maxImageWidth">
+                <f:if condition="{settings.maxImageWidth}">
+                    <f:then>{settings.maxImageWidth}</f:then>
+                    <f:else>1920</f:else>
+                </f:if>
+            </f:variable>
+            <f:alias map="{
+                breakpoints: {
+                    1920: {min:1601, crop:'default'},
+                    1600: {min:1334, crop:'default'},
+                    1333: {min:1001, crop:'default'},
+                    1000: {min:801,  crop:'default'},
+                    800:  {min:601,  crop:'smartphone'},
+                    600:  {min:401,  crop:'smartphone'},
+                    400:  {min:321,  crop:'smartphone'},
+                    320:  {min:200,  crop:'smartphone'}
+                }
+            }">
+                <f:for each="{breakpoints}" as="settings" key="maxWidth">
+                    <f:if condition="{maxWidth} <= {maxImageWidth}">
+                        <source
+                            srcset="{f:uri.image(
+                                src: file.uid,
+                                treatIdAsReference: 1,
+                                cropVariant: settings.crop,
+                                maxHeight: data.imageheight,
+                                width: dimensions.width,
+                                maxWidth: maxWidth,
+                                fileExtension: 'webp'
+                            )}"
+                            type="image/webp"
+                            media="(min-width: {settings.min}px)">
+                    </f:if>
+                </f:for>
+            </f:alias>
             <f:if condition="{file.extension} == 'pdf'">
                 <f:then>
                     <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" loading="{loading}" />
