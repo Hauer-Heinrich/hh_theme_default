@@ -133,6 +133,22 @@ TCEFORM {
         ### Remove option for inline text / float around image (css: float)
         imageorient {
             removeItems = 17,18
+
+            types {
+                textmedia {
+                    addItems {
+                        100 = Neben dem Text center rechts
+                        100.icon = content-beside-text-img-centered-left
+                        110 = Neben dem Text center links
+                        110.icon = content-beside-text-img-centered-right
+
+                        150 = Neben dem Text cover rechts
+                        150.icon = theme-banner-catalog
+                        160 = Neben dem Text cover links
+                        160.icon = theme-banner-catalog
+                    }
+                }
+            }
         }
     }
 

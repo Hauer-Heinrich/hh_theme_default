@@ -18,3 +18,8 @@ services:
     tags:
         - name: 'data.processor'
           identifier: 'opening-hours'
+
+  {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\DataProcessing\GalleryProcessor:
+    tags:
+        - name: 'data.processor'
+          identifier: 'theme-gallery'
