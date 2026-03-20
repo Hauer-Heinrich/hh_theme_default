@@ -8,7 +8,9 @@
             { "in": "./Resources/Public/JavaScript/main.js", "out": "./Resources/Public/JavaScript/main.bundle" },
 
             { "in": "./Resources/Public/Css/components-custom/felogin.css", "out": "./Resources/Public/Css/components-custom/felogin.bundle" },
-            { "in": "./Resources/Public/JavaScript/components-custom/felogin.js", "out": "./Resources/Public/JavaScript/components-custom/felogin.bundle" }
+            { "in": "./Resources/Public/JavaScript/components-custom/felogin.js", "out": "./Resources/Public/JavaScript/components-custom/felogin.bundle" },
+
+            { "in": "./Resources/Public/JavaScript/components-custom/share.js", "out": "./Resources/Public/JavaScript/components-custom/share.bundle" }
         ],
         "bundle": true,
         "write": true,
