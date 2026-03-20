@@ -4,6 +4,7 @@
 <f:if condition="{gallery.rows}">
     <div class="ce-gallery{f:if(condition: data.imageborder, then: ' ce-border')} {f:if(condition: '{data.image_zoom}', then: 'image-zoom')}"
         data-columns="{gallery.count.columns}" data-images="{gallery.count.files}"
+        data-gallery-row-gap="{data.gallery_row_gap}" data-gallery-column-gap="{data.gallery_column_gap}"
         data-settings-columns="{data.imagecols}">
         <div class="ce-gallery-container">
             <f:for each="{gallery.rows}" as="row">

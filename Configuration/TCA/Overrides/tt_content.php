@@ -74,6 +74,38 @@ call_user_func(function(string $extensionKey) {
                     ],
                 ],
             ],
+            'gallery_row_gap' => [
+                'exclude' => 1,
+                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.gallery_row_gap',
+                'description' => '',
+                'config' => [
+                    'type' => 'number',
+                    'format' => 'integer',
+                    'range' => [
+                        'lower' => 0,
+                        'upper' => 10
+                    ],
+                    'slider' => [
+                        'step' => 1
+                    ],
+                ],
+            ],
+            'gallery_column_gap' => [
+                'exclude' => 1,
+                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.gallery_column_gap',
+                'description' => '',
+                'config' => [
+                    'type' => 'number',
+                    'format' => 'integer',
+                    'range' => [
+                        'lower' => 0,
+                        'upper' => 10
+                    ],
+                    'slider' => [
+                        'step' => 1
+                    ],
+                ],
+            ],
             'filelink_download' => [
                 'exclude' => 1,
                 'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.filelink_download',
@@ -100,6 +132,12 @@ call_user_func(function(string $extensionKey) {
 
     ExtensionManagementUtility::addFieldsToPalette(
         'tt_content',
+        'gallery_gap',
+        'gallery_row_gap, gallery_column_gap'
+    );
+
+    ExtensionManagementUtility::addFieldsToPalette(
+        'tt_content',
         'uploads',
         'filelink_download',
         'after:target'
@@ -119,12 +157,18 @@ call_user_func(function(string $extensionKey) {
         'textmedia',
         'after:layout'
     );
+    ExtensionManagementUtility::addToAllTCAtypes(
+        'tt_content',
+        '--palette--;;gallery_gap',
+        'textmedia',
+        'after:imagecols'
+    );
     // ce-image
     ExtensionManagementUtility::addToAllTCAtypes(
         'tt_content',
-        '--palette--;;gap',
+        '--palette--;;gallery_gap',
         'image',
-        'after:layout'
+        'after:imagecols'
     );
 
 
