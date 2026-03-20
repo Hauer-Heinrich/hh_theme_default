@@ -38,8 +38,10 @@ namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
  */
 
 // use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use \TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use \TYPO3\CMS\Core\Resource\ResourceFactory;
+use \TYPO3\CMS\Core\Resource\FileReference;
+use \TYPO3\CMS\Core\Resource\FileRepository;
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class FalViewHelper extends AbstractViewHelper {
@@ -65,31 +67,30 @@ class FalViewHelper extends AbstractViewHelper {
         }
     }
 
-    /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
-     *
-     * @return void
-     */
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
-        $as = $arguments['as'];
-        $fileRepository = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
+    public function render(): string {
+        $as = $this->arguments['as'];
+        $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
 
-        if (is_numeric($arguments['id'])) {
-            $files = $fileRepository->findByRelation($arguments['table'], $arguments['field'], intval($arguments['id']));
-        } else if(\is_string($arguments['id'])) {
-            $ids = \explode(',', $arguments['id']);
+        if (is_numeric($this->arguments['id'])) {
+            $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
+            /** @var FileReference[] $fileObjects */
+            $files = $fileRepository->findByRelation($this->arguments['table'], $this->arguments['field'], intval($this->arguments['id']));
+        } else if(\is_string($this->arguments['id'])) {
+            $ids = \explode(',', $this->arguments['id']);
             foreach ($ids as $key => $id) {
-                $files[] = $fileRepository->findFileReferenceByUid(intval($id));
+                $files[] = $resourceFactory->getFileReferenceObject(intval($id));
             }
         } else {
             $as = 'error';
-            $files = 'Error invalid arguments, argument: "'.$arguments['id'].'"';
+            $files = 'Error invalid arguments, argument: "'.$this->arguments['id'].'"';
         }
 
-        $templateVariableContainer = $renderingContext->getVariableProvider();
-        $templateVariableContainer->add($as, $files);
+        $this->templateVariableContainer->add($as, $files);
+
+        return '';
+        // $templateVariableContainer = $renderingContext->getVariableProvider();
+        // $templateVariableContainer->add($as, $files);
+
         // $content = $renderChildrenClosure();
         // $templateVariableContainer->remove($as);
     }

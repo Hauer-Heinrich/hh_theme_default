@@ -31,7 +31,6 @@ namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
  */
 
 // use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use \TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class PhoneNumberViewHelper extends AbstractViewHelper {
@@ -40,16 +39,9 @@ class PhoneNumberViewHelper extends AbstractViewHelper {
         $this->registerArgument('country', 'string', 'country number, default: +49', false);
     }
 
-    /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
-     *
-     * @return string
-     */
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
-        $number = $arguments['number'];
-        $country_code = $arguments['country'];
+    public function render(): string {
+        $number = $this->arguments['number'];
+        $country_code = $this->arguments['country'];
 
         // Look up the country dialling code for this number:
         if (empty($country_code)) {

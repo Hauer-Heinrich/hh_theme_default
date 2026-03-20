@@ -37,9 +37,7 @@ namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
  */
 
 // use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use \TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use \TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class ExtendFluidArrayViewHelper extends AbstractViewHelper {
@@ -58,23 +56,16 @@ class ExtendFluidArrayViewHelper extends AbstractViewHelper {
      * @param Array $registers
      * @return void
      */
-    function registerArguments(Array $registers) {
+    function registerArguments(Array $registers): void {
         foreach($registers as $registerKey => $registerVal) {
             $this->registerArgument(...$registerVal);
         }
     }
 
-    /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
-     *
-     * @return void
-     */
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
-        $as = $arguments['as'];
-        $originalArray = $arguments['originalArray'];
-        $additionalData = $arguments['additionalData'];
+    public function render(): string {
+        $as = $this->arguments['as'];
+        $originalArray = $this->arguments['originalArray'];
+        $additionalData = $this->arguments['additionalData'];
         $extendedArray = $originalArray;
 
         if(!empty($additionalData) && is_array($additionalData)) {
@@ -83,9 +74,8 @@ class ExtendFluidArrayViewHelper extends AbstractViewHelper {
             }
         }
 
-        $templateVariableContainer = $renderingContext->getVariableProvider();
-        $templateVariableContainer->add($as, $extendedArray);
-        // $content = $renderChildrenClosure();
-        // $templateVariableContainer->remove($as);
+        $this->templateVariableContainer->add($as, $extendedArray);
+
+        return '';
     }
 }

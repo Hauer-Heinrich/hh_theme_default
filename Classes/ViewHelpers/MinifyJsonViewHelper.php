@@ -31,13 +31,9 @@ namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
  */
 
 // use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use \TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use \TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithContentArgumentAndRenderStatic;
 
 class MinifyJsonViewHelper extends AbstractViewHelper {
-
-    use CompileWithContentArgumentAndRenderStatic;
 
     protected $escapeOutput = false;
 
@@ -46,17 +42,10 @@ class MinifyJsonViewHelper extends AbstractViewHelper {
         $this->registerArgument('trim', 'bool', 'Remove spaces befor and after given text', false, false);
     }
 
-    /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
-     *
-     * @return string
-     */
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext) {
-        $text = $renderChildrenClosure();
+    public function render(): string {
+        $text = $this->renderChildren();
 
-        if($arguments['trim']) {
+        if($this->arguments['trim']) {
             $text = trim($text);
         }
 

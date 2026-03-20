@@ -7,8 +7,6 @@ namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
 */
 
 // use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use \TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
-use \TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class SpacelessViewHelper extends AbstractViewHelper {
@@ -19,21 +17,19 @@ class SpacelessViewHelper extends AbstractViewHelper {
     */
     protected $escapeOutput = false;
 
-    use CompileWithRenderStatic;
-
     public function initializeArguments() {
        $this->registerArgument('html', 'string', 'HTML', false);
        $this->registerArgument('emptyLines', 'bool', 'Remove only empty lines.', false);
     }
 
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext){
-        if(empty($arguments['html'])) {
-            $givenHtml = $renderChildrenClosure();
+    public function render(): string {
+        if(empty($this->arguments['html'])) {
+            $givenHtml = $this->renderChildren();;
         } else {
-            $givenHtml = $arguments['html'];
+            $givenHtml = $this->arguments['html'];
         }
 
-        if($arguments['emptyLines'] === true) {
+        if($this->arguments['emptyLines'] === true) {
             $html = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $givenHtml);
 
             return $html;

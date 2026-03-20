@@ -6,11 +6,8 @@ namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
     <hh:getHtmlFromUrl url="https://www.domain.tld">
 */
 
-// use \DOMDocument;
 // use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
-use \TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
-use \TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class GetHtmlFromUrlViewHelper extends AbstractViewHelper {
@@ -21,13 +18,11 @@ class GetHtmlFromUrlViewHelper extends AbstractViewHelper {
     */
     protected $escapeOutput = false;
 
-    use CompileWithRenderStatic;
-
     public function initializeArguments() {
        $this->registerArgument('url', 'string', 'URL', true);
     }
 
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext){
+    public function render(): string {
         // $html = file_get_contents($arguments['url']);
         // $doc = new DOMDocument;
         // $doc->loadHTML($html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
@@ -43,7 +38,7 @@ class GetHtmlFromUrlViewHelper extends AbstractViewHelper {
             'cookies' => false,
         ];
         // Return a PSR-7 compliant response object
-        $response = $requestFactory->request($arguments['url'], 'GET', $additionalOptions);
+        $response = $requestFactory->request($this->arguments['url'], 'GET', $additionalOptions);
         // Get the content as a string on a successful request
         if ($response->getStatusCode() === 200) {
             if (strpos($response->getHeaderLine('Content-Type'), 'text/html') === 0) {
