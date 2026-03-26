@@ -82,31 +82,31 @@
         row-gap: var(--gallery-item-row-gap);
     }
 
-    &[data-columns="2"] .ce-gallery-container {
+    &[data-settings-columns="2"] .ce-gallery-container {
         grid-template-columns: repeat(auto-fill, minmax(max(100% / 2 - var(--gallery-item-column-gap), var(--gallery-item-min-width)), 2fr));
     }
 
-    &[data-columns="3"] .ce-gallery-container {
+    &[data-settings-columns="3"] .ce-gallery-container {
         grid-template-columns: repeat(auto-fill, minmax(max(100% / 3 - var(--gallery-item-column-gap), var(--gallery-item-min-width)), 3fr));
     }
 
-    &[data-columns="4"] .ce-gallery-container {
+    &[data-settings-columns="4"] .ce-gallery-container {
         grid-template-columns: repeat(auto-fill, minmax(max(100% / 4 - var(--gallery-item-column-gap), var(--gallery-item-min-width)), 4fr));
     }
 
-    &[data-columns="5"] .ce-gallery-container {
+    &[data-settings-columns="5"] .ce-gallery-container {
         grid-template-columns: repeat(auto-fill, minmax(max(100% / 5 - var(--gallery-item-column-gap), var(--gallery-item-min-width)), 5fr));
     }
 
-    &[data-columns="6"] .ce-gallery-container {
+    &[data-settings-columns="6"] .ce-gallery-container {
         grid-template-columns: repeat(auto-fill, minmax(max(100% / 6 - var(--gallery-item-column-gap), var(--gallery-item-min-width)), 6fr));
     }
 
-    &[data-columns="7"] .ce-gallery-container {
+    &[data-settings-columns="7"] .ce-gallery-container {
         grid-template-columns: repeat(auto-fill, minmax(max(100% / 7 - var(--gallery-item-column-gap), var(--gallery-item-min-width)), 7fr));
     }
 
-    &[data-columns="8"] .ce-gallery-container {
+    &[data-settings-columns="8"] .ce-gallery-container {
         grid-template-columns: repeat(auto-fill, minmax(max(100% / 8 - var(--gallery-item-column-gap), var(--gallery-item-min-width)), 8fr));
     }
 }
