@@ -3,23 +3,24 @@
     data-namespace-typo3-fluid="true">
 
 <f:variable name="loading"><f:if condition="{data.colPos} != 0">lazy</f:if></f:variable>
+<f:variable name="fetchpriority"><f:if condition="{data.colPos} == 0">high</f:if></f:variable>
 <div class="image-wrapper">
     <figure class="image">
         <f:if condition="{file.link}">
             <f:then>
                 <f:link.typolink parameter="{file.link}" title="{file.title}">
-                    <f:render partial="Media/Rendering/Image" arguments="{file: file, dimensions: dimensions, settings: settings, loading: '{loading}'}" />
+                    <f:render partial="Media/Rendering/Image" arguments="{file: file, dimensions: dimensions, settings: settings, loading: '{loading}', fetchpriority: '{fetchpriority}'}" />
                 </f:link.typolink>
             </f:then>
             <f:else>
                 <f:if condition="{data.image_zoom}">
                     <f:then>
                         <ce:link.clickEnlarge image="{file}" configuration="{settings.media.popup}">
-                            <f:render partial="Media/Rendering/Image" arguments="{file: file, dimensions: dimensions, settings: settings, loading: '{loading}'}" />
+                            <f:render partial="Media/Rendering/Image" arguments="{file: file, dimensions: dimensions, settings: settings, loading: '{loading}', fetchpriority: '{fetchpriority}'}" />
                         </ce:link.clickEnlarge>
                     </f:then>
                     <f:else>
-                        <f:render partial="Media/Rendering/Image" arguments="{file: file, dimensions: dimensions, settings: settings, loading: '{loading}'}" />
+                        <f:render partial="Media/Rendering/Image" arguments="{file: file, dimensions: dimensions, settings: settings, loading: '{loading}', fetchpriority: '{fetchpriority}'}" />
                     </f:else>
                 </f:if>
             </f:else>
