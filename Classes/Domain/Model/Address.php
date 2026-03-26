@@ -6,12 +6,13 @@ use \HauerHeinrich\HhTtAddressPlaces\Domain\Model\Place;
 
 class Address extends Place {
 
-    public string $themeSkills = '' {
-        get {
-            return $this->themeSkills;
-        }
-        set(string $value) {
-            $this->themeSkills = $value;
-        }
+    private string $themeSkills = '';
+
+    public function getThemeSkills(): string {
+        return $this->themeSkills;
+    }
+
+    public function setThemeSkills(string $value): void {
+        $this->themeSkills = $value;
     }
 }
