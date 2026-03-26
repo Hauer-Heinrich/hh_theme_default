@@ -32,6 +32,7 @@ $EM_CONF['{{EXTENSION_KEY}}'] = [
             'container' => '',
             'news' => '',
             'tt_address' => '',
+            'hh_tt_address_places' => '',
             'powermail' => '',
             'hh_powermail_checkboxlink' => '',
             'hh_slider' => '>=0.8.2',
