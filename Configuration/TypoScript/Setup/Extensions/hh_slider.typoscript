@@ -5,15 +5,16 @@
 
 plugin.tx_hhslider.view {
     layoutRootPaths {
-        110 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Layouts/
+        110 = {$themeDefault.urls.themeResources}Private/Extensions/hh_slider/Layouts/
         120 = {$plugin.tx_hhslider.view.layoutRootPath}
     }
     partialRootPaths {
-        110 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
+        105 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
+        110 = {$themeDefault.urls.themeResources}Private/Extensions/hh_slider/Partials/
         120 = {$plugin.tx_hhslider.view.partialRootPath}
     }
     templateRootPaths {
-        110 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
+        110 = {$themeDefault.urls.themeResources}Private/Extensions/hh_slider/Templates/
         120 = {$plugin.tx_hhslider.view.templateRootPath}
     }
 }
