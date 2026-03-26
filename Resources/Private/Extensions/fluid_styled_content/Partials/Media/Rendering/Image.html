@@ -53,10 +53,10 @@
             </f:alias>
             <f:if condition="{file.extension} == 'pdf'">
                 <f:then>
-                    <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" loading="{loading}"  fetchpriority="{fetchpriority}" />
+                    <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" loading="{loading}" fetchpriority="{fetchpriority}" />
                 </f:then>
                 <f:else>
-                    <f:image class="image-embed-item" image="{file}" width="{dimensions.width}" height="{dimensions.height}" cropVariant="default" maxWidth="1920" loading="{loading}"  fetchpriority="{fetchpriority}" />
+                    <f:image class="image-embed-item" image="{file}" width="{dimensions.width}" height="{dimensions.height}" cropVariant="default" maxWidth="1920" loading="{loading}" fetchpriority="{fetchpriority}" />
                 </f:else>
             </f:if>
         </picture>
