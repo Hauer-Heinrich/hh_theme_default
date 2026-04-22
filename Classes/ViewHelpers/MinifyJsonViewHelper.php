@@ -37,7 +37,7 @@ class MinifyJsonViewHelper extends AbstractViewHelper {
 
     protected $escapeOutput = false;
 
-    public function initializeArguments() {
+    public function initializeArguments(): void {
         $this->registerArgument('text', 'string', 'Removes new lines from the given text.', false);
         $this->registerArgument('trim', 'bool', 'Remove spaces befor and after given text', false, false);
     }

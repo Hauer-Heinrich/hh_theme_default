@@ -37,7 +37,7 @@ use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ReadFromFlexformViewHelper extends AbstractViewHelper {
-    public function initializeArguments() {
+    public function initializeArguments(): void {
         $this->registerArgument('flexform', 'string', 'xml flexform', true);
         $this->registerArgument('field', 'string', 'xml flexform field', true);
         $this->registerArgument('sheet', 'string', 'like sDEF', false);

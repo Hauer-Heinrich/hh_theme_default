@@ -34,7 +34,7 @@ namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
 use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class PhoneNumberViewHelper extends AbstractViewHelper {
-    public function initializeArguments() {
+    public function initializeArguments(): void {
         $this->registerArgument('number', 'string', 'Phone number, dont work with numbers like +49 (0) 3425..', true);
         $this->registerArgument('country', 'string', 'country number, default: +49', false);
     }
