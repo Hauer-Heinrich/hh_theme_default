@@ -6,7 +6,6 @@
     "homepage": "https://www.hauer-heinrich.de",
     "readme": "README.md",
     "time": "2026-01-09",
-    "version": "1.0.0",
     "license": "GPL-2.0-or-later",
     "authors": [
         {
@@ -61,7 +60,11 @@
         "typo3/cms": {
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
             "web-dir": ".Build/Web",
-            "extension-key": "{{EXTENSION_KEY}}"
+            "extension-key": "{{EXTENSION_KEY}}",
+            "version": "1.0.0",
+            "Package": {
+                "providesPackages": {}
+            }
         }
     }
 }
