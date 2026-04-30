@@ -25,11 +25,7 @@ tt_content.textmedia {
     }
 
     dataProcessing {
-        10 = files
-        10 {
-            references.fieldName = assets
-        }
-        20 = theme-gallery
+        20 = {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\DataProcessing\GalleryProcessor
         20 {
             maxGalleryWidth = {$styles.content.textmedia.maxW}
             maxGalleryWidthInText = {$styles.content.textmedia.maxWInText}
