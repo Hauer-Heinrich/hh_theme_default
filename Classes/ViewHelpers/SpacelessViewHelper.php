@@ -17,7 +17,7 @@ class SpacelessViewHelper extends AbstractViewHelper {
     */
     protected $escapeOutput = false;
 
-    public function initializeArguments() {
+    public function initializeArguments(): void {
        $this->registerArgument('html', 'string', 'HTML', false);
        $this->registerArgument('emptyLines', 'bool', 'Remove only empty lines.', false);
     }

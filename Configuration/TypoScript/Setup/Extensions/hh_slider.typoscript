@@ -5,7 +5,7 @@
 
 plugin.tx_hhslider.view {
     layoutRootPaths {
-        110 = {$themeDefault.urls.themeResources}Private/Extensions/hh_slider/Layouts/
+        10 = {$themeDefault.urls.themeResources}Private/Extensions/hh_slider/Layouts/
         120 = {$plugin.tx_hhslider.view.layoutRootPath}
     }
     partialRootPaths {

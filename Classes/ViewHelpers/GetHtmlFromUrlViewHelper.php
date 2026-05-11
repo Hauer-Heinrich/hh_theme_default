@@ -18,7 +18,7 @@ class GetHtmlFromUrlViewHelper extends AbstractViewHelper {
     */
     protected $escapeOutput = false;
 
-    public function initializeArguments() {
+    public function initializeArguments(): void {
        $this->registerArgument('url', 'string', 'URL', true);
     }
 

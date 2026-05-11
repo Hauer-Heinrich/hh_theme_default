@@ -10,7 +10,7 @@ use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 final class GetFeUserViewHelper extends AbstractViewHelper {
 
-    public function initializeArguments() {
+    public function initializeArguments(): void {
         parent::initializeArguments();
     }
 

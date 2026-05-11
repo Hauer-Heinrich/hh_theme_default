@@ -18,7 +18,7 @@ class TimeAgoViewHelper extends AbstractViewHelper {
     */
     protected $escapeOutput = false;
 
-    public function initializeArguments(){
+    public function initializeArguments(): void {
        $this->registerArgument('time', 'DateTime', 'time in the past - Input can be any supported date and time format.', true);
     }
 

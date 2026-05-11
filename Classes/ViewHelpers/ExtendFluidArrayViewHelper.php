@@ -42,7 +42,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class ExtendFluidArrayViewHelper extends AbstractViewHelper {
 
-    public function initializeArguments() {
+    public function initializeArguments(): void {
         $this->registerArguments([
             ['originalArray', 'array', 'FLUID array', true],
             ['additionalData', 'array', 'New values (key:value) to add.', true],

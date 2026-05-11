@@ -46,7 +46,7 @@ use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class FalViewHelper extends AbstractViewHelper {
 
-    public function initializeArguments() {
+    public function initializeArguments(): void {
         $this->registerArguments([
             ['table', 'string', 'DB table', false, 'tt_content'],
             ['field', 'string', 'reference field of the content element', false, 'image'],
