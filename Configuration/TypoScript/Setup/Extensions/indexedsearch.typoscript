@@ -22,6 +22,7 @@ plugin.tx_indexedsearch {
     }
 
     settings {
+        rootPidList = {$plugin.{{EXTENSION_NAME}}.indexedSearchRootPidList}
         targetPid = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
         displayRules = 0
         displayAdvancedSearchLink = 0
@@ -37,6 +38,12 @@ config {
     index_metatags = 1
     ### Wenn gesetzt, werden externe Medien, auf die auf Seiten verlinkt wird, ebenfalls indiziert.
     index_externals = 0
+}
+
+page {
+    config {
+        index_enable = 1
+    }
 }
 
 ### liefert blanke Ergebnisse ohne Header etc. für Ajax nachladen

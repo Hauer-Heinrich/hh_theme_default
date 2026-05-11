@@ -20,6 +20,8 @@ plugin.{{EXTENSION_NAME}} {
         quickLinks =
     # cat=plugin.{{EXTENSION_NAME}}_mainconfig/basic/0120; type=int+; label= Page UID of indexed_search plugin
         indexedSearchId =
+    # cat=plugin.{{EXTENSION_NAME}}_mainconfig/basic/0125; type=int+; label= Page UID of the Rootpage of the site tree
+        indexedSearchRootPidList =
     # cat=plugin.{{EXTENSION_NAME}}_mainconfig/basic/0200; type=string; label= Path to the theme language translation xlf files
         pathToThemeXlfFiles = EXT:{{EXTENSION_KEY}}/Resources/Private/Language/
 }

@@ -113,6 +113,7 @@ textarea,
 select,
 label,
 legend {
+    caret-color: var(--color-primary);
     padding: var(--padding-input);
 }
 

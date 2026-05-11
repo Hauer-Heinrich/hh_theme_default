@@ -60,3 +60,5 @@ config {
         contentObjectExceptionHandler = 0
     }
 [global]
+
+page = PAGE
