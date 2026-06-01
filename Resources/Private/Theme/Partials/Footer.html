@@ -49,7 +49,7 @@
             <div class="footer-item footer-item-5 footer-address">
                 <span class="name">{faddress.company}</span>
                 <span class="email"><f:link.email email="{faddress.email}"></f:link.email></span>
-                <span class="phone"><a href="tel:{address.cleanedPhone}">{faddress.phone}</a></span>
+                <span class="phone"><a href="tel:{hhdefault:phoneNumber(number: '{faddress.phone}')}">{faddress.phone}</a></span>
             </div>
 
             <f:asset.script identifier="footer-address-json" additionalAttributes="{type: 'application/ld+json'}">
