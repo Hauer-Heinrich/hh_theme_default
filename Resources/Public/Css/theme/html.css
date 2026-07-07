@@ -1,6 +1,10 @@
 /* CUSTOM HTML - BODY/HTML */
 html,
 body {
+    min-height: 100vh;
+}
+
+html {
     height: 100%;
 }
 

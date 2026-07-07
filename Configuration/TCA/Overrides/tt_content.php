@@ -44,8 +44,8 @@ call_user_func(function(string $extensionKey) {
             ],
             'row_gap' => [
                 'exclude' => 1,
-                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.row_gap',
-                'description' => '',
+                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.row_gap.label',
+                'description' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.row_gap.description',
                 'config' => [
                     'type' => 'number',
                     'format' => 'integer',
@@ -60,8 +60,8 @@ call_user_func(function(string $extensionKey) {
             ],
             'column_gap' => [
                 'exclude' => 1,
-                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.column_gap',
-                'description' => '',
+                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.column_gap.label',
+                'description' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.column_gap.description',
                 'config' => [
                     'type' => 'number',
                     'format' => 'integer',
@@ -76,8 +76,8 @@ call_user_func(function(string $extensionKey) {
             ],
             'gallery_row_gap' => [
                 'exclude' => 1,
-                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.gallery_row_gap',
-                'description' => '',
+                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.gallery_row_gap.label',
+                'description' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.gallery_row_gap.description',
                 'config' => [
                     'type' => 'number',
                     'format' => 'integer',
@@ -92,8 +92,8 @@ call_user_func(function(string $extensionKey) {
             ],
             'gallery_column_gap' => [
                 'exclude' => 1,
-                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.gallery_column_gap',
-                'description' => '',
+                'label' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.gallery_column_gap.label',
+                'description' => 'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/locallang_db.xlf:tt_content.gallery_column_gap.description',
                 'config' => [
                     'type' => 'number',
                     'format' => 'integer',
@@ -201,6 +201,7 @@ call_user_func(function(string $extensionKey) {
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
             --palette--;;frames,
             --palette--;;appearanceLinks,
+            --palette--;;gap,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
             --palette--;;language,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,

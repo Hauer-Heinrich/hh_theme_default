@@ -46,6 +46,13 @@ SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 # SetEnvIf Referer www\.domain\.localhost TYPO3_PATH_APP=C:\MAMP\htdocs\testings
 # SetEnvIf Referer www\.domain\.localhost TYPO3_PATH_ROOT=C:\MAMP\htdocs\domain.localhost
 
+### Remove trailing slash
+### If the file/symlink/directory does not exist and url has trailing slash => Redirect to url without trailing slash.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.+)/$ /$1 [QSA,R=301,L]
+
 #####
 #
 # Example .htaccess file for TYPO3 CMS - for use with Apache Webserver
@@ -426,6 +433,11 @@ FileETag None
 # ----------------------------------------------------------------------
 # | Add your own rules here.
 # ----------------------------------------------------------------------
+
+### Disable indexing of pdf files
+<Files ~ "\.pdf$">
+    Header set X-Robots-Tag "noindex, nofollow"
+</Files>
 
 # Alternative caching using Apache's "mod_headers", if it's installed.
 # Caching of common files - ENABLED

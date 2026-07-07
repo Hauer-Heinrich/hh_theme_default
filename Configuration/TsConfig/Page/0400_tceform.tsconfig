@@ -13,7 +13,9 @@ TCEFORM {
                 html,
                 ### EXT: news
                 news_newsdetail, news_taglist, news_newsliststicky,
-                news_newsselectedlist, news_newsdatemenu, news_newssearchform, news_newssearchresult,
+                news_newsselectedlist, news_newsdatemenu, news_newssearchform, news_newssearchresult,+
+                ### EXT: powermail
+                powermail_pi2, powermail_pi3, powermail_pi4,
             )
         }
     }
@@ -33,7 +35,9 @@ TCEFORM {
                 menu_related_pages, menu_abstract,
                 ### EXT: news
                 news_newsdetail, news_taglist, news_newsliststicky,
-                news_newsselectedlist, news_newsdatemenu, news_newssearchform, news_newssearchresult,
+                news_newsselectedlist, news_newsdatemenu, news_newssearchform, news_newssearchresult,+
+                ### EXT: powermail
+                powermail_pi2, powermail_pi3, powermail_pi4,
             )
         }
     }

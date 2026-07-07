@@ -65,20 +65,6 @@ $customChanges = [
                 ],
             ],
         ],
-
-        'TYPO3' => [
-            'CMS' => [
-                'deprecations' => [
-                    'writerConfiguration' => [
-                        'notice' => [
-                            'TYPO3\CMS\Core\Log\Writer\FileWriter' => [
-                                'disabled' => true,
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ],
     ],
     'GFX' => [
         'imagefile_ext' => 'pdf,png,jpg,jpeg,svg,webp',

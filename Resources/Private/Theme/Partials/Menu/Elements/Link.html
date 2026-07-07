@@ -1,47 +1,83 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
-<f:if condition="{files}">
+<f:comment>
+    Wenn asButton gesetzt ist: prüfen ob item.link identisch mit
+    dem Link des ersten Kindes ist. Wenn ja → nur Button, kein A-Tag.
+    Wenn nein → A-Tag + Button nebeneinander (Split-Button).
+</f:comment>
+
+<f:variable name="firstChildLink" value="{item.children.0.link}" />
+
+<f:if condition="{asButton} && {item.link} == {firstChildLink}">
     <f:then>
-        <f:if condition="{item.data.target}">
-            <f:then>
-                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" target="{item.data.target}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')} {f:if(condition:'{item.hasSubpages}', then:'aria-expanded="false"')}>
-            </f:then>
-            <f:else if="{item.target}">
-                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" target="{item.target}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')} {f:if(condition:'{item.hasSubpages}', then:'aria-expanded="false"')}>
-            </f:else>
-            <f:else>
-                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')} {f:if(condition:'{item.hasSubpages}', then:'aria-expanded="false"')}>
-            </f:else>
-        </f:if>
+        <f:comment>Nur Button – Link wäre redundant zur ersten Unterseite</f:comment>
+        <button type="button"
+            class="nav__toggle nav__toggle--only"
+            aria-expanded="false"
+            aria-label="{item.title} Untermenü ein-/ausblenden"
+        >
             <f:if condition="{files}">
                 <span class="files">
-                    <f:for each="{files}" as="file" iteration="i">
-                        <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" />
+                    <f:for each="{files}" as="file">
+                        <f:media class="image-embed-item" file="{file}"
+                                 width="{dimensions.width}" height="{dimensions.height}"
+                                 alt="{file.alternative}" title="{file.title}" />
                     </f:for>
                 </span>
             </f:if>
             <f:if condition="{label} != 'false'">
                 <span class="title">{item.title}</span>
             </f:if>
-        </a>
+            <span class="nav__toggle-icon" aria-hidden="true">▾</span>
+        </button>
     </f:then>
     <f:else>
+        <f:comment>A-Tag (immer), und wenn asButton auch Toggle-Button daneben</f:comment>
         <f:if condition="{item.data.target}">
             <f:then>
-                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" target="{item.data.target}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')} {f:if(condition:'{item.hasSubpages}', then:'aria-expanded="false"')}>
+                <a href="{item.link}"
+                   class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}"
+                   target="{item.data.target}"
+                   title="{item.data.title}"
+                   {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')}>
             </f:then>
             <f:else if="{item.target}">
-                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" target="{item.target}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')} {f:if(condition:'{item.hasSubpages}', then:'aria-expanded="false"')}>
+                <a href="{item.link}"
+                   class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}"
+                   target="{item.target}"
+                   title="{item.data.title}"
+                   {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')}>
             </f:else>
             <f:else>
-                <a href="{item.link}" class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}" title="{item.data.title}" {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')} {f:if(condition:'{item.hasSubpages}', then:'aria-expanded="false"')}>
+                <a href="{item.link}"
+                   class="{f:if(condition: '{item.active} && {item.link} != "/"', then: 'active')}"
+                   title="{item.data.title}"
+                   {f:if(condition: '{item.data.doktype} == 3', then: 'rel="noopener"')}>
             </f:else>
         </f:if>
+            <f:if condition="{files}">
+                <span class="files">
+                    <f:for each="{files}" as="file">
+                        <f:media class="image-embed-item" file="{file}"
+                                 width="{dimensions.width}" height="{dimensions.height}"
+                                 alt="{file.alternative}" title="{file.title}" />
+                    </f:for>
+                </span>
+            </f:if>
             <f:if condition="{label} != 'false'">
-                {item.title}
+                <f:if condition="{files}">
+                    <f:then><span class="title">{item.title}</span></f:then>
+                    <f:else>{item.title}</f:else>
+                </f:if>
             </f:if>
         </a>
+
+        <f:if condition="{asButton}">
+            <button type="button" aria-expanded="false" aria-label="{item.title} Untermenü ein-/ausblenden">
+                <span aria-hidden="true">▾</span>
+            </button>
+        </f:if>
     </f:else>
 </f:if>
 

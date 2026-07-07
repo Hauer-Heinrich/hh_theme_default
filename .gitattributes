@@ -2,6 +2,7 @@
 .gitattributes export-ignore
 .gitignore export-ignore
 .github export-ignore
+.githooks export-ignore
 .editorconfig export-ignore
 *.code-workspace export-ignore
 .on-save.json export-ignore
@@ -11,3 +12,11 @@ github export-ignore
 gulpfile.js export-ignore
 package-lock.json export-ignore
 package.json export-ignore
+
+biome.json export-ignore
+pint.json export-ignore
+pint.phar export-ignore
+
+init.sh export-ignore
+initmac.sh export-ignore
+init.ps1 export-ignore
