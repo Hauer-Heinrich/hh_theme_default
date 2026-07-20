@@ -35,6 +35,7 @@ plugin.tx_news {
         }
 
         detail {
+            checkPidOfNewsRecord = 1
             showSocialShareButtons = 1
 
             media {
