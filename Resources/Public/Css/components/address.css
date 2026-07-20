@@ -22,7 +22,6 @@
     }
 
     & .article-container .ce-image img {
-        max-height: 50vh;
         width: auto;
         object-fit: cover;
         object-position: center center;

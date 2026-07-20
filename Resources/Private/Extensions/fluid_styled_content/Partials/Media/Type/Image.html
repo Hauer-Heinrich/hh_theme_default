@@ -3,7 +3,7 @@
     data-namespace-typo3-fluid="true">
 
 <f:variable name="loading"><f:if condition="{data.colPos} != 0">lazy</f:if></f:variable>
-<f:variable name="fetchpriority"><f:if condition="{data.colPos} == 0">high</f:if></f:variable>
+<f:variable name="fetchpriority"><f:if condition="{data.colPos} == 0"><f:then>high</f:then><f:else>auto</f:else></f:if></f:variable>
 <div class="image-wrapper">
     <figure class="image">
         <f:if condition="{file.link}">
