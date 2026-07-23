@@ -2,7 +2,7 @@
     data-namespace-typo3-fluid="true">
 
 <f:if condition="{header}">
-    <f:variable name="cHeader"><f:link.typolink parameter="{link}"><f:format.stripTags allowedTags="<br><b><strong><i><span><h1><h2><h3><h4><h5>">{header}</f:format.stripTags></f:link.typolink></f:variable>
+    <f:variable name="cHeader"><f:link.typolink parameter="{link}"><f:format.stripTags allowedTags="<a><br><b><strong><i><span><h1><h2><h3><h4><h5>"><f:format.html>{header}</f:format.html></f:format.stripTags></f:link.typolink></f:variable>
     <f:format.raw>{cHeader}</f:format.raw>
 </f:if>
 
