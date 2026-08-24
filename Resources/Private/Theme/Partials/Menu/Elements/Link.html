@@ -13,29 +13,23 @@
     <f:then>
         <f:comment>Nur Button – Link wäre redundant zur ersten Unterseite</f:comment>
         <button type="button"
-            class="menu-toggle"
+            class="nav__toggle nav__toggle--only"
             aria-expanded="false"
-            aria-controls="submenu-{submenuId}"
             aria-label="{item.title} Untermenü ein-/ausblenden"
         >
             <f:if condition="{files}">
                 <span class="files">
                     <f:for each="{files}" as="file">
-                        <f:media
-                            class="image-embed-item"
-                            file="{file}"
-                            width="{dimensions.width}"
-                            height="{dimensions.height}"
-                            alt="{file.alternative}"
-                            title="{file.title}"
-                        />
+                        <f:media class="image-embed-item" file="{file}"
+                                 width="{dimensions.width}" height="{dimensions.height}"
+                                 alt="{file.alternative}" title="{file.title}" />
                     </f:for>
                 </span>
             </f:if>
             <f:if condition="{label} != 'false'">
                 <span class="title">{item.title}</span>
             </f:if>
-            <span class="menu-toggle-icon" aria-hidden="true">▾</span>
+            <span class="nav__toggle-icon" aria-hidden="true">▾</span>
         </button>
     </f:then>
     <f:else>
@@ -80,7 +74,7 @@
         </a>
 
         <f:if condition="{asButton}">
-            <button type="button" aria-expanded="false" aria-controls="submenu-{submenuId}" aria-label="{item.title} Untermenü ein-/ausblenden">
+            <button type="button" aria-expanded="false" aria-label="{item.title} Untermenü ein-/ausblenden">
                 <span aria-hidden="true">▾</span>
             </button>
         </f:if>

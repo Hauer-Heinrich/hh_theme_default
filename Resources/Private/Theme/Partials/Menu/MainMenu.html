@@ -23,8 +23,8 @@
         <f:for each="{submenu}" key="subKey" as="subItem">
             <f:if condition="{subItem.children}">
                 <f:then>
-                    <f:render partial="Menu/Elements/Item" arguments="{item: '{subItem}', asButton: 1, submenuId: '{subKey}'}" />
-                    <f:render section="submenu" arguments="{submenu: '{subItem.children}', submenuId: '{subKey}'}" />
+                    <f:render partial="Menu/Elements/Item" arguments="{item: '{subItem}', asButton: 1}" />
+                    <f:render section="submenu" arguments="{submenu: '{subItem.children}'}" />
                 </f:then>
                 <f:else>
                     <f:render partial="Menu/Elements/Item" arguments="{item: '{subItem}'}" />
@@ -36,11 +36,11 @@
 </f:section>
 
 <f:section name="submenu">
-    <ul id="submenu-{submenuId}">
+    <ul>
         <f:for each="{submenu}" key="subKey" as="subItem">
-            <f:render partial="Menu/Elements/Item" arguments="{item: '{subItem}', submenuId: '{submenuId}'}" />
+            <f:render partial="Menu/Elements/Item" arguments="{item: '{subItem}'}" />
             <f:if condition="{subItem.children}">
-                <f:render section="submenu" arguments="{submenu: '{subItem.children}', submenuId: '{submenuId}-{subKey}'}" />
+                <f:render section="submenu" arguments="{submenu: '{subItem.children}'}" />
             </f:if>
             </li>
         </f:for>

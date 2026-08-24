@@ -1,0 +1,5 @@
+TCEFORM {
+    sys_file_reference {
+        preview_image.config.appearance.fileUploadAllowed = 0
+    }
+}

@@ -1,7 +1,5 @@
 <?php
-declare(strict_types=1);
-
-namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
+namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
 
 /*
     Usage: (Input can be any supported date and time format.)
@@ -9,8 +7,8 @@ namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
     <hh:timeAgo time="{timestamp}" />
 */
 
-// use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+// use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class TimeAgoViewHelper extends AbstractViewHelper {
     /**

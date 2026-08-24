@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../components-custom/news.css"],
-  "sourcesContent": [".news-list-view {\n    display: grid;\n    grid-template-columns: 100%;\n    gap: 40px;\n}\n\n@container frame (width > 600px) {\n    .news-list-view {\n        &[data-columns=\"2\"],\n        &[data-columns=\"4\"] {\n            grid-template-columns: 1fr 1fr;\n        }\n    }\n}\n\n@container frame (width > 900px) {\n    .news-list-view {\n        &[data-columns=\"3\"] {\n            grid-template-columns: 1fr 1fr 1fr;\n        }\n    }\n}\n\n@container frame (width > 1200px) {\n    .news-list-view {\n        &[data-columns=\"4\"] {\n            grid-template-columns: 1fr 1fr 1fr 1fr;\n        }\n    }\n}\n"],
-  "mappings": "AAAA,CAAC,eACG,QAAS,KACT,sBAAuB,KACvB,IAAK,IACT,CAEA,WAAW,MAAM,CAAC,MAAM,EAAE,OACtB,CAPH,cAQQ,CAAC,kBADN,CAPH,cASQ,CAAC,kBACE,sBAAuB,IAAI,GAC/B,CAER,CAEA,WAAW,MAAM,CAAC,MAAM,EAAE,OACtB,CAhBH,cAiBQ,CAAC,kBACE,sBAAuB,IAAI,IAAI,GACnC,CAER,CAEA,WAAW,MAAM,CAAC,MAAM,EAAE,QACtB,CAxBH,cAyBQ,CAAC,kBACE,sBAAuB,IAAI,IAAI,IAAI,GACvC,CAER",
-  "names": []
-}

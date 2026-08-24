@@ -5,13 +5,13 @@ declare(strict_types=1);
  * This file is part of the TYPO3 CMS project. [...]
  */
 
-namespace HauerHeinrich\HhThemeDefault\DataProcessing;
+namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\DataProcessing;
 
-// use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-use TYPO3\CMS\Extbase\Property\PropertyMapper;
+// use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
+use \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use \TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
+use \TYPO3\CMS\Extbase\Property\PropertyMapper;
 
 /**
  * Class for data processing comma separated categories

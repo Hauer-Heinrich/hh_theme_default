@@ -61,8 +61,7 @@ h6 {
 /* LISTS */
 ul,
 ol {
-    list-style-position: outside;
-    margin-inline-start: 1em;
+    list-style-position: inside;
 }
 
 nav ul {

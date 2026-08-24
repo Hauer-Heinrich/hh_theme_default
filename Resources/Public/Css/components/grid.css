@@ -1,0 +1,101 @@
+/* COMPONENT - VARIABLES */
+.grid-container {
+    --grid-item-column-gap: 0vw;
+    --grid-item-row-gap: 0vw;
+    --grid-item-min-width: min(320px, 100%);
+
+    &[data-row-gap="1"] { --grid-item-row-gap: max(20px, 1vw); }
+    &[data-row-gap="2"] { --grid-item-row-gap: max(20px, 2vw); }
+    &[data-row-gap="3"] { --grid-item-row-gap: max(20px, 3vw); }
+    &[data-row-gap="4"] { --grid-item-row-gap: max(20px, 4vw); }
+    &[data-row-gap="5"] { --grid-item-row-gap: max(20px, 5vw); }
+    &[data-row-gap="6"] { --grid-item-row-gap: max(20px, 6vw); }
+    &[data-row-gap="7"] { --grid-item-row-gap: max(20px, 7vw); }
+    &[data-row-gap="8"] { --grid-item-row-gap: max(20px, 8vw); }
+    &[data-row-gap="9"] { --grid-item-row-gap: max(20px, 9vw); }
+    &[data-row-gap="10"] { --grid-item-row-gap: max(20px, 10vw); }
+
+    &[data-column-gap="1"] { --grid-item-column-gap: max(20px, 1vw); }
+    &[data-column-gap="2"] { --grid-item-column-gap: max(20px, 2vw); }
+    &[data-column-gap="3"] { --grid-item-column-gap: max(20px, 3vw); }
+    &[data-column-gap="4"] { --grid-item-column-gap: max(20px, 4vw); }
+    &[data-column-gap="5"] { --grid-item-column-gap: max(20px, 5vw); }
+    &[data-column-gap="6"] { --grid-item-column-gap: max(20px, 6vw); }
+    &[data-column-gap="7"] { --grid-item-column-gap: max(20px, 7vw); }
+    &[data-column-gap="8"] { --grid-item-column-gap: max(20px, 8vw); }
+    &[data-column-gap="9"] { --grid-item-column-gap: max(20px, 9vw); }
+    &[data-column-gap="10"] { --grid-item-column-gap: max(20px, 10vw); }
+}
+@media screen and (min-width: 1921px) {
+    .grid-container {
+        &[data-row-gap="1"] { --grid-item-row-gap: 16px; }
+        &[data-row-gap="2"] { --grid-item-row-gap: 38px; }
+        &[data-row-gap="3"] { --grid-item-row-gap: 57px; }
+        &[data-row-gap="4"] { --grid-item-row-gap: 76px; }
+        &[data-row-gap="5"] { --grid-item-row-gap: 96px; }
+        &[data-row-gap="6"] { --grid-item-row-gap: 115px; }
+        &[data-row-gap="7"] { --grid-item-row-gap: 134px; }
+        &[data-row-gap="8"] { --grid-item-row-gap: 153px; }
+        &[data-row-gap="9"] { --grid-item-row-gap: 172px; }
+        &[data-row-gap="10"] { --grid-item-row-gap: 192px; }
+
+        &[data-column-gap="1"] { --grid-item-column-gap: 16px; }
+        &[data-column-gap="2"] { --grid-item-column-gap: 38px; }
+        &[data-column-gap="3"] { --grid-item-column-gap: 57px; }
+        &[data-column-gap="4"] { --grid-item-column-gap: 76px; }
+        &[data-column-gap="5"] { --grid-item-column-gap: 96px; }
+        &[data-column-gap="6"] { --grid-item-column-gap: 115px; }
+        &[data-column-gap="7"] { --grid-item-column-gap: 134px; }
+        &[data-column-gap="8"] { --grid-item-column-gap: 153px; }
+        &[data-column-gap="9"] { --grid-item-column-gap: 172px; }
+        &[data-column-gap="10"] { --grid-item-column-gap: 192px; }
+    }
+}
+
+/* COMPONENT - STYLING */
+.grid-container {
+    /* GRID LAYOUT (+RESPONSIVE) */
+    display: grid;
+    grid-template-columns: 100%;
+    column-gap: var(--grid-item-column-gap);
+    row-gap: var(--grid-item-row-gap);
+
+    & .frame {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .grid-container {
+        &[data-columns="2"] {
+            grid-template-columns: repeat(auto-fill, minmax(max(100% / 2 - var(--grid-item-column-gap), var(--grid-item-min-width)), 2fr));
+        }
+
+        &[data-columns="3"] {
+            grid-template-columns: repeat(auto-fill, minmax(max(100% / 3 - var(--grid-item-column-gap), var(--grid-item-min-width)), 3fr));
+        }
+
+        &[data-columns="4"] {
+            grid-template-columns: repeat(auto-fill, minmax(max(100% / 4 - var(--grid-item-column-gap), var(--grid-item-min-width)), 4fr));
+        }
+    }
+
+    /* GRID SPECIAL THEMES */
+    .frame-type-grid-row-1--col-2--33-66 .grid-container {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .frame-type-grid-row-1--col-2--66-33 .grid-container {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .frame-type-grid-row-1--col-2--25-75 .grid-container {
+        grid-template-columns: 1fr 3fr;
+    }
+
+    .frame-type-grid-row-1--col-2--75-25 .grid-container {
+        grid-template-columns: 3fr 1fr;
+    }
+}

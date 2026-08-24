@@ -4,21 +4,12 @@
 @import 'EXT:hh_accordion/Configuration/TypoScript/setup.typoscript'
 tt_content.hhaccordion_hh_accordion {
     templateRootPaths {
-        10 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
-        20 = EXT:hh_accordion/Resources/Private/Templates/
-        30 = {$themeDefault.urls.themeResources}Private/Extensions/hh_accordion/Templates/
-        100 = {$plugin.tx_hhaccordion.view.templateRootPath}
+        5 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Templates/
     }
     partialRootPaths {
-        10 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
-        20 = EXT:hh_accordion/Resources/Private/Partials/
-        30 = {$themeDefault.urls.themeResources}Private/Extensions/hh_accordion/Partials/
-        100 = {$plugin.tx_hhaccordion.view.partialRootPath}
+        5 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Partials/
     }
     layoutRootPaths {
-        10 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Layouts/
-        20 = EXT:hh_accordion/Resources/Private/Layouts/
-        30 = {$themeDefault.urls.themeResources}Private/Extensions/hh_accordion/Layouts/
-        100 = {$plugin.tx_hhaccordion.view.layoutRootPath}
+        5 = {$themeDefault.urls.themeResources}Private/Extensions/fluid_styled_content/Layouts/
     }
 }

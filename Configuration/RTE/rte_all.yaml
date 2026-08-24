@@ -1,11 +1,11 @@
 editor:
   config:
     contentsCss:
-      - 'EXT:hh_theme_default/Resources/Public/Css/bundles/main-rte.bundle.css'
+      - 'EXT:{{EXTENSION_KEY}}/Resources/Public/Css/main-rte.bundle.css'
 
     importModules:
       - { module: '@ckeditor/ckeditor5-font', exports: [ 'Font' ] }
-      - { module: '@hauerheinrich/hh-ckeditor-font/palette-buttons.js', exports: [ 'FontColorBtn', 'FontBackgroundColorBtn', 'FontFamilyBtn' ] }
+      # - { module: '@HauerHeinrich/ckeditor5-highlight', exports: [ 'Highlight' ] }
 
     fontSize:
       options:
@@ -23,20 +23,24 @@ editor:
     #     - { name: "letter-spacing-2", element: "span", classes: ["letter-spacing-2"] }
     #     - { name: "letter-spacing-4", element: "span", classes: ["letter-spacing-4"] }
 
-    fontColorBtn:
-      colors:
-        - { classes: ['color-primary'], label: 'Color primary', color: '#F8F213' }
-        - { classes: ['color-secondary'], label: 'Color secondary', color: '#F8F213' }
 
-    fontBackgroundColorBtn:
-      colors:
-        - { classes: ['background-color-primary'], label: 'Color primary', color: '#F8F213' }
-        - { classes: ['background-color-secondary'], label: 'Color secondary', color: '#F8F213' }
+    ### IMPORTANT: fontColor and fontBackgroundColor uses inline-style
+    ### - we don't like inline-style, so as workaround we use a slightly modified plugin "highlight"
+    ### the highlight plugin generates original a "mark"-tag element, but we changed this to use a "span"-tag
+    # fontColor:
+    #   colorPicker: false
+    #   colors:
+    #     - { label: 'Orange', color: '#ff8700', classes: 'test' }
+    #     - { label: 'Green', color: '#209d44' }
 
-    fontFamilyBtn:
-      fonts:
-        - { classes: ['font-sans'], label: 'Sans-Serif', fontFamily: 'Arial, sans-serif' }
-        - { classes: ['font-serif'], label: 'Serif', fontFamily: 'Georgia, serif' }
+    # fontBackgroundColor:
+    #   colorPicker: false
+    #   colors:
+    #     - { label: 'Stage orange light', color: '#fab85c' }
+    highlight:
+      options:
+        - { model: 'primaryPen', class: 'color-primary', title: 'Color primary', color: '#3E3E3E', type: 'pen' }
+        - { model: 'secondaryPen', class: 'color-secondary', title: 'Color Secondary', color: '#AE0F0A', type: 'pen' }
 
     alignment:
       options:
@@ -44,6 +48,9 @@ editor:
         - { name: 'center', className: 'text-center' }
         - { name: 'right', className: 'text-right' }
         - { name: 'justify', className: 'text-justify' }
+
+    plugins:
+      - Highlight
 
 ### example linkhandler css classes
 ### Button config and defaults

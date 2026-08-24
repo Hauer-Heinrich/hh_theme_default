@@ -4,7 +4,7 @@
 <f:if condition="{item.spacer} || {item.current}">
     <f:then>
         <li class="{f:if(condition: '{item.current}', then:' active current')}{f:if(condition:item.spacer, then:' spacer')} {f:if(condition:'{item.hasSubpages}', then:'has--children')}">
-            <f:render partial="Menu/Elements/Link" arguments="{item: '{item}', files: '{files}', label: '{label}', asButton: '{asButton}', submenuId: '{submenuId}'}" />
+            <f:render partial="Menu/Elements/Link" arguments="{item: item, files: files, label: label, asButton: asButton}" />
     </f:then>
     <f:comment>
         https://forge.typo3.org/issues/97037
@@ -16,11 +16,11 @@
     <f:else if="{item.active} && {item.data.doktype} !== 4">
         <li
             class="{f:if(condition: '{item.active}', then:'active')} {f:if(condition:'{item.hasSubpages}', then:'has--children')}">
-            <f:render partial="Menu/Elements/Link" arguments="{item: '{item}', files: '{files}', label: '{label}', asButton: '{asButton}', submenuId: '{submenuId}'}" />
+            <f:render partial="Menu/Elements/Link" arguments="{item: item, files: files, label: label, asButton: asButton}" />
     </f:else>
     <f:else>
         <li class="{f:if(condition:'{item.hasSubpages}', then:'has--children')}">
-            <f:render partial="Menu/Elements/Link" arguments="{item: '{item}', files: '{files}', label: '{label}', asButton: '{asButton}', submenuId: '{submenuId}'}" />
+            <f:render partial="Menu/Elements/Link" arguments="{item: item, files: files, label: label, asButton: asButton}" />
     </f:else>
 </f:if>
 

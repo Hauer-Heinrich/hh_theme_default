@@ -1,3 +1,4 @@
+
 ### REGULAR USERS
 [!backend.user.isAdmin]
 TCEFORM {
@@ -5,18 +6,16 @@ TCEFORM {
         CType {
             ### Disable contentelements (CEs)
             removeItems (
-                textpic, table, bullets, shortcut,
-                # menu_sitemap, menu_sitemap_pages, menu_section, menu_section_pages,
-                # menu_categorized_content, menu_categorized_pages, menu_recently_updated,
-                # menu_related_pages, menu_abstract,
+                textpic, bullets, table,
+                menu_sitemap, menu_sitemap_pages, menu_section, menu_section_pages,
+                menu_categorized_content, menu_categorized_pages, menu_recently_updated,
+                menu_related_pages, menu_abstract,
                 html,
-                ### EXT: form
-                form_formframework,
                 ### EXT: news
-                # news_newsdetail, news_taglist, news_newsliststicky,
-                news_newsselectedlist, news_newsdatemenu, news_newssearchform, news_newssearchresult,
+                news_newsdetail, news_taglist, news_newsliststicky,
+                news_newsselectedlist, news_newsdatemenu, news_newssearchform, news_newssearchresult,+
                 ### EXT: powermail
-                # powermail_pi2, powermail_pi3, powermail_pi4,
+                powermail_pi2, powermail_pi3, powermail_pi4,
             )
         }
     }
@@ -30,17 +29,15 @@ TCEFORM {
         CType {
             ### Disable contentelements (CEs)
             removeItems (
-                textpic, table, bullets, shortcut,
-                # menu_sitemap, menu_sitemap_pages, menu_section, menu_section_pages,
-                # menu_categorized_content, menu_categorized_pages, menu_recently_updated,
-                # menu_related_pages, menu_abstract,
-                ### EXT: form
-                form_formframework,
+                textpic, bullets, table,
+                menu_sitemap, menu_sitemap_pages, menu_section, menu_section_pages,
+                menu_categorized_content, menu_categorized_pages, menu_recently_updated,
+                menu_related_pages, menu_abstract,
                 ### EXT: news
-                # news_newsdetail, news_taglist, news_newsliststicky,
-                news_newsselectedlist, news_newsdatemenu, news_newssearchform, news_newssearchresult,
+                news_newsdetail, news_taglist, news_newsliststicky,
+                news_newsselectedlist, news_newsdatemenu, news_newssearchform, news_newssearchresult,+
                 ### EXT: powermail
-                # powermail_pi2, powermail_pi3, powermail_pi4,
+                powermail_pi2, powermail_pi3, powermail_pi4,
             )
         }
     }
@@ -63,17 +60,39 @@ TCEFORM {
         date.disabled = 1
         sectionIndex.disabled = 1
         linkToTop.disabled = 1
-        // editlock.disabled = 1
-        // categories.disabled = 1
-        // rowDescription.disabled = 1
-        // fe_group.disabled = 1
-        // imagewidth.disabled = 1
-        // imageheight.disabled = 1
+        editlock.disabled = 1
+        categories.disabled = 1
+        rowDescription.disabled = 1
+        fe_group.disabled = 1
+        imagewidth.disabled = 1
+        imageheight.disabled = 1
         imageborder.disabled = 1
         image_zoom.disabled = 1
-        // accessibility_title.disabled = 1
-        // accessibility_bypass.disabled = 1
-        // accessibility_bypass_text.disabled = 1
+        accessibility_title.disabled = 1
+        accessibility_bypass.disabled = 1
+        accessibility_bypass_text.disabled = 1
+
+        header_layout {
+            altLabels {
+                ### Change header label
+                1 = LLL:EXT:{{EXTENSION_KEY}}/Resources/Private/Language/locallang_pageconfig.xlf:tceform.ttContent.header1
+                2 = LLL:EXT:{{EXTENSION_KEY}}/Resources/Private/Language/locallang_pageconfig.xlf:tceform.ttContent.header2
+                3 = LLL:EXT:{{EXTENSION_KEY}}/Resources/Private/Language/locallang_pageconfig.xlf:tceform.ttContent.header3
+                4 = LLL:EXT:{{EXTENSION_KEY}}/Resources/Private/Language/locallang_pageconfig.xlf:tceform.ttContent.header4
+                5 = LLL:EXT:{{EXTENSION_KEY}}/Resources/Private/Language/locallang_pageconfig.xlf:tceform.ttContent.header5
+            }
+            addItems {
+                ### Add custom header layouts begin with 101 (!) as ID please
+            }
+        }
+
+        date {
+            types {
+                text {
+                    disabled = 0
+                }
+            }
+        }
 
         layout {
             removeItems = 1,2,3
@@ -93,6 +112,7 @@ TCEFORM {
             addItems {
                 small = Small
                 large = Large
+                xlarge = Extra Large (width-100vw)
                 full-width = Full width (width-100%)
                 max-width = Max width (width-1920px)
             }
@@ -102,7 +122,6 @@ TCEFORM {
             removeItems = extra-small, extra-large, medium
             addItems {
                 none = Kein Abstand
-                small = Small
                 xlarge = Extra Large
             }
         }
@@ -111,7 +130,6 @@ TCEFORM {
             removeItems = extra-small, extra-large, medium
             addItems {
                 none = Kein Abstand
-                small = Small
                 xlarge = Extra Large
             }
         }
@@ -136,10 +154,6 @@ TCEFORM {
                 }
             }
         }
-
-        imagecols {
-            removeItems = 5,6,7,8
-        }
     }
 
     pages {
@@ -149,8 +163,8 @@ TCEFORM {
         twitter_image.config.appearance.fileUploadAllowed = 0
 
         TSconfig.disabled = 1
-        # categories.disabled = 1
-        # rowDescription.disabled = 1
+        categories.disabled = 1
+        rowDescription.disabled = 1
         layout.disabled = 1
         content_from_pid.disabled = 1
     }
@@ -161,5 +175,11 @@ TCEFORM {
 
     sys_file_collection {
         files.config.appearance.fileUploadAllowed = 0
+
+        description.disabled = 1
+    }
+
+    sys_file_reference {
+        showinpreview.disabled = 1
     }
 }

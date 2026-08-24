@@ -1,0 +1,159 @@
+/* COMPONENT - VARIABLES */
+.news {
+    --news-article-border-radius: var(--border-radius, 5px);
+    --news-article-gap: 1rem;
+    --news-article-min-width: min(280px, 100%);
+    --news-article-padding: 1rem;
+}
+
+/* COMPONENT - STYLING */
+
+/* THEME SLIDER */
+.news.template-slider {}
+
+/* THEME DEFAULT */
+.news-list-view {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: var(--news-article-gap);
+
+    &[data-columns="2"] {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 2 - var(--news-article-gap), var(--news-article-min-width)), 2fr));
+    }
+
+    &[data-columns="3"] {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 3 - var(--news-article-gap), var(--news-article-min-width)), 3fr));
+    }
+
+    &[data-columns="4"] {
+        grid-template-columns: repeat(auto-fill, minmax(max(100% / 4 - var(--news-article-gap), var(--news-article-min-width)), 4fr));
+    }
+}
+
+.frame-layout-0,
+.frame-layout-default {
+    & .template-default {
+        & > .f3-widget-paginator {
+            &:first-child {
+                margin-bottom: 20px;
+            }
+
+            &:last-child {
+                margin-top: 20px;
+            }
+        }
+    }
+
+    & .news-list-view {
+        --news-article-min-width: min(280px, 100%);
+        --news-article-gap: clamp(1.25rem, 0.75rem + 2.5vw, 3.75rem);
+        --news-list-img-scale: 1.001;
+        --news-list-link-color: var(--color-text);
+        --font-size-h1: var(--font-size-slarge);
+
+        & > article {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+
+            border: 1px solid #ccc;
+            border-radius: 16px;
+            container-name: default-news-article;
+            container-type: inline-size;
+            max-width: 100%;
+            overflow: hidden;
+            width: 370px;
+            transform-origin: center;
+            transition: all 0.4s ease-in-out;
+
+            & > .news-img-wrap {
+                aspect-ratio: 16 / 9;
+                overflow: hidden;
+                position: relative;
+
+                & img {
+                    transform-origin: center;
+                    transform: scale(var(--news-list-img-scale));
+                    transition: all 0.4s ease-in-out;
+                }
+            }
+
+            & > header,
+            & > .ce-bodytext,
+            & > .more {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            & > header {
+                margin-top: 10px;
+                margin-bottom: 10px;
+
+                & > time {
+                    font-size: 75%;
+                }
+            }
+
+            & > .more {
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+
+            & > .categories {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+
+                font-size: 0.8em;
+                list-style: none;
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-bottom: 10px;
+
+                & > .category {
+                    padding-left: 25px;
+                    position: relative;
+
+                    & > img {
+                        left: 0;
+                        position: absolute;
+                        top: 0;
+                    }
+                }
+            }
+
+            &:hover,
+            &:focus {
+                --news-list-img-scale: 1.1;
+                --news-list-link-color: var(--color-primary);
+            }
+
+            &:has(.news-img-wrap) {
+                grid-template-rows: auto auto 1fr auto;
+            }
+
+            &:has(.categories) {
+                & > .more {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &[data-columns="4"] {
+            --news-article-gap: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
+        }
+    }
+}
+
+.frame-layout-0,
+.frame-layout-default {
+    & .news-list-view {
+        & > article {
+            & > .news-img-wrap {
+                & .badge > span {
+                    font-size: 0.8rem;
+                    padding: 3cqw 0;
+                }
+            }
+        }
+    }
+}

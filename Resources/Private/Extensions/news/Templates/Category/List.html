@@ -7,8 +7,6 @@
 <f:section name="content">
     <f:if condition="{categories}">
         <f:then>
-
-
             <f:render section="categoryTree" arguments="{categories:categories,overwriteDemand:overwriteDemand}" />
         </f:then>
         <f:else>
@@ -18,7 +16,10 @@
 </f:section>
 
 <f:section name="categoryTree">
-    <ul>
+    <ul class="layout-{settings.templateLayout}">
+        <li>
+            <f:link.page>Alle news</f:link.page>
+        </li>
         <f:for each="{categories}" as="category">
             {n:category.count(categoryUid:category.item.uid) -> f:variable(name: 'categoryUsageCount')}
             <li>
@@ -44,4 +45,5 @@
         </f:for>
     </ul>
 </f:section>
+
 </html>

@@ -5,9 +5,9 @@
 @import url('theme/html.css');
 @import url('theme/helpers.css');
 
+/* PLUGINS */
+@import url('plugins/io.nav.css');
+
 /* COMPONENTS */
-@import url('components/buttons.css');
-@import url('components/menu-mobile.css');
-@import url('components/menu-main.css');
 @import url('components/header.css');
 @import url('components/banner.css');

@@ -1,2 +1,0 @@
-.news-list-view{display:grid;grid-template-columns:100%;gap:40px}@container frame (width > 600px){.news-list-view[data-columns="2"],.news-list-view[data-columns="4"]{grid-template-columns:1fr 1fr}}@container frame (width > 900px){.news-list-view[data-columns="3"]{grid-template-columns:1fr 1fr 1fr}}@container frame (width > 1200px){.news-list-view[data-columns="4"]{grid-template-columns:1fr 1fr 1fr 1fr}}
-/*# sourceMappingURL=news.bundle.css.map */

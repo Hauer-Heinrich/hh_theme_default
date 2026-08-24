@@ -1,21 +1,18 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-    xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
-    data-namespace-typo3-fluid="true">
+    xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
 
 <f:if condition="{gallery.rows}">
-    <div
-        class="ce-gallery{f:if(condition: data.imageborder, then: ' ce-border')}"
-        data-columns="{data.imagecols}"
-        data-images="{gallery.count.files}"
-        data-gallery-row-gap="{data.gallery_row_gap}"
-        data-gallery-column-gap="{data.gallery_column_gap}"
-    >
+    <div class="ce-gallery{f:if(condition: data.imageborder, then: ' ce-border')} {f:if(condition: '{data.image_zoom}', then: 'image-zoom')}"
+        data-columns="{gallery.count.columns}" data-images="{gallery.count.files}"
+        data-gallery-row-gap="{data.gallery_row_gap}" data-gallery-column-gap="{data.gallery_column_gap}"
+        data-settings-columns="{data.imagecols}">
         <div class="ce-gallery-container">
             <f:for each="{gallery.rows}" as="row">
                 <f:for each="{row.columns}" as="column">
                     <f:if condition="{column.media}">
-                        <div class="ce-column">
-                            <f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
+                        <div class="ce-column" data-type="{column.media.extension}">
+                            <f:render partial="Media/Type"
+                                arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
                         </div>
                     </f:if>
                 </f:for>

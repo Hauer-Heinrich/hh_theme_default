@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-    <file source-language="en" datatype="plaintext" original="messages" date="2017-02-08T00:01:00Z" product-name="hh_theme_default">
+    <file source-language="en" datatype="plaintext" original="messages" date="2017-02-08T00:01:00Z" product-name="{{EXTENSION_KEY}}">
         <header/>
         <body>
 
@@ -33,15 +33,9 @@
             <trans-unit id="tt_content.filelink_download" xml:space="preserve">
                 <source>Download</source>
             </trans-unit>
+
             <trans-unit id="tt_content.filelink_download.description" xml:space="preserve">
                 <source>Download the file without showing it in the browser.</source>
-            </trans-unit>
-
-            <trans-unit id="tt_content.filelink_download_btn" xml:space="preserve">
-                <source>Download Button</source>
-            </trans-unit>
-            <trans-unit id="tt_content.filelink_download_btn.description" xml:space="preserve">
-                <source>Show a additional button for downloading the file.</source>
             </trans-unit>
 
         </body>

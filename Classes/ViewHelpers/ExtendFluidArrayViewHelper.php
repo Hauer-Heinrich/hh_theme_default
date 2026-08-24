@@ -1,7 +1,5 @@
 <?php
-declare(strict_types=1);
-
-namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
+namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
 
 /***************************************************************
  * Copyright notice
@@ -38,8 +36,9 @@ namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
  * <hhdefault:extendFluidArray originalArray="settings" as="settings" additionalData="{myNewValue: 1}" />
  */
 
-// use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+// use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class ExtendFluidArrayViewHelper extends AbstractViewHelper {
 

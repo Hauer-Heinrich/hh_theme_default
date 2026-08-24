@@ -1,7 +1,7 @@
 <?php
 defined('TYPO3') or die();
 
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 call_user_func(function(string $extensionKey) {
     // make PageTsConfig selectable
@@ -11,23 +11,27 @@ call_user_func(function(string $extensionKey) {
         'Theme Page TS'
     );
 
+    // additional / extra config for: tt_address
     ExtensionManagementUtility::registerPageTSConfigFile(
         $extensionKey,
-        'Configuration/TsConfig/categories-only.tsconfig',
-        'Additional / extra config for: categories'
+        'Configuration/TsConfig/tt_address-only.tsconfig',
+        'Additional / extra config for: address'
     );
 
+    // additional / extra config for: news
+    ExtensionManagementUtility::registerPageTSConfigFile(
+        $extensionKey,
+        'Configuration/TsConfig/news-only.tsconfig',
+        'Additional / extra config for: news'
+    );
+
+    // additional / extra config for: fe_users / felogin
     ExtensionManagementUtility::registerPageTSConfigFile(
         $extensionKey,
         'Configuration/TsConfig/fe_users-only.tsconfig',
-        'Additional / extra config for: FE-Users'
+        'Additional / extra config for: FE users'
     );
 
-    ExtensionManagementUtility::registerPageTSConfigFile(
-        $extensionKey,
-        'Configuration/TsConfig/example-sites.tsconfig',
-        'Additional / extra config for main-page of the example-sites'
-    );
 
     // Configure new fields:
     $fields = [
@@ -105,6 +109,40 @@ call_user_func(function(string $extensionKey) {
                 ],
             ],
         ],
+        'footer_links3' => [
+            'exclude' => true,
+            'label' => 'Our Projects',
+            'config' => [
+                'type' => 'group',
+                'allowed' => 'pages',
+                'size' => 2,
+                'minitems' => 0,
+                'maxitems' => 10,
+                'suggestOptions' => [
+                    'default' => [
+                        'additionalSearchFields' => 'nav_title, url',
+                        'addWhere' => 'AND pages.doktype = 1',
+                    ],
+                ],
+            ],
+        ],
+        'footer_links4' => [
+            'exclude' => true,
+            'label' => 'Helpful Links',
+            'config' => [
+                'type' => 'group',
+                'allowed' => 'pages',
+                'size' => 2,
+                'minitems' => 0,
+                'maxitems' => 10,
+                'suggestOptions' => [
+                    'default' => [
+                        'additionalSearchFields' => 'nav_title, url',
+                        'addWhere' => 'AND pages.doktype = 1',
+                    ],
+                ],
+            ],
+        ],
         'footer_address' => [
             'exclude' => true,
             'label' => 'Address',
@@ -125,21 +163,18 @@ call_user_func(function(string $extensionKey) {
     ];
 
     // Add new fields to pages:
-    ExtensionManagementUtility::addTCAcolumns('pages', $fields);
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('pages', $fields);
 
     // Make fields visible in the TCEforms:
-    ExtensionManagementUtility::addToAllTCAtypes(
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
         'pages', // Table name
-        '--div--;Site Content,
-            --palette--;Header Inhalt;header_content,
-            --palette--;Footer Inhalt;footer_content
-        ', // Field list to add
+        '--div--;Site Content,--palette--;Header Inhalt;header_content,--palette--;Footer Inhalt;footer_content', // Field list to add
         '1', // List of specific types to add the field list to. (If empty, all type entries are affected)
         'after:*' // Insert fields before (default) or after one, or replace a field
     );
 
     // // Make fields visible in the TCEforms:
-    // ExtensionManagementUtility::addToAllTCAtypes(
+    // \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     //     'pages', // Table name
     //     '--div--;Footer Content,
     //         footer_col1,
@@ -164,8 +199,10 @@ call_user_func(function(string $extensionKey) {
             --linebreak--,
             footer_links1,
             footer_links2,
+            footer_links3,
+            footer_links4,
             --linebreak--,
             footer_address,
         '
     ];
-}, 'hh_theme_default');
+}, '{{EXTENSION_KEY}}');

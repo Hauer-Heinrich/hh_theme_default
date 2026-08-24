@@ -1,0 +1,21 @@
+/* MENU PAGES */
+.frame-type-menu_pages {
+    & ul {
+        list-style-type: none;
+    }
+
+    & ul ul {
+        padding-left: var(--padding);
+    }
+}
+
+/* MENU SUBPAGES */
+.frame-type-menu_subpages {
+    & ul {
+        list-style-type: none;
+    }
+
+    & ul ul {
+        padding-left: var(--padding);
+    }
+}

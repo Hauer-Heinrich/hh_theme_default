@@ -2,17 +2,15 @@
     {
         "outdir": ".",
         "entryPoints": [
-            { "in": "./Resources/Public/Css/inline.css", "out": "./Resources/Public/Css/bundles/inline.bundle" },
-            { "in": "./Resources/Public/Css/main-rte.css", "out": "./Resources/Public/Css/bundles/main-rte.bundle" },
-            { "in": "./Resources/Public/Css/main.css", "out": "./Resources/Public/Css/bundles/main.bundle" },
-            { "in": "./Resources/Public/JavaScript/main.js", "out": "./Resources/Public/JavaScript/bundles/main.bundle" },
+            { "in": "./Resources/Public/Css/inline.css", "out": "./Resources/Public/Css/inline.bundle" },
+            { "in": "./Resources/Public/Css/main.css", "out": "./Resources/Public/Css/main.bundle" },
+            { "in": "./Resources/Public/Css/main-rte.css", "out": "./Resources/Public/Css/main-rte.bundle" },
+            { "in": "./Resources/Public/JavaScript/main.js", "out": "./Resources/Public/JavaScript/main.bundle" },
 
-            { "in": "./Resources/Public/Css/components-custom/filelinks.css", "out": "./Resources/Public/Css/bundles/filelinks.bundle" },
-            { "in": "./Resources/Public/Css/components-custom/address.css", "out": "./Resources/Public/Css/bundles/address.bundle" },
-            { "in": "./Resources/Public/Css/components-custom/news.css", "out": "./Resources/Public/Css/bundles/news.bundle" },
-            { "in": "./Resources/Public/Css/components-custom/powermail.css", "out": "./Resources/Public/Css/bundles/powermail.bundle" },
-            { "in": "./Resources/Public/Css/components-custom/menu-sitemap.css", "out": "./Resources/Public/Css/bundles/menu-sitemap.bundle" }
+            { "in": "./Resources/Public/Css/components-custom/felogin.css", "out": "./Resources/Public/Css/components-custom/felogin.bundle" },
+            { "in": "./Resources/Public/JavaScript/components-custom/felogin.js", "out": "./Resources/Public/JavaScript/components-custom/felogin.bundle" },
 
+            { "in": "./Resources/Public/JavaScript/components-custom/share.js", "out": "./Resources/Public/JavaScript/components-custom/share.bundle" }
         ],
         "bundle": true,
         "write": true,

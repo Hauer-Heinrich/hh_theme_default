@@ -1,67 +1,47 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
-      data-namespace-typo3-fluid="true">
+    xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
 
 <f:layout name="General" />
 
 <f:section name="content">
-    <f:asset.css identifier="theme.news.list" href="EXT:hh_theme_default/Resources/Public/Css/bundles/news.bundle.css" />
-
     <!--TYPO3SEARCH_end-->
     <f:if condition="{news}">
         <f:then>
-            <div class="news-list-view" data-columns="{settings.itemColumns}">
-                <f:if condition="{settings.hidePagination}">
-                    <f:then>
-                        <f:variable name="schemaNews" value="{news}" />
-
-                        <f:for each="{news}" as="newsItem" iteration="iterator">
-                            <f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
-                        </f:for>
-                    </f:then>
-                    <f:else>
-                        <f:variable name="schemaNews" value="{pagination.paginator.paginatedItems}" />
-
-                        <f:if condition="{settings.list.paginate.insertAbove}">
-                            <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
-                        </f:if>
-                        <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
-                            <f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
-                        </f:for>
-                        <f:if condition="{settings.list.paginate.insertBelow}">
-                            <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
-                        </f:if>
-                    </f:else>
-                </f:if>
-            </div>
-
-            <f:if condition="{schemaNews}">
-                <f:asset.script identifier="theme.news.list" type="application/ld+json">
-                {
-                    "@context": "https://schema.org",
-                    "@type": "ItemList",
-                    "url": "<f:comment></f:comment>{f:uri.page(absolute: 1)}",
-                    "numberOfItems": <f:comment></f:comment>{schemaNews -> f:count()},
-                    "itemListElement": [
-                        <f:for each="{schemaNews}" as="schemaNewsItem" iteration="i">
-                        {
-                            "@type": "ListItem",
-                            "position": <f:comment></f:comment>{i.cycle},
-                            "item": {
-                                "@type": "Article",
-                                "url": "<n:link newsItem="{schemaNewsItem}" settings="{settings}" uriOnly="1" absolute="1" />",
-                                "headline": {schemaNewsItem.title -> f:format.json()},
-                                <f:if condition="{schemaNewsItem.customMedia2.0}">
-                                    "image": "{f:uri.image(image: '{schemaNewsItem.customMedia2.0}', maxWidth: 1200, absolute: 1)}",
-                                </f:if>
-                                "datePublished": "<f:format.date format='c'>{schemaNewsItem.datetime}</f:format.date>"
-                            }
-                        }<f:if condition="{i.isLast}"><f:else>,</f:else></f:if>
-                        </f:for>
-                    ]
-                }
-                </f:asset.script>
-            </f:if>
+            <f:switch expression="{settings.templateLayout}">
+                <f:case value="slider">
+                    <f:render section="slider" arguments="{_all}" />
+                </f:case>
+                <f:defaultCase>
+                    <f:if condition="{settings.hidePagination}">
+                        <f:then>
+                            <div class="news-list-view news-container" id="news-container-{contentObjectData.uid}"
+                                data-columns="{settings.displayColumns}" data-items="{news -> f:count()}">
+                                <f:for each="{news}" as="newsItem" iteration="iterator">
+                                    <f:render partial="List/Item"
+                                        arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                                </f:for>
+                            </div>
+                        </f:then>
+                        <f:else>
+                            <f:if condition="{settings.list.paginate.insertAbove}">
+                                <f:render partial="List/Pagination"
+                                    arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+                            </f:if>
+                            <div class="news-list-view news-container" id="news-container-{contentObjectData.uid}"
+                                data-columns="{settings.displayColumns}" data-items="{news -> f:count()}">
+                                <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+                                    <f:render partial="List/Item"
+                                        arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                                </f:for>
+                            </div>
+                            <f:if condition="{settings.list.paginate.insertBelow}">
+                                <f:render partial="List/Pagination"
+                                    arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+                            </f:if>
+                        </f:else>
+                    </f:if>
+                </f:defaultCase>
+            </f:switch>
         </f:then>
         <f:else>
             <div class="no-news-found">
@@ -71,4 +51,80 @@
     </f:if>
     <!--TYPO3SEARCH_begin-->
 </f:section>
+
+<f:section name="slider">
+    <div class="news-list-view news-container ce-gallery" id="news-container-{contentObjectData.uid}" data-columns="{settings.displayColumns}" data-items="{news -> f:count()}">
+        <div class="ce-gallery-container">
+            <f:for each="{news}" as="newsItem" iteration="iterator">
+                <f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+            </f:for>
+        </div>
+
+        <f:if condition="{settings.listPid}">
+            <f:link.page pageUid="{settings.listPid}" class="btn btn-default btn-center">Mehr Neuigkeiten</f:link.page>
+        </f:if>
+    </div>
+
+    <f:if condition="{news -> f:count()} > {settings.displayColumns}">
+        <f:asset.script identifier="hhSliderJson-{contentObjectData.uid}" class="hhSliderJson" type="application/json">
+            {
+                <f:comment></f:comment>"uid": "{contentObjectData.uid}",
+                "a11y": {
+                    "containerMessage": "<f:comment></f:comment>{f:translate(key: 'fe.slider.a11y.containerMessage')}",
+                    "containerRole": "<f:comment></f:comment>{f:translate(key: 'fe.slider.a11y.containerRole')}",
+                    "containerRoleDescriptionMessage": "<f:comment></f:comment>{f:translate(key: 'fe.slider.a11y.containerRoleDescriptionMessage')}",
+                    "firstSlideMessage": "<f:comment></f:comment>{f:translate(key: 'fe.slider.a11y.firstSlideMessage')}",
+                    "itemRoleDescriptionMessage": "<f:comment></f:comment>{f:translate(key: 'fe.slider.a11y.itemRoleDescriptionMessage')}",
+                    "lastSlideMessage": "<f:comment></f:comment>{f:translate(key: 'fe.slider.a11y.lastSlideMessage')}",
+                    "nextSlideMessage": "<f:comment></f:comment>{f:translate(key: 'fe.slider.a11y.nextSlideMessage')}",
+                    "paginationBulletMessage": "<f:comment></f:comment>{f:translate(key: 'fe.slider.a11y.paginationBulletMessage')}",
+                    "prevSlideMessage": "<f:comment></f:comment>{f:translate(key: 'fe.slider.a11y.prevSlideMessage')}",
+                    "slideLabelMessage": "<f:comment></f:comment>{f:translate(key: 'fe.slider.a11y.slideLabelMessage')}",
+                    "slideRole": "<f:comment></f:comment>{f:translate(key: 'fe.slider.a11y.slideRole')}",
+                    "scrollOnFocus": false
+                },
+                "autoHeight": false,
+                "autoplay": false,
+                "centeredSlides": false,
+                "loop": true,
+                "infinite": true,
+                "speed": 300,
+                "slidesPerView": 1,
+                "keyboard": {
+                    "enabled": true,
+                    "onlyInViewport": true
+                },
+                "navigation": {
+                    "nextEl": "#c<f:format.raw>{contentObjectData.uid}</f:format.raw> .slider-button-next",
+                    "prevEl": "#c<f:format.raw>{contentObjectData.uid}</f:format.raw> .slider-button-prev"
+                },
+                <f:comment>
+                    "pagination": {
+                        "el": "#c<f:format.raw>{contentObjectData.uid}</f:format.raw> .slider-pagination",
+                        "clickable": true
+                    },
+                </f:comment>
+                "breakpoints": {
+                    "640": {
+                        "slidesPerView": 1,
+                        "spaceBetween": 20
+                    },
+                    "768": {
+                        "slidesPerView": 2,
+                        "spaceBetween": 25
+                    },
+                    "1024": {
+                        "slidesPerView": <f:format.raw>{settings.displayColumns}</f:format.raw>,
+                        "spaceBetween": 25
+                    },
+                    "1280": {
+                        "slidesPerView": <f:format.raw>{settings.displayColumns}</f:format.raw>,
+                        "spaceBetween": 50
+                    }
+                }
+            }
+        </f:asset.script>
+    </f:if>
+</f:section>
+
 </html>

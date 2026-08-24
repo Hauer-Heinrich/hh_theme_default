@@ -1,15 +1,13 @@
 <?php
-declare(strict_types=1);
-
-namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
+namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
 
 /*
     Usage:
     <hhdefault:spaceless html="[html-code]">
 */
 
-// use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+// use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class SpacelessViewHelper extends AbstractViewHelper {
     /**

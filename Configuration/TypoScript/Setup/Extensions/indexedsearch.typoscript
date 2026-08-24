@@ -22,21 +22,13 @@ plugin.tx_indexedsearch {
     }
 
     settings {
-        rootPidList = {$plugin.hhthemedefault.indexedSearchRootPidList}
-        targetPid = {$plugin.hhthemedefault.indexedSearchId}
+        rootPidList = {$plugin.{{EXTENSION_NAME}}.indexedSearchRootPidList}
+        targetPid = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
         displayRules = 0
         displayAdvancedSearchLink = 0
 
         defaultOptions {
             languageUid = 0
-        }
-    }
-
-    _LOCAL_LANG {
-        de {
-            form.legend = Suche
-            form.searchFor = Gesucht nach:
-            form.submit: Suchen
         }
     }
 }
@@ -88,7 +80,7 @@ lib.searchfield {
     }
     settings =< plugin.tx_indexedsearch.settings
     settings {
-        targetPid = {$plugin.hhthemedefault.indexedSearchId}
+        targetPid = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
         displayAdvancedSearchLink = 0
         displayRules = 0
         displayResults = 0

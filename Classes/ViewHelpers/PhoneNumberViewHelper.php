@@ -1,7 +1,5 @@
 <?php
-declare(strict_types=1);
-
-namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
+namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
 
 /***************************************************************
  * Copyright notice
@@ -32,8 +30,8 @@ namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
  *  <hh:phoneNumber number="0564846 64 - 5">
  */
 
-// use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+// use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class PhoneNumberViewHelper extends AbstractViewHelper {
     public function initializeArguments(): void {

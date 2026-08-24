@@ -2,20 +2,3 @@
 ### Hauer-Heinrich Jobs - hh_simple_job_posts ###
 ################################################################
 @import 'EXT:hh_simple_job_posts/Configuration/TypoScript/setup.typoscript'
-
-plugin.tx_hhsimplejobposts {
-    view {
-        templateRootPaths {
-            10 = {$themeDefault.urls.themeResources}Private/Extensions/hh_simple_job_posts/Templates/
-            100 = {$plugin.tx_hhsimplejobposts.view.templateRootPath}
-        }
-        partialRootPaths {
-            10 = {$themeDefault.urls.themeResources}Private/Extensions/hh_simple_job_posts/Partials/
-            100 = {$plugin.tx_hhsimplejobposts.view.partialRootPath}
-        }
-        layoutRootPaths {
-            10 = {$themeDefault.urls.themeResources}Private/Extensions/hh_simple_job_posts/Layouts/
-            100 = {$plugin.tx_hhsimplejobposts.view.layoutRootPath}
-        }
-    }
-}
