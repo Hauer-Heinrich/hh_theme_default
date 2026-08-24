@@ -18,13 +18,24 @@ body {
 }
 
 /* CUSTOM HTML - ELEMENTS */
-a:not(.btn) {
+a {
     color: var(--color-link);
     display: inline-block;
     position: relative;
     text-decoration: none;
     transition: all 400ms;
 
+    &:hover,
+    &:focus {
+        color: var(--color-link-hover);
+
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+#main a:not(.btn) {
     &::before,
     &::after {
         background-color: #000;
@@ -47,8 +58,6 @@ a:not(.btn) {
 
     &:hover,
     &:focus {
-        color: var(--color-link-hover);
-
         &::after {
             width: 100%;
         }
@@ -56,7 +65,7 @@ a:not(.btn) {
 }
 
 p:not(:last-child) {
-    margin-bottom: 15px;
+    margin-bottom: var(--gap-text, 1em);
 }
 
 blockquote {
@@ -90,172 +99,34 @@ blockquote {
     }
 }
 
+ul ul,
+ol ol {
+    margin-left: 10px;
+}
+
+ol {
+    list-style-type: decimal;
+
+    & > ol {
+        list-style-type: lower-alpha;
+
+        & > ol {
+            list-style-type:lower-roman
+        }
+    }
+}
+
 hr {
     background: var(--color-secondary);
     border: none;
     height: 1px;
-    margin: var(--margin) 0;
+    margin: var(--gap-hr, 10px) 0;
     width: 100%;
 }
 
 [hidden] {
     display: none;
 }
-
-/* FORMS */
-form {
-    max-width: var(--form-max-width, 680px);
-}
-
-form * {
-    padding: 0;
-    margin: 0;
-}
-
-input,
-textarea,
-select,
-label,
-legend {
-    caret-color: var(--color-primary);
-    padding: var(--padding-input);
-}
-
-label,
-legend {
-    padding-left: 0;
-}
-
-label input {
-    margin-left: var(--gap-input);
-}
-
-fieldset {
-    border: 0;
-    min-width: 250px;
-    max-width: var(--form-max-width, 680px);
-    /*max-width: var(--form-input-max-width);*/
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
-    /*gap: var(--gap-input);*/
-    /*padding: var(--gap-input);*/
-}
-
-fieldset>* {
-    margin-bottom: var(--gap-input);
-}
-
-fieldset label {
-    display: inline-flex;
-    flex: 0 1 auto;
-    width: 29.5%;
-    /*min-width: min(150px, 100%);*/
-}
-
-fieldset input[type="checkbox"],
-fieldset input[type="radio"] {
-    display: inline-flex;
-    inline-size: 1.25rem;
-    padding: 0;
-    margin: 0 15px;
-    accent-color: var(--color-radio-check);
-    height: 20px;
-    font-size: 1.25rem;
-}
-
-input[type="checkbox"] {
-    appearance: none;
-    border: 1px solid var(--color-radio-check);
-}
-
-input[type="checkbox"]::before {
-    content: "";
-    width: 0.65em;
-    height: 0.65em;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em var(--color-radio-check);
-    transform-origin: bottom left;
-    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-}
-
-input[type="checkbox"]:checked::before {
-    transform: translate(3px, 3px);
-}
-
-fieldset select,
-fieldset textarea,
-fieldset input[type=text],
-fieldset input[type=search],
-fieldset input[type=email],
-fieldset input[type=tel],
-fieldset input[type=month],
-fieldset input[type=week],
-fieldset input[type=password],
-fieldset input[type=url],
-fieldset input[type=number],
-fieldset input[type=time],
-fieldset input[type=date],
-fieldset input[type=datetime],
-fieldset input[data-datepicker-format] {
-    display: inline-flex;
-    flex: 1 1 auto;
-    width: 69.5%;
-    /*max-width: var(--form-input-max-width);*/
-    background: var(--color-input-bg);
-    border: var(--border-input);
-    border-radius: var(--border-radius);
-    box-shadow: 0px 0px 0px transparent;
-}
-
-fieldset select {
-    display: inline-flex;
-    flex: 1 1 auto;
-    width: 100%;
-    background: var(--color-input-bg);
-    border: var(--border-input);
-    border-radius: 0;
-    box-shadow: 0px 0px 0px transparent;
-    appearance: none;
-    background: url(../Icons/chevron-down-solid.svg) no-repeat 97%;
-}
-
-/* BUTTONS */
-.button,
-button:not(:empty),
-input[type=button],
-input[type=submit],
-input[type=file],
-input[type=reset] {
-    padding: var(--padding-button);
-    margin-right: var(--gap-input);
-    background: var(--color-button-bg);
-    color: var(--color-button-text);
-    box-shadow: var(--box-shadow-button);
-    cursor: pointer;
-    border: var(--border-button);
-    border-radius: var(--border-radius);
-    display: inline-block;
-    transition: all 0.5s;
-    max-width: 90vw;
-
-    &:is(input):last-of-type {
-        margin-right: 0;
-    }
-}
-
-.button:hover,
-button:not(:empty):hover,
-input[type=button]:hover,
-input[type=submit]:hover,
-input[type=file]:hover,
-input[type=reset]:hover {
-    background: var(--color-button-bg-hover);
-    color: var(--color-button-text-hover);
-}
-
-
-
 
 /* CUSTOM HTML - HEADINGS */
 header {
@@ -274,28 +145,29 @@ h6 {
 }
 
 h1 {
-    font-size: var(--font-size-h1);
+    font-size: var(--font-size-h1, var(--font-size-xlarge));
 }
 
 h2 {
-    font-size: var(--font-size-h2);
+    font-size: var(--font-size-h2, var(--font-size-large));
 }
 
 h3 {
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h3, var(--font-size-slarge));
 }
 
 h4 {
-    font-size: var(--font-size-h4);
+    font-size: var(--font-size-h4, var(--font-size-xmedium));
 }
 
 h5 {
-    font-size: var(--font-size-h5);
+    font-size: var(--font-size-h5, var(--font-size-medium));
 }
 
 h6 {
     font-size: var(--font-size-h6);
 }
+
 
 /* CUSTOM HTML - DIALOG */
 dialog {
@@ -309,6 +181,7 @@ dialog {
     width: 50%;
     z-index: 999;
 }
+
 
 /* IFRAME VIDEO */
 iframe.video-embed-item {

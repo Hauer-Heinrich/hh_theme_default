@@ -1,36 +1,52 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
-<article class="article" itemscope itemtype="http://schema.org/Person">
-    <div class="article-container" data-has-media="{f:if(condition: '{address.firstImage}', then: 'true', else: 'false')}">
-        <f:if condition="{address.firstImage}">
-            <div class="ce-image addressImage">
-                <f:link.action action="show" arguments="{address : address}" title="{address.fullName}"
-                    pageUid="{settings.singlePid}">
-                    <f:if condition="{address.image}">
-                        <f:media file="{address.firstImage}" width="400" class="img-fluid img-thumbnail rounded"
-                            alt="{address.firstImage.originalResource.alt}" title="{address.fullName}"
-                            additionalAttributes="{itemprop: 'image'}" />
-                    </f:if>
-                </f:link.action>
-            </div>
-        </f:if>
-
-        <div class="ce-bodytext">
-            <f:render section="position" partial="Address" arguments="{_all}" />
-            <p class="name" itemprop="name">{address.fullName}</p>
-
-            <f:render section="address" partial="Address" arguments="{_all}" />
-            <f:render section="contact" partial="Address" arguments="{_all}" />
-            <f:render section="social" partial="Address" arguments="{_all}" />
-
-            <f:if condition="{settings.singlePid}">
-                <f:link.action action="show" arguments="{address : address}" title="{address.fullName}"
-                    pageUid="{settings.singlePid}" class="btn btn-default">{f:translate(key:'more')}
-                </f:link.action>
-            </f:if>
+<article itemscope itemtype="http://schema.org/Person">
+    <f:if condition="{address.image}">
+        <div class="ce-image">
+            <f:media file="{address.firstImage}"
+                class="img-fluid img-thumbnail rounded"
+                alt="{address.firstImage.originalResource.alt}"
+                title="{address.fullName}"
+                width="400"
+                loading="lazy"
+            />
         </div>
+    </f:if>
+
+    <header>
+        <h2>
+            <f:if condition="{settings.singlePid}">
+                <f:then>
+                    <f:link.action action="show" arguments="{address : address}" title="{address.fullName}" pageUid="{settings.singlePid}">
+                        {address.fullName}
+                    </f:link.action>
+                </f:then>
+                <f:else>
+                    {address.fullName}
+                </f:else>
+            </f:if>
+        </h2>
+        <f:if condition="{address.position}">
+            <p class="position">{address.position}</p>
+        </f:if>
+    </header>
+
+    <div class="ce-bodytext">
+        <f:format.html>{address.description}</f:format.html>
     </div>
+
+    <f:render section="contact" partial="Address" arguments="{address: '{address}', classes: 'contact'}" />
+
+    <f:if condition="{address.address}">
+        <address>
+            {address.address}<br>
+            {address.zip} {address.city}
+            <f:if condition="{address.country}">
+                <br>{address.country}
+            </f:if>
+        </address>
+    </f:if>
 </article>
 
 </html>

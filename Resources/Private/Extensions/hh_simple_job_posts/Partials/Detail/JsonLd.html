@@ -1,0 +1,117 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:ttaddr="http://typo3.org/ns/FriendsOfTYPO3/TtAddress/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:asset.script identifier="jobPosts" additionalAttributes="{type: 'application/ld+json'}">
+    {<f:comment></f:comment>
+        "@context" : "https://schema.org/",
+        "@type" : "JobPosting",
+        "title" : "{jobpost.title}",
+        "description" : "{jobpost.descriptionForGoogle}",
+        "datePosted" : "{datePosted}",
+        <f:if condition="{jobpost.endtime}">"validThrough" : "{f:format.date(date: '{jobpost.endtime}', format: 'Y-m-d')}",</f:if>
+        "employmentType": [
+            <f:for each='{jobpost.employmentTypeArray}' as='type' iteration='i'>"{type}"<f:if condition='{i.isLast}'><f:then></f:then><f:else>,</f:else></f:if></f:for>
+        ],
+
+        <f:if condition="{jobpost.hiringOrganization.company}">
+            "hiringOrganization" : {<f:comment></f:comment>
+                "name" : "{jobpost.hiringOrganization.company}",
+                <f:if condition="{jobpost.hiringOrganization.www}">"sameAs" : "{jobpost.hiringOrganization.www}",</f:if>
+                <f:if condition='{jobpost.hiringOrganization.image}'>"logo" : "{f:uri.image(src: '{jobpost.hiringOrganization.image.0.uid}', treatIdAsReference: 1, absolute: 1)}",</f:if>
+                "@type" : "Organization"
+            },
+        </f:if>
+
+        <f:if condition="{jobpost.baseSalaryValue} > 0">
+            "baseSalary": {<f:comment></f:comment>
+                "@type": "MonetaryAmount",
+                "currency": "{jobpost.baseSalaryCurrency}",
+                "value": {
+                    "@type": "QuantitativeValue",
+                    <f:if condition="{jobpost.baseSalaryValue} > 0 && {jobpost.baseSalaryValueMax} > 0">
+                        <f:then>
+                            "minValue": {jobpost.baseSalaryValue},
+                            "maxValue": {jobpost.baseSalaryValueMax},
+                        </f:then>
+                        <f:else>
+                            "value": {jobpost.baseSalaryValue},
+                        </f:else>
+                    </f:if>
+                    "unitText": "{jobpost.baseSalaryUnitText}"
+                }
+            },
+        </f:if>
+
+        <f:if condition="{jobpost.contactPointAddresses}">
+            <f:then>
+                "applicationContact": [<f:comment></f:comment>
+                <f:for each="{jobpost.contactPointAddresses}" as="contactAddress" iteration="i_contactAddress">
+                    {
+                        "@type": "ContactPoint",
+                        <f:if condition="{contactAddress.phone}">"telephone": "{contactAddress.phone}",</f:if>
+                        <f:if condition="{contactAddress.position}">"contactType": "{contactAddress.position}",</f:if>
+                        <f:if condition="{contactAddress.email}">"email": "{contactAddress.email}"</f:if>
+                    }<f:if condition="{i_contactAddress.isLast}"><f:else>,</f:else></f:if>
+                </f:for>
+                ],
+            </f:then>
+            <f:else>
+                <f:if condition="{contactPoint.contactPointEmail} || {contactPoint.contactPointTelephone}">
+                    "contactPoint": [{<f:comment></f:comment>
+                        "@type": "ContactPoint",
+                        "email": "{contactPoint.contactPointEmail}",
+                        "telephone": "{contactPoint.contactPointTelephone}"
+                    }],
+                </f:if>
+            </f:else>
+        </f:if>
+
+        <f:comment>
+            educationRequirements and experienceRequirements
+            google criticizes the two fields - enum-error - but according to schema.org this syntax is correct and we stick to the definition.
+        </f:comment>
+        <f:if condition="{jobpost.educationRequirements}">
+            "educationRequirements": {jobpost.escapedRteFields.educationRequirements},
+        </f:if>
+        <f:if condition="{jobpost.experienceRequirements}">
+            "experienceRequirements": {jobpost.escapedRteFields.experienceRequirements},
+        </f:if>
+        <f:if condition="{jobpost.skills}">
+            "skills": {jobpost.escapedRteFields.skills},
+        </f:if>
+        <f:if condition="{jobpost.weprovide}">
+            "jobBenefits": {jobpost.escapedRteFields.weprovide},
+        </f:if>
+
+        <f:if condition="{jobpost.workHours}">
+            "workHours": "{jobpost.workHours}",
+        </f:if>
+
+        <f:if condition="{jobpost.jobLocations}">
+            "jobLocation": [
+                <f:for each="{jobpost.jobLocations}" as="location" iteration="i_location">
+                    {
+                        "@type": "Place",
+                        "address": {
+                            "@type": "PostalAddress",<f:comment></f:comment>
+                            "addressLocality": "{location.city}",
+                            "postalCode": "{location.zip}",
+                            <f:if condition="{location.region}">"addressRegion": "{location.region}",</f:if>
+                            <f:if condition="{location.country}">"addressCountry": "{location.country}",</f:if>
+                            "streetAddress": "{location.address}"
+                        }
+                    }<f:if condition="{i_location.isLast}"><f:else>,</f:else></f:if>
+                </f:for>
+            ],
+        </f:if>
+
+        "identifier": {
+            "@type": "PropertyValue",
+            "name": "joboffer",
+            <f:comment></f:comment>"value": "{jobpost.uid}-{jobpost.hiringOrganization.company}"
+        }
+    }
+</f:asset.script>
+
+</html>

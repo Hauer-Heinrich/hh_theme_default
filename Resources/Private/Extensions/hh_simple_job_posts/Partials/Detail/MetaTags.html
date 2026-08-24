@@ -1,0 +1,40 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:ttaddr="http://typo3.org/ns/FriendsOfTYPO3/TtAddress/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<hhseo:metaTag order="10" dataType="yaml">
+title: '{jobpost.title}'
+description: '{jobpost.short_description}'
+last-modified: {f:format.date(date: '{jobpost.tstamp}', format: 'r')}
+
+<f:if condition="{jobpost.ogTitle} || {jobpost.ogDescription} || {jobpost.ogImage}">
+og:
+    type: "website"
+    title: "<hhseo:formatIni data="{jobpost.ogTitle}" />"
+    description: "<hhseo:formatIni data="{jobpost.ogDescription}" />"
+    <f:if condition="{jobpost.ogImage->f:count()} > 0">
+    images:
+    <f:for each="{jobpost.ogImage}" as="ogimage">
+        - image: "{f:uri.image(src: '{ogimage.uid}', treatIdAsReference: 1)}"
+          width: "{ogimage.properties.width}"
+          height: "{ogimage.properties.height}"
+    </f:for>
+    </f:if>
+</f:if>
+
+<f:if condition="{jobpost.twitterTitle} || {jobpost.twitterDescription} || {jobpost.twitterImage}">
+twitter:
+    card: "{jobpost.twitterCard}"
+    title: "<hhseo:formatIni data="{jobpost.twitterTitle}" />"
+    description: "<hhseo:formatIni data="{jobpost.twitterDescription}" />"
+    <f:if condition="{jobpost.twitterImage->f:count()} > 0">
+    images:
+    <f:for each="{jobpost.twitterImage}" as="twimage">
+        - image: "{f:uri.image(src: '{twimage.uid}', treatIdAsReference: 1)}"
+          alt: "{twimage.alternative}"
+    </f:for>
+    </f:if>
+</f:if>
+</hhseo:metaTag>
+
+</html>

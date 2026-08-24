@@ -1,0 +1,34 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:if condition="{type}">
+    <f:switch expression="{type}">
+        <f:case value="FULL_TIME">
+            <f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:employmentType.full_time" />
+        </f:case>
+        <f:case value="PART_TIME">
+            <f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:employmentType.part_time" />
+        </f:case>
+        <f:case value="CONTRACTOR">
+            <f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:employmentType.contractor" />
+        </f:case>
+        <f:case value="TEMPORARY">
+            <f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:employmentType.temporary" />
+        </f:case>
+        <f:case value="INTERN">
+            <f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:employmentType.intern" />
+        </f:case>
+        <f:case value="VOLUNTEER">
+            <f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:employmentType.volunteer" />
+        </f:case>
+        <f:case value="PER_DIEM">
+            <f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:employmentType.per_diem" />
+        </f:case>
+        <f:case value="OTHER">
+            <f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:employmentType.other" />
+        </f:case>
+        <f:defaultCase></f:defaultCase>
+    </f:switch>
+</f:if>
+
+</html>

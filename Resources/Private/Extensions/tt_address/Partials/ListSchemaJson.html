@@ -1,0 +1,57 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:variable name="JsonAddresses"><hhdefault:spaceless emptyLines="1">
+    <f:for each="{addresses}" as="address" iteration="i">
+        {
+            "@type": "ListItem",
+            "position": <f:comment></f:comment>{i.cycle},
+            "item": {
+                "@type": "Person",
+                <f:if condition="{address.image}">
+                    "image": "{f:uri.image(src: '{address.image}')}",
+                </f:if>
+                <f:if condition="{address.position}">
+                    "jobTitle": "{address.position}",
+                </f:if>
+                <f:if condition="{address.company}">
+                    "worksFor": { "@type": "Organization", "name": "{address.company}" },
+                </f:if>
+                <f:if condition="{address.address}">
+                    "address": {
+                        "@type": "PostalAddress",
+                        <f:if condition="{address.country}">
+                            "addressCountry": "{address.country}",
+                        </f:if>
+                        "streetAddress": "{address.address}",
+                        "postalCode": "{address.zip}",
+                        "addressLocality": "{address.city}"
+                    },
+                </f:if>
+                <f:if condition="{address.phone}">
+                    "telephone": "{address.phone}",
+                </f:if>
+                <f:if condition="{address.email}">
+                    "email": "{address.email}",
+                </f:if>
+                <f:if condition="{address.www}">
+                    "url": "{address.www}",
+                </f:if>
+                "name": "{address.fullName}"
+            }
+        }<f:if condition="{i.isLast}"><f:else>,</f:else></f:if>
+    </f:for>
+</hhdefault:spaceless></f:variable>
+
+<f:if condition="{JsonAddresses}">
+    <f:asset.script identifier="" type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [<f:comment></f:comment>{JsonAddresses}]
+    }
+    </f:asset.script>
+</f:if>
+
+
+</html>

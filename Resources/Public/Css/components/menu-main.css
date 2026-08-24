@@ -1,0 +1,37 @@
+/* Main Website Menu */
+/* --menu-main--font-size: 22px;
+
+--menu-main--color: ;
+--menu-main--color-hover: ;
+--menu-main--color-active: ;
+
+--menu-main--item-bg: ;
+--menu-main--item-bg-hover: ;
+
+--menu-main--item-padding: 20px 10px;
+
+--menu-main--submenu--bg: ; */
+
+.menu-main {
+    font-size: var(--menu-main--font-size, 20px);
+    color: var(--menu-main--color, var(--color-text));
+
+    & a {
+        color: var(--menu-main--color, var(--color-text));
+
+        &:hover,
+        &:focus-visible {
+            color: var(--menu-main--color-hover, var(--color-text));
+        }
+
+        &.active {
+            color: var(--menu-main--color-active, var(--color-text));
+        }
+    }
+
+    & > ul {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+}

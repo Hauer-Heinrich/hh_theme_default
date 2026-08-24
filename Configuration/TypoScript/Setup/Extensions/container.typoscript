@@ -5,13 +5,13 @@
 lib.container < lib.contentElement
 lib.container {
     templateRootPaths {
-        1000 = {$themeDefault.urls.themeResources}Private/Extensions/container/Templates
+        887 = {$themeDefault.urls.themeResources}Private/Extensions/container/Templates
     }
     partialRootPaths {
-        1000 = {$themeDefault.urls.themeResources}Private/Extensions/container/Partials/
+        887 = {$themeDefault.urls.themeResources}Private/Extensions/container/Partials/
     }
     layoutRootPaths {
-        1000 = {$themeDefault.urls.themeResources}Private/Extensions/container/Layouts
+        887 = {$themeDefault.urls.themeResources}Private/Extensions/container/Layouts
     }
 }
 

@@ -1,0 +1,26 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+
+<f:comment>
+	Mail: {mail}
+	Answer: {answer}
+</f:comment>
+
+<tr>
+	<th class="powermail_all_label powermail_all_type_{answer.field.type} powermail_all_marker_{answer.field.marker}" scope="row">
+		{answer.field.title}
+	</th>
+	<td class="powermail_all_value powermail_all_type_{answer.field.type} powermail_all_marker_{answer.field.marker}">
+		<f:if condition="{vh:condition.isArray(val:answer.value)}">
+			<f:else>
+				<f:format.nl2br><vh:misc.manipulateValueWithTypoScript answer="{answer}" type="{type}">{answer.value}</vh:misc.manipulateValueWithTypoScript></f:format.nl2br>
+			</f:else>
+			<f:then>
+				<f:for each="{answer.value}" as="subValue" iteration="index">
+					<f:if condition="{subValue}">
+						<vh:misc.manipulateValueWithTypoScript answer="{answer}" type="{type}">{subValue}</vh:misc.manipulateValueWithTypoScript><f:if condition="{index.isLast}"><f:else>, </f:else></f:if>
+					</f:if>
+				</f:for>
+			</f:then>
+		</f:if>
+	</td>
+</tr>

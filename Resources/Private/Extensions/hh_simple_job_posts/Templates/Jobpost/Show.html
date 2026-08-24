@@ -1,0 +1,124 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:ttaddr="http://typo3.org/ns/FriendsOfTYPO3/TtAddress/ViewHelpers"
+    xmlns:jobposts="http://typo3.org/ns/HauerHeinrich/HhSimpleJobPosts/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="content">
+    <f:flashMessages />
+
+    <f:if condition="{jobpost}">
+        <f:then>
+            <f:if condition="{settings.loaded.hh_seo}">
+                <f:render partial="Detail/MetaTags" arguments="{_all}" />
+            </f:if>
+
+            <div class="jobs-detail-view jobpost job-offer">
+                <f:variable name="datePosted"><f:spaceless>
+                    <f:if condition="{jobpost.starttime}">
+                        <f:then><f:format.date format="Y-m-d">{jobpost.starttime}</f:format.date></f:then>
+                        <f:else><f:format.date format="Y-m-d">{jobpost.crdate}</f:format.date></f:else>
+                    </f:if>
+                </f:spaceless></f:variable>
+                <f:variable name="salary"><f:spaceless>
+                    <f:if condition="{jobpost.baseSalaryValue}">
+                        <f:variable name="baseSalaryValue"><f:format.currency currencySign="{jobpost.baseSalaryCurrency}" decimalSeparator="," thousandsSeparator="." prependCurrency="FALSE" separateCurrency="True">{jobpost.baseSalaryValue}</f:format.currency></f:variable>
+                        <f:variable name="baseSalaryValueMax"><f:format.currency currencySign="{jobpost.baseSalaryCurrency}" decimalSeparator="," thousandsSeparator="." prependCurrency="FALSE" separateCurrency="True">{jobpost.baseSalaryValueMax}</f:format.currency></f:variable>
+                        <f:if condition="{jobpost.baseSalaryValueMax}">
+                            <f:then>
+                                from {baseSalaryValue} to {baseSalaryValueMax} ({jobpost.baseSalaryUnitText})
+                            </f:then>
+                            <f:else>
+                                {baseSalaryValue} ({jobpost.baseSalaryUnitText})
+                            </f:else>
+                        </f:if>
+                    </f:if>
+                </f:spaceless></f:variable>
+
+                <f:render partial="Detail/JsonLd" arguments="{_all}" />
+
+                <h1>{jobpost.title}</h1>
+
+                <div class="metainfo">
+                    <p>Posted: {datePosted}</p>
+                    <p>Type: {jobpost.employmentType}</p>
+                    <p>Working-hours: {jobpost.workHours}</p>
+                    <p>Salary: {salary}</p>
+                </div>
+
+                <f:if condition="{jobpost.description}">
+                    <div class="frame frame-default description">
+                        <f:format.html>{jobpost.description}</f:format.html>
+                    </div>
+                </f:if>
+
+                <f:if condition="{jobpost.maintasks}">
+                    <div class="frame frame-default maintasks">
+                        <h5><f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:detail.maintasks" /></h5>
+                        <f:format.html>{jobpost.maintasks}</f:format.html>
+                    </div>
+                </f:if>
+
+                <f:if condition="{jobpost.profile}">
+                    <div class="frame frame-default profile">
+                        <h5><f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:detail.profile" /></h5>
+                        <f:format.html>{jobpost.profile}</f:format.html>
+                    </div>
+                </f:if>
+
+                <f:if condition="{jobpost.educationRequirements}">
+                    <div class="frame frame-default profile">
+                        <h5><f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:detail.educationRequirements" /></h5>
+                        <f:format.html>{jobpost.educationRequirements}</f:format.html>
+                    </div>
+                </f:if>
+
+                <f:if condition="{jobpost.experienceRequirements}">
+                    <div class="frame frame-default profile">
+                        <h5><f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:detail.experienceRequirements" /></h5>
+                        <f:format.html>{jobpost.experienceRequirements}</f:format.html>
+                    </div>
+                </f:if>
+
+                <f:if condition="{jobpost.skills}">
+                    <div class="frame frame-default skills">
+                        <h5><f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:detail.skills" /></h5>
+                        <f:format.html>{jobpost.skills}</f:format.html>
+                    </div>
+                </f:if>
+
+                <f:if condition="{jobpost.weprovide}">
+                    <div class="frame frame-default weprovide">
+                        <h5><f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:detail.weprovide" /></h5>
+                        <f:format.html>{jobpost.weprovide}</f:format.html>
+                    </div>
+                </f:if>
+
+                <f:if condition="{jobpost.others}">
+                    <div class="frame frame-default others">
+                        <h5>Others</h5>
+                        <f:format.html>{jobpost.others}</f:format.html>
+                    </div>
+                </f:if>
+
+                <f:render partial="Detail/JobLocations" arguments="{_all}" />
+
+                <f:render partial="Detail/ContactPointAddresses" arguments="{
+                    contactPointAddresses: '{jobpost.contactPointAddresses}',
+                    contactPointEmail: '{contactPoint.contactPointEmail}',
+                    contactPointTelephone: '{contactPoint.contactPointTelephone}'
+                }" />
+
+                <f:render partial="Detail/HiringOrganization" arguments="{hiringOrganization: '{jobpost.hiringOrganization}'}" />
+            </div>
+        </f:then>
+        <f:else>
+            <p>No job found!</p>
+        </f:else>
+    </f:if>
+
+    <f:link.page pageUid="{settings.jobsListView}">Back to list</f:link.page>
+</f:section>
+
+</html>

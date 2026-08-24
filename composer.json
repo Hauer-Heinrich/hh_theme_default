@@ -1,6 +1,6 @@
 {
     "type": "typo3-cms-extension",
-    "name": "{{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}",
+    "name": "hauerheinrich/hh-theme-default",
     "description": "Distribution theme: Anpassbar im Backend im Konstanten Editor.",
     "keywords": [ "TYPO3 CMS", "TYPO3", "theme", "distribution", "extension" ],
     "homepage": "https://www.hauer-heinrich.de",
@@ -12,12 +12,17 @@
             "name": "Christian Hackl",
             "homepage": "https://www.hauer-heinrich.de",
             "role": "Developer"
+        },
+        {
+            "name": "Martin Hofmann",
+            "homepage": "https://www.hauer-heinrich.de",
+            "role": "Developer"
         }
     ],
     "support": {
-        "issues": "https://github.com/Hauer-Heinrich/{{EXTENSION_KEY}}/issues",
-        "source": "https://github.com/Hauer-Heinrich/{{EXTENSION_KEY}}",
-        "docs": "https://github.com/Hauer-Heinrich/{{EXTENSION_KEY}}/blob/master/README.md"
+        "issues": "https://github.com/Hauer-Heinrich/hh_theme_default/issues",
+        "source": "https://github.com/Hauer-Heinrich/hh_theme_default",
+        "docs": "https://github.com/Hauer-Heinrich/hh_theme_default/blob/master/README.md"
     },
     "funding": [
         {
@@ -26,7 +31,7 @@
         }
     ],
     "replace": {
-        "typo3-ter/{{EXTENSION_NAMESPACE_ES6}}": "self.version"
+        "typo3-ter/hh-theme-default": "self.version"
     },
     "require": {
         "typo3/cms-core": "^13.4.0",
@@ -37,30 +42,36 @@
         "typo3/cms-scheduler": "^13.4.0",
         "typo3/cms-seo": "^13.4.0",
         "typo3/cms-rte-ckeditor": "^13.4.0",
-        "derhansen/mfa_yubikey": ">=2.0.0",
+        "typo3/cms-filemetadata": "^13.4.0",
+        "typo3/cms-indexed-search": "^13.4.0",
+        "hauerheinrich/hh-ckeditor-font": ">1.0.0",
         "b13/container": ">=2.3.0",
-        "georgringer/news": ">=11.0.0",
-        "friendsoftypo3/tt-address": ">=7.1.0",
-        "in2code/powermail": ">=12.0.0",
-        "hauerheinrich/hh-powermail-checkboxlink": ">=0.1.2",
-        "hauerheinrich/hh-slider": ">=0.8.2",
-        "hauerheinrich/hh-seo": ">=0.9.3"
+        "friendsoftypo3/tt-address": ">=10.0.0",
+        "hauerheinrich/hh-simple-job-posts": ">=5.2.1",
+        "hauerheinrich/hh-accordion": ">=0.7.2",
+        "georgringer/news": ">=14.0.0",
+        "in2code/powermail": ">=13.1.0",
+        "hauerheinrich/hh-powermail-checkboxlink": ">=0.2.2",
+        "hauerheinrich/hh-slider": ">=1.1.0",
+        "hauerheinrich/hh-seo": ">=0.11.0"
     },
     "suggest": {
-        "hauerheinrich/hh-accordion": ">=4.0.0",
-        "hauerheinrich/hh-simple-job-posts": ">=4.0.0",
-        "hauerheinrich/hh-ckeditor-highlight": ">=1.0.0"
+        "hauerheinrich/hh-tt-address-places": ">=4.5.0",
+        "hauerheinrich/hh-video-extender": ">=0.5.0",
+        "hauerheinrich/hh_openstreetmap": ">=1.2.0",
+        "hauerheinrich/typo3-monitor-api": ">=1.5.2",
+        "hauerheinrich/hh-widget-hhnews": ">=1.2.1"
     },
     "autoload": {
         "psr-4": {
-            "{{EXTENSION_VENDOR}}\\{{EXTENSION_NAMESPACE}}\\": "Classes"
+            "HauerHeinrich\\HhThemeDefault\\": "Classes"
         }
     },
     "extra": {
         "typo3/cms": {
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
             "web-dir": ".Build/Web",
-            "extension-key": "{{EXTENSION_KEY}}",
+            "extension-key": "hh_theme_default",
             "version": "1.0.0",
             "Package": {
                 "providesPackages": {}

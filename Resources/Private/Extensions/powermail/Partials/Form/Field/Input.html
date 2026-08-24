@@ -1,0 +1,20 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+
+<div class="powermail_fieldwrap powermail_fieldwrap_type_input powermail_fieldwrap_{field.marker} {field.css} {settings.styles.framework.fieldAndLabelWrappingClasses}">
+	<div class="{settings.styles.framework.fieldWrappingClasses}">
+		<f:render partial="Form/FieldLabel" arguments="{_all}" />
+
+		<f:form.textfield
+				type="{vh:validation.fieldTypeFromValidation(field:field)}"
+				property="{field.marker}"
+				placeholder="{field.placeholder}"
+				value="{vh:misc.prefillField(field:field, mail:mail)}"
+				class="powermail_input {settings.styles.framework.fieldClasses} {vh:validation.errorClass(field:field, class:'powermail_field_error')}"
+				autocomplete="{vh:string.autocomplete(field:field)}"
+				additionalAttributes="{vh:validation.validationDataAttribute(field:field)}"
+				id="powermail_field_{field.marker}"
+				aria-describedby="powermail_field_description_{field.marker}" />
+
+		<f:render partial="Form/FieldDescription" arguments="{_all}" />
+	</div>
+</div>

@@ -6,7 +6,7 @@
         <f:if condition="{i.cycle} == 1">
             <div class="logo header-logo">
                 <f:link.typolink parameter="{file.link}" absolute="1">
-                    <f:image src="{file.uid}" treatIdAsReference="1" />
+                    <f:image src="{file.uid}" treatIdAsReference="1" fetchpriority="high" />
                 </f:link.typolink>
             </div>
 

@@ -1,0 +1,21 @@
+page {
+    10 {
+        dataProcessing {
+            5468 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            5468 {
+                special = directory
+                special.value = 31
+                entryLevel = 0
+                levels = 7
+                expandAll = 1
+                includeSpacer = 0
+                titleField = nav_title // title
+                as = ExampleSites
+            }
+        }
+
+        settings {
+            feLoginPageUid = 55
+        }
+    }
+}

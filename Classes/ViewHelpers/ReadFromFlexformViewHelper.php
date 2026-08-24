@@ -1,5 +1,7 @@
 <?php
-namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
+declare(strict_types=1);
+
+namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
 
 /***************************************************************
  * Copyright notice
@@ -32,9 +34,9 @@ namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
  *  <hh:readFromFlexform flexform="{data.pi_flexform}" field="header" sheet="sDEF" lang="lDEF" value="vDEF">
  */
 
-// use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use \TYPO3\CMS\Core\Utility\GeneralUtility;
+// use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ReadFromFlexformViewHelper extends AbstractViewHelper {
     public function initializeArguments(): void {

@@ -2,8 +2,12 @@
 options {
     clearCache.pages = 1
     folderTree.uploadFieldsInLinkBrowser = 0
-    pageTree.showDomainNameWithTitle = 1
-    enableBookmarks = 0
+    enableBookmarks = 1
+
+    pageTree {
+        showDomainNameWithTitle = 1
+        showPageIdWithTitle = 1
+    }
 }
 
 ### MFA
@@ -43,15 +47,17 @@ admPanel {
     hide = 0
 }
 
-### Show pageUID in the pagetree
-[backend.user.isAdmin == "1"]
-    options {
-        pageTree.showPageIdWithTitle = 1
-    }
-[GLOBAL]
-
 [backend.user.isAdmin == "0"]
     options {
         hideModules = site_configuration
     }
 [GLOBAL]
+
+### Hide fields e. g. in filelist
+page.TCEFORM {
+    sys_file_metadata {
+        ranking.disabled = 1
+        keywords.disabled = 1
+        creator_tool.disabled = 1
+    }
+}

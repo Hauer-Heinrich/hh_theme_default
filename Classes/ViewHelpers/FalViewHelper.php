@@ -1,5 +1,7 @@
 <?php
-namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
+declare(strict_types=1);
+
+namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
 
 /***************************************************************
  * Copyright notice
@@ -37,12 +39,12 @@ namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
  * <f:for each="{references}" as="reference" iteration="i"> Do what you want :) </f:for>
  */
 
-// use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use \TYPO3\CMS\Core\Resource\ResourceFactory;
-use \TYPO3\CMS\Core\Resource\FileReference;
-use \TYPO3\CMS\Core\Resource\FileRepository;
-use \TYPO3\CMS\Core\Utility\GeneralUtility;
+// use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Core\Resource\ResourceFactory;
+use TYPO3\CMS\Core\Resource\FileReference;
+use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class FalViewHelper extends AbstractViewHelper {
 

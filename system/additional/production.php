@@ -3,8 +3,8 @@ if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
-use \TYPO3\CMS\Core\Log\LogLevel;
-use \TYPO3\CMS\Core\Log\Writer\FileWriter;
+use TYPO3\CMS\Core\Log\LogLevel;
+use TYPO3\CMS\Core\Log\Writer\FileWriter;
 
 // for env:TYPO3_CONTEXT = Production (which is the default) only!
 $customChanges = [
@@ -67,7 +67,7 @@ $customChanges = [
         ],
     ],
     'GFX' => [
-        'imagefile_ext' => 'pdf,png,jpg,jpeg,svg,webp',
+        'imagefile_ext' => 'pdf,png,jpg,jpeg,svg,webp,avif',
     ],
     'SYS' => [
         'displayErrors' => 0,
@@ -80,7 +80,7 @@ $customChanges = [
         'systemLocale' => 'de_DE.utf8',
         'ipAnonymization' => '2',
         'belogErrorReporting' => 6485,
-        'mediafile_ext' => 'gif,jpg,jpeg,png,webp,pdf,svg,mp3,mp4,webm,youtube,vimeo',
+        'mediafile_ext' => 'gif,jpg,webp,avif,jpeg,png,pdf,svg,mp3,wav,mp4,ogg,flac,webm,youtube,vimeo',
         'defaultScheme' => 'https',
         // cookieDomain e. g. 'cookieDomain' => '/(www\.)?(domainA|domainB)\.?(TLD)$/',
         'cookieDomain' => '/www\.({{EXTENSION_DOMAIN_NAME}})\.{{EXTENSION_DOMAIN_TLD}}$/',
@@ -99,10 +99,13 @@ $customChanges = [
             'manualSorting' => '1',
             'showAdministrationModule' => '0',
         ],
-        'hh_video_extender' => [
-            'config' => [
-                'typoScript' => 0
-            ],
+        'powermail' => [
+            'disableIpLog' => '1',
+            'disableMarketingInformation' => '1',
+        ],
+        'tt_address' => [
+            'readOnlyNameField' => '1',
+            'storeBackwardsCompatName' => '0',
         ],
     ],
 ];

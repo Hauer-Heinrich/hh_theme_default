@@ -1,7 +1,7 @@
 <?php
 defined('TYPO3') or die();
 
-use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 call_user_func(function(string $extensionKey) {
     // make TypoScript selectable
@@ -10,4 +10,10 @@ call_user_func(function(string $extensionKey) {
         'Configuration/TypoScript',
         'Theme TS'
     );
-}, '{{EXTENSION_KEY}}');
+
+    ExtensionManagementUtility::addStaticFile(
+        $extensionKey,
+        'Configuration/TypoScript/ExamplePages',
+        'Theme Examples TypoScript'
+    );
+}, 'hh_theme_default');

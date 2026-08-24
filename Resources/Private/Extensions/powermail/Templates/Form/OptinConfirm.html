@@ -1,0 +1,16 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+<f:layout name="Default" />
+
+Render Powermail Confirm Failed Page
+
+<f:section name="main">
+	<f:render partial="Misc/FormError" arguments="{error}" />
+
+	<div class="powermail_create">
+		<f:alias map="{flashMessageClass:'powermail_message_error'}">
+			<f:render partial="Misc/FlashMessages" arguments="{_all}" />
+		</f:alias>
+
+		<f:translate key="optin_mail_confirm_{labelKey}">The given Link is not correct</f:translate>
+	</div>
+</f:section>

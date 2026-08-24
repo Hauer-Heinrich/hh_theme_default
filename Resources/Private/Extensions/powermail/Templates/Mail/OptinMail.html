@@ -1,0 +1,31 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+<f:layout name="Mail" />
+
+	Render Powermail Optin Mail
+	This Mail is send back to the user with an Optin Link that has to be clicked
+	Mail will only be send, if Optin was enabled by editor
+
+
+	{mail}							Complete Mail Object
+	{hash}							Hash for optin URI
+	{settings}						TypoScript Settings
+
+
+<f:section name="main">
+	<f:translate key="optin_mail_link" /><br>
+
+	<f:format.htmlentitiesDecode>
+		<f:link.action action="optinConfirm" absolute="1" arguments="{hash: hash, mail: mail}">
+			<f:uri.action action="optinConfirm" absolute="1" arguments="{hash: hash, mail: mail}" />
+		</f:link.action>
+	</f:format.htmlentitiesDecode>
+
+	<br><br><hr>
+	<f:translate key="optin_mail_entries" /><br>
+
+	<f:format.raw>
+		{powermail_all}
+	</f:format.raw>
+
+	<f:render partial="Mail/DisclaimerLink" arguments="{_all}" />
+</f:section>

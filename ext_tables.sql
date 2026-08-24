@@ -9,6 +9,7 @@ CREATE TABLE tt_content (
     gallery_row_gap int(11) unsigned DEFAULT '0' NOT NULL,
     gallery_column_gap int(11) unsigned DEFAULT '0' NOT NULL,
     filelink_download int(11) unsigned DEFAULT '0' NOT NULL,
+    filelink_download_btn int(11) unsigned DEFAULT '0' NOT NULL,
 );
 
 #
@@ -20,8 +21,6 @@ CREATE TABLE pages (
     footer_col1 mediumtext,
     footer_links1 text,
     footer_links2 text,
-    footer_links3 text,
-    footer_links4 text,
     footer_address varchar(50),
 );
 

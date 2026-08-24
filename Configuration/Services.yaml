@@ -4,22 +4,22 @@ services:
     autoconfigure: true
     public: false
 
-  {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\:
+  HauerHeinrich\HhThemeDefault\:
     resource: '../Classes/*'
     exclude: '../Classes/Domain/Model/*'
 
-  {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\EventListener\AfterBackendPageRenderEventListener:
+  HauerHeinrich\HhThemeDefault\EventListener\AfterBackendPageRenderEventListener:
     tags:
       - name: event.listener
         event: TYPO3\CMS\Backend\Controller\Event\AfterBackendPageRenderEvent
 
-  {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\DataProcessing\OpeningHoursProcessor:
+  HauerHeinrich\HhThemeDefault\DataProcessing\OpeningHoursProcessor:
     public: true
     tags:
         - name: 'data.processor'
           identifier: 'opening-hours'
 
-  {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\DataProcessing\GalleryProcessor:
+  HauerHeinrich\HhThemeDefault\DataProcessing\GalleryProcessor:
     tags:
         - name: 'data.processor'
           identifier: 'theme-gallery'

@@ -1,4 +1,0 @@
-################################################################
-### Hauer-Heinrich Jobs - hh_simple_job_posts ###
-################################################################
-@import 'EXT:hh_simple_job_posts/Configuration/TsConfig/AllPage.tsconfig'

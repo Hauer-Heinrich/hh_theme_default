@@ -1,34 +1,36 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
-<header id="header" class="frame" role="banner">
-    <div class="header-container frame-large">
-        <f:render partial="Logo" arguments="{logos: '{HeaderLogos}'}" />
+<f:if condition="{ExampleSites}">
+    <aside>
+        <details>
+            <summary>Links zu den Example Seiten</summary>
+            <f:render partial="Menu/TrennerMenu" arguments="{menu: '{ExampleSites}'}" />
+        </details>
+    </aside>
+</f:if>
 
-        <nav class="nav-main" role="navigation" aria-label="{f:translate(key: 'LLL:{settings.pathToThemeXlfFiles}locallang_aria.xlf:aria.label.mainNav')}">
-            <f:render partial="Menu/MainMenu" arguments="{menu: '{MenuMain}'}" />
-        </nav>
+<header>
+    <f:render partial="Logo" arguments="{logos: '{HeaderLogos}'}" />
 
-        <f:if condition="{settings.indexedSearchId} && {data.uid} != {settings.indexedSearchId}">
-            <f:cObject typoscriptObjectPath="lib.searchfield" />
-        </f:if>
-    </div>
+    <nav class="menu-main" role="navigation" aria-label="{f:translate(key: 'LLL:{settings.pathToThemeXlfFiles}locallang_aria.xlf:aria.label.mainNav')}">
+        <f:render partial="Menu/MainMenu" arguments="{menu: '{MenuMain}'}" />
+    </nav>
 
-    <f:security.ifAuthenticated>
-        <f:then>
-            <f:variable name="feUser" value="{hhdefault:getFeUser()}" />
-            <f:if condition="{feUser}">
-                <div class="fe-user fe-user--loggedin">
-                    <f:if condition="{feUser.image.0.uid}">
-                        <div class="image fe-user--image">
-                            <f:image src="{feUser.image.0.uid}" treatIdAsReference="1" width="100c" />
-                        </div>
-                    </f:if>
-                    <span class="name fe-user--name">{feUser.name}</span>
-                </div>
-            </f:if>
-        </f:then>
-    </f:security.ifAuthenticated>
+    <f:if condition="{settings.indexedSearchId} && {data.uid} != {settings.indexedSearchId}">
+        <f:cObject typoscriptObjectPath="lib.searchfield" />
+    </f:if>
+
+    <f:if condition="{settings.feLoginPageUid}">
+        <f:security.ifAuthenticated>
+            <f:then>
+                <f:link.page additionalParams="{logintype: 'logout'}">Logout</f:link.page>
+            </f:then>
+            <f:else>
+                <f:link.page pageUid="{settings.feLoginPageUid}">Login</f:link.page>
+            </f:else>
+        </f:security.ifAuthenticated>
+    </f:if>
 </header>
 
 </html>

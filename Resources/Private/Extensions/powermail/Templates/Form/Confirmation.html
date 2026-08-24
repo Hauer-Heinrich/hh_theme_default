@@ -1,0 +1,77 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+<f:layout name="Default" />
+
+Show Confirmation Page
+{powermail_rte}					Variable is filled with values from RTE in backend (from thx page)
+{powermail_all}					Outputs all fields
+{marker1}, {firstname}, etc..	Outputs a field
+{mail}							Complete Mail Object
+{ttContentData}					All values from content element with plugin
+{uploadService}					All values from uploaded files
+
+
+<f:section name="main">
+	<div class="powermail_confirmation" data-powermail-form="{mail.form.uid}">
+		<h1><f:translate key="confirmation_message" /></h1>
+
+		<f:format.raw>{powermail_all}</f:format.raw>
+
+		<div class="powermail_fieldwrap powermail_tab_navigation">
+			<f:comment>
+				Link: Back to form
+			</f:comment>
+			<f:form
+					action="form"
+					section="c{ttContentData.uid}"
+					name="field"
+					enctype="multipart/form-data"
+					class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"
+ 					addQueryString="{settings.misc.addQueryString}"
+					additionalAttributes="{vh:validation.enableJavascriptValidationAndAjax(form: mail.form)}">
+				<f:render section="HiddenFields" arguments="{_all}" />
+				<f:form.submit
+						value="{f:translate(key: 'confirmation_prev')}"
+						additionalAttributes="{data-powermail-form-ajax:'confirmation'}"
+						class="btn btn-danger" />
+			</f:form>
+
+
+			<f:comment>
+				Link: Submit form
+			</f:comment>
+			<f:form
+					action="create"
+					section="c{ttContentData.uid}"
+					name="field"
+					enctype="multipart/form-data"
+					class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"
+					addQueryString="{settings.misc.addQueryString}"
+					additionalAttributes="{vh:validation.enableJavascriptValidationAndAjax(form: mail.form)}">
+				<f:render section="HiddenFields" arguments="{_all}" />
+				<f:form.submit
+						value="{f:translate(key: 'confirmation_submit')}"
+						additionalAttributes="{data-powermail-form-ajax:'submit'}"
+						class="btn btn-primary" />
+			</f:form>
+		</div>
+	</div>
+</f:section>
+
+
+
+<f:section name="HiddenFields">
+	<f:for each="{mail.answers}" as="answer">
+		<f:if condition="{vh:condition.isArray(val:answer.value)}">
+			<f:then>
+				<f:for each="{answer.value}" as="subvalue" iteration="i">
+					<f:form.hidden property="{answer.field.marker}.{i.index}" value="{subvalue}" respectSubmittedDataValue="false"  />
+				</f:for>
+			</f:then>
+			<f:else>
+				<f:form.hidden property="{answer.field.marker}" value="{answer.value}" respectSubmittedDataValue="false"  />
+			</f:else>
+		</f:if>
+	</f:for>
+
+	<f:form.hidden name="mail[form]" value="{mail.form.uid}" class="powermail_form_uid" />
+</f:section>

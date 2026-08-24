@@ -10,18 +10,6 @@ page {
     includeJSFooterlibs >
     includeJSFooter >
 
-    cssInline.10 = COA
-    cssInline.10 {
-        ### Add inline CSS above-the-fold
-        5 = USER
-        5 {
-            userFunc = {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\Helper\GetTextFromFileHelper->setInlineCss
-            settings {
-                file = EXT:{{EXTENSION_KEY}}/Resources/Public/Css/inline.bundle.css
-            }
-        }
-    }
-
     config {
         additionalHeaders {
             ### https://securityheaders.com/
@@ -174,7 +162,7 @@ page {
             # 90 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 90 {
             #     special = directory
-            #     special.value = {$plugin.{{EXTENSION_NAME}}.additionalTopMenu}
+            #     special.value = {$plugin.hhthemedefault.additionalTopMenu}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -188,7 +176,7 @@ page {
             #     }
             #     as = AdditionalTopMenu
 
-            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.additionalTopMenu}
+            #     if.isTrue = {$plugin.hhthemedefault.additionalTopMenu}
             # }
 
             ################################################################
@@ -245,32 +233,10 @@ page {
                 as = FooterLinks2
                 if.isTrue.data = levelfield:-1, footer_links2, slide
             }
-            330 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            330 {
-                special = list
-                special.value.data = levelfield:-1, footer_links3, slide
-                entryLevel = 0
-                levels = 1
-                expandAll = 1
-                includeSpacer = 0
-                titleField = nav_title // title
-                as = FooterLinks3
-                if.isTrue.data = levelfield:-1, footer_links3, slide
-            }
-            340 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            340 {
-                special = list
-                special.value.data = levelfield:-1, footer_links4, slide
-                entryLevel = 0
-                levels = 1
-                expandAll = 1
-                includeSpacer = 0
-                titleField = nav_title // title
-                as = FooterLinks4
-                if.isTrue.data = levelfield:-1, footer_links4, slide
-            }
+            ### Returns a array not a object - for a object look below!
             350 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
             350 {
+                if.isTrue.data = levelfield:-1, footer_address, slide
                 table = tt_address
                 selectFields.dataWrap = *, FIND_IN_SET(uid, ###UIDS###) as foobar_sort
                 uidInList.data = levelfield:-1, footer_address, slide
@@ -285,10 +251,43 @@ page {
                 }
 
                 dataProcessing {
-                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 = HauerHeinrich\HhThemeWuw\DataProcessing\ExtbaseModelProcessor
                     10 {
-                        references.fieldName = image
+                        modelClass = FriendsOfTYPO3\TtAddress\Domain\Model\Address
+                        as = address
                     }
+                }
+
+                as = FooterAddresses
+            }
+            350 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            350 {
+                if.isTrue.data = levelfield:-1, footer_address, slide
+                table = tt_address
+                selectFields.dataWrap = *, FIND_IN_SET(uid, ###UIDS###) as foobar_sort
+                uidInList.data = levelfield:-1, footer_address, slide
+                pidInList = 0
+                ### pidInList = 123 und where = ... nur wenn man uidInList nicht verwenden kann
+                ### ansonsten auf 0 setzen zum deaktivieren
+                ### und in das where ein FIND_IN_SET
+                where.dataWrap = FIND_IN_SET(uid, ###UIDS###)
+                orderBy = foobar_sort
+                markers {
+                    UIDS.data = levelfield:-1, footer_address, slide
+                }
+
+                dataProcessing {
+                    10 = HauerHeinrich\HhThemeDefault\DataProcessing\ExtbaseModelProcessor
+                    10 {
+                        modelClass = FriendsOfTYPO3\TtAddress\Domain\Model\Address
+                        as = address
+                    }
+
+                    // EXAMPLE without custom DataProcessing:
+                    # 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    # 10 {
+                    #     references.fieldName = image
+                    # }
 
                     ### Working only if EXT:hh_tt_address_places is available!
                     # 20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -302,7 +301,7 @@ page {
                     #     }
 
                     #     dataProcessing {
-                    #         10 = {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\DataProcessing\OpeningHoursProcessor
+                    #         10 = HauerHeinrich\HhThemeDefault\DataProcessing\OpeningHoursProcessor
                     #         10 {
                     #             as = structuredHours
                     #         }
@@ -318,7 +317,7 @@ page {
             # 96 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 96 {
             #     special = directory
-            #     special.value = {$plugin.{{EXTENSION_NAME}}.legalInformation}
+            #     special.value = {$plugin.hhthemedefault.legalInformation}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -332,13 +331,13 @@ page {
             #     }
             #     as = legalInformation
             #
-            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.legalInformation}
+            #     if.isTrue = {$plugin.hhthemedefault.legalInformation}
             # }
 
             # 97 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 97 {
             #     special = directory
-            #     special.value = {$plugin.{{EXTENSION_NAME}}.socialMedia}
+            #     special.value = {$plugin.hhthemedefault.socialMedia}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -352,7 +351,7 @@ page {
             #     }
             #     as = socialMedia
             #
-            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.socialMedia}
+            #     if.isTrue = {$plugin.hhthemedefault.socialMedia}
             # }
 
             ################################################################
@@ -361,7 +360,7 @@ page {
             # 99 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 99 {
             #     special = directory
-            #     special.value = {$plugin.{{EXTENSION_NAME}}.socialMenu}
+            #     special.value = {$plugin.hhthemedefault.socialMenu}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -375,7 +374,7 @@ page {
             #     }
             #     as = SocialMenu
             #
-            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.socialMenu}
+            #     if.isTrue = {$plugin.hhthemedefault.socialMenu}
             # }
 
             ################################################################
@@ -384,7 +383,7 @@ page {
             100 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             100 {
                 special = directory
-                special.value = {$plugin.{{EXTENSION_NAME}}.quickLinks}
+                special.value = {$plugin.hhthemedefault.quickLinks}
                 entryLevel = 0
                 levels = 7
                 expandAll = 1
@@ -398,17 +397,17 @@ page {
                 }
                 as = Quicklinks
 
-                if.isTrue = {$plugin.{{EXTENSION_NAME}}.quickLinks}
+                if.isTrue = {$plugin.hhthemedefault.quickLinks}
             }
         }
 
         settings {
-            indexedSearchId = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
-            breadcrumbSeparator = {$plugin.{{EXTENSION_NAME}}.breadcrumbSeparator}
-            compressFiles = {$plugin.{{EXTENSION_NAME}}.compressFiles}
-            concatenateFiles = {$plugin.{{EXTENSION_NAME}}.concatenateFiles}
-            feLoginPageUid = {$plugin.{{EXTENSION_NAME}}.feLoginPageUid}
-            pathToThemeXlfFiles = {$plugin.{{EXTENSION_NAME}}.pathToThemeXlfFiles}
+            indexedSearchId = {$plugin.hhthemedefault.indexedSearchId}
+            breadcrumbSeparator = {$plugin.hhthemedefault.breadcrumbSeparator}
+            compressFiles = {$plugin.hhthemedefault.compressFiles}
+            concatenateFiles = {$plugin.hhthemedefault.concatenateFiles}
+            feLoginPageUid = {$plugin.hhthemedefault.feLoginPageUid}
+            pathToThemeXlfFiles = {$plugin.hhthemedefault.pathToThemeXlfFiles}
         }
 
         variables {

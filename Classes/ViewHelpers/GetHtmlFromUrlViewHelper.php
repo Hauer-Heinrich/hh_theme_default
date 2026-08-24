@@ -1,5 +1,7 @@
 <?php
-namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
+declare(strict_types=1);
+
+namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
 
 /*
     Usage:
@@ -7,8 +9,8 @@ namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
 */
 
 // use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use \TYPO3\CMS\Core\Utility\GeneralUtility;
-use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class GetHtmlFromUrlViewHelper extends AbstractViewHelper {
     /**

@@ -1,0 +1,15 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+
+<f:if condition="{vh:validation.isHonepodEnabled()}">
+	<div style="margin-left: -99999px; position: absolute;">
+		<label for="powermail_hp_{form.uid}" aria-hidden="true">
+			<f:translate key="honeypodLabel" />
+		</label>
+		<f:form.textfield
+				name="field[__hp]"
+				value=""
+				id="powermail_hp_{form.uid}"
+				tabindex="-1"
+				additionalAttributes="{autocomplete: 'new-powermail-hp-{form.uid}', aria-hidden: 'true'}" />
+	</div>
+</f:if>

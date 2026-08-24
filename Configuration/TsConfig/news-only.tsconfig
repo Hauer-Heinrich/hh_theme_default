@@ -5,3 +5,20 @@ mod {
         hideTables = tt_content
     }
 }
+
+TCAdefaults.tx_news_domain_model_news {
+    type = 100
+}
+
+TCEFORM {
+    tx_news_domain_model_news {
+        custom_media.config.appearance.fileUploadAllowed = 0
+        custom_media_2.config.appearance.fileUploadAllowed = 0
+        fal_media.config.appearance.fileUploadAllowed = 0
+        fal_related_files.config.appearance.fileUploadAllowed = 0
+
+        type {
+            removeItems = 0
+        }
+    }
+}

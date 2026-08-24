@@ -1,0 +1,64 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:ttaddr="http://typo3.org/ns/FriendsOfTYPO3/TtAddress/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:if condition="{jobpost.jobLocations}">
+    <div class="frame frame-default job-locations">
+        <h5><f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:detail.jobLocations" /></h5>
+
+        <f:for each="{jobpost.jobLocations}" as="location" iteration="i">
+            <div class="job-location">
+                <f:if condition="{location.www}">
+                    <f:then>
+                        <a itemprop="url" href="{location.www}">
+                            <span itemprop="name">{location.company}</span>
+                        </a>
+                    </f:then>
+                    <f:else>
+                        <span itemprop="name">{location.company}</span>
+                    </f:else>
+                </f:if>
+
+                <f:if condition="{location.description}">
+                    <div itemprop="description"><f:format.html>{location.description}</f:format.html></div>
+                </f:if>
+
+                <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                    <f:if condition="{location.region}">
+                        <span itemprop="addressRegion">{location.region}</span>
+                    </f:if>
+                    <f:if condition="{location.address}">
+                        <span itemprop="streetAddress">{location.address}</span><br />
+                    </f:if>
+
+                    <f:if condition="{location.zip} || {location.city}">
+                        <span class="city">
+                            <f:if condition="{location.zip}">
+                                <span itemprop="postalCode">{location.zip}</span>&nbsp;
+                            </f:if>
+                            <f:if condition="{location.city}">
+                                <span itemprop="addressLocality">{location.city}</span>
+                            </f:if>
+                        </span>
+                    </f:if>
+                </div>
+
+                <f:if condition="{location.phone}">
+                    <span itemprop="telephone">
+                        <f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:detail.location.phone.before" />
+                        <a href="tel:{location.phone->ttaddr:removeSpaces()}">{location.phone}</a><br />
+                    </span>
+                </f:if>
+
+                <f:if condition="{location.email}">
+                    <span itemprop="email">
+                        <f:translate key="LLL:EXT:hh_simple_job_posts/Resources/Private/Language/locallang_fe.xlf:detail.location.email.before" />
+                        <f:link.email email="{location.email}">{location.email}</f:link.email>
+                    </span>
+                </f:if>
+            </div>
+        </f:for>
+    </div>
+</f:if>
+
+</html>

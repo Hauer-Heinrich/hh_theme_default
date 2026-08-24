@@ -3,8 +3,8 @@ if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
-use \TYPO3\CMS\Core\Log\LogLevel;
-use \TYPO3\CMS\Core\Log\Writer\FileWriter;
+use TYPO3\CMS\Core\Log\LogLevel;
+use TYPO3\CMS\Core\Log\Writer\FileWriter;
 
 // for env:TYPO3_CONTEXT = Development only!
 // Overwrites previously set settings!
@@ -64,17 +64,8 @@ $customDevelopmentChanges = [
         'enableDeprecationLog' => 'file',
         'belogErrorReporting' => 32767,
         // cookieDomain e. g. 'cookieDomain' => '/(www\.)?(domainA|domainB)\.?(TLD)$/',
-        'cookieDomain' => '/(www.)?({{EXTENSION_DOMAIN_NAME}})?(.localhost)/',
-        'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}\.localhost',
+        'cookieDomain' => '/(www.)?(hh-theme-default)?(.localhost)/',
+        'trustedHostsPattern' => 'www\.hh-theme-default\.localhost',
     ],
 ];
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $customDevelopmentChanges);
-
-// Disable All Caches (in Development Mode)
-// disable Caching: https://usetypo3.com/did-you-know.html
-// (https://medium.com/typo3blog/disabling-typo3-caches-a137667848c9)
-// foreach ($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'] as $cacheName => $cacheConfiguration) {
-//     if($cacheName != 'runtime') { // TYPO3 >= 12
-//         $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$cacheName]['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;
-//     }
-// }

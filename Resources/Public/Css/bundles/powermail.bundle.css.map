@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../components-custom/powermail.css"],
+  "sourcesContent": [".powermail_tab_navigation {\n    margin-top: 20px;\n}\n\n.powermail_fieldwrap_checkboxlink {\n    &:not(:last-child) {\n        margin-bottom: 20px;\n    }\n}\n\n.btn-group + fieldset {\n    margin-top: 40px;\n}\n\n.tx-powermail {\n\n}\n"],
+  "mappings": "AAAA,CAAC,yBACG,WAAY,IAChB,CAEA,CAAC,gCACI,KAAK,aACF,cAAe,IACnB,CAGJ,CAAC,SAAU,CAAE,SACT,WAAY,IAChB",
+  "names": []
+}

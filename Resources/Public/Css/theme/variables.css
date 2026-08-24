@@ -2,23 +2,52 @@
     /* GLOBALS/FALLBACKS for COMPONENTS */
     --body-bg: #fff;
     --overlay-bg: rgba(0, 0, 0, 0.15);
+    --border: 1px solid #1a1a1a;
+    --border-radius: 5px;
+    --box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+
+    /* Default gap between text and media */
+    --gap: 0.5rem;
+
+    /* Default gap between paragraphs */
+    --gap-text: 1em;
+
+    /* Gap between header and text, or header and gallery */
+    --gap-header: 1em;
+
+    /* Default gap between image and image within gallery  */
+    --gap-gallery: 0.5rem;
+
+    /* Horizontal line gap (hr) */
+    --gap-hr: var(--gap-text);
 
     /* COLORS */
     /* (find trendy gradients: https://cssgradient.io/gradient-backgrounds/) */
     --color-primary: #4DAF2E;
     --color-secondary: #333333;
     --color-tertiary: #478C33;
+
     --color-text: #191919;
     --color-text-invert: #ffffff;
+
     --color-link: #191919;
     --color-link-hover: #4DAF2E;
+
     --color-input-bg: #ffffff;
-    --color-button-text: #ffffff;
-    --color-button-text-hover: #4DAF2E;
-    --color-button-bg: #4DAF2E;
-    --color-button-bg-hover: #ffffff;
-    --color-bg-default: #EEEEEE;
+
+    --btn-primary--bg-color: var(--color-primary);
+    --btn-primary--border-color: var(--color-primary);
+    --btn-primary--color: #fff;
+    --btn-primary--hover-color: var(--color-text);
+
+    --btn-secondary--bg-color: var(--color-secondary);
+    --btn-secondary--border-color: var(--color-secondary);
+    --btn-secondary--color: #fff;
+    --btn-secondary--hover-color: var(--color-text);
+
     --color-radio-check: #000000;
+
+
 
     /* TYPO */
     /* (responsive fonts: https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/) */
@@ -37,24 +66,35 @@
     --font-size-default: 1.125rem;
     --font-size-small: 16px;
 
-    --font-size-h1: clamp(1.5rem, 1.325rem + 0.875vw, 2.375rem);
-    --font-size-h2: clamp(1.375rem, 1.225rem + 0.75vw, 2.125rem);
-    --font-size-h3: clamp(1.3rem, 1.21rem + 0.45vw, 1.75rem);
-    --font-size-h4: clamp(1rem, 1vw + 1rem, 1.5rem);
-    --font-size-h5: 1rem;
-    --font-size-h6: 1rem;
 
-    /* HELPERS */
-    --gap: 0.5rem;
-    --gap-input: 0.5rem;
-    --margin: 1rem;
-    --padding: 1rem;
-    --padding-input: 0.5rem;
-    --padding-button: 0.75rem 1.25rem;
-    --border: 1px solid #1a1a1a;
-    --border-radius: 5px;
-    --border-input: 1px solid #000;
-    --border-button: 0;
-    --box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
-    --box-shadow-button: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+
+    /* Content-Element max widths */
+    --frame-max-width-default: 1320px;
+    --frame-max-width-small: 1024px;
+    --frame-max-width-medium: 1333px;
+    --frame-max-width-large: 1680px;
+    --frame-max-width-xlarge: 100vw;
+
+    --frame-row-gap-default: 70px;
+    --frame-row-gap-small: 2rem;
+    --frame-row-gap-large: 4rem;
+    --frame-row-gap-xlarge: 6rem;
+
+    --frame-padding-default: 2rem;
+
+
+
+    /* Menu Main */
+    --menu-main--font-size: 22px;
+
+    --menu-main--color: ;
+    --menu-main--color-hover: ;
+    --menu-main--color-active: ;
+
+    --menu-main--item-bg: ;
+    --menu-main--item-bg-hover: ;
+
+    --menu-main--item-padding: 20px 10px;
+
+    --menu-main--submenu--bg: ;
 }

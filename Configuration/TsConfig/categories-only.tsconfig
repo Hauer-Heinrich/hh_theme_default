@@ -1,0 +1,6 @@
+mod {
+    web_list {
+        listOnlyInSingleTableView = 0
+        allowedNewTables = sys_category
+    }
+}

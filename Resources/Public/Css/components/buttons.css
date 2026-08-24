@@ -1,0 +1,49 @@
+/* ---------------------- */
+/* ------ Buttons --------*/
+/* ---------------------- */
+.btn {
+    display: inline-block;
+    position: relative;
+    margin-right: var(--margin);
+    text-decoration: none;
+}
+
+.btn + .btn {
+    margin-inline-start: 10px;
+}
+
+.btn:last-of-type {
+    margin-right: 0;
+}
+
+.btn-default {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 7px;
+    padding: 10px 20px;
+    transition: all 400ms;
+}
+
+.btn-default.btn-primary {
+    background-color: var(--btn-primary--bg-color, var(--color-primary));
+    border-color: var(--btn-primary--border-color, var(--color-primary));
+    color: var(--btn-primary--color, #fff);
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+        color: var(--btn-primary--hover-color, var(--color-text, #000));
+    }
+}
+
+.btn-default.btn-secondary {
+    background-color: var(--btn-secondary--bg-color, var(--color-secondary));
+    border-color: var(--btn-secondary--border-color, var(--color-secondary));
+    color: var(--btn-secondary--color, #fff);
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+        color: var(--btn-secondary--hover-color, var(--color-text, #000));
+    }
+}
