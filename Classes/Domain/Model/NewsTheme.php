@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace HauerHeinrich\HhThemeDefault\Domain\Model;
+namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\Domain\Model;
 
 use \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use \TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
@@ -9,7 +9,7 @@ use \TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use \GeorgRinger\News\Domain\Model\News;
 
 /**
- * This file is part of the "hh_theme_default" Extension for TYPO3 CMS.
+ * This file is part of the "{{EXTENSION_KEY}}" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.

@@ -14,8 +14,8 @@ lib.contentElement {
     }
 }
 
-@import 'EXT:hh_theme_default/Configuration/TypoScript/Setup/CustomFluid/*.typoscript'
-@import 'EXT:hh_theme_default/Configuration/TypoScript/Setup/Extensions/*.typoscript'
+@import 'EXT:{{EXTENSION_KEY}}/Configuration/TypoScript/Setup/CustomFluid/*.typoscript'
+@import 'EXT:{{EXTENSION_KEY}}/Configuration/TypoScript/Setup/Extensions/*.typoscript'
 
 ################################################################
 ### Hauer-Heinrich SEO - hh_seo ###
