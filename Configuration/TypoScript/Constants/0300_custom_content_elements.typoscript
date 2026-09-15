@@ -10,3 +10,4 @@ plugin.tx_{{EXTENSION_NAME}} {
         layoutRootPath =
     }
 }
+@import 'EXT:{{EXTENSION_KEY}}/Configuration/TypoScript/Constants/ContentElements/*.typoscript'
