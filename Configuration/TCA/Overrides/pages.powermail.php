@@ -9,4 +9,4 @@ call_user_func(function(string $extensionKey) {
         'Configuration/TsConfig/powermail-only.tsconfig',
         'Additional / extra config for: powermail forms'
     );
-}, 'hh_theme_default');
+}, '{{EXTENSION_KEY}}');

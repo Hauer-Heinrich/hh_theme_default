@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace HauerHeinrich\HhThemeDefault\EventListener;
+namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\EventListener;
 
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureParsedEvent;
@@ -11,7 +11,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 #[AsEventListener(identifier: 'hh-theme-default/extend-news-flexform')]
 final class ExtendNewsFlexFormEventListener {
 
-    private string $flexFormFile = 'EXT:hh_theme_default/Configuration/FlexForms/NewsExtension.xml';
+    private string $flexFormFile = 'EXT:{{EXTENSION_KEY}}/Configuration/FlexForms/NewsExtension.xml';
 
     public function __invoke(AfterFlexFormDataStructureParsedEvent $event): void {
         $identifier = $event->getIdentifier();
