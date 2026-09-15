@@ -53,19 +53,17 @@
             </div>
             <div class="footer">
                 <p>
-                    <!-- date -->
                     <span class="news-list-date">
-                        <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'c')}">
-                            <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
+                        <time itemprop="datePublished" datetime="{f:format.date(date: '{newsItem.datetime}', format: 'c')}">
+                            <f:format.date pattern="{f:translate(key: 'dateFormat')}">{newsItem.datetime}</f:format.date>
                         </time>
                     </span>
 
                     <f:if condition="{newsItem.categories}">
-                        <f:render partial="Category/Items" arguments="{categories:newsItem.categories, settings:settings}" />
+                        <f:render partial="Category/Items" arguments="{categories: newsItem.categories, settings:settings}" />
                     </f:if>
 
                     <f:if condition="{newsItem.tags}">
-                        <!-- Tags -->
                         <span class="news-list-tags" itemprop="keywords">
                         <f:for each="{newsItem.tags}" as="tag">
                             {tag.title}
@@ -74,7 +72,6 @@
                     </f:if>
 
                     <f:if condition="{newsItem.author}">
-                        <!-- author -->
                         <span class="news-list-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
                             <f:translate key="author_simple" /> <span itemprop="name">{newsItem.author}</span>
                         </span>
@@ -83,27 +80,23 @@
             </div>
             <n:renderMedia news="{newsItem}" imgClass="img-responsive" videoClass="video-wrapper" audioClass="audio-wrapper">
                 <f:if condition="{newsItem.teaser}">
-                    <!-- teaser -->
                     <div class="teaser-text" itemprop="description">
                         <f:format.html>{newsItem.teaser}</f:format.html>
                     </div>
                 </f:if>
 
                 <f:if condition="{newsItem.contentElements}">
-                    <!-- content elements -->
                     <f:cObject typoscriptObjectPath="lib.tx_news.contentElementRendering">{newsItem.contentElementIdList}</f:cObject>
                 </f:if>
 
                 <f:render partial="Detail/MediaContainer" arguments="{media: newsItem.mediaNonPreviews, settings:settings}" />
 
-                <!-- main text -->
                 <div class="news-text-wrap" itemprop="articleBody">
                     <f:format.html>{newsItem.bodytext}</f:format.html>
                 </div>
             </n:renderMedia>
 
             <f:if condition="{settings.backPid}">
-                <!-- Link Back -->
                 <div class="news-backlink-wrap">
                     <f:link.page pageUid="{settings.backPid}">
                         <f:translate key="back-link" />
@@ -122,7 +115,6 @@
                 </n:extensionLoaded>
             </f:if>
 
-            <!-- related things -->
             <div class="news-related-wrap">
                 <f:comment>
                     Various options exist to fetch different related information:
@@ -135,7 +127,6 @@
                 </f:comment>
 
                 <f:if condition="{newsItem.allRelatedSorted}">
-                    <!-- Related news records -->
                     <div class="news-related news-related-news">
                         <h4>
                             <f:translate key="related-news" />
@@ -155,7 +146,6 @@
                 </f:if>
 
                 <f:if condition="{newsItem.relatedFiles}">
-                    <!-- related files -->
                     <div class="news-related news-related-files">
                         <h4>
                             <f:translate key="related-files" />
@@ -178,7 +168,6 @@
                 </f:if>
 
                 <f:if condition="{newsItem.relatedLinks}">
-                    <!-- Related links -->
                     <div class="news-related news-related-links">
                         <h4>
                             <f:translate key="related-links" />
@@ -212,7 +201,7 @@
                 <f:if condition="{newsItem.author}">
                     "author": {
                         "@type": "Person",
-                        "name": {f:if(condition: newsItem.author, then: newsItem.author, else: '') -> f:format.json()}
+                        "name": {f:if(condition: '{newsItem.author}', then: '{newsItem.author}', else: '') -> f:format.json()}
                     },
                 </f:if>
                 <f:if condition="{}">
@@ -226,7 +215,7 @@
                     },
                 </f:if>
                 "datePublished": "<f:format.date format='c'>{newsItem.datetime}</f:format.date>",
-                "dateModified": "<f:format.date format='c'>{f:if(condition: newsItem.tstamp, then: newsItem.tstamp, else: newsItem.datetime)}</f:format.date>"
+                "dateModified": "<f:format.date format='c'>{f:if(condition: '{newsItem.tstamp}', then: '{newsItem.tstamp}', else: '{newsItem.datetime}')}</f:format.date>"
             }
             </f:asset.script>
         </f:then>

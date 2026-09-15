@@ -90,4 +90,4 @@ call_user_func(function(string $extensionKey) {
     //         notes,
     //     --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.extended,
     // ';
-}, '{{EXTENSION_KEY}}');
+}, 'hh_theme_default');

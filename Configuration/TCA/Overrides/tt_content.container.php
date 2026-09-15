@@ -61,5 +61,5 @@ call_user_func(function(string $extensionKey) {
     );
     // Copy the override TCA config from 'grid-row-1--col-2'
     $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-3']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['grid-row-1--col-2']['showitem'];
-}, '{{EXTENSION_KEY}}');
+}, 'hh_theme_default');
 // EXT: container

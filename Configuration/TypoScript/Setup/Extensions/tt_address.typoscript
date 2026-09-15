@@ -27,10 +27,12 @@ plugin.tx_ttaddress {
     _LOCAL_LANG {
         default {
             label.telephone = Phone
+            label.mobile = Phone
             label.email = Mail
         }
         de {
             label.telephone = Tel.
+            label.mobile = Tel.
             label.email = E-Mail
         }
 

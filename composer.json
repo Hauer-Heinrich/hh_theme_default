@@ -1,6 +1,6 @@
 {
     "type": "typo3-cms-extension",
-    "name": "{{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}",
+    "name": "hauerheinrich/hh-theme-default",
     "description": "Distribution theme: Anpassbar im Backend im Konstanten Editor.",
     "keywords": [ "TYPO3 CMS", "TYPO3", "theme", "distribution", "extension" ],
     "homepage": "https://www.hauer-heinrich.de",
@@ -20,9 +20,9 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/Hauer-Heinrich/{{EXTENSION_KEY}}/issues",
-        "source": "https://github.com/Hauer-Heinrich/{{EXTENSION_KEY}}",
-        "docs": "https://github.com/Hauer-Heinrich/{{EXTENSION_KEY}}/blob/master/README.md"
+        "issues": "https://github.com/Hauer-Heinrich/hh_theme_default/issues",
+        "source": "https://github.com/Hauer-Heinrich/hh_theme_default",
+        "docs": "https://github.com/Hauer-Heinrich/hh_theme_default/blob/master/README.md"
     },
     "funding": [
         {
@@ -31,7 +31,7 @@
         }
     ],
     "replace": {
-        "typo3-ter/{{EXTENSION_NAMESPACE_ES6}}": "self.version"
+        "typo3-ter/hh-theme-default": "self.version"
     },
     "require": {
         "typo3/cms-core": "^13.4.0",
@@ -56,7 +56,7 @@
         "hauerheinrich/hh-seo": ">=0.11.0"
     },
     "suggest": {
-        "hauerheinrich/hh-tt-address-places": ">=4.5.0",
+        "hauerheinrich/hh-tt-address-places": ">=5.1.0",
         "hauerheinrich/hh-video-extender": ">=0.5.0",
         "hauerheinrich/hh_openstreetmap": ">=1.2.0",
         "hauerheinrich/typo3-monitor-api": ">=1.5.2",
@@ -64,14 +64,14 @@
     },
     "autoload": {
         "psr-4": {
-            "{{EXTENSION_VENDOR}}\\{{EXTENSION_NAMESPACE}}\\": "Classes"
+            "HauerHeinrich\\HhThemeDefault\\": "Classes"
         }
     },
     "extra": {
         "typo3/cms": {
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
             "web-dir": ".Build/Web",
-            "extension-key": "{{EXTENSION_KEY}}",
+            "extension-key": "hh_theme_default",
             "version": "1.0.0",
             "Package": {
                 "providesPackages": {}

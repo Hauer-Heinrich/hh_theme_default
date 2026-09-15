@@ -1,45 +1,17 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:places="http://typo3.org/ns/HauerHeinrich/HhTtAddressPlaces/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
 <f:variable name="JsonAddresses"><hhdefault:spaceless emptyLines="1">
     <f:for each="{addresses}" as="address" iteration="i">
-        {
-            "@type": "ListItem",
-            "position": <f:comment></f:comment>{i.cycle},
-            "item": {
-                "@type": "Person",
-                <f:if condition="{address.image}">
-                    "image": "{f:uri.image(src: '{address.image}')}",
-                </f:if>
-                <f:if condition="{address.position}">
-                    "jobTitle": "{address.position}",
-                </f:if>
-                <f:if condition="{address.company}">
-                    "worksFor": { "@type": "Organization", "name": "{address.company}" },
-                </f:if>
-                <f:if condition="{address.address}">
-                    "address": {
-                        "@type": "PostalAddress",
-                        <f:if condition="{address.country}">
-                            "addressCountry": "{address.country}",
-                        </f:if>
-                        "streetAddress": "{address.address}",
-                        "postalCode": "{address.zip}",
-                        "addressLocality": "{address.city}"
-                    },
-                </f:if>
-                <f:if condition="{address.phone}">
-                    "telephone": "{address.phone}",
-                </f:if>
-                <f:if condition="{address.email}">
-                    "email": "{address.email}",
-                </f:if>
-                <f:if condition="{address.www}">
-                    "url": "{address.www}",
-                </f:if>
-                "name": "{address.fullName}"
-            }
-        }<f:if condition="{i.isLast}"><f:else>,</f:else></f:if>
+        <f:if condition="{address.type} === 'place'">
+            <f:then>
+                <f:render section="place" arguments="{_all}" />
+            </f:then>
+            <f:else>
+                <f:render section="person" arguments="{_all}" />
+            </f:else>
+        </f:if>
     </f:for>
 </hhdefault:spaceless></f:variable>
 
@@ -53,5 +25,108 @@
     </f:asset.script>
 </f:if>
 
+<f:section name="person">
+    {
+        "@type": "ListItem",
+        "position": <f:comment></f:comment>{i.cycle},
+        "item": {
+            "@type": "Person",
+            <f:if condition="{address.image}">
+                "image": "{f:uri.image(src: '{address.firstImage.uid}', treatIdAsReference: 1)}",
+            </f:if>
+            <f:if condition="{address.position}">
+                "jobTitle": "{address.position}",
+            </f:if>
+            <f:if condition="{address.company}">
+                "worksFor": { "@type": "Organization", "name": "{address.company}" },
+            </f:if>
+            <f:if condition="{address.address}">
+                "address": {
+                    "@type": "PostalAddress",
+                    <f:if condition="{address.country}">
+                        "addressCountry": "{address.country}",
+                    </f:if>
+                    "streetAddress": "{address.address}",
+                    "postalCode": "{address.zip}",
+                    "addressLocality": "{address.city}"
+                },
+            </f:if>
+            <f:if condition="{address.phone}">
+                "telephone": "{address.phone}",
+            </f:if>
+            <f:if condition="{address.email}">
+                "email": "{address.email}",
+            </f:if>
+            <f:if condition="{address.www}">
+                "url": "{address.www}",
+            </f:if>
+            "name": "{address.fullName}"
+        }
+    }<f:if condition="{i.isLast}"><f:else>,</f:else></f:if>
+</f:section>
+
+<f:section name="place">
+    <f:variable name="openingHoursJson">{places:openingHoursJson(periods: '{address.openingHours}')}</f:variable>
+    <f:variable name="sameAsJson">{places:sameAsJson(address: '{address}')}</f:variable>
+    {
+        "@type": "ListItem",
+        "position": <f:comment></f:comment>{i.cycle},
+        "item": {
+            "@type": "LocalBusiness",
+            <f:if condition="{address.image}">
+                "image": "{f:uri.image(src: '{address.firstImage.uid}', treatIdAsReference: 1)}",
+            </f:if>
+            <f:if condition="{address.description}">
+                "description": "{address.description}",
+            </f:if>
+            <f:if condition="{address.www}">
+                "url": "{address.www}",
+            </f:if>
+            <f:if condition="{address.phone}">
+                "telephone": "{address.phone}",
+            </f:if>
+            <f:if condition="{address.fax}">
+                "faxNumber": "{address.fax}",
+            </f:if>
+            <f:if condition="{address.email}">
+                "email": "{address.email}",
+            </f:if>
+            <f:if condition="{address.birthday}">
+                "foundingDate": "{address.birthday -> f:format.date(format: 'Y-m-d')}",
+            </f:if>
+            <f:if condition="{address.company}">
+                "parentOrganization": { "@type": "Organization", "name": "{address.company}" },
+            </f:if>
+            <f:if condition="{address.latitude} && {address.longitude}">
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": <f:comment></f:comment>{address.latitude},
+                    "longitude": <f:comment></f:comment>{address.longitude}
+                },
+            </f:if>
+            <f:if condition="{sameAsJson}">
+                "sameAs": [<f:comment></f:comment><f:format.raw>{sameAsJson}</f:format.raw>],
+            </f:if>
+            <f:if condition="{openingHoursJson}">
+                "openingHoursSpecification": <f:comment></f:comment><f:format.raw>{openingHoursJson}</f:format.raw>,
+            </f:if>
+            <f:if condition="{address.address}">
+                "address": {
+                    "@type": "PostalAddress",
+                    <f:if condition="{address.country}">
+                        "addressCountry": "{address.country}",
+                    </f:if>
+                    <f:if condition="{address.region}">
+                        "addressRegion": "{address.region}",
+                    </f:if>
+                    "streetAddress": "{address.address}",
+                    "postalCode": "{address.zip}",
+                    "addressLocality": "{address.city}"
+                },
+            </f:if>
+            "name": "{address.company}"
+        }
+    }<f:if condition="{i.isLast}"><f:else>,</f:else></f:if>
+</f:section>
 
 </html>

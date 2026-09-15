@@ -1,7 +1,8 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:places="http://typo3.org/ns/HauerHeinrich/HhTtAddressPlaces/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
-<article itemscope itemtype="http://schema.org/Person">
+<article>
     <f:if condition="{address.image}">
         <div class="ce-image">
             <f:media file="{address.firstImage}"
@@ -46,6 +47,49 @@
                 <br>{address.country}
             </f:if>
         </address>
+    </f:if>
+
+    <f:if condition="{address.openingHours}">
+        <div class="opening-hours">
+            <details>
+                <summary>Öffnungszeiten default</summary>
+                <div class="details-content">
+                    <f:for each="{address.openingHours}" as="openHours" iteration="iOpenHours">
+                        <f:variable name="openHours{iOpenHours.cycle}"><places:openHoursMerged hours="{openHours}" /></f:variable>
+                        <f:if condition="{openHours{iOpenHours.cycle}}">
+                            <span class="title">{openHours{iOpenHours.cycle}.title}</span>
+                            <table>
+                                <f:for each="{openHours{iOpenHours.cycle}.days}" as="day" key="dayKey">
+                                    <tr>
+                                        <th><f:translate key="day.{dayKey}" extensionName="hh_tt_address_places" /></th>
+                                        <td><f:if condition="{day.morning}">{day.morning} <f:translate key="day.hour" extensionName="hh_tt_address_places" /></f:if><f:if condition="{day.afternoon}"><br>{day.afternoon} <f:translate key="day.hour" extensionName="hh_tt_address_places" /></f:if></td>
+                                    </tr>
+                                </f:for>
+                            </table>
+                        </f:if>
+                    </f:for>
+                </div>
+            </details>
+            <details>
+                <summary>Öffnungszeiten alternative</summary>
+                <div class="details-content">
+                    <f:for each="{address.openingHours}" as="openHours" iteration="iOpenHours">
+                        <f:variable name="openHours{iOpenHours.cycle}"><places:openHoursMerged hours="{openHours}" mergedDays="1" /></f:variable>
+                        <f:if condition="{openHours{iOpenHours.cycle}}">
+                            <span class="title">{openHours{iOpenHours.cycle}.title}</span>
+                            <table>
+                                <f:for each="{openHours{iOpenHours.cycle}.mergedDays}" as="mergedDay" key="mergedDayKey">
+                                    <tr>
+                                        <th><f:translate key="day.{mergedDay.dayFrom}" extensionName="hh_tt_address_places" /><f:if condition="{mergedDay.dayTo}"> - <f:translate key="day.{mergedDay.dayTo}" extensionName="hh_tt_address_places" /></f:if></th>
+                                        <td><f:if condition="{mergedDay.morning}">{mergedDay.morning} <f:translate key="day.hour" extensionName="hh_tt_address_places" /></f:if><f:if condition="{day.afternoon}"><br>{mergedDay.afternoon} <f:translate key="day.hour" extensionName="hh_tt_address_places" /></f:if></td>
+                                    </tr>
+                                </f:for>
+                            </table>
+                        </f:if>
+                    </f:for>
+                </div>
+            </details>
+        </div>
     </f:if>
 </article>
 

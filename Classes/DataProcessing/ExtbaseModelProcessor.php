@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\DataProcessing;
+namespace HauerHeinrich\HhThemeDefault\DataProcessing;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;

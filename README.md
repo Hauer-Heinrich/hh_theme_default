@@ -47,13 +47,20 @@ If you really need to have multiple bundler files (e.g. for css/js) or need to e
 ## Features
  - Delivers default responsive css and FLUID files for the default FLUID content-elements (for example uses html picture tag for images)
  - Comes with various viewhelpers
- - Delivers example configurations and files like AdditionalConfiguration.php or site_config.yaml you can find these files at /Configuration/Typo3/
+ - Delivers example configurations and files like additional.php or site_config.yaml you can find these files at /Examples/
  - Added a branding at the TYPO3 backend at the very top (customize this at Resources/Public/JavaScript/Backend/Bemain.js)
- - Adds "Number of columns" field to tt_address plugin
  - The theme includes the following TYPO3 Extensions:
+    - [TYPO3 Extension container](https://github.com/b13/container/blob/master/README.md)
+    - [TYPO3 Extension news](https://github.com/georgringer/news/blob/master/README.md)
+    - [TYPO3 Extension tt_address](https://github.com/FriendsOfTYPO3/tt_address/blob/master/README.md)
+    - [TYPO3 Extension powermail](https://github.com/in2code-de/powermail/blob/master/README.md)
     - [TYPO3 Extension hh_slider](https://github.com/Hauer-Heinrich/hh_slider/blob/master/README.md)
     - [TYPO3 Extension hh_seo](https://github.com/Hauer-Heinrich/hh_seo/blob/master/README.md)
- - Custom JavaScript Framework ["IO Plugin Framework"](./README-io.plugin.md) included
+    - [TYPO3 Extension hh_ckeditor_font](https://github.com/Hauer-Heinrich/hh_ckeditor_font/blob/master/README.md)
+    - [TYPO3 Extension hh_tt_address_places](https://github.com/Hauer-Heinrich/hh_tt_address_places/blob/master/README.md)
+    - [TYPO3 Extension hh_simple_job_posts](https://github.com/Hauer-Heinrich/hh_simple_job_posts/blob/master/README.md)
+    - [TYPO3 Extension hh_accordion](https://github.com/Hauer-Heinrich/hh_accordion/blob/master/README.md)
+
  - You can use CSS Nesting out-of-the-box (https://www.w3.org/TR/css-nesting-1/)
  - Use the latest JavaScript ES6 Features & More
  - Automatically generated SoureMaps for JS and CSS
@@ -61,6 +68,6 @@ If you really need to have multiple bundler files (e.g. for css/js) or need to e
 
 ## Important Notice
  - Check if your server supports the generation of webp format, else comment out or delete the corresponding positions at /Resources/Private/Extensions/fluid_styled_content/Partials/Media/Rendering/Image.html
- - ckeditor original plugins: fontColor and fontBackgroundColor uses inline-styles, which is bad! So we use a slightly modified plugin "highlight" (@HauerHeinrich/ckeditor5-highlight -- EXT:hh_ckeditor_highlight), the only difference to the original is that it ouputs span-tag instead of mark-tag.
+ - ckeditor original plugins: fontColor and fontBackgroundColor uses inline-styles, which is bad! So we use a slightly modified plugin EXT:hh_ckeditor_font, the only difference to the original is that it ouputs span-tag instead of mark-tag.
 
 Further Documentation can be found [here](./Documentation/extension_and_server_setup_guide.md).

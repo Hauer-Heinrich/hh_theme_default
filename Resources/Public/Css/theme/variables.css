@@ -22,6 +22,11 @@
     --gap-hr: var(--gap-text);
 
     /* COLORS */
+    /*
+        Wenn sowas wie Hintergrundfarben bei den Content-Elementen gewünscht werden,
+        müsste man sowas bei den Farben berücksichtigen,
+        also bei welchem Background welche z. B. primary color gesetzt werden soll.
+     */
     /* (find trendy gradients: https://cssgradient.io/gradient-backgrounds/) */
     --color-primary: #4DAF2E;
     --color-secondary: #333333;

@@ -1,0 +1,19 @@
+################################################################
+### Hauer-Heinrich places - tx_hh_tt_address_places ###
+################################################################
+plugin.tx_hh_tt_address_places {
+    _LOCAL_LANG {
+        de {
+            day.monday = Montag
+            day.tuesday = Dienstag
+            day.wednesday = Mittwoch
+            day.thursday = Donnerstag
+            day.friday = Freitag
+            day.saturday = Samstag
+            day.sunday = Sonntag
+
+            day.hour = Uhr
+            day.appointment = nur nach Vereinbarung
+        }
+    }
+}
