@@ -3,33 +3,51 @@ defined('TYPO3') or die();
 
 use TYPO3\CMS\Core\Core\Environment;
 
-$extensionKey = '{{EXTENSION_KEY}}';
+/*
+ * Loads the theme's enforced configuration (values that must not be
+ * changed via backend) plus context-specific overrides, followed by
+ * machine-specific secrets stored outside the document root.
+ */
+(static function () {
+    // Resolve the theme's base path once - works in Composer and legacy mode
+    $themePath = null;
+    if (
+        class_exists(\Composer\InstalledVersions::class)
+        && \Composer\InstalledVersions::isInstalled('{{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}')
+    ) {
+        $themePath = \Composer\InstalledVersions::getInstallPath('{{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}');
+    } else {
+        $legacyPath = Environment::getPublicPath() . '/typo3conf/ext/{{EXTENSION_KEY}}';
+        if (is_dir($legacyPath)) {
+            $themePath = $legacyPath;
+        }
+    }
 
-// Production / Live - default settings:
-// Default, is overwritten by Stage and local development
-$additionalConfigDefault = Environment::getPublicPath() . '/typo3conf/ext/'.$extensionKey.'/system/additional/production.php';
-if (file_exists($additionalConfigDefault)) {
-    require_once ($additionalConfigDefault);
-}
+    if ($themePath !== null) {
+        // Production defaults first, context-specific overrides on top
+        $configFiles = ['/system/additional/production.php'];
 
-switch (Environment::getContext()->__toString()) {
-    case 'Development/Server': // Developement - Stage / Preview:
-        $additionalConfig = Environment::getPublicPath() . '/typo3conf/ext/'.$extensionKey.'/system/additional/preview.php';
-        break;
+        $context = Environment::getContext();
+        if ((string)$context === 'Development/Server') {
+            // Stage / preview server
+            $configFiles[] = '/system/additional/preview.php';
+        } elseif ($context->isDevelopment()) {
+            // Local development
+            $configFiles[] = '/system/additional/development.php';
+        }
 
-    case 'Development': // Developement / localhost:
-        $additionalConfig = Environment::getPublicPath() . '/typo3conf/ext/'.$extensionKey.'/system/additional/development.php';
-        break;
-    default:
-        $additionalConfig = '';
-        break;
-}
+        foreach ($configFiles as $configFile) {
+            if (file_exists($themePath . $configFile)) {
+                require $themePath . $configFile;
+            }
+        }
+    }
 
-if (file_exists($additionalConfig)) {
-    require_once ($additionalConfig);
-}
-
-// typo3_config directory contains configuration for e.g. database access,
-// install tool password and configuration for system dependent settings.
-$databaseCredentialsFile = Environment::getPublicPath() . '/../env/typo3_config.php';
-if (file_exists($databaseCredentialsFile)) { require_once ($databaseCredentialsFile); }
+    // Secrets: database credentials, install tool password, system-dependent
+    // settings. Outside document root, not under version control. Loaded
+    // last so its values always win.
+    $secretsFile = Environment::getPublicPath() . '/../env/typo3_config.php';
+    if (file_exists($secretsFile)) {
+        require $secretsFile;
+    }
+})();
