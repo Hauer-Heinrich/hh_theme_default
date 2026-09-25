@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'hhdefault' => ['HauerHeinrich\\HhThemeDefault\\ViewHelpers'],
+    'hhdefault' => ['{{EXTENSION_VENDOR}}\\{{EXTENSION_NAMESPACE}}\\ViewHelpers'],
 ];

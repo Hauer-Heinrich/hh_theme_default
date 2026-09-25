@@ -14,11 +14,11 @@ use TYPO3\CMS\Core\Core\Environment;
     $themePath = null;
     if (
         class_exists(\Composer\InstalledVersions::class)
-        && \Composer\InstalledVersions::isInstalled('hauerheinrich/hh-theme-default')
+        && \Composer\InstalledVersions::isInstalled('{{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}')
     ) {
-        $themePath = \Composer\InstalledVersions::getInstallPath('hauerheinrich/hh-theme-default');
+        $themePath = \Composer\InstalledVersions::getInstallPath('{{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}');
     } else {
-        $legacyPath = Environment::getPublicPath() . '/typo3conf/ext/hh_theme_default';
+        $legacyPath = Environment::getPublicPath() . '/typo3conf/ext/{{EXTENSION_KEY}}';
         if (is_dir($legacyPath)) {
             $themePath = $legacyPath;
         }
