@@ -7,7 +7,7 @@ call_user_func(function(string $extensionKey) {
     // make PageTsConfig selectable
     ExtensionManagementUtility::registerPageTSConfigFile(
         $extensionKey,
-        'Configuration/TsConfig/page.tsconfig',
+        'Configuration/TsConfig/AllPage.tsconfig',
         'Theme Page TS'
     );
 
@@ -168,4 +168,4 @@ call_user_func(function(string $extensionKey) {
             footer_address,
         '
     ];
-}, '{{EXTENSION_KEY}}');
+}, 'hh_theme_default');

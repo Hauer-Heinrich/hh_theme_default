@@ -1,4 +1,5 @@
 <?php
+
 defined('TYPO3') or die();
 
 use TYPO3\CMS\Core\Core\Environment;
@@ -13,11 +14,11 @@ use TYPO3\CMS\Core\Core\Environment;
     $themePath = null;
     if (
         class_exists(\Composer\InstalledVersions::class)
-        && \Composer\InstalledVersions::isInstalled('{{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}')
+        && \Composer\InstalledVersions::isInstalled('hauerheinrich/hh-theme-default')
     ) {
-        $themePath = \Composer\InstalledVersions::getInstallPath('{{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}');
+        $themePath = \Composer\InstalledVersions::getInstallPath('hauerheinrich/hh-theme-default');
     } else {
-        $legacyPath = Environment::getPublicPath() . '/typo3conf/ext/{{EXTENSION_KEY}}';
+        $legacyPath = Environment::getPublicPath() . '/typo3conf/ext/hh_theme_default';
         if (is_dir($legacyPath)) {
             $themePath = $legacyPath;
         }

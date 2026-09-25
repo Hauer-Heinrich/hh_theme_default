@@ -1,0 +1,13 @@
+name: hauerheinrich/hh-theme-default
+label: 'Hauer-Heinrich Theme Default'
+
+dependencies:
+  - typo3/fluid-styled-content
+  - hauerheinrich/hh-slider
+  - georgringer/news
+  - georgringer/news-recordlinks
+  - georgringer/news-sitemap
+  - in2code/powermail-main
+  - friendsoftypo3/tt-address
+  - hauerheinrich/hh-simple-job-posts
+  - hauerheinrich/hh-seo

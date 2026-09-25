@@ -16,7 +16,6 @@ plugin.tx_powermail {
     }
 
     settings {
-        sender.attachment = 1
         setup {
             misc.ajaxSubmit = 1
             ### To set a sender email address for the main email (to receiver)
@@ -24,7 +23,7 @@ plugin.tx_powermail {
             receiver {
                 overwrite {
                     senderEmail = TEXT
-                    senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
+                    senderEmail.value := getEnv(FORM_SENDER_MAIL)
 
                     replyToName = TEXT
                     replyToName.value >
@@ -37,20 +36,21 @@ plugin.tx_powermail {
             }
 
             sender {
+                attachment = 1
                 default {
-                    senderEmail = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
+                    senderEmail := getEnv(FORM_SENDER_MAIL)
                 }
                 overwrite {
                     senderEmail = TEXT
                     senderEmail.value >
-                    senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
+                    senderEmail.value := getEnv(FORM_SENDER_MAIL)
                 }
             }
 
             optin {
                 overwrite {
                     senderEmail = TEXT
-                    senderEmail.value = example@{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}
+                    senderEmail.value := getEnv(FORM_SENDER_MAIL)
                 }
             }
         }

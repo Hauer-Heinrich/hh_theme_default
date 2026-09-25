@@ -10,7 +10,6 @@ use TYPO3\CMS\Core\Log\Writer\FileWriter;
 $customChanges = [
     'BE' => [
         'lockSSL' => 1,
-        'compressionLevel' => '0',
         'versionNumberInFilename' => 0,
         'RTE_imageStorageDir' => 'fileadmin/uploads_rte/',
         'lockIP' => 4, // DSGVO / GDPR,
@@ -22,7 +21,6 @@ $customChanges = [
         'requireMfa' => 3,
     ],
     'FE' => [
-        'compressionLevel' => '0',
         'noPHPscriptInclude' => '1',
         'disableNoCacheParameter' => 0,
         'hidePagesIfNotTranslatedByDefault' => 1,
@@ -82,9 +80,6 @@ $customChanges = [
         'belogErrorReporting' => 6485,
         'mediafile_ext' => 'gif,jpg,webp,avif,jpeg,png,pdf,svg,mp3,wav,mp4,ogg,flac,webm,youtube,vimeo',
         'defaultScheme' => 'https',
-        // cookieDomain e. g. 'cookieDomain' => '/(www\.)?(domainA|domainB)\.?(TLD)$/',
-        'cookieDomain' => '/www\.({{EXTENSION_DOMAIN_NAME}})\.{{EXTENSION_DOMAIN_TLD}}$/',
-        'trustedHostsPattern' => 'www\.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}',
     ],
     'EXTENSIONS' => [
         'backend' => [

@@ -1,78 +1,153 @@
-// Example Script to show FE-Login form on every Page
-(function() {
-    /*** Register plugin in window object */
-    this.feLogin = function() {
-        let defaults = {
-            "requestUrl": '//www.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}/frontend-login',
-            "loginHtmlContainer": '.frame-type-felogin_login',
-            "destinationContainer": 'main'
-        };
+/**
+ * feLogin - blendet das TYPO3-felogin-Formular auf jeder Seite ein.
+ *
+ * Konfiguration erwartet einen JSON-Block im HTML:
+ *
+ *   <script type="application/json" id="theme-config-felogin">
+ *   {"PAGE_URL_WITH_FELOGIN": "https://domain.tld/login"}
+ *   </script>
+ *
+ * Verwendung:
+ *
+ *   new FeLogin().init();
+ *   new FeLogin({ destinationContainer: '#sidebar', replace: true }).init();
+ */
+;(function () {
+    'use strict';
 
-        this.elements = [];
-        this.settings = (arguments[0] && typeof arguments[0] === 'object') ? extendDefaults(defaults, arguments[0]) : defaults;
+    var CONFIG_ID = 'theme-config-felogin';
+    var LOG_PREFIX = '[feLogin]';
 
-        this.init();
-    }
+    /**
+     * Liest den JSON-Konfigurationsblock aus dem DOM.
+     * Gibt null zurueck, wenn er fehlt oder ungueltig ist.
+     */
+    function readConfig() {
+        var el = document.getElementById(CONFIG_ID);
 
-    /*** Public Methods */
-    feLogin.prototype.init = function() {
-        if(checkSettings.call(this)) {
-            build.call(this);
+        if (!el) {
+            console.warn(
+                LOG_PREFIX + ' Kein Konfigurationsblock #' + CONFIG_ID + ' gefunden. ' +
+                'Erwartet wird ein <script type="application/json"> mit PAGE_URL_WITH_FELOGIN.'
+            );
+            return null;
+        }
+
+        try {
+            return JSON.parse(el.textContent);
+        } catch (err) {
+            console.warn(LOG_PREFIX + ' Konfigurationsblock ist kein gueltiges JSON:', err);
+            return null;
         }
     }
 
-    feLogin.prototype.update = function(element) {
-        console.log('Update plugin.');
-    }
+    // Einmalig beim Laden lesen - ausserhalb jedes Blocks, damit alle
+    // Methoden darauf zugreifen koennen.
+    var config = readConfig();
 
-    /*** Private Methods */
-    // get felogin-form from requestUrl and place it into destinationContainer
-    function build(element) {
-        let request = new XMLHttpRequest();
-        request.open('GET', this.settings.requestUrl, true);
-        request.onload = function() {
-            if (request.status >= 200 && request.status < 400) {
-                var resp = request.responseText;
-                var parser = new DOMParser();
-                var xmlDoc = parser.parseFromString(resp,"text/html");
-                var feLogin = xmlDoc.querySelector(this.settings.loginHtmlContainer);
-                document.querySelector(this.settings.destinationContainer).innerHTML=feLogin.innerHTML;
-            } else {
-
-            }
+    function FeLogin(options) {
+        var defaults = {
+            // URL der Seite, die das felogin-Plugin enthaelt
+            requestUrl: config ? config.PAGE_URL_WITH_FELOGIN : '',
+            // Selektor des Formulars innerhalb der geladenen Seite
+            loginHtmlContainer: '.frame-type-felogin_login',
+            // Wohin das Formular in der aktuellen Seite soll
+            destinationContainer: 'main',
+            // false = anhaengen, true = Inhalt des Ziels ersetzen
+            replace: false
         };
-        request.onerror = function() {};
-        request.send();
+
+        this.settings = Object.assign({}, defaults, options || {});
     }
 
-    function checkSettings(element) {
-        if(this.settings.requestUrl.startsWith('//www.{{EXTENSION_DOMAIN_NAME}}.{{EXTENSION_DOMAIN_TLD}}')) {
-            console.group("frontend login");
-            console.info("%c %s", "background-color:yellow; color: black", "SET proper request URL! ");
-            console.groupEnd();
+    /**
+     * Prueft die Konfiguration und laedt das Formular.
+     */
+    FeLogin.prototype.init = function () {
+        if (!this.validate()) {
+            return Promise.resolve(false);
+        }
+        return this.build();
+    };
+
+    /**
+     * Gibt true zurueck, wenn geladen werden kann.
+     */
+    FeLogin.prototype.validate = function () {
+        var url = (this.settings.requestUrl || '').trim();
+
+        if (url === '') {
+            console.warn(
+                LOG_PREFIX + ' requestUrl ist leer. Entweder fehlt PAGE_URL_WITH_FELOGIN ' +
+                'in der Konfiguration, oder sie wurde nicht als Option uebergeben.'
+            );
             return false;
         }
 
-        if((this.settings.requestUrl?.trim()?.length || 0) > 0) {
-            console.group("frontend login");
-            console.info("%c %s", "background-color:yellow; color: black", "Request URL empty or undefined! ");
-            console.groupEnd();
-            return true;
+        if (!document.querySelector(this.settings.destinationContainer)) {
+            console.warn(
+                LOG_PREFIX + ' Zielcontainer "' + this.settings.destinationContainer +
+                '" existiert auf dieser Seite nicht.'
+            );
+            return false;
         }
-        return false;
-    }
 
+        return true;
+    };
 
-    function extendDefaults(defaults, properties) {
-        Object.keys(properties).forEach(property => {
-            if(properties.hasOwnProperty(property)) {
-                defaults[property] = properties[property];
-            }
-        });
+    /**
+     * Holt die Seite, schneidet das Formular heraus und haengt es ein.
+     */
+    FeLogin.prototype.build = function () {
+        var self = this;
 
-        return defaults;
-    }
+        return fetch(this.settings.requestUrl, {
+            // Cookies mitschicken, damit das RequestToken zur Session passt
+            credentials: 'same-origin',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error('HTTP ' + response.status + ' ' + response.statusText);
+                }
+                return response.text();
+            })
+            .then(function (html) {
+                var doc = new DOMParser().parseFromString(html, 'text/html');
+                var source = doc.querySelector(self.settings.loginHtmlContainer);
+
+                if (!source) {
+                    console.warn(
+                        LOG_PREFIX + ' Selektor "' + self.settings.loginHtmlContainer +
+                        '" wurde in der geladenen Seite nicht gefunden.'
+                    );
+                    return false;
+                }
+
+                var target = document.querySelector(self.settings.destinationContainer);
+
+                // Knoten gehoert einem fremden Document - importieren statt
+                // direkt anhaengen.
+                var imported = document.importNode(source, true);
+
+                if (self.settings.replace) {
+                    target.replaceChildren(imported);
+                } else {
+                    target.appendChild(imported);
+                }
+
+                target.dispatchEvent(new CustomEvent('felogin:loaded', {
+                    bubbles: true,
+                    detail: { element: imported }
+                }));
+
+                return true;
+            })
+            .catch(function (err) {
+                console.warn(LOG_PREFIX + ' Formular konnte nicht geladen werden:', err);
+                return false;
+            });
+    };
+
+    window.FeLogin = FeLogin;
 }());
-
-// Instantiate in your main script
-// feLogin = new feLogin();

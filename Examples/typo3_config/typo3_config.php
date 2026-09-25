@@ -3,6 +3,18 @@ if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
+// ENV's for e. g. site settings
+$customEnvs = [
+    'BASE_DOMAIN' => 'https://www.domain.tld'
+];
+foreach ($customEnvs as $key => $value) {
+    // echte Server-Vars haben Vorrang
+    if (getenv($key) === false) {
+        putenv("$key=$value");
+        $_ENV[$key] = $value;
+    }
+}
+
 $customChanges = [
     'DB' => [
         'Connections' => [
