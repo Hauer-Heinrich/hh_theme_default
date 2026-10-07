@@ -5,7 +5,8 @@ if (!defined('TYPO3')) {
 
 // ENV's for e. g. site settings
 $customEnvs = [
-    'BASE_DOMAIN' => 'https://www.domain.tld'
+    'BASE_DOMAIN' => 'https://www.domain.tld',
+    'FORM_SENDER_MAIL' => 'your@mail.tld'
 ];
 foreach ($customEnvs as $key => $value) {
     // echte Server-Vars haben Vorrang
