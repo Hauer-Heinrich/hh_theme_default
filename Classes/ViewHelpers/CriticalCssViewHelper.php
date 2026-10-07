@@ -15,9 +15,7 @@ final class CriticalCssViewHelper extends AbstractViewHelper {
     public function render(): string {
         GeneralUtility::makeInstance(PageRenderer::class)->addCssLibrary(
             file: $this->arguments['href'],
-            compress: false,
             forceOnTop: true,
-            excludeFromConcatenation: true,
             inline: true
         );
 
