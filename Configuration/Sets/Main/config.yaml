@@ -1,4 +1,4 @@
-name: hauerheinrich/hh-theme-default
+name: {{EXTENSION_VENDOR_ES6}}/{{EXTENSION_NAMESPACE_ES6}}
 label: 'Hauer-Heinrich Theme Default'
 
 dependencies:

@@ -168,4 +168,4 @@ call_user_func(function(string $extensionKey) {
             footer_address,
         '
     ];
-}, 'hh_theme_default');
+}, '{{EXTENSION_KEY}}');

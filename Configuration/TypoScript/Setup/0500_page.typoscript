@@ -162,7 +162,7 @@ page {
             # 90 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 90 {
             #     special = directory
-            #     special.value = {$plugin.hhthemedefault.additionalTopMenu}
+            #     special.value = {$plugin.{{EXTENSION_NAME}}.additionalTopMenu}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -176,7 +176,7 @@ page {
             #     }
             #     as = AdditionalTopMenu
 
-            #     if.isTrue = {$plugin.hhthemedefault.additionalTopMenu}
+            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.additionalTopMenu}
             # }
 
             ################################################################
@@ -277,7 +277,7 @@ page {
                 }
 
                 dataProcessing {
-                    10 = HauerHeinrich\HhThemeDefault\DataProcessing\ExtbaseModelProcessor
+                    10 = {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\DataProcessing\ExtbaseModelProcessor
                     10 {
                         modelClass = FriendsOfTYPO3\TtAddress\Domain\Model\Address
                         as = address
@@ -301,7 +301,7 @@ page {
                     #     }
 
                     #     dataProcessing {
-                    #         10 = HauerHeinrich\HhThemeDefault\DataProcessing\OpeningHoursProcessor
+                    #         10 = {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\DataProcessing\OpeningHoursProcessor
                     #         10 {
                     #             as = structuredHours
                     #         }
@@ -317,7 +317,7 @@ page {
             # 96 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 96 {
             #     special = directory
-            #     special.value = {$plugin.hhthemedefault.legalInformation}
+            #     special.value = {$plugin.{{EXTENSION_NAME}}.legalInformation}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -331,13 +331,13 @@ page {
             #     }
             #     as = legalInformation
             #
-            #     if.isTrue = {$plugin.hhthemedefault.legalInformation}
+            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.legalInformation}
             # }
 
             # 97 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 97 {
             #     special = directory
-            #     special.value = {$plugin.hhthemedefault.socialMedia}
+            #     special.value = {$plugin.{{EXTENSION_NAME}}.socialMedia}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -351,7 +351,7 @@ page {
             #     }
             #     as = socialMedia
             #
-            #     if.isTrue = {$plugin.hhthemedefault.socialMedia}
+            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.socialMedia}
             # }
 
             ################################################################
@@ -360,7 +360,7 @@ page {
             # 99 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             # 99 {
             #     special = directory
-            #     special.value = {$plugin.hhthemedefault.socialMenu}
+            #     special.value = {$plugin.{{EXTENSION_NAME}}.socialMenu}
             #     entryLevel = 0
             #     levels = 1
             #     expandAll = 1
@@ -374,7 +374,7 @@ page {
             #     }
             #     as = SocialMenu
             #
-            #     if.isTrue = {$plugin.hhthemedefault.socialMenu}
+            #     if.isTrue = {$plugin.{{EXTENSION_NAME}}.socialMenu}
             # }
 
             ################################################################
@@ -383,7 +383,7 @@ page {
             100 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             100 {
                 special = directory
-                special.value = {$plugin.hhthemedefault.quickLinks}
+                special.value = {$plugin.{{EXTENSION_NAME}}.quickLinks}
                 entryLevel = 0
                 levels = 7
                 expandAll = 1
@@ -397,17 +397,17 @@ page {
                 }
                 as = Quicklinks
 
-                if.isTrue = {$plugin.hhthemedefault.quickLinks}
+                if.isTrue = {$plugin.{{EXTENSION_NAME}}.quickLinks}
             }
         }
 
         settings {
-            indexedSearchId = {$plugin.hhthemedefault.indexedSearchId}
-            breadcrumbSeparator = {$plugin.hhthemedefault.breadcrumbSeparator}
-            compressFiles = {$plugin.hhthemedefault.compressFiles}
-            concatenateFiles = {$plugin.hhthemedefault.concatenateFiles}
-            feLoginPageUid = {$plugin.hhthemedefault.feLoginPageUid}
-            pathToThemeXlfFiles = {$plugin.hhthemedefault.pathToThemeXlfFiles}
+            indexedSearchId = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
+            breadcrumbSeparator = {$plugin.{{EXTENSION_NAME}}.breadcrumbSeparator}
+            compressFiles = {$plugin.{{EXTENSION_NAME}}.compressFiles}
+            concatenateFiles = {$plugin.{{EXTENSION_NAME}}.concatenateFiles}
+            feLoginPageUid = {$plugin.{{EXTENSION_NAME}}.feLoginPageUid}
+            pathToThemeXlfFiles = {$plugin.{{EXTENSION_NAME}}.pathToThemeXlfFiles}
         }
 
         variables {
