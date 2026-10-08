@@ -14,8 +14,6 @@ options {
 auth {
     mfa {
         recommendedProvider = yubikey
-        disableProviders := addToList(recovery-codes)
-        disableProviders := addToList(totp)
     }
 }
 
@@ -50,6 +48,17 @@ admPanel {
 [backend.user.isAdmin == "0"]
     options {
         hideModules = site_configuration
+    }
+[GLOBAL]
+
+[backend.user.isAdmin == "1"]
+    ### MFA
+    auth {
+        mfa {
+            recommendedProvider = yubikey
+            disableProviders := addToList(recovery-codes)
+            disableProviders := addToList(totp)
+        }
     }
 [GLOBAL]
 

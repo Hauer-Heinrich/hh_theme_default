@@ -4,8 +4,6 @@ defined('TYPO3') or die();
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 call_user_func(function(string $extensionKey) {
-    $ll = 'LLL:EXT:news/Resources/Private/Language/locallang_db.xlf:';
-
     // Neuen Type im Select-Feld registrieren (TYPO3 13: assoziative Syntax!)
     $GLOBALS['TCA']['tx_news_domain_model_news']['columns']['type']['config']['items'][] = [
         'label' => 'News (Theme Default)',
@@ -63,7 +61,7 @@ call_user_func(function(string $extensionKey) {
     );
 
 
-
+    // $ll = 'LLL:EXT:news/Resources/Private/Language/locallang_db.xlf:';
     // $GLOBALS['TCA']['tx_news_domain_model_news']['types'][100]['showitem'] = '
     //     tx_extbase_type,
     //     --palette--;;paletteCore,title,--palette--;;paletteSlug,teaser,

@@ -9,12 +9,12 @@ RewriteRule ^.*$ - [E=CWD:%2]
 
 ### forwarding www / none-www
 # RewriteCond %{HTTP_HOST} !^www.domain.tld$ [NC]
-# RewriteRule ^(.*)$ https://www.domain.tld/$1 [L,R=301]
+# RewriteRule ^(.*)$ https://www.domain.tld/$1 [L,R=308]
 
 ### forwarding https/SSL
 # RewriteCond %{HTTP_HOST} ^(www\.)?domain\.tld$ [NC]
 # RewriteCond %{HTTPS} !on [NC]
-# RewriteRule ^(.*)$ https://www.domain.tld/$1 [R=301,L]
+# RewriteRule ^(.*)$ https://www.domain.tld/$1 [R=308,L]
 
 ## With HSTS you can tell browsers when users visit your site to only request from the HTTPS version of the site, no interactions over HTTP.
 ## Gilt dann für alle Webseiten die innerhalb einer Typo3 Installation liegen!
