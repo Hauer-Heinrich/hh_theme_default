@@ -180,4 +180,4 @@ call_user_func(function(string $extensionKey) {
         'image',
         'after:imagecols'
     );
-}, 'hh_theme_default');
+}, '{{EXTENSION_KEY}}');

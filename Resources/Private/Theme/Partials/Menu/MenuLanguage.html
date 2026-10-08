@@ -9,7 +9,7 @@
         </f:if>
     </f:for>
     <f:if condition="{moreThenOne} > 1">
-        <nav id="menu-language" class="menu-language {cssClasses}" {f:if(condition: '{ariaLabel}', then: 'aria-label="{ariaLabel}"', else: '{f:translate(key: "LLL:EXT:hh_theme_default/Resources/Private/Language/locallang_aria.xlf:aria.manu.language.label")}')}>
+        <nav id="menu-language" class="menu-language {cssClasses}" {f:if(condition: '{ariaLabel}', then: 'aria-label="{ariaLabel}"', else: '{f:translate(key: "LLL:EXT:{{EXTENSION_KEY}}/Resources/Private/Language/locallang_aria.xlf:aria.manu.language.label")}')}>
             <ul>
                 <f:for each="{menu}" as="item">
                     <f:if condition="{item.available}">

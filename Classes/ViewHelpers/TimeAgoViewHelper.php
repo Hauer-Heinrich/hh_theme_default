@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
+namespace {{EXTENSION_VENDOR}}\{{EXTENSION_NAMESPACE}}\ViewHelpers;
 
 /*
     Usage: (Input can be any supported date and time format.)
