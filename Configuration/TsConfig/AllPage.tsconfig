@@ -1,2 +1,2 @@
 ### Include all PageTS files
-@import 'EXT:{{EXTENSION_KEY}}/Configuration/TsConfig/Page/*.tsconfig'
+@import 'EXT:hh_theme_default/Configuration/TsConfig/Page/*.tsconfig'

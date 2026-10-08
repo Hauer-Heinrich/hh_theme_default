@@ -9,4 +9,4 @@ call_user_func(function(string $extensionKey) {
         'Configuration/TsConfig/news-only.tsconfig',
         'Additional / extra config for: news'
     );
-}, '{{EXTENSION_KEY}}');
+}, 'hh_theme_default');

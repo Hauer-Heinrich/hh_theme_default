@@ -22,8 +22,8 @@ plugin.tx_indexedsearch {
     }
 
     settings {
-        rootPidList = {$plugin.{{EXTENSION_NAME}}.indexedSearchRootPidList}
-        targetPid = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
+        rootPidList = {$plugin.hhthemedefault.indexedSearchRootPidList}
+        targetPid = {$plugin.hhthemedefault.indexedSearchId}
         displayRules = 0
         displayAdvancedSearchLink = 0
 
@@ -88,7 +88,7 @@ lib.searchfield {
     }
     settings =< plugin.tx_indexedsearch.settings
     settings {
-        targetPid = {$plugin.{{EXTENSION_NAME}}.indexedSearchId}
+        targetPid = {$plugin.hhthemedefault.indexedSearchId}
         displayAdvancedSearchLink = 0
         displayRules = 0
         displayResults = 0
