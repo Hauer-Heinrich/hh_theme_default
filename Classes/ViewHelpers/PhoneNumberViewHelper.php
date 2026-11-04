@@ -26,41 +26,35 @@ namespace HauerHeinrich\HhThemeDefault\ViewHelpers;
  * This copyright notice MUST APPEAR in all copies of the script!
  * Example
  * <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
- *   xmlns:hh="http://typo3.org/ns/VENDOR/NAMESPACE/ViewHelpers"
+ *   xmlns:hhdefault="http://typo3.org/ns/VENDOR/NAMESPACE/ViewHelpers"
  *   data-namespace-typo3-fluid="true">
  *
- *  <hh:phoneNumber number="0564846 64 - 5">
+ *  <hhdefault:phoneNumber number="0564846 64 - 5"> -> 056484664
+ *  <hhdefault:phoneNumber number="+49 564846 64 - 5"> -> +4956484664
+ *  <hhdefault:phoneNumber number="0564846 64 - 5" country="+49"> -> +4956485664
  */
 
-// use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class PhoneNumberViewHelper extends AbstractViewHelper {
-    public function initializeArguments(): void {
+    public function initializeArguments() {
         $this->registerArgument('number', 'string', 'Phone number, dont work with numbers like +49 (0) 3425..', true);
         $this->registerArgument('country', 'string', 'country number, default: +49', false);
     }
 
     public function render(): string {
         $number = $this->arguments['number'];
-        $country_code = $this->arguments['country'];
+        $country_code = $this->arguments['country'] ?? null;
 
-        // Look up the country dialling code for this number:
-        if (empty($country_code)) {
-            $pfx = '+49';
-        } else {
-            $pfx = $country_code;
-        }
-
-        // Strip spaces and non-numeric characters:
-        $n = preg_replace("/[^0-9]/", "", $number);
-
-        // Strip out leading zeros:
-        $n = ltrim($n, '0');
+        // Strip spaces and non-numeric characters / allow starting + sign:
+        $n = preg_replace("/(?!^\\+)[^0-9]/", "", $number);
 
         // Check if the number doesn't already start with the correct dialling code:
-        if (!strrpos($n, $pfx, -strlen($n))) {
-            $n = $pfx.$n;
+        if (!empty($country_code) && !str_starts_with($n, $country_code)) {
+            // Strip out leading zeros:
+            $n = ltrim($n, '0');
+
+            $n = $country_code.$n;
         }
 
         return $n;
